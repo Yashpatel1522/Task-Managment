@@ -117,8 +117,8 @@ DROP TABLE IF EXISTS select_masters
 
 CREATE TABLE select_masters(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    select_key VARCHAR,
-    select_type VARCHAR,
+    select_key VARCHAR(100),
+    select_type VARCHAR(100),
     multiple BOOLEAN, 
 );
 
@@ -159,16 +159,15 @@ DROP TABLE IF EXISTS priorities
 
 CREATE TABLE priorities(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    task_id INT,
     urgency_id INT,
     important_id INT,
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_at TIMESTAMP DEFAULT null,
     status BOOLEAN DEFAULT 1,
     FOREIGN KEY(urgency_id) REFERENCES urgency(id) ON UPDATE CASCADE,
-    FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE,
     FOREIGN KEY(important_id) REFERENCES importants(id) ON UPDATE CASCADE,
 );
+
 
 DROP TABLE IF EXISTS comments
 CREATE TABLE user_comments(
