@@ -16,8 +16,8 @@ CREATE TABLE roles(
 DROP TABLE IF EXISTS permissions; 
 
 CREATE TABLE permissions(
-    id INT(10) AUTO_INCREMENT PRIMARY KEY,
-    permission VARCHAR(20),-- all permission of system
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    permission VARCHAR(50),-- all permission of system
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,-- per add time
     update_at TIMESTAMP DEFAULT NULL,  
     status BOOLEAN DEFAULT 1 -- status 0 inActive and 1 for active
@@ -26,9 +26,9 @@ CREATE TABLE permissions(
 DROP TABLE IF EXISTS role_has_permissions; 
 
 CREATE TABLE role_has_permissions(
-    id INT(10) PRIMARY KEY AUTO_INCREMENT,
-    role_id INT(10),
-    permission_id INT(10),
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    role_id INT,
+    permission_id INT,
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,-- per add time
     update_at TIMESTAMP DEFAULT NULL,  
     status BOOLEAN DEFAULT 1, -- status 0 inActive and 1 for active
@@ -44,16 +44,18 @@ CREATE TABLE users(
     first_name VARCHAR(100),
     last_name VARCHAR(100),
     email VARCHAR(100),
-    contact CHAR(10),
+    contact CHAR(12),
     date_of_birth DATE,
-    role VARCHAR(100) DEFAULT NULL,
+    employee_role VARCHAR(100) DEFAULT NULL,
+    activation_code VARCHAR(255),
+    employee_role VARCHAR(100) DEFAULT NULL,
     activation_code INT(16),
     create_at TIMESTAMP default current_timestamp,
     update_at TIMESTAMP default NULL,
     img_url VARCHAR(255),
     status BOOLEAN,
     FOREIGN KEY(role_id) REFERENCES roles(id) ON UPDATE CASCADE
-)
+);
 
 DROP TABLE IF EXISTS log_datas; 
 
@@ -63,7 +65,7 @@ CREATE TABLE log_datas(
     is_success BOOLEAN default 0,
     log_time TIMESTAMP default current_timestamp,
     FOREIGN KEY(user_id) REFERENCES users(id) ON UPDATE CASCADE
-)
+);
 
 
 DROP TABLE IF EXISTS user_passwords
@@ -75,7 +77,7 @@ CREATE TABLE user_passwords(
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status BOOLEAN DEFAULT 1,
     FOREIGN KEY(user_id) REFERENCES users(id) ON UPDATE CASCADE
-) 
+);
 
 DROP TABLE IF EXISTS tasks
 CREATE TABLE tasks(
@@ -94,13 +96,13 @@ CREATE TABLE tasks(
     FOREIGN KEY(category_id) REFERENCES categories(id) ON UPDATE CASCADE,
     FOREIGN KEY(prioritiy_id) REFERENCES priorities(id) ON UPDATE CASCADE,
     FOREIGN KEY(manager_id) REFERENCES users(id) ON UPDATE CASCADE
-)
+);
 CREATE TABLE attechments(
     id INT PRIMARY KEY AUTO_INCREMENT,
     task_id INT,
     attechment_url VARCHAR(255),
     FOREIGN KEY(task_id) REFERENCES tasks(id)
-)
+);
 
 CREATE TABLE tasks_assigend_to(
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -111,7 +113,7 @@ CREATE TABLE tasks_assigend_to(
     status BOOLEAN DEFAULT 0,
     FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE,
     FOREIGN KEY(emp_id) REFERENCES users(id) ON UPDATE CASCADE
-)
+);
 
 DROP TABLE IF EXISTS select_masters
 
@@ -129,7 +131,7 @@ CREATE TABLE option_masters(
     select_id INT,
     options VARCHAR(50),
     FOREIGN KEY(select_id) REFERENCES select_masters(id) ON UPDATE CASCADE
-)
+);
 
 DROP TABLE IF EXISTS categories
 
@@ -145,14 +147,14 @@ DROP TABLE IF EXISTS urgency
 CREATE TABLE urgency(
     id INT PRIMARY KEY AUTO_INCREMENT,
     type VARCHAR(50) -- urgent/high/low/modrate
-)
+);
 
 DROP TABLE IF EXISTS importants
 
 CREATE TABLE importants(
     id INT PRIMARY KEY AUTO_INCREMENT,
     type VARCHAR(50) -- high/low/modrate
-)
+);
 
 
 DROP TABLE IF EXISTS priorities
@@ -174,6 +176,8 @@ CREATE TABLE priorities(
 DROP TABLE IF EXISTS comments
 CREATE TABLE user_comments(
     id INT PRIMARY KEY AUTO_INCREMENT,
+    employee_id INT,
+    task_id INT,
     task_status VARCHAR(15),
     comment VARCHAR(255),
     attechment VARCHAR(255),
