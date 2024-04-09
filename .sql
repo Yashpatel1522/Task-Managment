@@ -48,6 +48,8 @@ CREATE TABLE users(
     date_of_birth DATE,
     employee_role VARCHAR(100) DEFAULT NULL,
     activation_code VARCHAR(255),
+    employee_role VARCHAR(100) DEFAULT NULL,
+    activation_code INT(16),
     create_at TIMESTAMP default current_timestamp,
     update_at TIMESTAMP default NULL,
     img_url VARCHAR(255),
@@ -169,6 +171,7 @@ CREATE TABLE priorities(
     FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE,
     FOREIGN KEY(important_id) REFERENCES importants(id) ON UPDATE CASCADE,
 );
+
 
 DROP TABLE IF EXISTS comments
 CREATE TABLE user_comments(
