@@ -168,6 +168,7 @@ CREATE TABLE priorities(
     FOREIGN KEY(important_id) REFERENCES importants(id) ON UPDATE CASCADE,
 );
 
+
 DROP TABLE IF EXISTS comments
 CREATE TABLE user_comments(
     id INT PRIMARY KEY AUTO_INCREMENT,
