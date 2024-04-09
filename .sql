@@ -46,6 +46,7 @@ CREATE TABLE users(
     email VARCHAR(100),
     contact CHAR(10),
     date_of_birth DATE,
+    role VARCHAR(100) DEFAULT NULL,
     activation_code INT(16),
     create_at TIMESTAMP default current_timestamp,
     update_at TIMESTAMP default NULL,
