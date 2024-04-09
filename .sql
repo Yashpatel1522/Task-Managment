@@ -87,6 +87,7 @@ CREATE TABLE tasks(
     task_description VARCHAR(255),
     task_start_date DATE,
     task_end_date DATE,
+    task_status VARCHAR(50),
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_at TIMESTAMP DEFAULT NULL,
     status BOOLEAN DEFAULT 1,
