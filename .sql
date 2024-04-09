@@ -21,7 +21,7 @@ CREATE TABLE permissions(
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,-- per add time
     update_at TIMESTAMP DEFAULT NULL,  
     status BOOLEAN DEFAULT 1 -- status 0 inActive and 1 for active
-)
+);
 
 DROP TABLE IF EXISTS role_has_permissions; 
 
@@ -170,10 +170,11 @@ CREATE TABLE priorities(
     FOREIGN KEY(important_id) REFERENCES importants(id) ON UPDATE CASCADE,
 );
 
+
 DROP TABLE IF EXISTS comments
 CREATE TABLE user_comments(
     id INT PRIMARY KEY AUTO_INCREMENT,
     task_status VARCHAR(15),
     comment VARCHAR(255),
-    attechment VARCHAR(255)
+    attechment VARCHAR(255),
 );
