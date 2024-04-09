@@ -177,4 +177,6 @@ CREATE TABLE user_comments(
     task_status VARCHAR(15),
     comment VARCHAR(255),
     attechment VARCHAR(255),
+    FOREIGN KEY(emp_id) REFERENCES users(id) ON UPDATE CASCADE,
+    FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE
 );
