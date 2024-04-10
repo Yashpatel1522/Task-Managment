@@ -10,6 +10,27 @@
       <p><B>Name</B></p>
     </div>
     <div>
-        employees
+      <table>
+        <thead>
+            <tr>
+                <% for(let i=0 ; i<key.length ; i++){ %>
+                    <th>
+                        <%=key[i]%>
+                    </th>
+                    <%}%>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0 ; i<result.length ; i++){ %>
+                <tr>
+                    <% for(let j=0 ; j<key.length ; j++){ %>
+                        <td>
+                            <%= result[i][key[j]] %>
+                        </td>
+                        <%}%>
+                </tr>
+                <%}%>
+        </tbody>
+    </table>
       </div>
   </div>
