@@ -12,6 +12,7 @@ class database{
       return await new Promise((resolve,reject)=>{
           con.query(sql,values,(error,result)=>{
             if(error){
+              console.log(error);
               reject(error);
             }
             else{
@@ -24,10 +25,10 @@ class database{
       throw error;
     }
   }
+  
   /*
     insertData this function for insert data first argument is object of data and second argument is table name of db
   */
-
   insertData=async(data,table)=>{
     let keys=Object.keys(data);
     let query=`insert into ${table}(`;

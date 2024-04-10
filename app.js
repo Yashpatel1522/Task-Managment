@@ -6,6 +6,8 @@ require('dotenv').config();
 const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
+const employeeroute = require('./routers/employeeroute')
+
 
 
 
@@ -16,6 +18,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(express.static("public/"));
+
 
 let PORT = process.env.PORT;
 
