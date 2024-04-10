@@ -9,7 +9,8 @@ const adminroute = require('./routers/adminroute')
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,'public')));
+
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
@@ -27,3 +28,4 @@ app.use('/admin', adminroute);
 app.listen(PORT, () => {
   console.log("listen portno : " + PORT);
 });
+
