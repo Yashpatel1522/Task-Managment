@@ -41,3 +41,6 @@ body{
   list-style: none;
   cursor: pointer;
 }
+.list img{
+  color: var(--white);
+}
