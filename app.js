@@ -5,7 +5,8 @@ const bodyparser = require('body-parser');
 require('dotenv').config();
 const ejs = require('ejs');
 const logger = require('./logger/logger')
-const logger = require('./logger/logger')
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
