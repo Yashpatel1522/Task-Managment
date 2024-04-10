@@ -1,18 +1,29 @@
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
+const CONNECTION = mysql.createConnection({
   host: process.env.HOST,
   user: process.env.USER_NAME,
   password: process.env.PASSWORD,
-  database: process.env.DATABASE
+  database: process.env.DATABASE,
+  dateStrings:true
 });
 
-connection.connect(function (error) {
-  try {
-    if (error) console.log(error);
-    else console.log("Database Connected!");
-  } catch (error) {
-    console.log(error);
-  }
-  
-});
+const getConnection=async()=>{
+  return await new Promise((resolve,reject)=>{
+    try{
+      CONNECTION.connect(error=>{
+        if(error){
+          reject(error.sqlMessage);
+        }
+        else{
+          resolve(CONNECTION)
+        }
+      })
+    } 
+    catch(error){
+      throw error;
+    }   
+  })
+}
+
+module.exports=getConnection;
