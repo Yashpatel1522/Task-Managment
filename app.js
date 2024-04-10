@@ -6,6 +6,8 @@ require('dotenv').config();
 const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
+const employeeroute = require('./routers/employeeroute')
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -18,6 +20,8 @@ let PORT = process.env.PORT;
 
 
 app.use('/admin', adminroute);
+app.use('/employee', employeeroute);
+
 // To test logger
 
 // app.get('/', (req, res)=> {
