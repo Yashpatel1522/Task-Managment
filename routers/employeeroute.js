@@ -9,4 +9,14 @@ const { EmployeeTaskList } = require("../controller/employeemodulo/employeetaskl
 router.get('/', EmployeeTaskList)
 
 
+
+const { getdashboardata } = require("../controller/employeemodule/dashboard")
+
+router.get("/getdashboardata", getdashboardata)
+
+router.get("/dashboard", (request, response) => {
+    response.render('employeemodule/dashboard')
+})
+
 module.exports = router
+
