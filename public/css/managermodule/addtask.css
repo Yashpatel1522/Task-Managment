@@ -35,6 +35,16 @@ body{
   border-radius: 10px;
   width: 500px;
 }
+
+.addtask{
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: var(--white);
+  width: 500px;
+}
+.addtask{
+  padding: 5px;
+}
 .taskrow{
   
   padding: 5px;
