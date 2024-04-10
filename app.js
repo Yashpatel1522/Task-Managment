@@ -17,8 +17,6 @@ app.use(express.static("public/"));
 
 let PORT = process.env.PORT;
 
-// To test logger
-
 app.get('/', (req, res)=> {
   res.render('./managermodule/managerdashboard')
 })

@@ -1,9 +1,9 @@
 function sc(act, id) {
-    var row = document.getElementsByClassName("taskContainer")[id];
-    if (act == 'next') {
-        row.scrollLeft += 200;
-    }
-    else {
-        row.scrollLeft -= 200;
-    }
+	var row = document.getElementsByClassName("taskContainer")[id];
+	if (act == 'next') {
+		row.scrollLeft += 200;
+	}
+	else {
+		row.scrollLeft -= 200;
+	}
 }
