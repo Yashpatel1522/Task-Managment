@@ -2,22 +2,21 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: #DDD0C8;
 }
 
 .managerSidebar {
 	width: 20%;
 	height: 950px;
 	padding: 15px;
-	border: 1px solid black;
-	background-color: beige;
+	border-top-right-radius: 30px;
+	background-color: #323232;
 }
 
 .managerContent {
 	width: 80%;
 	height: 950px;
 	padding: 15px;
-	border: 1px solid black;
-	background-color: white;
 }
 
 .taskContainer {
@@ -55,6 +54,7 @@
 .taskhead {
 	display: flex;
 	align-items: center;
+	padding: 25px 0;
 }
 
 .prog,
@@ -76,7 +76,7 @@
 }
 
 .showtasks {
-	padding: 15px;
+	padding: 25px;
 }
 
 input::placeholder {
@@ -88,6 +88,7 @@ input::placeholder {
 	padding: 10px;
 	font-size: 15px;
 	color: white;
+	border-radius: 10px;
 }
 
 .button {
