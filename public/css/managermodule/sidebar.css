@@ -38,9 +38,14 @@ body{
   padding-right: 15px;
 }
 .list li{
+  color: white;
   list-style: none;
   cursor: pointer;
 }
 .list img{
   color: var(--white);
+}
+
+.dots > img {
+  cursor: pointer;
 }

@@ -1,0 +1,2 @@
+09/04/2024 : Database Finalized and logger functionality improved using winstone
+10/04/2024 : Manager functionality, screen decided and manager dashboard creation started
