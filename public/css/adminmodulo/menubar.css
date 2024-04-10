@@ -20,7 +20,7 @@
     background-color: #323232;
     width: 20%;
     color: white;
-    height: 99vh;
+    height: auto;
   }
   .admin .sidebar .logo img{
     width: 70px;
