@@ -1,4 +1,3 @@
-const connection = require("../../config/connection");
 const logger = require("../../logger/logger");
 
 exports.adminemployees = (request,response) => {
