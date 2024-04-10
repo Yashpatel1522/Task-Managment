@@ -13,15 +13,15 @@ app.set('view engine', 'ejs');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
+app.use(express.static("public/"));
 
 let PORT = process.env.PORT;
 
 // To test logger
 
-// app.get('/', (req, res)=> {
-//   logger.info("First Log")
-//   res.end();
-// })
+app.get('/', (req, res)=> {
+  res.render('./managermodule/managerdashboard')
+})
 
 app.listen(PORT, () => {
   console.log("listen portno is : " + PORT);

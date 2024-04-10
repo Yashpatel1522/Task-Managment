@@ -1,0 +1,74 @@
+.managerMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.managerSidebar {
+    width: 20%;
+    height: 950px;
+    padding: 15px;
+    border: 1px solid black;
+    background-color: beige;
+}
+.managerContent {
+    width: 80%;
+    height: 950px;
+    padding: 15px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.taskContainer {
+    display: flex;
+    overflow-x: hidden;
+}
+
+.tasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    min-width: 550px;
+}
+
+.border {
+    padding: 15px;
+    background-color: #F0F6FF;
+}
+
+.taskDetails {
+    background-color: white;
+    padding: 10px;
+    width: 500px;
+}
+
+.head, .prof {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prog {
+    width: 80%;
+}
+
+.search {
+    display: flex;
+    width: 30%;
+}
+
+.space {
+    width: 50%;
+}
+
+.btn {
+    display: flex;
+}
+
+.showtasks {
+    padding: 15px;
+}
+
+input::placeholder {
+    font-size: 20px;
+}
