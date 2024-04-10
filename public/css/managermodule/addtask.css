@@ -1,0 +1,51 @@
+:root{
+  --white : white;
+  --button-color : blue;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  position: relative;
+  background-color: black;
+}
+.addtask{
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: var(--white);
+  width: 500px;
+}
+.addtask{
+  padding: 5px;
+}
+.taskrow{
+  
+  padding: 5px;
+
+}
+.taskcol{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.subcol{
+  display: flex;
+  flex-direction: column;
+}
+input,select{
+  padding: 8px;
+}
+.select{
+  width: 200px;
+}
+.button{
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}

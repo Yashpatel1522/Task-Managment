@@ -1,0 +1,43 @@
+:root{
+  --sidebarcolor : #323232;
+  --white : white;
+  
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  position: relative;
+}
+.managermain{
+  background-color: #DDD0C8;
+  margin: 0 auto;
+  width: 1170px;
+}
+.manager{
+  display: flex;
+}
+.managersidebar{
+  border-top-right-radius: 30px;
+  background-color: var(--sidebarcolor);
+  width: 20%;
+  color: var(--white);
+  height: 99vh;
+}
+.managersidebar .logo img{
+  width: 70px;
+  padding: 20px 40px;
+}
+.list{
+  display: flex;
+  padding: 20px 40px;
+}
+.list i{
+  font-size: 20px;
+  padding-right: 15px;
+}
+.list li{
+  list-style: none;
+  cursor: pointer;
+}
