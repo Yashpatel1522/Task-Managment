@@ -1,26 +1,27 @@
 const mysql = require('mysql')
 const getConnection = require("../config/connection");
 let con;
-
-class database {
+class database{
   /*
     you can write sql statment and  return result as well as error
   */
-
-  executeQuery = async (sql, values = []) => {
-    try {
-      if (typeof (con) != "object") {
-        con = await getConnection();
+  
+  executeQuery=async(sql,values=[])=>{
+    try{
+      if(typeof(con)!="object")
+      {
+        con=await getConnection();
       }
-      return await new Promise((resolve, reject) => {
-        con.query(sql, values, (error, result) => {
-          if (error) {
-            reject(error);
-          }
-          else {
-            resolve(result);
-          }
-        });
+      return await new Promise((resolve,reject)=>{
+          con.query(sql,values,(error,result)=>{
+            if(error){
+              console.log(error);
+              reject(error);
+            }
+            else{
+              resolve(result);
+            }
+          });        
       })
     }
     catch (error) {
