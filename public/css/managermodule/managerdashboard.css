@@ -28,9 +28,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 2px;
+	margin: 0.5%;
 	padding: 10px;
 	min-width: 550px;
+	max-width: 550px;
 }
 
 .border {
@@ -43,7 +44,12 @@
 	padding: 10px;
 	font-size: 20px;
 	border: 5px solid rgb(120, 120, 146);
+	max-width: 550px;
+	overflow-x: auto;
+}
 
+.taskContent {
+	max-width: 550px;
 }
 
 .taskdetails {

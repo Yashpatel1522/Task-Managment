@@ -20,10 +20,6 @@ app.use(express.static("public/"));
 
 let PORT = process.env.PORT;
 
-app.get('/', (req, res)=> {
-  res.render('./managermodule/managerdashboard')
-})
-
 app.listen(PORT, () => {
   console.log("listen portno is : " + PORT);
 });

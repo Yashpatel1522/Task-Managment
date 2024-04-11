@@ -1,7 +1,30 @@
 async function getData() {
 	let response = await fetch(`/manager/getManagerTasks`);
 	let data = await response.json();
-	console.log(data);
+	if(data.result.length != 0) {
+		data.result.forEach(element => {
+			document.getElementsByClassName('taskContainer')[0].innerHTML += `
+			<div class="tasks">
+			<div class="taskDetails">
+				<div class="cardHead">
+					<div class="search">
+						<p>${element.task_name}</p>
+					</div>
+					<div class="space"></div>
+					<div class="dots">
+						<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%" onclick="lst(0)">
+					</div>
+				</div>
+				<div class="taskContent">
+					<p>${element.task_description}</p>
+				</div>
+			</div>
+		</div>
+			`;
+			console.log(element.task_name);
+			console.log(element.task_description);
+		});
+	}
 }
 
 function sc(act, id) {
