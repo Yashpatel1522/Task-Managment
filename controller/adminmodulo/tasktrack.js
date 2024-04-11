@@ -1,7 +1,7 @@
 
 const logger = require("../../logger/logger");
 
-exports.admintasktrack = (request,response) => {
+exports.adminTasktrack = (request,response) => {
     try {
         response.render("adminmodulo/tasktrack")
     } catch (err) {

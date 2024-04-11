@@ -1,7 +1,7 @@
 
 const logger = require("../../logger/logger");
 
-exports.admintasks = (request,response) => {
+exports.adminTasks = (request,response) => {
     try {
         response.render("adminmodulo/tasks")
     } catch (err) {

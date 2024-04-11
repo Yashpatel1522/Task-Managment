@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/managermodule/addtask.css">
+  <!-- <link rel="stylesheet" href="/css/managermodule/addtask.css"> -->
   <title>addtask</title>
 </head>
 <body>
-  <div class="addtaskcontainer">
+  <form id="taskForm" onsubmit="return addTaskValidation()" name="taskform">
+  <!-- <div class="addtaskcontainer"> -->
     <div class="addtask">
       <div class="taskrow"><h3>ADD TASK</h3></div>
     <div class="taskrow">
         <div class="subcol">
         <label for="tname">Task Name</label>
-        <input type="text" name="task_name" placeholder="Test task" id="task_name"/>
+        <input type="text" name="task_name" placeholder="Test task" id="task_name" class="reqfieled"/>
+        <span class="errclass"></span>
         </div>
       </div>
     <div class="taskrow">
         <div class="subcol">
-          <label for="assignto" id="Assin_task_to" multiple>Assign Task To</label>
-          <select>
-            <option value="1">meera ladani</option>
-            <option value="2">neerav modi</option>
-            <option value="3">Subhi rank</option>
+          <label for="assignto" id="Assin_task">Assign Task To</label>
+          <select id="Assin_task_to">
+            <option value="0">Select</option>
           </select>
         </div>
     </div>
@@ -37,11 +37,9 @@
           </select>
         </div>
         <div class="subcol select">
-          <label for="category" id="task_category">Category</label>
-          <select>
-            <option value="1">dsdfbs</option>
-            <option value="2">csdnh i</option>
-            <option value="3">jcjhdbch</option>
+          <label for="category" id="taskcategory">Category</label>
+          <select id="task_category">
+            <option value="0">Select</option>
           </select>
         </div>
       </div>
@@ -50,36 +48,35 @@
       <div class="taskcol">
         <div class="subcol select">
           <label for="sdate">Task Start Date</label>
-          <input type="text" placeholder="Task Start Date" name="task_start_date" id="task_start_date"/>
+          <input type="text" placeholder="Task Start Date" name="task_start_date" id="task_start_date" class="reqfieled"/>
+          <span class="errclass" id="dateerr"></span>
         </div>
         <div class="subcol select">
           <label for="edate">Task Due Date</label>
-          <input type="text" placeholder="Due date" name="task_end_date" id="task_end_date"/>
+          <input type="text" placeholder="Due date" name="task_end_date" id="task_end_date" class="reqfieled"/>
+          <span class="errclass" id="dateerr2"></span>
         </div>
       </div>
     </div>
     <div class="taskrow">
       <div class="subcol">
         <label for="task descriptions">Descriptions</label>
-        <input type="text" name="task_description" placeholder="Descriptions" id="task_description">
+        <input type="text" name="task_description" placeholder="Descriptions" id="task_description" class="reqfieled">
+        <span class="errclass"></span>
       </div>
   </div>
   <div class="taskrow">
     <div class="taskcol">
       <div class="subcol select">
-        <label for="ilavel" id="impotant_level">Important Level</label>
-        <select>
-          <option value="1">high</option>
-          <option value="2">moderate</option>
-          <option value="3">low</option>
+        <label for="ilavel" id="ilevel">Important Level</label>
+        <select id="impotant_level">
+          <option value="0">Select</option>
         </select>
       </div>
       <div class="subcol select">
-        <label for="ulevel" id="urgency_level">Urgency Level</label>
-        <select>
-          <option value="1">high</option>
-          <option value="2">moderate</option>
-          <option value="3">low</option>
+        <label for="ulevel" id="ulevel">Urgency Level</label>
+        <select id="urgency_level">
+          <option value="0">Select</option>
         </select>
       </div>
     </div>
@@ -97,8 +94,8 @@
       <div></div>
     </div>
     <div class="taskcol">
-      <input type="button" class="button" id="canclebtn" value="cancle">
-      <input type="button" class="button" id="savebtn" value="Save">
+      <input type="button" class="button" id="canclebtn" value="cancle" onclick="closePopup()">
+      <input type="submit" class="button" id="savebtn" value="Save">
     </div>
   </div>
 </div>
@@ -106,6 +103,8 @@
 </div>
     </div>
     </div>
-  </div>
+  <!-- </div> -->
+</form>
+<script src="/js/managermodule/addtask.js"></script>
 </body>
 </html>
