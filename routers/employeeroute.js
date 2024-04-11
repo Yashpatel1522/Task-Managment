@@ -13,14 +13,14 @@ router.get('/', list)
 
 
 
-
-
-
-
+const { EmployeeTaskList } = require("../controller/employeemodulo/employeetasklist")
 const { getdashboardata } = require("../controller/employeemodule/dashboard")
 
-router.get("/getdashboardata", getdashboardata)
 
+
+
+
+router.get("/getdashboardata", getdashboardata)
 router.get("/dashboard", (request, response) => {
     response.render('employeemodule/dashboard')
 })
