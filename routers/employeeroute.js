@@ -4,9 +4,16 @@ const router = express.Router();
 
 
 
-const { EmployeeTaskList } = require("../controller/employeemodule/employeetasklist")
+const { EmployeeTaskList, gettasks, list } = require("../controller/employeemodule/employeetasklist")
 
 router.get('/employeetasklist', EmployeeTaskList)
+router.get('/employeetasklist/:id', gettasks)
+router.get('/', list)
+
+
+
+
+
 
 
 

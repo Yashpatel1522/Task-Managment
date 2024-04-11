@@ -34,4 +34,6 @@ app.listen(PORT, () => {
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
 
+app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
+app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
 
