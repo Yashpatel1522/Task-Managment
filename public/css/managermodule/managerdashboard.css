@@ -1,0 +1,128 @@
+.managerMain {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #DDD0C8;
+}
+
+.managerSidebar {
+	width: 20%;
+	height: 950px;
+	padding: 15px;
+	border-top-right-radius: 30px;
+	background-color: #323232;
+}
+
+.managerContent {
+	width: 80%;
+	height: 950px;
+	padding: 15px;
+}
+
+.taskContainer {
+	display: flex;
+	overflow-x: hidden;
+}
+
+.tasks {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 2px;
+	padding: 10px;
+	min-width: 550px;
+}
+
+.border {
+	padding: 15px;
+	background-color: #F0F6FF;
+}
+
+.taskDetails {
+	background-color: white;
+	padding: 10px;
+	font-size: 20px;
+	border: 5px solid rgb(120, 120, 146);
+
+}
+
+.taskdetails {
+	padding: 15px 0;
+}
+
+.head,
+.prof,
+.cardHead {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.taskhead {
+	display: flex;
+	align-items: center;
+	padding: 25px 0;
+}
+
+.prog,
+.tasklft {
+	width: 80%;
+}
+
+.prog > h3 {
+	font-size: 25px;
+}
+
+.tasklft > h2 {
+	font-size: 35px;
+}
+
+.search {
+	display: flex;
+	width: 30%;
+}
+
+.space {
+	width: 50%;
+}
+
+.btn {
+	display: flex;
+}
+
+.showtasks {
+	padding: 25px;
+}
+
+input::placeholder {
+	font-size: 20px;
+}
+
+.blue-btn {
+	background-color: blue;
+	padding: 10px;
+	font-size: 15px;
+	color: white;
+	border-radius: 10px;
+}
+
+.button {
+	padding-left: 35%;
+	width: 20%;
+}
+
+.dots {
+	width: 20px;
+}
+
+input {
+	border: none;
+}
+
+.containerhead {
+	padding: 20px 0;
+}
+
+.search > p {
+	font-weight: bold;
+}

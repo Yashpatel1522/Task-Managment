@@ -1,6 +1,6 @@
 const logger = require("../../logger/logger")
 
-exports.admincalender = (request,response) => {
+exports.adminCalender = (request,response) => {
     try {
         response.render("adminmodulo/calender")
     } catch (err) {

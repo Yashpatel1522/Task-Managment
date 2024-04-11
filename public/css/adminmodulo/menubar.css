@@ -8,19 +8,21 @@
   .container{
     background-color: #DDD0C8;
     margin: 0 auto;
-    width: 1170px;
+    width: 1170px; 
     /* border: 2px solid black; */
   }
   .admin{
     display: flex;
+    justify-content: space-between;
   }
   
   .admin .sidebar{
     border-top-right-radius: 30px;
     background-color: #323232;
     width: 20%;
+    margin-left: -10px;
     color: white;
-    height: 99vh;
+    height: 100vh;
   }
   .admin .sidebar .logo img{
     width: 70px;

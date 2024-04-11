@@ -1,19 +1,19 @@
 const express = require("express");
-const { admindashboard } = require("../controller/adminmodulo/dashboard");
-const { adminemployees } = require("../controller/adminmodulo/employees");
+const { adminDashboard } = require("../controller/adminmodulo/dashboard");
 const { adminManagers } = require("../controller/adminmodulo/managers");
-const { admintasks } = require("../controller/adminmodulo/tasks");
-const { admintasktrack } = require("../controller/adminmodulo/tasktrack");
-const { admincalender } = require("../controller/adminmodulo/calender");
-const admin = express.Router();
+const { adminEmployees } = require("../controller/adminmodulo/employees");
+const { adminTasks } = require("../controller/adminmodulo/tasks");
+const { adminTasktrack } = require("../controller/adminmodulo/tasktrack");
+const { adminCalender } = require("../controller/adminmodulo/calender");
+const router = express.Router();
 
-admin.route("/dashboard").get(admindashboard);
-admin.route("/managers").get(adminManagers);
-admin.route("/employees").get(adminemployees);
-admin.route("/tasks").get(admintasks);
-admin.route("/tasktrack").get(admintasktrack);
-admin.route("/calender").get(admincalender);
-admin.route("/logout").get(admindashboard);
+router.route("/dashboard").get(adminDashboard);
+router.route("/managers").get(adminManagers);
+router.route("/employees").get(adminEmployees);
+router.route("/tasks").get(adminTasks);
+router.route("/tasktrack").get(adminTasktrack);
+router.route("/calender").get(adminCalender);
+router.route("/logout").get(adminDashboard);
 
-module.exports = admin
+module.exports = router
 
