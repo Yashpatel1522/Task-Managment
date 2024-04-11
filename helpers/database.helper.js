@@ -12,6 +12,7 @@ class database{
       return await new Promise((resolve,reject)=>{
           con.query(sql,values,(error,result)=>{
             if(error){
+              console.log(error);
               reject(error);
             }
             else{

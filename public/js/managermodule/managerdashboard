@@ -1,0 +1,15 @@
+function sc(act, id) {
+	let row = document.getElementsByClassName("taskContainer")[id];
+	if (act == 'next') {
+		row.scrollLeft += 200;
+	}
+	else {
+		row.scrollLeft -= 200;
+	}
+}
+
+function lst(id) {
+	alert('in function')
+	let ele = document.getElementsByClassName('option')[id];
+	ele.style.display = 'block'
+}

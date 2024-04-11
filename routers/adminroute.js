@@ -8,8 +8,8 @@ const { admincalender } = require("../controller/adminmodulo/calender");
 const router = express.Router();
 
 router.route("/dashboard").get(admindashboard);
-router.route("/managers").get(adminemployees);
-router.route("/employees").get(adminmanagers);
+router.route("/managers").get(adminmanagers);
+router.route("/employees").get(adminemployees);
 router.route("/tasks").get(admintasks);
 router.route("/tasktrack").get(admintasktrack);
 router.route("/calender").get(admincalender);

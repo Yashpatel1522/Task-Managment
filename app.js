@@ -24,12 +24,13 @@ app.use('/admin', adminroute);
 app.use("/loginmodule",login)
 // To test logger
 
-// app.get('/', (req, res)=> {
-//   logger.info("First Log")
-//   res.end();
-// })
+app.get('/', (req, res)=> {
+  res.render('./managermodule/managerdashboard')
+})
 
 app.listen(PORT, () => {
-  console.log("listen portno : " + PORT);
+  console.log("listen portno is : " + PORT);
 });
+
+app.use('/admin', adminroute);
 
