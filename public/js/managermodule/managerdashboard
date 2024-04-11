@@ -1,3 +1,9 @@
+async function getData() {
+	let response = await fetch(`/manager/getManagerTasks`);
+	let data = await response.json();
+	console.log(data);
+}
+
 function sc(act, id) {
 	let row = document.getElementsByClassName("taskContainer")[id];
 	if (act == 'next') {
@@ -10,6 +16,6 @@ function sc(act, id) {
 
 function lst(id) {
 	alert('in function')
-	let ele = document.getElementsByClassName('option')[id];
+	let ele = document.getElementsByClassName('menuoption')[id];
 	ele.style.display = 'block'
 }

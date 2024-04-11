@@ -6,10 +6,8 @@ require('dotenv').config();
 const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
-const employeeroute = require('./routers/employeeroute')
-
-
-
+const employeeroute = require('./routers/employeeroute');
+const managerroute = require('./routers/managerroute');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -31,4 +29,5 @@ app.listen(PORT, () => {
 });
 
 app.use('/admin', adminroute);
-
+app.use('/employee', employeeroute);
+app.use("/manager", managerroute);
