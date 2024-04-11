@@ -8,7 +8,8 @@ const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute')
 
-
+app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
+app.use("/js",express.static("./node_modules/bootstrap/dist/js"));
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -31,4 +32,4 @@ app.listen(PORT, () => {
 });
 
 app.use('/admin', adminroute);
-
+app.use('/employee', employeeroute);
