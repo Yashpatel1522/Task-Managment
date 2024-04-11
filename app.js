@@ -6,6 +6,7 @@ require('dotenv').config();
 const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
+const managerRouter = require('./routers/managerroute')
 const employeeroute = require('./routers/employeeroute')
 
 
@@ -37,4 +38,6 @@ app.listen(PORT, () => {
 });
 
 app.use('/admin', adminroute);
+app.use(managerRouter);
+
 
