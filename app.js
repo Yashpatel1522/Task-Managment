@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
+const cookieparser = require('cookie-parser');
+app.use(cookieparser())
 require('dotenv').config();
 const ejs = require('ejs');
 const logger = require('./logger/logger')
@@ -21,7 +23,7 @@ let PORT = process.env.PORT;
 
 app.use('/admin', adminroute);
 
-app.use("/loginmodule",login)
+app.use("/login",login)
 // To test logger
 
 app.get('/', (req, res)=> {
