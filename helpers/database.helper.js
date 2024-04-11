@@ -1,6 +1,6 @@
 const mysql=require('mysql')
 const getConnection = require("../config/connection");
-
+let con
 class database{
   /*
     you can write sql statment and  return result as well as error
@@ -8,7 +8,10 @@ class database{
   
   executeQuery=async(sql,values=[])=>{
     try{
-      const con=await getConnection();
+      if(typeof con!="object")
+      {
+        con=await getConnection();
+      }
       return await new Promise((resolve,reject)=>{
           con.query(sql,values,(error,result)=>{
             if(error){
