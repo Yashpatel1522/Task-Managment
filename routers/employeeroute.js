@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router();
 
-
+const { getdashboardata } = require("../controller/employeemodule/dashboard")
 
 const { EmployeeTaskList, gettasks, list } = require("../controller/employeemodule/employeetasklist")
 

@@ -9,7 +9,8 @@ const adminroute = require('./routers/adminroute')
 const managerRouter = require('./routers/managerroute')
 const employeeroute = require('./routers/employeeroute')
 
-
+app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
+app.use("/js",express.static("./node_modules/bootstrap/dist/js"));
 
 
 app.set('views', path.join(__dirname, 'views'));
