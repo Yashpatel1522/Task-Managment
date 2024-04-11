@@ -1,2 +1,6 @@
 Date : 09-04-2024 
 status: create database tables and design ,employee task design and research on bootstrap.
+
+
+Date : 10-04-2024
+status : Design employee tasklist panel and research on how to design employee dashboard panel.

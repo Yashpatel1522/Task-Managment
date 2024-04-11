@@ -1,6 +1,8 @@
+const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
-exports.adminemployees = (request,response) => {
+
+exports.adminemployees = async(request,response) => {
     try {
         response.render("adminmodulo/employees")
     } catch (err) {
