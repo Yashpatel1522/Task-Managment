@@ -1,15 +1,42 @@
-<%- include('../partials/adminmenubar') %>
-<div class="rightbar">
-    <div class="profilename">
-      <div class="bell">
-        <i class="fa-solid fa-bell"></i>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managers</title>
+    <!-- <link rel="stylesheet" href=""> -->
+  </head>
+  <body>
+    
+    <%- include('../partials/adminmenubar') %>
+    <div class="rightbar">
+        <div class="profilename">
+          <div class="bell">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div class="profile">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <p><B>Name</B></p>
+        </div>
+        <div>
+            <table>
+              <tr>
+                <% Object.keys(result[0]).forEach(function(key){ %>
+                  <th><%= key %></th>
+              <% }) %>
+              </tr>
+              <tr>
+                <% result.forEach(function(value){ %>
+                  <tr>
+                      <% Object.values(value).forEach(function(value){ %>
+                          <td><%= value %></td>
+                      <% }) %>
+                  </tr>
+              <% }) %>
+              </tr>
+            </table>
+          </div>
       </div>
-      <div class="profile">
-        <i class="fa-solid fa-user"></i>
-      </div>
-      <p><B>Name</B></p>
-    </div>
-    <div>
-        managers
-      </div>
-  </div>
+  </body>
+  </html>
