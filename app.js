@@ -22,7 +22,8 @@ app.use(express.static("public/"));
 
 let PORT = process.env.PORT;
 
-app.get('/', (req, res)=> {
+
+app.get('/', (req, res) => {
   res.render('./managermodule/managerdashboard')
 })
 
@@ -31,4 +32,6 @@ app.listen(PORT, () => {
 });
 
 app.use('/admin', adminroute);
+app.use('/employee', employeeroute);
+
 
