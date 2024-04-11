@@ -1,15 +1,63 @@
-<%- include('../partials/adminmenubar') %>
-<div class="rightbar">
-    <div class="profilename">
-      <div class="bell">
-        <i class="fa-solid fa-bell"></i>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managers</title>
+  <link rel="stylesheet" href="/css/adminmodulo/manager.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+  <%- include('../partials/adminmenubar') %>
+    <div class="rightbar">
+      <div class="profilename">
+        <div class="bell">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+        <div class="profile">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <p><B>Name</B></p>
       </div>
-      <div class="profile">
-        <i class="fa-solid fa-user"></i>
-      </div>
-      <p><B>Name</B></p>
+
+      <div id="overlay"></div>
+      <div id="popupDialog">
+        <p>Manager Details</p>
+        <input type="button" value="Close" onclick="closeFn()">
     </div>
-    <div>
-        managers
+      <div>
+        <table class="table">
+          <tr>
+            <% Object.keys(managerData[0]).forEach(function(key){ %>
+              <th>
+                <%= key %>
+              </th>
+              <% }) %>
+              <th>View Details</th>
+            </tr>
+            <tr>
+              <% managerData.forEach(function(value){ %>
+          <tr>
+            <% Object.values(value).forEach(function(value){ %>
+              <td>
+                <%= value %>
+                
+              </td>
+              <% }) %>
+                <td>
+                  <input type="button" value="View Details" onclick="popupFn()">
+                </td>
+          </tr>
+          <% }) %>
+            </tr>
+
+        </table>
       </div>
-  </div>
+      <div style="text-align: center;"><%- include('../partials/pagination', {pageno, page}) %></div>
+    </div>
+    <script src="/js/adminmodulo/manager.js"></script>
+</body>
+</html>
