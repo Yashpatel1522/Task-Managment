@@ -2,7 +2,7 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
 
-exports.adminemployees = async(request,response) => {
+exports.adminEmployees = async(request,response) => {
     try {
         let db = new database();
         let query = `select u.first_name,u.last_name,u.email,u.contact from users as u 
