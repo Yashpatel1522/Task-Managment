@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/css/managermodule/managerdashboard.css">
 </head>
 
-<body>
+<body onload="getData()">
 	<!-- <section style="max-width: 1170px;"> -->
 		<div class="managerMain">
 			<div class="managerSidebar">
@@ -22,7 +22,7 @@
 						<img src="/assets/managerassets/manager_search.svg" alt="" height="30px">
 						<input type="text" placeholder="Search" size="30px"  style="padding: 7px; border-radius: 5px;border: none;">
 					</div>
-					<div class="space"></div>
+					<div class="headspace"></div>
 					<div class="profimg">
 						<img src="/assets/managerassets/manager_notification.svg" alt="" height="35px">
 						<img src="/assets/managerassets/manager_prof.svg" alt="" height="35px">
@@ -53,138 +53,7 @@
 								</div>
 							</div>
 							<div class="taskContainer">
-								<div class="tasks">
-										<div class="taskDetails">
-											<div class="cardHead">
-												<div class="search">
-													<p>Task 1</p>
-												</div>
-												<div class="space"></div>
-												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%" onclick="lst(0)">
-												</div>
-											</div>
-											<div class="taskContent">
-												<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti beatae sunt rem nisi cum sequi
-													rerum nostrum quia error, mollitia laborum, cumque aspernatur suscipit? Voluptatum, deleniti
-													consequuntur. Aliquid, quis maiores?</p>
-											</div>
-										</div>
-								</div>
-			
-								<div class="tasks">
-										<div class="taskDetails">
-											<div class="cardHead">
-												<div class="search">
-													<p>Task 1</p>
-												</div>
-												<div class="space"></div>
-												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%">
-												</div>
-											</div>
-											<div class="taskContent">
-												<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti beatae sunt rem nisi cum sequi
-													rerum nostrum quia error, mollitia laborum, cumque aspernatur suscipit? Voluptatum, deleniti
-													consequuntur. Aliquid, quis maiores?</p>
-											</div>
-										</div>
-								</div>
-			
-								<div class="tasks">
-										<div class="taskDetails">
-											<div class="cardHead">
-												<div class="search">
-													<p>Task 1</p>
-												</div>
-												<div class="space"></div>
-												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%">
-												</div>
-											</div>
-											<div class="taskContent">
-												<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti beatae sunt rem nisi cum sequi
-													rerum nostrum quia error, mollitia laborum, cumque aspernatur suscipit? Voluptatum, deleniti
-													consequuntur. Aliquid, quis maiores?</p>
-											</div>
-										</div>
-								</div>
-			
-								<div class="tasks">
-										<div class="taskDetails">
-											<div class="cardHead">
-												<div class="search">
-													<p>Task 1</p>
-												</div>
-												<div class="space"></div>
-												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%">
-												</div>
-											</div>
-											<div class="taskContent">
-												<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti beatae sunt rem nisi cum sequi
-													rerum nostrum quia error, mollitia laborum, cumque aspernatur suscipit? Voluptatum, deleniti
-													consequuntur. Aliquid, quis maiores?</p>
-											</div>
-										</div>
-								</div>
-			
-								<div class="tasks">
-										<div class="taskDetails">
-											<div class="cardHead">
-												<div class="search">
-													<p>Task 1</p>
-												</div>
-												<div class="space"></div>
-												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%">
-												</div>
-											</div>
-											<div class="taskContent">
-												<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti beatae sunt rem nisi cum sequi
-													rerum nostrum quia error, mollitia laborum, cumque aspernatur suscipit? Voluptatum, deleniti
-													consequuntur. Aliquid, quis maiores?</p>
-											</div>
-										</div>
-								</div>
-			
-								<div class="tasks">
-										<div class="taskDetails">
-											<div class="cardHead">
-												<div class="search">
-													<p>Task 1</p>
-												</div>
-												<div class="space"></div>
-												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%">
-												</div>
-											</div>
-											<div class="taskContent">
-												<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti beatae sunt rem nisi cum sequi
-													rerum nostrum quia error, mollitia laborum, cumque aspernatur suscipit? Voluptatum, deleniti
-													consequuntur. Aliquid, quis maiores?</p>
-											</div>
-										</div>
-								</div>
-			
-								<div class="tasks">
-										<div class="taskDetails">
-											<div class="cardHead">
-												<div class="search">
-													<p>Task 1</p>
-												</div>
-												<div class="space"></div>
-												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%">
-												</div>
-											</div>
-											<div class="taskContent">
-												<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti beatae sunt rem nisi cum sequi
-													rerum nostrum quia error, mollitia laborum, cumque aspernatur suscipit? Voluptatum, deleniti
-													consequuntur. Aliquid, quis maiores?</p>
-											</div>
-										</div>
-								</div>
+							
 							</div>
 						</div>
 		
@@ -285,7 +154,7 @@
 												</div>
 												<div class="space"></div>
 												<div class="dots">
-													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%">
+													<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%" >
 												</div>
 											</div>
 											<div class="taskContent">
