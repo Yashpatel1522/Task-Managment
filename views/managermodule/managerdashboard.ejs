@@ -20,7 +20,7 @@
 				<div class="prof">
 					<div class="search">
 						<img src="/assets/managerassets/manager_search.svg" alt="" height="30px">
-						<input type="text" placeholder="Search" size="30px" style="padding: 7px; border-radius: 5px;">
+						<input type="text" placeholder="Search" size="30px"  style="padding: 7px; border-radius: 5px;border: none;">
 					</div>
 					<div class="space"></div>
 					<div class="profimg">
@@ -36,8 +36,8 @@
 							<h2>Tasks</h2>
 						</div>
 						<div class="button">
-							<input type="button" value="Add Task" class="blue-btn">
-						</div>
+							<input type="button" value="Add Task" class="blue-btn" onclick="openPopup()">
+						</div>	
 					</div>
 					<div class="taskdetails">
 						<div class="containerhead">
@@ -485,6 +485,9 @@
 						</div>
 				</div>
 			</div>
+		</div>
+		<div class="addtaskcontainer" id="popup">
+			<%- include("addtask.ejs")%>
 		</div>
 	<!-- </section> -->
 	<script src="/js/managermodule/managerdashboard"></script>

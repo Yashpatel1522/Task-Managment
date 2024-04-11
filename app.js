@@ -6,6 +6,7 @@ require('dotenv').config();
 const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
+const managerRouter = require('./routers/managerroute')
 const employeeroute = require('./routers/employeeroute')
 
 app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
@@ -14,16 +15,23 @@ app.use("/js",express.static("./node_modules/bootstrap/dist/js"));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
+);
 app.use(express.static(path.join(__dirname,'public')));
 
+app.use(express.static(path.join(__dirname,'/node_modules/bootstrap/dist')))
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(express.static("public/"));
 
 
+
+// To test logger
 let PORT = process.env.PORT;
 
-app.get('/', (req, res)=> {
+
+app.get('/', (req, res) => {
   res.render('./managermodule/managerdashboard')
 })
 
@@ -33,3 +41,9 @@ app.listen(PORT, () => {
 
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
+
+app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
+app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
+app.use(managerRouter);
+
+

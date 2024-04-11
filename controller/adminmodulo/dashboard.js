@@ -1,6 +1,6 @@
 const logger = require("../../logger/logger");
 
-exports.admindashboard = (request,response) => {
+exports.adminDashboard = (request,response) => {
     try {
         response.render("adminmodulo/dashboard")
     } catch (err) {
