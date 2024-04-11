@@ -7,7 +7,7 @@
 
 .managerSidebar {
 	width: 20%;
-	height: 950px;
+	height: 1000px;
 	padding: 15px;
 	border-top-right-radius: 30px;
 	background-color: #323232;
@@ -15,7 +15,7 @@
 
 .managerContent {
 	width: 80%;
-	height: 950px;
+	height: 1000px;
 	padding: 15px;
 }
 
@@ -28,9 +28,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 2px;
+	margin: 0.5%;
 	padding: 10px;
 	min-width: 550px;
+	max-width: 550px;
 }
 
 .border {
@@ -43,7 +44,12 @@
 	padding: 10px;
 	font-size: 20px;
 	border: 5px solid rgb(120, 120, 146);
+	max-width: 550px;
+	overflow-x: auto;
+}
 
+.taskContent {
+	max-width: 550px;
 }
 
 .taskdetails {
@@ -83,6 +89,10 @@
 }
 
 .space {
+	width: 73%;
+}
+
+.headspace {
 	width: 50%;
 }
 
@@ -95,28 +105,24 @@
 }
 
 input::placeholder {
-	font-size: 20px;
+	font-size: 10px;
 }
 
-.blue-btn {
+/* .blue-btn {
 	background-color: blue;
 	padding: 10px;
 	font-size: 15px;
 	color: white;
 	border-radius: 10px;
-}
+} */
 
-.button {
+/* .button {
 	padding-left: 35%;
 	width: 20%;
-}
+} */
 
 .dots {
-	width: 20px;
-}
-
-input {
-	border: none;
+	width: 7%;
 }
 
 .containerhead {
@@ -125,4 +131,103 @@ input {
 
 .search > p {
 	font-weight: bold;
+}
+
+.addtaskcontainer{
+  position: fixed;
+  top : 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  z-index: 10;
+  display: none;
+  transition: transform 0.4s,top 0.4s;
+}
+
+.open-popup{
+  display: block;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+:root{
+  --white : white;
+  --button-color : blue;
+}
+.addtaskcontainer{
+  position: fixed;
+  top : 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  z-index: 10;
+  visibility: hidden;
+  transition: transform 0.4s,top 0.4s;
+}
+
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  position: relative;
+  /* background-color: black; */
+}
+.addtask{
+  padding: 5px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 500px;
+}
+
+.addtask{
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: var(--white);
+  width: 500px;
+}
+.addtask{
+  padding: 5px;
+}
+.taskrow{
+  
+  padding: 5px;
+
+}
+.taskcol{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.subcol{
+  display: flex;
+  flex-direction: column;
+}
+input,select{
+  padding: 8px;
+}
+.select{
+  width: 200px;
+}
+/* pop up btn */
+.btn{
+  outline: none;
+  cursor: pointer;
+}
+.button{
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }

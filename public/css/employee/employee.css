@@ -8,12 +8,17 @@ body {
 }
 
 .card1 {
-  min-width: 364px;
-  border-radius: 20px;
-  background-color: rgb(250, 250, 237);
-  box-shadow: 6px 9px 5px rgb(218, 203, 203);
-  height: 148px;
+  min-width: 367px;
+  border-radius: 10px;
+  background-color: rgb(212, 212, 198);
+  box-shadow: 6px 9px 5px rgb(212, 210, 210);
+  height: 147px;
   margin-bottom: 3%;
+}
+
+.field {
+  display: flex;
+  padding: 6px;
 }
 
 .carddetails {
