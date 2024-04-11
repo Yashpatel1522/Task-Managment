@@ -5,6 +5,7 @@ class database{
   /*
     you can write sql statment and  return result as well as error
   */
+   
   
   executeQuery=async(sql,values=[])=>{
     try{
