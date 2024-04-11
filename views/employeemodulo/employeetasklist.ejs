@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/employee/employee.css">
+
+  <script src="/js/employee/employee.js"></script>
+
+
+</head>
+
+<body>
+  <%- include('../partials/employeemenubar') %>
+    <div class="container">
+      <div class="main">
+        <div class="search-and-profile">
+          <div class="search-container">
+            <input type="text" class="searchinput" placeholder="Search.." name="search">
+          <img class="searchbar" src="/assets/employee/search.png" alt="">
+          </div>
+          <div class="profile">
+            <img class="userprofile" src="/assets/employee/user.png" alt=""
+                onclick="showuserdetails()">
+          </div>
+        </div>
+        <div class="progress">
+          <div class="name">
+            <div class="prostatus">
+              <h2>TO DO</h2>
+            </div>
+            <div class="arrow">
+
+              <div class="arrow1">
+                <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',0)">
+              </div>
+              <div class="arrow2">
+                <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',0)">
+              </div>
+            </div>
+          </div>
+          <div class="carddetails">
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+            <div class="card1">
+              <h4>Task1</h4>
+              <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+              <p>22-01-2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="name">
+
+            <div class="prostatus">
+
+              <h2>INPROGRESS</h2>
+            </div>
+              <div class="arrow">
+                <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',1)">
+                <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',1)">
+              </div>
+            </div>
+
+
+            <div class="carddetails">
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="name">
+
+            <div class="prostatus">
+
+              <h2>COMPLETED</h2>
+            </div>  
+              <div class="arrow">
+                <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',2)">
+                <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',2)">
+              </div>
+            </div>
+
+            <div class="carddetails">
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+              <div class="card1">
+                <h4>Task1</h4>
+                <p>Digital Agency offering unique solutions to create digital presence and increase your sales.</p>
+                <p>22-01-2022</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

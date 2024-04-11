@@ -3,7 +3,6 @@ const express = require('express')
 const router = express.Router();
 
 
-
 const { EmployeeTaskList, gettasks, list } = require("../controller/employeemodule/employeetasklist")
 
 router.get('/employeetasklist', EmployeeTaskList)
