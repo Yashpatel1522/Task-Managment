@@ -1,3 +1,5 @@
+{"level":"info","message":"First Log","timestamp":"2024-04-10T04:55:21.456Z"}
+{"level":"info","message":"First Log","timestamp":"2024-04-10T04:55:22.692Z"}
 {"level":"error","timestamp":"2024-04-10T09:13:14.196Z"}
 {"level":"error","timestamp":"2024-04-10T09:14:25.850Z"}
 {"level":"error","timestamp":"2024-04-10T09:14:33.975Z"}
@@ -47,3 +49,8 @@
 {"level":"error","timestamp":"2024-04-10T13:29:55.887Z"}
 {"level":"error","timestamp":"2024-04-10T13:32:49.578Z"}
 {"level":"error","timestamp":"2024-04-10T13:32:59.903Z"}
+{"level":"error","timestamp":"2024-04-11T06:59:34.395Z"}
+{"level":"error","timestamp":"2024-04-11T06:59:39.265Z"}
+{"level":"error","timestamp":"2024-04-11T07:00:32.472Z"}
+{"level":"error","timestamp":"2024-04-11T07:01:07.860Z"}
+{"level":"error","timestamp":"2024-04-11T07:01:13.503Z"}
