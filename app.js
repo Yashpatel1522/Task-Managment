@@ -10,7 +10,14 @@ const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
 const managerroute = require('./routers/managerroute');
+<<<<<<< HEAD
+const managerRouter = require('./routers/managerroute');
+
+app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
+app.use("/js",express.static("./node_modules/bootstrap/dist/js"));
+=======
 let PORT = process.env.PORT;
+>>>>>>> dev
 
 app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
 app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
