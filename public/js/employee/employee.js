@@ -12,7 +12,7 @@ function sc(act,id){
 
 async function fetchData(){
 
-response = await fetch(`http://127.0.0.1:8000/employee/employeetasklist`)
+response = await fetch(`http://localhost:8000/employee/employeetasklist`)
 data = await response.json()
 function setCard(id,element){
   document.getElementById(`${id}`).innerHTML += `
