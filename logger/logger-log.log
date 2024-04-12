@@ -54,3 +54,4 @@
 {"level":"error","timestamp":"2024-04-11T07:00:32.472Z"}
 {"level":"error","timestamp":"2024-04-11T07:01:07.860Z"}
 {"level":"error","timestamp":"2024-04-11T07:01:13.503Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select * from categories","sqlMessage":"Table 'task_managment_dump.categories' doesn't exist","sqlState":"42S02","timestamp":"2024-04-12T04:08:27.135Z"}

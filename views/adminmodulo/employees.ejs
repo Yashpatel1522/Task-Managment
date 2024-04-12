@@ -3,12 +3,13 @@
 <head>
   <link rel="stylesheet" href="/css/adminmodulo/manager.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/adminmodulo/adduser.css">
 </head>
 
 <body onload="getData()">
 
   <%- include('../partials/adminmenubar') %>
-    <div class="rightbar">  
+    <div class="rightbar">
       <div class="profilename position-relative">
         <div class="float-start">
           <h3 class="text-center m-3">Employees</h3>
@@ -17,19 +18,22 @@
           <div class="bell">
             <i class="fa-solid fa-bell"></i>
           </div>
-          
-          <div class="profile d-flex" onclick="profileShow()" style="cursor: pointer;">
+
+          <div class="profile d-flex" style="cursor: pointer;">
             <i class="fa-solid fa-user"></i>
             <p><B>Name</B></p>
           </div>
         </div>
       </div>
-      <div class="row1 my-4">
-        <div class="search float-start mx-3 ">
-          <input type="text" placeholder="Search Employee.." class="rounded py-2 px-3 " tabindex="1">
-        </div>
-        <div class="addemployee">
-          <a href=""><input type="button" value="+  Add Employee" class="btn btn-secondary float-end mx-2 my-2 px-3" tabindex="2"></a>
+      <div class="my-3" style="background-color: white; border-radius: 20px;">
+        <div class="row1 my-4">
+          <div class="search float-start mx-3 ">
+            <input type="text" placeholder="Search Employee.." class="rounded py-2 px-3 " tabindex="1">
+          </div>
+          <div class="addemployee">
+            <input type="button" value="+  Add Employee" class="btn btn-secondary float-end mx-2 my-2 px-3" tabindex="2"
+              onclick="openPopup()">
+          </div>
         </div>
       </div>
       <div class="my-2">
@@ -41,6 +45,9 @@
         <form action="" id="employee-form"></form>
       </div>
     </div>
-    <script src="/js/adminmodulo/employee.js"></script>
+    <div class="adduser" id="formpopup">
+      <%- include("adduser.ejs")%>
+    </div>
+    <script src="/js/adminmodulo/userformvalidation.js"></script>
 </body>
 </html>
