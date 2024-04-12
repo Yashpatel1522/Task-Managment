@@ -7,7 +7,8 @@
   <title>Document</title>
   <link rel="stylesheet" href="/css/employee/employee.css">
   <script src="/js/employee/employee.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <script src="/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,30 @@
             <img class="userprofile" src="/assets/employee/user.png" alt="" onclick="showuserdetails()">
           </div>
         </div>
-        <div class="progress">
+        <!-- Modal -->
+        <div class="popup-task" id="popup">
+
+          <div class="body">
+            <form action="">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Task Details</h5>
+                  </div>&nbsp;
+                  <div class="modal-body" id="taskdetails">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="hide('popup')"
+                      data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--closed  -->
+        <div class="progress-task">
           <div class="name">
             <div class="prostatus">
               <h2>TO DO</h2>
@@ -41,7 +65,7 @@
           <div class="carddetails" id="todo">
           </div>
         </div>
-        <div class="progress">
+        <div class="progress-task">
           <div class="name">
 
             <div class="prostatus">
@@ -53,10 +77,10 @@
               <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',1)">
             </div>
           </div>
-            <div class="carddetails" id="inprogress">
-            </div>
-    </div>
-        <div class="progress">
+          <div class="carddetails" id="inprogress">
+          </div>
+        </div>
+        <div class="progress-task">
           <div class="name">
 
             <div class="prostatus">

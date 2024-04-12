@@ -14,7 +14,9 @@ const list= async (req,res)=>{
 const EmployeeTaskList = async (req, res) => {
     try {
         id = req.params.id
-        const query = `select * from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id;`
+        console.log(id,"id is===")
+        const query = `select * from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id inner join categories as c on c.id=t.category_id where a.emp_id=${id};
+`
         let db = new database()
         let result = await db.executeQuery(query)
         res.json(result)
