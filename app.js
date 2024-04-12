@@ -12,13 +12,17 @@ const employeeroute = require('./routers/employeeroute');
 const managerroute = require('./routers/managerroute');
 let PORT = process.env.PORT;
 
-app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
-app.use("/js",express.static("./node_modules/bootstrap/dist/js"));
+app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
+app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist/")));
-app.use(express.static(path.join(__dirname,'public')));
+app.use(
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
+);
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static(path.join(__dirname, '/node_modules/bootstrap/dist')))
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
