@@ -24,17 +24,4 @@ const EmployeeTaskList = async (req, res) => {
     }
 }
 
-const gettasks = async (req, res) => {
-    try{
-    id = req.params.id
-    const query = `select * from tasks where manager_id=3 and task_status='todo' and id=${id};`
-    let db = new database()
-    let result = await db.executeQuery(query)
-    res.json(result)
-    }
-    catch(error){
-        console.log(error)
-    }
-
-}
-module.exports = { EmployeeTaskList, gettasks, list }
+module.exports = { EmployeeTaskList, list }

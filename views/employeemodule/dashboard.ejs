@@ -119,11 +119,12 @@ const renderData = (dashboardData) => {
           </div>
           </div>
           </div>`
+          console.log(taskCountBox);
       taskCountsElement.innerHTML += taskCountBox
     });
 }
 
-  getDashBoardData("http://localhost:8000/employee/getdashboardata").then((data) => {
+  getDashBoardData("http://127.0.0.1:8000/employee/getdashboardata").then((data) => {
   dashboardData = data
   renderData(dashboardData)
   });
