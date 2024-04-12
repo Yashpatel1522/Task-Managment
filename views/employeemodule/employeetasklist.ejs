@@ -36,10 +36,10 @@
                   </div>&nbsp;
                   <div class="modal-body" id="taskdetails">
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="hide('popup')"
-                      data-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                  <div class="modal-footer-user" id="commentpopup">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                      onclick="showComment('popup-comment')">Comment</button>
+                    <button type="button" onclick="hide('popup')" class="btn btn-primary">Close</button>
                   </div>
                 </div>
               </div>
@@ -47,6 +47,59 @@
           </div>
         </div>
         <!--closed  -->
+        <!-- comment modal -->
+        <div class="popup-comment" id="popup-comment">
+
+          <div class="body">
+            <form action="">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Task Details</h5>
+                  </div>&nbsp;
+                  <div class="modal-body" id="taskdetails">
+                    <table class="table">
+                      <tr>
+                        <td>
+                          Task Status :
+                        </td>
+                        <td>
+                          <select name="taskstatus" id="taskstatus">
+                            <option value="todo">ToDo</option>
+                            <option value="inprogress">Inprogress</option>
+                            <option value="completed">Completed</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Comment :
+                        </td>
+                        <td>
+                          <input type="text" name="taskcomment" id="taskcomment" class="taskcomment">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label for="myfile">Select a file:</label>
+                          </td>
+                        <td>
+                          <input type="file" id="myfile" name="myfile">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="modal-footer-user" id="commentpopup">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                      onclick="hideComment('popup-comment')">Close</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- end -->
         <div class="progress-task">
           <div class="name">
             <div class="prostatus">

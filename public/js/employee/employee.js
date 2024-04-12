@@ -107,3 +107,17 @@ const show = (id, taskid) => {
 const hide = (id) => {
   ides(id).style.display = "none";
 }
+
+let ides_comment = (id) => document.getElementById(id);
+
+const showComment = (id) => {
+
+  document.getElementById('popup').style.display="none";
+
+  ides_comment(id).style.display = "block";
+}
+
+  const hideComment = (id) => {
+
+    ides_comment(id).style.display = "none";
+  }
