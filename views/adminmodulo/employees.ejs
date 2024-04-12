@@ -1,10 +1,11 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="/css/adminmodulo/manager.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 
-<body>
+<body onload="getData()">
 
   <%- include('../partials/adminmenubar') %>
     <div class="rightbar">  
@@ -32,32 +33,14 @@
         </div>
       </div>
       <div class="my-2">
-        <table class="table mx-2 text-center">
-          <thead>
-            <tr>
-              <% Object.keys(employeeData[0]).forEach(function(key) {%>
-                <th>
-                  <%=key%>
-                </th>
-                <%}); %>
-                  <th>Details</th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider">
-            <% for(let i=0 ; i<employeeData.length ; i++){ %>
-              <tr>
-                <% Object.keys(employeeData[0]).forEach(function(key) {%>
-                  <td>
-                    <%= employeeData[i][key] %>
-                  </td>
-                  <%}); %>
-                    <td><input type="button" value="View" class="btn btn-secondary px-3"></td>
-              </tr>
-              <%}%>
-          </tbody>
+        <table class="table mx-2 text-center" id="emp-table">
+          
         </table>
       </div>
+      <div class="addtaskcontainer" id="show-detail">
+        <form action="" id="employee-form"></form>
+      </div>
     </div>
+    <script src="/js/adminmodulo/employee.js"></script>
 </body>
-
 </html>

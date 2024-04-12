@@ -10,16 +10,12 @@
 <body>
     <div class="page">
         <% if(page >1) { %>
-        <% if (pageno > 1) { %>
-        <a  class="fa-solid fa-angles-left arrow" href="?p=1"></a>
-        <a  class="fa-solid fa-angle-left arrow" href="?p=<%= Number(pageno)-1%>"></a>
-        <% } %>
-        <p><%= pageno %></p>
-        <% if(pageno >= 1 && pageno < page) { %>
-        <a  class="fa-solid fa-angle-right arrow" href="?p=<%= Number(pageno)+1%>"></a>
-        <a class="fa-solid fa-angles-right arrow" href="?p=<%= page %>"></a>
-        <% } %>
-        <% } %>
+            <a  class="fa-solid fa-angles-left arrow" href="?p=1" <% if (pageno == 1) { %> onclick = 'return false;' <% } %>></a>
+            <a  class="fa-solid fa-angle-left arrow" href="?p=<%= Number(pageno)-1%>" <% if (pageno == 1) { %> onclick = 'return false;' <% } %>></a>
+            <p><%= pageno %></p>
+            <a  class="fa-solid fa-angle-right arrow" href="?p=<%= Number(pageno)+1%>" <% if(pageno == page) { %> onclick = 'return false;' <% } %> ></a>
+            <a class="fa-solid fa-angles-right arrow" href="?p=<%= page %>"<% if(pageno == page) { %> onclick = 'return false;' <% } %> ></a>
+            <% } %>
     </div>
 </body>
 </html>
