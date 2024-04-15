@@ -55,3 +55,7 @@
 .tasklft > h2 {
 	font-size: 35px;
 }
+
+.search::placeholder {
+    padding-left: 10px;
+}
