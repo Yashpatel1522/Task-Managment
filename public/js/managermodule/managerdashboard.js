@@ -1,48 +1,28 @@
 async function getData() {
-	let response = await fetch(`/manager/getManagerTasks`);
+	
+	let url = window.location.origin+`/manager/getManagerTaskCount`
+	let response = await fetch(url);
 	let data = await response.json();
-	if(data.result.length != 0) {
-		data.result.forEach(element => {
-			document.getElementsByClassName('taskContainer')[0].innerHTML += `
-			<div class="tasks">
-			<div class="taskDetails">
-				<div class="cardHead">
-					<div class="search">
-						<p>${element.task_name}</p>
-					</div>
-					<div class="space"></div>
-					<div class="dots">
-						<img src="/assets/managerassets/manager_menu.svg" alt="" width="100%" onclick="lst(0)">
-					</div>
-				</div>
-				<div class="taskContent">
-					<p>${element.task_description}</p>
-				</div>
-			</div>
-		</div>
-			`;
-			console.log(element.task_name);
-			console.log(element.task_description);
-		});
-	}
+	document.getElementsByClassName('count')[0].innerText = data.todoResult[0].count;
+	document.getElementsByClassName('count')[1].innerText = data.progressResult[0].count;
+	document.getElementsByClassName('count')[2].innerText = data.compleatedResult[0].count;
 }
 
-function sc(act, id) {
-	let row = document.getElementsByClassName("taskContainer")[id];
-	if (act == 'next') {
-		row.scrollLeft += 200;
-	}
-	else {
-		row.scrollLeft -= 200;
-	}
+function showNotifications() {
+	Swal.fire({
+		title: "Notifications",
+		text: "You clicked the button!",
+		icon: "success"
+	});
 }
 
-function lst(id) {
-	alert('in function')
-	let ele = document.getElementsByClassName('menuoption')[id];
-	ele.style.display = 'block'
+function profOption() {
+	document.getElementById('profClk').style.display = 'block';
 }
 
+function remOption() {
+	document.getElementById('profClk').style.display = 'none';
+}
 
 //pop-up js of addtask.ejs
 let popup = document.getElementById('popup');
