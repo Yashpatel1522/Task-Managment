@@ -3,10 +3,9 @@
 <head>
   <link rel="stylesheet" href="/css/adminmodulo/manager.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/adminmodulo/adduser.css">
 </head>
 
-<body onload="getData()">
+<body onload="getEmpData()">
 
   <%- include('../partials/adminmenubar') %>
     <div class="rightbar">
@@ -25,10 +24,10 @@
           </div>
         </div>
       </div>
-      <div class="my-3" style="background-color: white; border-radius: 20px;">
+      <div class="my-3">
         <div class="row1 my-4">
           <div class="search float-start mx-3 ">
-            <input type="text" placeholder="Search Employee.." class="rounded py-2 px-3 " tabindex="1">
+            <input type="text" placeholder="Search Employee.." class="rounded py-2 px-3 " tabindex="1" onchange="searchEmpData(this.value)">
           </div>
           <div class="addemployee">
             <input type="button" value="+  Add Employee" class="btn btn-secondary float-end mx-2 my-2 px-3" tabindex="2"
@@ -41,13 +40,15 @@
           
         </table>
       </div>
+      <div id="pagination">
+        
+      </div>
       <div class="addtaskcontainer" id="show-detail">
         <form action="" id="employee-form"></form>
       </div>
     </div>
-    <div class="adduser" id="formpopup">
-      <%- include("adduser.ejs")%>
-    </div>
-    <script src="/js/adminmodulo/userformvalidation.js"></script>
+
+    <script src="/js/adminmodulo/employee.js"></script>
+    
 </body>
 </html>
