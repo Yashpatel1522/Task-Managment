@@ -3,11 +3,11 @@
 <head>
   <!-- <link rel="stylesheet" href="/css/adminmodulo/admindashboard.css"> -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
-<style>
-  .card{
+  <style>
+    .card {
       width: calc(80%/3);
     }
-</style>
+  </style>
 </head>
 
 <body>
@@ -34,16 +34,20 @@
           <h4 class="m-3">Users</h4>
           <div class="cards d-flex">
             <div class="card text-center mx-3">
-              <div class="card-body my-3 mx-5">
-                <h5 class="card-title">Managers</h5>
-                <p class="card-text">no</p>
-              </div>
+              <a href="/admin/managers">
+                <div class="card-body my-3 mx-5 text-dark">
+                  <h5 class="card-title">Managers</h5>
+                  <p class="card-text"><%=managerCount%></p>
+                </div>
+              </a>
             </div>
             <div class="card text-center mx-3 ">
-              <div class="card-body my-3 mx-5">
-                <h5 class="card-title">Employees</h5>
-                <p class="card-text">no</p>
-              </div>
+              <a href="/admin/employees">
+                <div class="card-body my-3 mx-5 text-dark">
+                  <h5 class="card-title">Employees</h5>
+                  <p class="card-text"><%=employeeCount%></p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -53,19 +57,19 @@
             <div class="card text-center mx-3">
               <div class="card-body my-3 mx-5">
                 <h5 class="card-title">To-do</h5>
-                <p class="card-text">no</p>
+                <p class="card-text"><%=todoCount%></p>
               </div>
             </div>
             <div class="card text-center mx-3">
               <div class="card-body my-3 mx-5">
                 <h5 class="card-title">In progress</h5>
-                <p class="card-text">no</p>
+                <p class="card-text"><%=inprogressCount%></p>
               </div>
             </div>
             <div class="card text-center mx-3">
               <div class="card-body my-3 mx-5">
                 <h5 class="card-title">Completed</h5>
-                <p class="card-text">no</p>
+                <p class="card-text"><%=completedCount%></p>
               </div>
             </div>
           </div>
