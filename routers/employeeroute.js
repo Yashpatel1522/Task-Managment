@@ -6,7 +6,6 @@ const { getdashboardata, dashboard } = require("../controller/employeemodule/das
 const { EmployeeTaskList, gettasks, list } = require("../controller/employeemodule/employeetasklist")
 
 router.get('/employeetasklist', EmployeeTaskList)
-router.get('/employeetasklist/:id', gettasks)
 router.get('/', list)
 
 router.get("/getdashboardata", getdashboardata)

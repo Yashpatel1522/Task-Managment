@@ -9,18 +9,17 @@ const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
-const managerroute = require('./routers/managerroute');
-<<<<<<< HEAD
 const managerRouter = require('./routers/managerroute');
 
-app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
-app.use("/js",express.static("./node_modules/bootstrap/dist/js"));
-=======
-let PORT = process.env.PORT;
->>>>>>> dev
+app.use("/bootstrap_css",express.static("./node_modules/bootstrap/dist/css"));
+app.use("/bootstrap_js",express.static("./node_modules/bootstrap/dist/js"));
+app.use("/bootstrap_icon_css",express.static("./node_modules/bootstrap-icons/font"));
+app.use("/sweetalert2",express.static("./node_modules/sweetalert2/dist"));
 
-app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
-app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
+let PORT = process.env.PORT;
+
+// app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
+// app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -43,5 +42,4 @@ app.listen(PORT, () => {
 
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
-app.use("/manager", managerroute);
-
+app.use("/manager", managerRouter);
