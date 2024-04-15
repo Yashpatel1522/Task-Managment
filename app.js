@@ -10,16 +10,11 @@ const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
 const managerroute = require('./routers/managerroute');
+const login = require('./routers/loginroutes');
+
 let PORT = process.env.PORT;
-const managerRouter = require('./routers/managerroute');
 
-app.use("/bootstrap_css",express.static("./node_modules/bootstrap/dist/css"));
-app.use("/bootstrap_js",express.static("./node_modules/bootstrap/dist/js"));
 app.use("/bootstrap_icon_css",express.static("./node_modules/bootstrap-icons/font"));
-app.use("/sweetalert2",express.static("./node_modules/sweetalert2/dist"));
-
-
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(
@@ -31,7 +26,9 @@ app.use(express.static(path.join(__dirname, '/node_modules/bootstrap/dist')))
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
-
+app.use("/bootstrape",express.static(path.join(__dirname,'/node_modules/bootstrap/dist')))
+app.use("/sweetalert2",express.static(path.join(__dirname,'/node_modules/sweetalert2/dist')))
+app.use("/boxicon",express.static(path.join(__dirname,'/node_modules/boxicons')))
 
 // To test logger
 
@@ -41,4 +38,5 @@ app.listen(PORT, () => {
 
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
+app.use("/login",login)
 app.use("/manager", managerRouter);

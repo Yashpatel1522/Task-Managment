@@ -22,7 +22,7 @@ managerRouter.get("/getManagerTasks", managerTask);
 //api for Manager task Count
 managerRouter.get("/getManagerTaskCount", taskCount)
 
-// api for get user,category from database
-managerRouter.get('/getdataapi',addtaskdata);
+// // api for get user,category from database
+// managerRouter.get('/getdataapi',addtaskdata);
 
 module.exports = managerRouter;

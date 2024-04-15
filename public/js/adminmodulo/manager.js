@@ -35,6 +35,7 @@ const getManagerData = async () => {
         <input type="button" value="Next" onclick="next()">
         <input type="button" value="LastPage" onclick="lastpage()">`
     }
+
   } catch (error) {
     // logger.error(error)
     console.log(error);

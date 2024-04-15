@@ -7,6 +7,8 @@
   <title>Managers</title>
   <link rel="stylesheet" href="/css/adminmodulo/manager.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/loginmodule/popup.css">
+
 </head>
 
 <body onload="getManagerData()">
@@ -51,8 +53,13 @@
         <form action="" id="manager-form"></form>
       </div>
     </div>
-
+  </div>
+  <div class="addregistrationcontainer" id="open-registration">
+    <%- include("../loginmodule/registration")%>
+  </div>
     <script src="/js/adminmodulo/manager.js"></script>
+    <script src="/js/loginmodule/popup.js"></script>  
+
 </body>
 
 </html>
