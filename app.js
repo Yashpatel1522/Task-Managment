@@ -9,6 +9,8 @@ const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
+const managerroute = require('./routers/managerroute');
+let PORT = process.env.PORT;
 const managerRouter = require('./routers/managerroute');
 
 app.use("/bootstrap_css",express.static("./node_modules/bootstrap/dist/css"));
@@ -16,7 +18,7 @@ app.use("/bootstrap_js",express.static("./node_modules/bootstrap/dist/js"));
 app.use("/bootstrap_icon_css",express.static("./node_modules/bootstrap-icons/font"));
 app.use("/sweetalert2",express.static("./node_modules/sweetalert2/dist"));
 
-let PORT = process.env.PORT;
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
