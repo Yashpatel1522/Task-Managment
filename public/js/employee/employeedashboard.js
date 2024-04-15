@@ -4,19 +4,19 @@ async function getDashBoardData(url) {
   return response.json();
 }
 
-function createTable(deadLineData) {
-  const keys = Object.keys(deadLineData[0])
+function createTable(tableData, section) {
+  const keys = Object.keys(tableData[0])
 
   let temp =  `<tr>`
   keys.map((el) => {
     temp += `<th scope="col">${el}</th>`
   })
   temp += `</tr>`
-  document.getElementById('deadlineheading').innerHTML = temp
+  document.getElementById(`${section}heading`).innerHTML = temp
 
 
   temp = ''
-  deadLineData.map((dataobj) => {
+  tableData.map((dataobj) => {
     const vals = Object.values(dataobj)
     console.log('vals',vals);
 
@@ -27,7 +27,7 @@ function createTable(deadLineData) {
   temp +=`</tr>`
 
   })
-  document.getElementById('tbody').innerHTML = temp;
+  document.getElementById(`${section}body`).innerHTML = temp;
 
 }                                              
                          
@@ -46,7 +46,8 @@ const renderData = (dashboardData) => {
         </div>`
     taskCountsElement.innerHTML += taskCountBox
   });
-  createTable(dashboardData.upCommingDeadlineData)
+  createTable(dashboardData.upCommingDeadlineData,'deadline')
+  createTable(dashboardData.employeeInprogressTaskData, 'inprogress')
 }
 
 getDashBoardData("http://localhost:8000/employee/getdashboardata").then((data) => {
