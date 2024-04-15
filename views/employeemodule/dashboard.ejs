@@ -4,47 +4,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css                        " href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/employee/employee.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <script src="/js/employee/employeedashboard.js"></script>
   <script src="/js/bootstrap.js"></script>
   <style>
     .container {
       width: 1170px;
       padding: 0;
-    }                                  
+    }
   </style>
   <title>Document</title>
-</head>                                                  
-                                                                                                                              
-<body>                                                             
+</head>
+
+<body>
   <%- include('../partials/employeemenubar') %>
-  <div class="container mx-5">
-    <h1>Dashboard</h1>
-
-    <div class="row my-5" id="taskCountsElement"></div>
-
-    <div class="row my-5">
-      <div class="card">    
-        <div class="card-header">
-          <h5 class="card-title">Upcoming deadlines</h5>
+    <div class="container mx-5">
+      <div class="search-and-profile">
+        <div class="profile" class="dropbtn" onclick="showDropdown()">
+          <img class="userprofile" src="/assets/employee/user.png" alt="">
         </div>
-        <table class="table">
-          <thead id="deadlineheading"></thead>
-          <tbody id="deadlinebody"></tbody>
-        </table>
+        <div id="dropdown" class="dropdown-content">
+          <a href="employee/profile" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="loadProfile()">Profile</a>
+          <a href="employee/changepassword">Change Password</a>
+          <a href="employee/logout">Logout</a>
+        </div>
+      </div>
+
+      <!-- user profile modal -->
+     <%- include('./profilemodal') %>
+
+      <h1>Dashboard</h1>
+
+      <div class="row my-5" id="taskCountsElement"></div>
+
+      <div class="row my-5">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Upcoming deadlines</h5>
+          </div>
+          <table class="table">
+            <thead id="deadlineheading"></thead>
+            <tbody id="deadlinebody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">In Progress</h5>
+          </div>
+          <table class="table">
+            <thead id="inprogressheading"></thead>
+            <tbody id="inprogressbody"></tbody>
+          </table>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">In Progress</h5>
-        </div>
-        <table class="table">
-          <thead id="inprogressheading"></thead>
-          <tbody id="inprogressbody"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
 </body>
+
 </html>

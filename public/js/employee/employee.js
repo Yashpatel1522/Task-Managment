@@ -16,7 +16,7 @@ async function fetchData() {
   let id = path[path.length - 1]
   console.log(id, "id is ")
 
-  response = await fetch(`http://127.0.0.1:8000/employee/employeetasklist/${id}`)
+  response = await fetch(`http://localhost:8000/employee/employeetasklist/${id}`)
   data = await response.json()
   employeedata = data
   function setCard(id, element) {
