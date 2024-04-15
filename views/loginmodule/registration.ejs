@@ -29,11 +29,11 @@
                     <i class='bx bxs-x-circle text-danger fs-2'onclick="closePopup()"></i>
                 </div>
             </div>
-            <form onchange="return isValidRegistration()" id="registration-form">
+            <form onchange="return isValidRegistration()" id="registration-form" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label class="text-primary">User Role</label>
-                        <select tabindex="1" class="form-control">
+                        <select tabindex="1" class="form-control" id="user_role" name="user_role">
                             <option class="text-secondary" value="2">Manager</option>
                             <option class="text-secondary" value="3">Employee</option>
                         </select>
