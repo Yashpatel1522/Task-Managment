@@ -29,6 +29,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 app.use("/bootstrape",express.static(path.join(__dirname,'/node_modules/bootstrap/dist')))
 app.use("/sweetalert2",express.static(path.join(__dirname,'/node_modules/sweetalert2/dist')))
+app.use("/boxicon",express.static(path.join(__dirname,'/node_modules/boxicons')))
 
 // To test logger
 

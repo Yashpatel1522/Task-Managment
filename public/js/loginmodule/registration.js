@@ -1,8 +1,9 @@
-const isLogin = async () => {
-    if (isValidLogin) {
-        const form = document.getElementById('login_form')
+//id and other changes will be required
+const isRegistration = async () => {
+    if (isValidRegistration()) {
+        const form = document.getElementById('registration-form')
         let data = new URLSearchParams(new FormData(form))
-        let url = '/login/'
+        let url = '/login/registration'
         let res = await fetch(url, {
             method: 'post',
             body: data,
@@ -26,7 +27,9 @@ const isLogin = async () => {
                 text: res.msg,
                 icon: "success"
             });
+            // location.href=`/main-login-project/dashboard/${res.id}` 
         }
     }
+
 }
 

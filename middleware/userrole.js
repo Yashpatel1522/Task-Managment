@@ -7,7 +7,7 @@ const checkUserRole=async(request,response,next)=>{
     console.log(res)
     if(res.length>0)
     {
-        next()   
+        next()
     }
     else
     {

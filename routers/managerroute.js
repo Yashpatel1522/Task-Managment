@@ -9,10 +9,10 @@ managerroute.get("/", (request, response)=> {
 managerroute.get("/getManagerTasks", managerTask);
 
 module.exports = managerroute;
-const { addtaskdata } = require('../controller/managermodule/addtask');
-const managerRouter = express.Router();
+// const { addtaskdata } = require('../controller/managermodule/addtask');
+// const managerRouter = express.Router();
 
-// api for get user,category from database
-managerRouter.get('/getdataapi',addtaskdata);
+// // api for get user,category from database
+// managerRouter.get('/getdataapi',addtaskdata);
 
-module.exports = managerRouter;
+// module.exports = managerRouter;
