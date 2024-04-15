@@ -10,14 +10,14 @@
 <body>
         <div class="sidebarcontain">
           <div class="logo">
-            <img src="/assets/logo.png" alt="" width="50%">
+            <img src="/assets/adminmodulo/logo.png" alt="" width="50%">
           </div>
           <ul>
           <div class="list">
             <img src="/assets/managerassets/task.svg" alt="">
             <li>Task</li>
           </div>
-          <div class="list">
+          <div class="list" onclick="showEmployee()">
             <img src="/assets/managerassets/employee.svg" alt="">
             <li>Employee</li>
           </div>
@@ -27,5 +27,11 @@
           </div>
         </ul>
     </div>
+
+    <script>
+      function showEmployee() {
+        window.location.href = window.location.origin + `/manager/employeeDetails`
+      }
+    </script>
 </body>
 </html>

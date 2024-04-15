@@ -14,9 +14,8 @@ router.post('/searchtask',searchlist)
 
 // const { EmployeeTaskList,list } = require("../controller/employeemodule/employeetasklist")
 
-// router.get('/employeetasklist', EmployeeTaskList)
-
-// router.get('/', list)
+router.get('/employeetasklist', EmployeeTaskList)
+router.get('/', list)
 
 
 
