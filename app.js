@@ -11,9 +11,14 @@ const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
 const managerroute = require('./routers/managerroute');
 let PORT = process.env.PORT;
+const managerRouter = require('./routers/managerroute');
 
-app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
-app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
+app.use("/bootstrap_css",express.static("./node_modules/bootstrap/dist/css"));
+app.use("/bootstrap_js",express.static("./node_modules/bootstrap/dist/js"));
+app.use("/bootstrap_icon_css",express.static("./node_modules/bootstrap-icons/font"));
+app.use("/sweetalert2",express.static("./node_modules/sweetalert2/dist"));
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -24,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.static(path.join(__dirname, '/node_modules/bootstrap/dist')))
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({ extended: true }));
 
 
 
@@ -36,5 +41,4 @@ app.listen(PORT, () => {
 
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
-app.use("/manager", managerroute);
-
+app.use("/manager", managerRouter);

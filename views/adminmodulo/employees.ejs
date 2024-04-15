@@ -3,9 +3,17 @@
 <head>
   <link rel="stylesheet" href="/css/adminmodulo/manager.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+<<<<<<< HEAD
 </head>
 
 <body onload="getEmpData()">
+=======
+  <link rel="stylesheet" href="/css/adminmodulo/adduser.css">
+  <script src="/js/adminmodulo/employee.js"></script>
+</head>
+
+<body onload="getemployeeData()">
+>>>>>>> dev
 
   <%- include('../partials/adminmenubar') %>
     <div class="rightbar">
@@ -47,8 +55,15 @@
         <form action="" id="employee-form"></form>
       </div>
     </div>
+<<<<<<< HEAD
 
     <script src="/js/adminmodulo/employee.js"></script>
+=======
+    <div class="adduser" id="formpopup">
+      <%- include("adduser.ejs")%>
+    </div>
+    <script src="/js/adminmodulo/userformvalidation.js"></script>
+>>>>>>> dev
     
 </body>
 </html>
