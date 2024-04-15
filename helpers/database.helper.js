@@ -1,6 +1,7 @@
 const mysql = require('mysql')
 const getConnection = require("../config/connection");
 let con;
+
 class database{
   /*
     you can write sql statment and  return result as well as error
