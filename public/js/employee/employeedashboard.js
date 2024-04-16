@@ -50,17 +50,27 @@ const renderData = (dashboardData) => {
 }
 
 const renderProfileData = (profileData) => {
-  // console.log('this is ', profileData);
-  let inputFields = document.querySelectorAll('.form-control')
-  inputFields = Array.from(inputFields)
-  // console.log(inputFields);
-//   Object.keys(profileData[0]).map((val)=>{
-// console.log(val);
-//   })
+  let keys = Object.keys(profileData[0])
+  console.log(profileData[0]);
 
+  keys.map((key)=> {
 
+<<<<<<< HEAD
+    if(!(document.getElementById(`${key}`) == null)) {
+      document.getElementById(`${key}`).value = profileData[0][key]
+    }
+    else if(key=="employee_role"){
+      document.getElementById(`${key}`).value = profileData[0][key]
+    }
+    })
+    let profileImageName = profileData[0].img_url.split("/")
+    document.getElementById('selectedImage').src = `/assets/userprofiles/${profileData[0].id}/${profileImageName[3]}`
+  }
+getDashBoardData("/employee/getdashboardata").then((data) => {
+=======
 }
-getDashBoardData("http://localhost:8000/employee/getdashboardata").then((data) => {
+getDashBoardData("http://127.0.0.1:8000/employee/getdashboardata").then((data) => {
+>>>>>>> dev
   dashboardData = data.result
   renderData(dashboardData)
 });
@@ -75,7 +85,11 @@ async function getDashBoardData(url) {
 }
 
 async function loadProfile() {
-  let response = await fetch("http://localhost:8000/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
+<<<<<<< HEAD
+  let response = await fetch("/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
+=======
+  let response = await fetch("http://127.0.0.1:8000/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
+>>>>>>> dev
     profileData = data.result;
     renderProfileData(profileData)
   })

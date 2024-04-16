@@ -189,3 +189,12 @@ newimage_name varchar(255),
 is_deleted boolean default 0,
 FOREIGN KEY(user_id) REFERENCES users(id) ON UPDATE CASCADE
 );
+
+create table user_profiles(
+id int primary key auto_increment,
+task_id int,
+oldfile_name varchar(255),
+newfile_name varchar(255),
+is_deleted boolean default 0,
+FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE
+);

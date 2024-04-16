@@ -7,16 +7,18 @@ function sc(act, id) {
     row.scrollLeft -= 200;
   }
 }
+function showDropdown() {
+  document.getElementById("dropdown").classList.toggle("show");
+}
 
+let path = window.location.pathname.split("/")
+let id = path[path.length - 1]
+console.log(id, "id is ")
 
 var employeedata;
 async function fetchData() {
 
-  let path = window.location.pathname.split("/")
-  let id = path[path.length - 1]
-  console.log(id, "id is ")
-
-  response = await fetch(`http://localhost:8000/employee/employeetasklist/${id}`)
+  response = await fetch(`http://127.0.0.1:8000/employee/employeetasklist/${id}`)
   data = await response.json()
   employeedata = data
   function setCard(id, element) {
@@ -55,12 +57,13 @@ async function fetchData() {
 }
 fetchData()
 
-
+var gtaskid;
 let ides = (id) => document.getElementById(id);
 
 const show = (id, taskid) => {
   ides(id).style.display = "block";
   console.log(taskid)
+  gtaskid=taskid
   employeedata.forEach(element => {
     if (element.task_id == taskid) {
       document.getElementById('taskdetails').innerHTML = `
@@ -94,7 +97,12 @@ const show = (id, taskid) => {
                   </div>
                    <div class="field">
                    <label>manager name :</label>
-                    <p>${element.manager_id}</p>
+                    <p>${element.first_name}</p>
+                  </div>
+                    <div class="modal-footer-user" id="commentpopup">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                      onclick="showComment('popup-comment',${element.task_id})">Comment</button>
+                    <button type="button" onclick="hide('popup')" class="btn btn-primary">Close</button>
                   </div>
 
                 </div >`
@@ -110,11 +118,14 @@ const hide = (id) => {
 
 let ides_comment = (id) => document.getElementById(id);
 
-const showComment = (id) => {
+const showComment = (id, taskid) => {
 
   document.getElementById('popup').style.display = "none";
-
-  ides_comment(id).style.display = "block";
+  employeedata.forEach(element => {
+    if (element.task_id == taskid){
+      ides_comment(id).style.display = "block";
+    }
+});
 }
 
 const hideComment = (id) => {
@@ -124,6 +135,7 @@ const hideComment = (id) => {
 
 //user search section
 async function seachresult() {
+  if (document.getElementById('searchinput').value!=""){
   obj = {}
   new FormData(document.getElementById('form')).forEach((value, key) => {
     obj[key] = value;
@@ -180,4 +192,20 @@ async function seachresult() {
 
     }
   });
+}
+}
+
+async function addcomment(){
+  obj = {}
+  new FormData(document.getElementById('form')).forEach((value, key) => {
+    obj[key] = value;
+  })
+  console.log(obj, "obj is comment")
+  const response = await fetch(`http://127.0.0.1:8000/employee/addcomment/${id}/?gtask=${gtaskid}`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(obj)
+  })
 }

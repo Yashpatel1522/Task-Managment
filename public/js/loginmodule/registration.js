@@ -1,3 +1,4 @@
+
 //id and other changes will be required
 const isRegistration = async () => {
     if (isValidRegistration()) {
@@ -33,23 +34,26 @@ const isRegistration = async () => {
         })
         console.log(res)
         res = await res.json();
-        console.log(res)
+        let error=document.getElementById("error")
         if (res.flag == false) {
-            Swal.fire({
-                title: "Oops...",
-                text: res.msg,
-                icon: "error"
-            });
+            console.log(error)
+            error.style.display="block"
+            error.innerHTML=res.msg
         }
         else {
+            let url=`/login/newpassword/${res.activationkey}`
+            error.style.display="block"
+            error.className="alert alert-success text-center"
+            closePopup()
             Swal.fire({
-                title: "Good job!",
-                text: res.msg,
-                icon: "success"
-            });
-            // location.href=`/main-login-project/dashboard/${res.id}` 
+                title: "Auto close alert!",
+                html:`register Success<br>Activation Key:${res.activationkey}<br><p id='time' class='text-danger'></p>`,
+                icon:"success",
+                showConfirmButton:false,
+                footer:`<a href="${url}">Click Me</a>`    
+              });
+            timer("time",120)
         }
     }
 
 }
-
