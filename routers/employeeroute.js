@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router();
-const { EmployeeTaskList, list, searchlist } = require("../controller/employeemodule/employeetasklist")
-const { getdashboardata, dashboard } = require("../controller/employeemodule/dashboard")
+const { EmployeeTaskList, list, searchlist } = require("../controller/employeemodule/employeetasklist");
+const { getdashboardata, dashboard } = require("../controller/employeemodule/dashboard");
 const { getProfiledata } = require('../controller/employeemodule/employeeprofile');
-const { EmployeeTaskList,  list } = require("../controller/employeemodule/employeetasklist");
 
 router.get("/getdashboardata", getdashboardata)
 router.get("/dashboard",dashboard)
