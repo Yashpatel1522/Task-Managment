@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Managers</title>
-  <link rel="stylesheet" href="/css/adminmodulo/manager.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/loginmodule/popup.css">
-
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
 </head>
 
 <body onload="getManagerData()">
@@ -36,7 +36,7 @@
             onchange="searchData(this.value)">
         </div>
         <div class="addemployee">
-          <input type="button" value="+  Add Manager" class="btn btn-secondary float-end mx-2 my-2 px-3" tabindex="2"
+          <input type="button" value="+ Add Manager" class="btn btn-secondary float-end mx-2 my-2 px-3" tabindex="2"
             onclick="openPopup()">
         </div>
       </div>
@@ -46,19 +46,22 @@
         </table>
       </div>
       <div id="pagination">
-        
+
       </div>
 
-      <div class="addtaskcontainer" id="show-detail">
-        <form action="" id="manager-form"></form>
+      <div  class="addregistrationcontainer" id="show-detail">
+        <div id="manager-form">
+
+        </div>
       </div>
     </div>
-  </div>
-  <div class="addregistrationcontainer" id="open-registration">
-    <%- include("../loginmodule/registration")%>
-  </div>
+    </div>
+    <div class="addregistrationcontainer" id="open-registration">
+      <%- include("../loginmodule/registration")%>
+    </div>
+
     <script src="/js/adminmodulo/manager.js"></script>
-    <script src="/js/loginmodule/popup.js"></script>  
+    <script src="/js/loginmodule/popup.js"></script>
 
 </body>
 
