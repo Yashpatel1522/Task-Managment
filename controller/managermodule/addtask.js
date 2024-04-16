@@ -25,7 +25,6 @@ const addtaskdata= async(request,response) => {
       logger.error(err);
   }
 }
-
 const inserttaskdata = async(request,response) =>{
   try {
       taskdata = request.body;
@@ -75,7 +74,7 @@ const inserttaskdata = async(request,response) =>{
       await taskdata.emp_id.forEach(element => {
         let team = db.insertData({task_id:lastInserted_id, emp_id:element},"tasks_assigend_to")
       });
-      response.json({msg:done});
+      response.json({'msg':'done'});
 
   } catch (error) {
     logger.error(error);

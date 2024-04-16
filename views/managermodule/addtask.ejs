@@ -15,7 +15,7 @@
         <div class="subcol">
         <label for="tname">Task Name</label>
         <input type="text" name="task_name" placeholder="Test task" id="task_name" class="reqfieled"/>
-        <span class="errclass"></span>
+        <span class="errclass" id="tnerr"></span>
         </div>
       </div>
     <div class="taskrow">
@@ -24,7 +24,7 @@
           <select id="Assin_task_to" name="Assin_task_to" multiple class="reqselect">
             <option value="0">Select</option>
           </select>
-          <span class="reqselecterr"></span>
+          <span class="reqselecterr" id="aterr"></span>
         </div>
     </div>
     <div class="taskrow">
@@ -37,14 +37,14 @@
             <option value="2">In Progress</option>
             <option value="3">Completed</option>
           </select>
-          <span class="reqselecterr"></span>
+          <span class="reqselecterr" id="tserr"></span>
         </div>
         <div class="subcol select">
           <label for="category" id="taskcategory">Category</label>
           <select id="task_category" name="task_category" class="reqselect">
             <option value="0">Select</option>
           </select>
-          <span class="reqselecterr"></span>
+          <span class="reqselecterr" id="cterr"></span>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@
       <div class="subcol">
         <label for="task descriptions">Descriptions</label>
         <input type="text" name="task_description" placeholder="Descriptions" id="task_description" class="reqfieled">
-        <span class="errclass"></span>
+        <span class="errclass" id="descriptionserr"></span>
       </div>
   </div>
   <div class="taskrow">
@@ -76,14 +76,14 @@
         <select id="impotant_level" name="impotant_level" class="reqselect">
           <option value="0">Select</option>
         </select>
-        <span class="reqselecterr"></span>
+        <span class="reqselecterr" id="ilerr"></span>
       </div>
       <div class="subcol select">
         <label for="ulevel" id="ulevel">Urgency Level</label>
         <select id="urgency_level" name="urgency_level" class="reqselect">
           <option value="0">Select</option>
         </select>
-        <span class="reqselecterr"></span>
+        <span class="reqselecterr" id="ulerr"></span>
       </div>
     </div>
   </div>

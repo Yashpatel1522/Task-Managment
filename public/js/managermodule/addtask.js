@@ -41,10 +41,10 @@ function addTaskValidation() {
         document.getElementById('dateerr2').innerHTML = "* required";
         err = false
     }
-    else if (!validdob.test(enddate)) {
-        document.getElementById('dateerr2').innerHTML = "Please enter valid date";
-        err = false
-    }
+    // else if(!validdob.test(enddate)) {
+    //     document.getElementById('dateerr2').innerHTML = "Please enter valid date";
+    //     err = false
+    // }
 
     return err;
 }
@@ -131,8 +131,8 @@ function urgencyLevelCombo(data) {
 
 
 function insertTaskData() {
-    let err = addTaskValidation()
-    if (err === true) {
+    // let err = addTaskValidation()
+    // if (err === true) {
         let Taskdata = {};
         let formTd = document.forms.taskForm;
         let formData = new FormData(formTd);
@@ -168,14 +168,14 @@ function insertTaskData() {
                 })
                 .then(data => {
                     console.log('Data received:', data);
-                    alert("Task Inserted Successfully")
+                    serverValidation(data);
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
                 });
         } catch (error) {
             console.log(error);
-        }
+        // }
 
     }
 
@@ -185,4 +185,42 @@ function onReset() {
     document.getElementById("taskForm").reset();
 }
 
+function serverValidation(data){
+    if(typeof data.task_name_err !== "undefined"){
+        document.getElementById('tnerr').innerHTML = data.task_name_err;
+    }
+    if(typeof data.Assin_task_to_err !== "undefined"){
+        document.getElementById('aterr').innerHTML = data.Assin_task_to_err;
+    }
+    if(typeof data.task_status_err !== "undefined"){
+        document.getElementById('tserr').innerHTML = data.task_status_err
+    }
+    if(typeof data.task_category !== "undefined"){
+        document.getElementById('cterr').innerHTML = data.task_category
+    }
+    if(typeof data.start_date_err !== "undefined"){
+        document.getElementById('dateerr').innerHTML = data.start_date_err
+    }
+    if(typeof data.end_date_err !== "undefined"){
+        document.getElementById('dateerr2').innerHTML = data.end_date_err
+    }
+    if(typeof data.description_err !== "undefined"){
+        document.getElementById('descriptionserr').innerHTML = data.description_err 
+    }
+    if(typeof data.impotant_level_err !== "undefined"){
+        document.getElementById('ilerr').innerHTML = data.impotant_level_err
+    }
+    if(typeof data.urgency_level_err !== "undefined"){
+        document.getElementById('ulerr').innerHTML = data.urgency_level_err
+    }
+}
+
+
+function DataINsertedSuccessfully() {
+	Swal.fire({
+		title: "Notifications",
+		text: "You clicked the button!",
+		icon: "success"
+	});
+}
 
