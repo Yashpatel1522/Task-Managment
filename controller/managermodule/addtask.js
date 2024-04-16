@@ -4,7 +4,7 @@ const logger = require("../../logger/logger");
 
 
 
-exports.addtaskdata = async(request,response) => {
+const addtaskdata= async(request,response) => {
   try {
     let dataobj = {};
     let db = new database();
@@ -25,3 +25,61 @@ exports.addtaskdata = async(request,response) => {
       logger.error(err);
   }
 }
+
+const inserttaskdata = async(request,response) =>{
+  try {
+      taskdata = request.body;
+      console.log(taskdata);
+      let lastInserted_id;
+      let db=new database();
+      let prioritiy_id = 0;
+      if(taskdata.impotant_level == 1 && taskdata.urgency_level == 1)
+      {
+        prioritiy_id = 1
+      }
+      else if(taskdata.impotant_level == 1 && taskdata.urgency_level == 2)
+      {
+        prioritiy_id = 2
+      }
+      else if(taskdata.impotant_level == 1 && taskdata.urgency_level == 3)
+      {
+        prioritiy_id = 3
+      }
+      else if(taskdata.impotant_level == 2 && taskdata.urgency_level == 1)
+      {
+        prioritiy_id = 4
+      }
+      else if(taskdata.impotant_level == 2 && taskdata.urgency_level == 2)
+      {
+        prioritiy_id = 5
+      }
+      else if(taskdata.impotant_level == 2 && taskdata.urgency_level == 3)
+      {
+        prioritiy_id = 6
+      }
+      else if(taskdata.impotant_level == 3 && taskdata.urgency_level == 1)
+      {
+        prioritiy_id = 7
+      }
+      else if(taskdata.impotant_level === 3 && taskdata.urgency_level === 2)
+      {
+        prioritiy_id = 8
+      }
+      else if(taskdata.impotant_level == 3 && taskdata.urgency_level == 3)
+      {
+        prioritiy_id = 9
+      }
+      let res=await db.insertData({manager_id:1,category_id:taskdata.task_category, prioritiy_id:prioritiy_id,task_name:taskdata.task_name,task_description:taskdata.task_description ,task_start_date : taskdata.task_start_date,task_end_date:taskdata.task_end_date,
+      task_status:taskdata.task_status,},"tasks");
+      lastInserted_id = res.insertId;
+      await taskdata.emp_id.forEach(element => {
+        let team = db.insertData({task_id:lastInserted_id, emp_id:element},"tasks_assigend_to")
+      });
+      response.json({msg:done});
+
+  } catch (error) {
+    logger.error(error);
+  }
+}
+
+module.exports={addtaskdata ,inserttaskdata }

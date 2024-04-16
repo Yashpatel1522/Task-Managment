@@ -2,7 +2,7 @@ const express = require('express');
 const managerTask = require("../controller/managermodule/managertasks")
 const taskCount = require("../controller/managermodule/taskCount")
 const employeeData = require("../controller/managermodule/employeeData")
-const { addtaskdata } = require('../controller/managermodule/addtask');
+const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
 const managerRouter = express.Router();
 
 managerRouter.get("/", (request, response)=> {
@@ -23,6 +23,10 @@ managerRouter.get("/getManagerTasks", managerTask);
 managerRouter.get("/getManagerTaskCount", taskCount)
 
 // // api for get user,category from database
-// managerRouter.get('/getdataapi',addtaskdata);
+managerRouter.get('/getdataapi',addtaskdata);
+// insert task data
+
+managerRouter.post('/inserttask',inserttaskdata);
+
 
 module.exports = managerRouter;
