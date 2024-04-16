@@ -17,6 +17,7 @@ async function getProfile() {
 	Object.keys(spanEle).forEach(element => {
 		spanEle[element].innerText = ``;
 	});
+	document.getElementById('imgMsg').innerText = ``;
 
 	document.getElementById('id').value = data.result[0].id;
 	document.getElementById('firstname').value = data.result[0].first_name;

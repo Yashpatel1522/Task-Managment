@@ -23,10 +23,12 @@ function validation() {
     Object.keys(spanEle).forEach(element => {
         spanEle[element].innerText = ``;
     });
+
     let errorArr = [];
-    errorMsg = [];
+    let errorMsg = [];
     let flag = true;
 
+    let focusField;
 
     // First Name Validation
     if(first_name == ``) {
@@ -34,6 +36,9 @@ function validation() {
         if(!errorArr.includes(0)) {
             errorArr.push(0);
             errorMsg.push(`First name Can't be blank`)
+            if(!focusField) {
+                focusField = `firstname`;
+            }
         }
         flag = false;
     }
@@ -42,7 +47,10 @@ function validation() {
             console.log('false');
             if(!errorArr.includes(0)) {
                 errorArr.push(0);
-                errorMsg.push(`Invalid first name`)
+                errorMsg.push(`Invalid first name`);
+                if(!focusField) {
+                    focusField = `firstname`;
+                }
             }
             flag = false;
         }
@@ -53,7 +61,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(1)) {
             errorArr.push(1);
-            errorMsg.push(`Last name can't be blank`)
+            errorMsg.push(`Last name can't be blank`);
+            if(!focusField) {
+                focusField = `lastname`;
+            }
         }
         flag = false;
     }
@@ -62,7 +73,10 @@ function validation() {
             console.log('false');
             if(!errorArr.includes(1)) {
                 errorArr.push(1);
-                errorMsg.push(`Invalid last name`)
+                errorMsg.push(`Invalid last name`);
+                if(!focusField) {
+                    focusField = `lastname`;
+                }
             }
             flag = false;
         }
@@ -73,7 +87,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(2)) {
             errorArr.push(2);
-            errorMsg.push(`Contact number can't be blank`)
+            errorMsg.push(`Contact number can't be blank`);
+            if(!focusField) {
+                focusField = `phone_input`;
+            }
         }
         flag = false;
     }
@@ -81,7 +98,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(2)) {
             errorArr.push(2);
-            errorMsg.push(`Invalid contact number`)
+            errorMsg.push(`Invalid contact number`);
+            if(!focusField) {
+                focusField = `phone_input`;
+            }
         }
         flag = false;
     }
@@ -91,7 +111,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(3)) {
             errorArr.push(3);
-            errorMsg.push(`Date of birth can't be blank`)
+            errorMsg.push(`Date of birth can't be blank`);
+            if(!focusField) {
+                focusField = `dob_input`;
+            }
         }
         flag = false;
     }
@@ -99,7 +122,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(3)) {
             errorArr.push(3);
-            errorMsg.push(`Invalid date of birth`)
+            errorMsg.push(`Invalid date of birth`);
+            if(!focusField) {
+                focusField = `dob_input`;
+            }
         }
         flag = false;
     }
@@ -108,7 +134,10 @@ function validation() {
             console.log('false');
             if(!errorArr.includes(3)) {
                 errorArr.push(3);
-                errorMsg.push(`Invalid date format`)
+                errorMsg.push(`Invalid date format`);
+                if(!focusField) {
+                    focusField = `dob_input`;
+                }
             }
             flag = false;
         }
@@ -116,7 +145,10 @@ function validation() {
             console.log('false');
             if(!errorArr.includes(3)) {
                 errorArr.push(3);
-                errorMsg.push(`Invalid date of birth`)
+                errorMsg.push(`Invalid date of birth`);
+                if(!focusField) {
+                    focusField = `dob_input`;
+                }
             }
             flag = false;
         }
@@ -125,7 +157,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(3)) {
             errorArr.push(3);
-            errorMsg.push(`Invalid year of birth`)
+            errorMsg.push(`Invalid year of birth`);
+            if(!focusField) {
+                focusField = `dob_input`;
+            }
         }
         flag = false;
     }
@@ -133,7 +168,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(3)) {
             errorArr.push(3);
-            errorMsg.push(`Invalid month of birth`)
+            errorMsg.push(`Invalid month of birth`);
+            if(!focusField) {
+                focusField = `dob_input`;
+            }
         }
         flag = false;
     }
@@ -141,7 +179,10 @@ function validation() {
         console.log('false');
         if(!errorArr.includes(3)) {
             errorArr.push(3);
-            errorMsg.push(`Invalid date of birth`)
+            errorMsg.push(`Invalid date of birth`);
+            if(!focusField) {
+                focusField = `dob_input`;
+            }
         }
         flag = false;
     }
@@ -150,7 +191,10 @@ function validation() {
             console.log('false');
             if(!errorArr.includes(3)) {
                 errorArr.push(3);
-                errorMsg.push(`Invalid date of birth`)
+                errorMsg.push(`Invalid date of birth`);
+                if(!focusField) {
+                    focusField = `dob_input`;
+                }
             }
             flag = false;
         }
@@ -161,7 +205,10 @@ function validation() {
                 console.log('false');
                 if(!errorArr.includes(3)) {
                     errorArr.push(3);
-                    errorMsg.push(`Invalid date of birth`)
+                    errorMsg.push(`Invalid date of birth`);
+                    if(!focusField) {
+                        focusField = `dob_input`;
+                    }
                 }
                 flag = false;
             }
@@ -171,19 +218,35 @@ function validation() {
                 console.log('false');
                 if(!errorArr.includes(3)) {
                     errorArr.push(3);
-                    errorMsg.push(`Invalid date of birth`)
+                    errorMsg.push(`Invalid date of birth`);
+                    if(!focusField) {
+                        focusField = `dob_input`;
+                    }
                 }
                 flag = false;
             }
         }
     }
 
-    console.log(errorArr);
-    console.log(errorMsg);
+    if(document.getElementById('change').value) {
+        let image = document.getElementById('change').value.split('.');
+        let imageType = image[(image.length-1)];
+        console.log(imageType);
+    
+        imageType = imageType.toLowerCase();
+        if(imageType!="jpg" && imageType!="jpeg" && imageType!="png" && imageType!="svg") {
+            document.getElementById('imgMsg').innerText = `Invalid Image`
+            flag = false;
+        }
+    }
+
     if(errorArr) {
         errorArr.forEach(function (element, index) {
             spanEle[element].innerText = errorMsg[index]
         });
+    }
+    if(focusField) {
+        document.getElementById(focusField).focus();
     }
     
     return flag;
