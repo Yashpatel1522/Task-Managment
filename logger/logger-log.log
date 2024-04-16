@@ -56,6 +56,8 @@
 {"level":"error","timestamp":"2024-04-11T07:01:13.503Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select * from categories","sqlMessage":"Table 'task_managment_dump.categories' doesn't exist","sqlState":"42S02","timestamp":"2024-04-12T04:08:27.135Z"}
 {"level":"error","timestamp":"2024-04-15T04:39:13.977Z"}
+{"level":"error","timestamp":"2024-04-16T08:40:28.503Z"}
+{"level":"error","timestamp":"2024-04-16T10:07:36.513Z"}
 {"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"index":0,"level":"error","sql":"delete from users where id='39';","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`task_managment_dump`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE)","sqlState":"23000","timestamp":"2024-04-16T10:25:06.818Z"}
 {"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"index":0,"level":"error","sql":"delete from users where id='39';","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`task_managment_dump`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE)","sqlState":"23000","timestamp":"2024-04-16T10:25:08.115Z"}
 {"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"index":0,"level":"error","sql":"delete from users where id='39';","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`task_managment_dump`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE)","sqlState":"23000","timestamp":"2024-04-16T10:25:08.921Z"}
