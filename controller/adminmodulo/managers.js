@@ -1,8 +1,6 @@
 // const getConnection = require("../../config/connection");
-const { response } = require("express");
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
-const { request } = require("http");
 
 exports.adminManagers = async (request, response) => {
     try {
