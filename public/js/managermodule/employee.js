@@ -15,7 +15,7 @@ async function setData() {
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
                             <div class="card-body bg-light" style="border-radius: 10px;">
-                                <h5 class="card-title">${data.result[count].first_name} ${data.result[count].last_name}</h5>
+                                <h5 class="card-title">${data.result[count].irst_name} ${data.result[count].last_name}</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">View More</a>
                             </div>
@@ -29,6 +29,18 @@ async function setData() {
         }
     }
     document.getElementsByClassName('employeeList')[0].innerHTML = str
+}
+
+async function getProfile() {
+    let url = window.location.origin + '/manager/getManagerProfile';
+    let response = await fetch(url);
+    let data = await response.json();
+	document.getElementById('id').value = data.result[0].id;
+	document.getElementById('firstname').value = data.result[0].first_name;
+	document.getElementById('lastname').value = data.result[0].last_name;
+	document.getElementById('email1').value = data.result[0].email;
+	document.getElementById('phone_input').value = data.result[0].contact;
+	document.getElementById('dob_input').value = data.result[0].date_of_birth;
 }
 
 function profOption() {

@@ -12,6 +12,7 @@ const userProfileStorage= multer.diskStorage({
 
 const taskdetailfiles=multer.diskStorage({
   destination: (req, file, cb) => {
+    console.log(file)
     cb(null,path.join(__dirname,"../public/assets/taskdetailfiles"))
   },
   filename: (req, file, cb) => {
