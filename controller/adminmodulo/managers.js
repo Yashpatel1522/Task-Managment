@@ -1,8 +1,6 @@
 // const getConnection = require("../../config/connection");
-const { response } = require("express");
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
-const { request } = require("http");
 
 exports.adminManagers = async (request, response) => {
     try {
@@ -31,7 +29,7 @@ exports.managerDetails = async (request,response) => {
 exports.searchManData = async (request,response) => {
     try {
         let search = request.params.searchdata;
-        search = "%" + search + "%";
+        search = "%" + search + "%";    
         let db = new database()
         let query = `select users.* from users left join roles on users.role_id = roles.id where role_name = ? and first_name like ? or last_name like ? `
         let searchData = await db.executeQuery(query, ["Manager",search, search]);
