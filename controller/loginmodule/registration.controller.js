@@ -24,7 +24,6 @@ const registrationPost=async(request,response)=>{
         "user_id":res.insertId,
         "oldimage_name":file.originalname,
         "newimage_name":file.filename,
-        "path":file.path
     }
     res=await db.insertData(userprofiledata,"user_profiles")
     console.log(res)
