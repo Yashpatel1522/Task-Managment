@@ -1,0 +1,53 @@
+<div class="modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="staticBackdropLabel">Manager Profile</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body ">
+      <form action="/manager/updateManager" method="post" onsubmit="return validation()">
+        <div class="d-flex p-2 justify-content-around">
+          <div class="d-flex p-2 flex-column">
+            <img src="/assets/employee/user.png" alt="profile image" id="selectedImage" width="200" height="200" class="rounded-circle">
+            <label for="change" class="text-center mt-4">Change</label>
+            <input type="file" name="profileimg" id="change" style="display: none;">
+          </div>
+          <div>
+            <div class="mb-3">
+              <input type="hidden" id="id" value="">
+              <label for="firstname" class="form-label">First Name: </label>
+              <input type="text" class="form-control" id="firstname" aria-describedby="textHelp" name="first_name">
+            </div>
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Last Name: </label>
+              <input type="text" class="form-control" id="lastname" aria-describedby="textHelp" name="last_name">
+            </div>
+            <div class="mb-3">
+              <label for="email1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="phone_input" class="form-label">Phone</label>
+              <input type="tel" required maxlength="50" class="form-control" id="phone_input" name="contact"
+                placeholder="Phone">
+            </div>
+
+            <div class="mb-3">
+              <label for="dob_input" class="form-label">Date Of Birth</label>
+              <input type="text" required style="width: 213px;" class="form-control" id="dob_input" name="date_of_birth"
+                class="datepicker">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="/js/managermodule/managerprofile.js"></script>

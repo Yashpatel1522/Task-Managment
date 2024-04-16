@@ -8,6 +8,18 @@ async function getData() {
 	document.getElementsByClassName('count')[2].innerText = data.compleatedResult[0].count;
 }
 
+async function getProfile() {
+    let url = window.location.origin + '/manager/getManagerProfile';
+    let response = await fetch(url);
+    let data = await response.json();
+	document.getElementById('id').value = data.result[0].id;
+	document.getElementById('firstname').value = data.result[0].first_name;
+	document.getElementById('lastname').value = data.result[0].last_name;
+	document.getElementById('email1').value = data.result[0].email;
+	document.getElementById('phone_input').value = data.result[0].contact;
+	document.getElementById('dob_input').value = data.result[0].date_of_birth;
+}
+
 function showNotifications() {
 	Swal.fire({
 		title: "Notifications",
