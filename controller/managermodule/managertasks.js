@@ -1,4 +1,6 @@
+const { request } = require("express");
 const database = require("../../helpers/database.helper");
+const logger = require("../../logger/logger");
 
 const managerTasks = async (request,response) => {
     try{
@@ -10,10 +12,21 @@ const managerTasks = async (request,response) => {
         return response.json({result:res})
     }
     catch(error){
-        console.log(error);
+        logger.log(error);
         return response.send({'error': error})
     }
 
 }
 
-module.exports = managerTasks;
+const searchTask = async(request,response)=>{
+    try {
+        let serachquery = `select * from tasks where task_name = "abc"`
+        let db=new database();
+        let res=await db.executeQuery(serachquery);
+        return response.json(res);
+    } catch (error) {
+        logger.log(error)
+    }
+}
+
+module.exports = {managerTasks,searchTask};

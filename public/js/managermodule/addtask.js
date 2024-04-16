@@ -12,7 +12,7 @@ function requireValidation(allfields, reqfields) {
 
 function addTaskValidation() {
     let err = true;
-    const validdob = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/gm;
+    const validdob = /[12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])/;
     const allfields = document.querySelectorAll('.errclass');
     const reqfields = document.querySelectorAll('.reqfieled');
     const reqselect = document.querySelectorAll('.reqselect');
@@ -41,10 +41,10 @@ function addTaskValidation() {
         document.getElementById('dateerr2').innerHTML = "* required";
         err = false
     }
-    // else if(!validdob.test(enddate)) {
-    //     document.getElementById('dateerr2').innerHTML = "Please enter valid date";
-    //     err = false
-    // }
+    else if(!validdob.test(enddate)) {
+        document.getElementById('dateerr2').innerHTML = "Please enter valid date";
+        err = false
+    }
 
     return err;
 }
@@ -131,11 +131,15 @@ function urgencyLevelCombo(data) {
 
 
 function insertTaskData() {
-    // let err = addTaskValidation()
-    // if (err === true) {
+    let err = addTaskValidation()
+    if (err === true) {
         let Taskdata = {};
         let formTd = document.forms.taskForm;
         let formData = new FormData(formTd);
+    //     let filess = document.getElementById("files");
+    //     for(let i =0; i < filess.filess.length; i++) {
+    //         formData.append("files", filess.filess[i]);
+    // }
         let selectedArray = new Array();
         let count = 0;
         let usres = document.getElementById('Assin_task_to');
@@ -147,15 +151,18 @@ function insertTaskData() {
         }
 
         for (let [key, value] of formData) {
-            Taskdata[key] = value;
+                Taskdata[key] = value;
         }
+
+        let files=document.getElementsByName("file")[0].files[0];
+        Taskdata.files = files;
         Taskdata.emp_id = selectedArray;
         try {
             fetch(`${window.location.origin}/manager/inserttask`, {
                 method: "post", // *GET, POST, PUT, DELETE, etc.
                 mode: "cors",
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 },
                 body: JSON.stringify(Taskdata)
@@ -167,15 +174,22 @@ function insertTaskData() {
                     return response.json();
                 })
                 .then(data => {
-                    console.log('Data received:', data);
-                    serverValidation(data);
+                    if(typeof data.msg !== "undefined")
+                    {
+                        DataINsertedSuccessfully()
+                    }
+                    else
+                    {
+                        serverValidation(data);
+                    }
+                    
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
                 });
         } catch (error) {
             console.log(error);
-        // }
+        }
 
     }
 
@@ -218,8 +232,8 @@ function serverValidation(data){
 
 function DataINsertedSuccessfully() {
 	Swal.fire({
-		title: "Notifications",
-		text: "You clicked the button!",
+		title: "Done",
+		text: "Task inserted Succesfully",
 		icon: "success"
 	});
 }

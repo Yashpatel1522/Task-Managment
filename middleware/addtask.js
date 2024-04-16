@@ -2,7 +2,7 @@
 
 function addTaskServervalidation(request,response,next){
       let data = request.body;
-      const validdob = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/gm;
+      let validdob = /[12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])/;
       let serverErrObj = {};
       if(data.task_name.trim().length === 0){
         serverErrObj.task_name_err = "* required";
@@ -14,22 +14,18 @@ function addTaskServervalidation(request,response,next){
       {
         serverErrObj.task_category = "* required";
       }
-      if(data.task_start_date.trim().length === 0)
-      {
-        serverErrObj.start_date_err = "* required";
-      }
-      else if(!validdob.test(data.task_start_date))
-      {
-        serverErrObj.start_date_err = "Please Enter valid date";
-      }
       if(data.task_end_date.trim().length === 0)
       {
         serverErrObj.end_date_err = "* required";
-      }
-      else if(!validdob.test(data.task_end_date))
-      {
+      }else if(!data.task_end_date.match(validdob)){
         serverErrObj.end_date_err = "Please Enter valid date";
       }
+      if(data.task_start_date.trim().length === 0){
+        serverErrObj.start_date_err = "* required";
+      }else if(!data.task_start_date.match(validdob)){
+        serverErrObj.start_date_err = "Please Enter valid date";
+      }
+      
       if(data.task_description.trim().length === 0)
       {
         serverErrObj.description_err = "* required";

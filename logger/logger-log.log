@@ -128,3 +128,29 @@
 {"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','2','4','ASXCASDX','eqwwwwwwwwwwwwwwwwwwwwwwwwwwwwww','2022-02-03','2022-02-29','2')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T08:37:43.425Z"}
 {"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','0','0','','','','','0')","sqlMessage":"Incorrect date value: '' for column 'task_start_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T09:32:22.472Z"}
 {"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','0','0','','','','','1')","sqlMessage":"Incorrect date value: '' for column 'task_start_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T09:40:08.322Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','2','1','zcd','eqwwwwwwwwwwwwwwwwwwwwwwwwwwwwww','2022-02-03','2022-02-29','1')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T12:10:20.650Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','2','1','zcd','eqwwwwwwwwwwwwwwwwwwwwwwwwwwwwww','2022-02-03','2022-02-29','1')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T12:10:28.506Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','2','1','zcd','eqwwwwwwwwwwwwwwwwwwwwwwwwwwwwww','2022-02-03','2022-02-29','1')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T12:10:30.041Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','2','1','zcd','eqwwwwwwwwwwwwwwwwwwwwwwwwwwwwww','2022-02-03','2022-02-29','1')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T12:10:30.268Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','2','1','zcd','eqwwwwwwwwwwwwwwwwwwwwwwwwwwwwww','2022-02-03','2022-02-29','1')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T12:10:30.459Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','2','1','zcd','eqwwwwwwwwwwwwwwwwwwwwwwwwwwwwww','2022-02-03','2022-02-29','1')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-16T12:10:30.618Z"}
+{"level":"error","timestamp":"2024-04-16T12:26:37.198Z"}
+{"level":"error","timestamp":"2024-04-16T12:26:40.189Z"}
+{"level":"error","timestamp":"2024-04-16T12:29:35.539Z"}
+{"level":"error","timestamp":"2024-04-16T12:29:37.575Z"}
+{"level":"error","timestamp":"2024-04-16T12:38:14.577Z"}
+{"level":"error","timestamp":"2024-04-16T12:39:46.398Z"}
+{"level":"error","timestamp":"2024-04-16T12:40:30.854Z"}
+{"level":"error","timestamp":"2024-04-16T12:42:01.642Z"}
+{"level":"error","timestamp":"2024-04-16T12:46:31.543Z"}
+{"level":"error","timestamp":"2024-04-16T12:48:46.452Z"}
+{"level":"error","timestamp":"2024-04-16T12:49:20.621Z"}
+{"level":"error","timestamp":"2024-04-16T12:50:50.868Z"}
+{"level":"error","timestamp":"2024-04-16T12:51:58.907Z"}
+{"level":"error","timestamp":"2024-04-16T12:57:46.592Z"}
+{"level":"error","timestamp":"2024-04-16T13:13:55.196Z"}
+{"level":"error","timestamp":"2024-04-16T13:14:01.057Z"}
+{"level":"error","timestamp":"2024-04-16T13:15:05.962Z"}
+{"level":"error","timestamp":"2024-04-16T13:15:06.729Z"}
+{"level":"error","timestamp":"2024-04-16T13:19:47.844Z"}
+{"level":"error","timestamp":"2024-04-16T13:19:49.103Z"}

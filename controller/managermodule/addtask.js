@@ -74,6 +74,15 @@ const inserttaskdata = async(request,response) =>{
       await taskdata.emp_id.forEach(element => {
         let team = db.insertData({task_id:lastInserted_id, emp_id:element},"tasks_assigend_to")
       });
+
+      // let file = taskdata.files
+      // console.log(request) 
+      let filedata={
+          "task_id":lastInserted_id,
+          "oldfile_name":file.originalname,
+          "newfile_name":file.filename,
+      }
+      filedata = await db.insertData(filedata,"attechments")
       response.json({'msg':'done'});
 
   } catch (error) {
