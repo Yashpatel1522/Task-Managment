@@ -12,6 +12,12 @@ async function getProfile() {
     let url = window.location.origin + '/manager/getManagerProfile';
     let response = await fetch(url);
     let data = await response.json();
+
+	let spanEle = document.getElementsByClassName('msg');
+	Object.keys(spanEle).forEach(element => {
+		spanEle[element].innerText = ``;
+	});
+
 	document.getElementById('id').value = data.result[0].id;
 	document.getElementById('firstname').value = data.result[0].first_name;
 	document.getElementById('lastname').value = data.result[0].last_name;
