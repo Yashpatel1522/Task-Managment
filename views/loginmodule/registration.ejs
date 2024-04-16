@@ -30,6 +30,11 @@
                 </div>
             </div>
             <form onchange="return isValidRegistration()" id="registration-form" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="bg-danger text-white text-center" id="error" style="display: none;"></p>
+                    </div>
+                </div>
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label class="text-primary">User Role</label>
@@ -89,5 +94,6 @@
     </div>
     <script src="/js/loginmodule/validation.js"></script>   
     <script src="/js/loginmodule/registration.js"></script>   
+    <script src="/js/loginmodule/timmer.js"></script>   
 </body>
 </html>
