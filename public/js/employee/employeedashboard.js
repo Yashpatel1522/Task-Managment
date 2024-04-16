@@ -60,7 +60,7 @@ const renderProfileData = (profileData) => {
 
 
 }
-getDashBoardData("http://localhost:8000/employee/getdashboardata").then((data) => {
+getDashBoardData("http://127.0.0.1:8000/employee/getdashboardata").then((data) => {
   dashboardData = data.result
   renderData(dashboardData)
 });
@@ -75,7 +75,7 @@ async function getDashBoardData(url) {
 }
 
 async function loadProfile() {
-  let response = await fetch("http://localhost:8000/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
+  let response = await fetch("http://127.0.0.1:8000/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
     profileData = data.result;
     renderProfileData(profileData)
   })
