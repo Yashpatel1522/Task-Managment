@@ -12,19 +12,18 @@ let output={
   jwtFromRequest:getToken,
   secretOrKey:process.env.SECRET_KEY
 }
+
 passport.use(new JwtStrategy(output, async function(jwt_payload, done){
   try {
       let db=new database()
       let user = await db.executeQuery('select * from users where id = ?',[jwt_payload.id]);
-      console.log(user)
       if (user) {
-        return done(null, user);
+        return done(null, user[0]);
     } else {
         return done(null, false);
     }
 } catch (error) {
-    return done(err);
+    return done(error);
 }
-
 }));
 module.exports=passport;

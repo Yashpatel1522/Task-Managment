@@ -180,3 +180,12 @@ CREATE TABLE user_comments(
     FOREIGN KEY(emp_id) REFERENCES users(id) ON UPDATE CASCADE,
     FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE
 );
+
+create table user_profiles(
+id int primary key auto_increment,
+user_id int,
+oldimage_name varchar(255),
+newimage_name varchar(255),
+is_deleted boolean default 0,
+FOREIGN KEY(user_id) REFERENCES users(id) ON UPDATE CASCADE
+);

@@ -19,50 +19,6 @@
 	padding: 15px;
 }
 
-.taskContainer {
-	display: flex;
-	overflow-x: hidden;
-}
-
-.tasks {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0.5%;
-	padding: 10px;
-	min-width: 550px;
-	max-width: 550px;
-}
-
-.border {
-	padding: 15px;
-	background-color: #F0F6FF;
-}
-
-.taskDetails {
-	background-color: white;
-	padding: 10px;
-	font-size: 20px;
-	border: 5px solid rgb(120, 120, 146);
-	max-width: 550px;
-	overflow-x: auto;
-}
-
-.taskContent {
-	max-width: 550px;
-}
-
-.taskdetails {
-	padding: 15px 0;
-}
-
-.head,
-.prof,
-.cardHead {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 
 .taskhead {
 	display: flex;
@@ -70,67 +26,35 @@
 	padding: 25px 0;
 }
 
-.prog,
 .tasklft {
 	width: 80%;
-}
-
-.prog > h3 {
-	font-size: 25px;
 }
 
 .tasklft > h2 {
 	font-size: 35px;
 }
 
-.search {
-	display: flex;
-	width: 30%;
+#profClk {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
 }
 
-.space {
-	width: 73%;
+#profClk > p {
+	float: none;
+	color: black;
+	font-size: medium;
+	padding: 12px 16px;
+	display: block;
+	text-align: left;
+	cursor: pointer;
 }
 
-.headspace {
-	width: 50%;
-}
-
-.btn {
-	display: flex;
-}
-
-.showtasks {
-	padding: 25px;
-}
-
-input::placeholder {
-	font-size: 10px;
-}
-
-/* .blue-btn {
-	background-color: blue;
-	padding: 10px;
-	font-size: 15px;
-	color: white;
-	border-radius: 10px;
-} */
-
-/* .button {
-	padding-left: 35%;
-	width: 20%;
-} */
-
-.dots {
-	width: 20px;
-}
-
-.containerhead {
-	padding: 20px 0;
-}
-
-.search > p {
-	font-weight: bold;
+#profClk > p:hover {
+	background-color: lightgray;
 }
 
 .addtaskcontainer{

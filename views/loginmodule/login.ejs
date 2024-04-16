@@ -1,11 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    body{
+      /* background-image: url('/assets/loginmodule/OIP.jpg');
+      background-repeat: no-repeat;
+      background-size: 100dvb; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh
+        }
+    .container {
+      background-color: rgba(255, 255, 255, .5);
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      margin: auto;
+    }
+  </style>
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
+  <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-    <h2>hi</h2>
-</body>
+  <body>
+    <div class="d-flex container" style="width: fit-content;">
+      <div class="m-auto" style="width: 400px;">
+        <img src="/assets/loginmodule/photo_6109193256454700033_y.jpg" width="100%" height="auto">
+      </div>
+      <div style="width: 325px;">
+        <form class="p-4" onchange="return isValidLogin()" method="post" id="login_form">
+          <div class="row">
+            <div class="col mb-3"><h1 class="text-primary text-center">Login</h1></div>
+          </div>
+          <div class="row">
+            <div class="col mb-3"><p  id="error" class="alert alert-danger text-center p-2 bold" style='display: none;'></p></div>
+          </div>
+          <div class="row">
+            <div class="col text-center" id="active_timer">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label class="text-primary">Email ID / Mobile Number : </label>
+              <input tabindex="1" type="text" name="username" id="username" placeholder="Enter Email / Mobile number ....." class="form-control border-primary">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label class="text-primary">Password : </label>
+              <input tabindex="2" type="password" name="password" id="password" placeholder="Enter password....." class="form-control border-primary">
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="col mb-3">
+              <input type="button" tabindex="5" class="btn btn-primary w-100" onclick="return isLogin()" value="Login">
+            </div>
+            <!-- <div class="col-md-6">
+              <input tabindex="6" type="clear" onclick="this.type=reset" class="btn btn-outline-danger w-100" value="Clear">
+            </div> -->
+          </div>
+  
+          <div class="row">
+            <div class="col text-center">
+              <a href="/forgetpassword">Forget Password</a><br>
+              <a href="/createUser">Create new account?</a><br>
+              <a href="/index">Back</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>   
+    <script src="/js/loginmodule/validation.js"></script>
+    <script src="/js/loginmodule/login.js"></script>
+  </body>
 </html>

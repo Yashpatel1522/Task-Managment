@@ -1,13 +1,21 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="/css/adminmodulo/manager.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/css/loginmodule/popup.css">
 </head>
 
 <body>
 
+</head>
+
+<body onload="getEmpData()">
+
+
   <%- include('../partials/adminmenubar') %>
-    <div class="rightbar">  
+    <div class="rightbar">
       <div class="profilename position-relative">
         <div class="float-start">
           <h3 class="text-center m-3">Employees</h3>
@@ -16,48 +24,40 @@
           <div class="bell">
             <i class="fa-solid fa-bell"></i>
           </div>
-          
-          <div class="profile d-flex" onclick="profileShow()" style="cursor: pointer;">
+
+          <div class="profile d-flex" style="cursor: pointer;">
             <i class="fa-solid fa-user"></i>
             <p><B>Name</B></p>
           </div>
         </div>
       </div>
-      <div class="row1 my-4">
-        <div class="search float-start mx-3 ">
-          <input type="text" placeholder="Search Employee.." class="rounded py-2 px-3 " tabindex="1">
-        </div>
-        <div class="addemployee">
-          <a href=""><input type="button" value="+  Add Employee" class="btn btn-secondary float-end mx-2 my-2 px-3" tabindex="2"></a>
+      <div class="my-3">
+        <div class="row1 my-4">
+          <div class="search float-start mx-3 ">
+            <input type="text" placeholder="Search Employee.." class="rounded py-2 px-3 " tabindex="1" onchange="searchEmpData(this.value)">
+          </div>
+          <div class="addemployee">
+            <input type="button" value="+  Add Employee" class="btn btn-secondary float-end mx-2 my-2 px-3" tabindex="2"
+              onclick="openPopup()">
+          </div>
         </div>
       </div>
       <div class="my-2">
-        <table class="table mx-2 text-center">
-          <thead>
-            <tr>
-              <% Object.keys(employeeData[0]).forEach(function(key) {%>
-                <th>
-                  <%=key%>
-                </th>
-                <%}); %>
-                  <th>Details</th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider">
-            <% for(let i=0 ; i<employeeData.length ; i++){ %>
-              <tr>
-                <% Object.keys(employeeData[0]).forEach(function(key) {%>
-                  <td>
-                    <%= employeeData[i][key] %>
-                  </td>
-                  <%}); %>
-                    <td><input type="button" value="View" class="btn btn-secondary px-3"></td>
-              </tr>
-              <%}%>
-          </tbody>
+        <table class="table mx-2 text-center" id="emp-table">
+          
         </table>
       </div>
+      <div id="pagination">
+        
+      </div>
+      <div class="addtaskcontainer" id="show-detail">
+        <form action="" id="employee-form"></form>
+      </div>
     </div>
-</body>
+    <div class="addregistrationcontainer" id="open-registration">
+      <%- include("../loginmodule/registration")%>
+    </div>
+  <script src="/js/loginmodule/popup.js"></script>  
 
+</body>
 </html>

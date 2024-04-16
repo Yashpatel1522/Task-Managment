@@ -1,0 +1,61 @@
+.managerMain {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #DDD0C8;
+}
+
+.managerSidebar {
+	width: 20%;
+	height: 1000px;
+	padding: 15px;
+	border-top-right-radius: 30px;
+	background-color: #323232;
+}
+
+.employeeContent {
+	width: 80%;
+	height: 1000px;
+	padding: 15px;
+}
+
+#profClk {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+#profClk > p {
+	float: none;
+	color: black;
+	font-size: medium;
+	padding: 12px 16px;
+	display: block;
+	text-align: left;
+	cursor: pointer;
+}
+
+#profClk > p:hover {
+	background-color: lightgray;
+}
+
+.employeeHead {
+	display: flex;
+	align-items: center;
+	padding: 25px 0;
+}
+
+.tasklft {
+	width: 80%;
+}
+
+.tasklft > h2 {
+	font-size: 35px;
+}
+
+.search::placeholder {
+    padding-left: 10px;
+}

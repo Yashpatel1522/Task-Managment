@@ -1,31 +1,23 @@
 let pagelimit = 5;
 let maxlength;
-const getManagerData = async () => {
+const getEmpData = async () => {
   try {
-    let data = await (await fetch(`/admin/managersapi`)).json();
+    let data = await (await fetch(`/admin/employeesapi`)).json();
     maxlength = data.result.length;
-    let table = document.getElementById("man-table")
+    let table = document.getElementById("emp-table")
     let dataadd = `<thead>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Email</th>
-                <th>Contact No</th>
-                <th>View Details</th>
-                <th>Edit Details</th>
-                </thead>`
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Email</th>
+              <th>Contact No</th>
+              <th>View Details</th>
+              <th>Delete</th>
+              </thead>`
     if (data.result.length != 0) {
       data.result.slice(pagelimit - 5, pagelimit).forEach(element => {
-        dataadd += (`<tr>
-                <td>${element.first_name}</td>
-                <td>${element.last_name}</td>
-                <td>${element.email}</td>
-                <td>${element.contact}</td>
-                <td>
-                <input type="button" value="view" class="btn btn-secondary px-3" onclick="openPopup1(${element.id})">
-                </td>
-                <td>
-                <input type="button" value="delete" class="btn btn-secondary px-3" onclick="deleteManData(${element.id})">
-                </td>`)
+        dataadd += (`<tr><td>${element.first_name}</td><td>${element.last_name}</td><td>${element.email}</td><td>${element.contact}</td><td><input type="button" value="view" class="btn btn-secondary px-3" onclick = "openPopup1(${element.id})"></td><td>
+              <input type="button" value="delete" class="btn btn-secondary px-3" onclick="deleteEmpData(${element.id})">
+              </td>`)
       });
       table.innerHTML = dataadd;
       document.getElementById("pagination").innerHTML = `
@@ -35,7 +27,6 @@ const getManagerData = async () => {
         <input type="button" value="Next" onclick="next()">
         <input type="button" value="LastPage" onclick="lastpage()">`
     }
-
   } catch (error) {
     // logger.error(error)
     console.log(error);
@@ -44,29 +35,27 @@ const getManagerData = async () => {
 
 const firstpage = () => {
   pagelimit = 5;
-  getManagerData();
+  getEmpData();
 }
 
 const pervious = () => {
   if (pagelimit != 5) {
     pagelimit -= 5;
-    getManagerData();
+    getEmpData();
   }
 }
 
 const next = () => {
   if (pagelimit != maxlength) {
     pagelimit += 5;
-    getManagerData();
+    getEmpData();
   }
 }
 
 const lastpage = () => {
   pagelimit = maxlength;
-  getManagerData();
+  getEmpData();
 }
-
-
 
 let popup = document.getElementById("show-detail");
 const openPopup = () => {
@@ -88,28 +77,29 @@ const closePopup = () => {
 const openPopup1 = async (id) => {
   try {
     popup.classList.add("open-popup");
-    let data = await (await fetch(`/admin/managersapi/${id}`)).json();
+    console.log(id);
+    let data = await (await fetch(`/admin/employeesapi/${id}`)).json();
 
-    if (data.managerDetail.length != 0) {
-      document.getElementById("manager-form").innerHTML =
+    if (data.employeeDetail.length != 0) {
+      document.getElementById("employee-form").innerHTML =
         `<div onclick = "closePopup()">
-              <i class="fa-solid fa-x"></i>
-            </div>
+            <i class="fa-solid fa-x"></i>
+          </div>
             <table>
                 <tr>
                   <td>
-                    FirstName: <input type="text" value="${data.managerDetail[0].first_name}" name="fname" disabled>
+                    FirstName: <input type="text" value="${data.employeeDetail[0].first_name}" name="fname" disabled>
                   </td>
                   <td>
-                    LastName: <input type="text" value="${data.managerDetail[0].last_name}" name="fname" disabled>
+                    LastName: <input type="text" value="${data.employeeDetail[0].last_name}" name="fname" disabled>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    Email: <input type="text" value="${data.managerDetail[0].email}" name="email" disabled>
+                    Email: <input type="text" value="${data.employeeDetail[0].email}" name="email" disabled>
                   </td>
                   <td>
-                    Contact No: <input type="text" value="${data.managerDetail[0].contact}" name="contact" disabled>
+                    Contact No: <input type="text" value="${data.employeeDetail[0].contact}" name="contact" disabled>
                   </td>
                 </tr>
             </table>`
@@ -119,22 +109,22 @@ const openPopup1 = async (id) => {
   }
 }
 
-const searchData = async (value) => {
+const searchEmpData = async (value) => {
   try {
     console.log(value);
-    let data = await (await fetch(`/admin/managersapi/search/${value}`)).json();
-    document.getElementById("man-table").innerHTML = "";
+    let data = await (await fetch(`/admin/employeesapi/search/${value}`)).json();
+    document.getElementById("emp-table").innerHTML = "";
     if (value === "") {
-      getManagerData()
+      getEmpData()
     }
-    let table = document.getElementById("man-table");
+    let table = document.getElementById("emp-table");
     let dataadd = `<thead>
                 <th>FirstName</th>
                 <th>LastName</th>
                 <th>Email</th>
                 <th>Contact No</th>
                 <th>View Details</th>
-                <th>Delete</th>
+                <th>Edit Details</th>
                 </thead>`
     if (data.searchData.length != 0) {
       data.searchData.forEach(element => {
@@ -152,39 +142,40 @@ const searchData = async (value) => {
       });
       table.innerHTML = dataadd;
     } else {
-      document.getElementById("man-table").innerText = "Not Data Found"
+      document.getElementById("emp-table").innerText = "Not Data Found"
     }
   } catch (error) {
     console.log(error);
   }
 }
 
-const deleteManData = async (id) => {
+const deleteEmpData = (id) => {
   try {
     popup.classList.add("open-popup");
-    document.getElementById("manager-form").innerHTML =
+    document.getElementById("employee-form").innerHTML =
       `<div>
       <h3>Are You Sure !</h3>
       <div>
         <input type="button" value="Cancel" onclick="closePopup()">
         <input type="button" value="Submit" onclick="userdelete(${id})">
       </div>
-    </div>`
+    </div>`   
   } catch (error) {
     console.log(error);
   }
 }
 
+
 const userdelete = async (id) => {
   try {
-    let data = await fetch(`http://localhost:8000/admin/managersapi/${id}`, {
+    let data = await fetch(`http://localhost:8000/admin/employeesapi/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },
     })
     closePopup();
-    getManagerData();
+    getEmpData();
   } catch (error) {
     console.log(error);
   }
