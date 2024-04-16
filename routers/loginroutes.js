@@ -3,10 +3,10 @@ const { loginPost, loginGet } = require("../controller/loginmodule/login.control
 const {adminDashboard } = require("../controller/adminmodulo/dashboard");
 const passport=require('passport');
 const checkUserRole = require("../middleware/userrole");
-const { registrationPost } = require("../controller/loginmodule/registration.controller");
 const multer = require('multer'); 
-const userProfileStorage = require("../utility/multer");
-const acticationGet = require("../controller/loginmodule/activation.controller");
+const {acticationGet, acticationPost} = require("../controller/loginmodule/activation.controller");
+const { userProfileStorage } = require("../utility/multer");
+const { registrationPost } = require("../controller/loginmodule/registration.controller");
 const uploadStorage = multer({ storage: userProfileStorage })
 // const jwtStrategy=require('passport-jwt').Strategy;
 require('../middleware/jwtpassport')
@@ -18,6 +18,7 @@ login.post("/",loginPost)
 login.post("/registration",uploadStorage.single('img'),registrationPost)
 
 login.get("/newpassword/:activationcode",acticationGet)
+login.post("/newpassword/:activationcode",acticationPost)
 
 login.get("/dashboard",passport.authenticate("jwt",{session:false,failureRedirect:"/login/"}),checkUserRole,adminDashboard)
 module.exports=login;
