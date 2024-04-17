@@ -196,6 +196,7 @@ async function seachresult() {
 }
 
 async function addcomment(){
+  
   obj = {}
   new FormData(document.getElementById('form')).forEach((value, key) => {
     obj[key] = value;
