@@ -1,5 +1,5 @@
 const express = require('express');
-const {searchTask, managerTasks } = require("../controller/managermodule/managertasks")
+const {searchTask, managerTasks, notifications } = require("../controller/managermodule/managertasks")
 const taskCount = require("../controller/managermodule/taskCount")
 const employeeData = require("../controller/managermodule/employeeData")
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
@@ -18,10 +18,10 @@ managerRouter.get("/employeeDetails", (request, response)=> {
 })
 
 //api to Update Manager Profile Details
-managerRouter.post("/updateManager", updateManager);
+// managerRouter.post("/updateManager", updateManager);
 
 //api to get Manager Profile Details
-managerRouter.get("/getManagerProfile", managerProfile);
+// managerRouter.get("/getManagerProfile", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
@@ -38,6 +38,8 @@ managerRouter.get('/getdataapi',addtaskdata);
 // ,uploadStorage.array('')
 managerRouter.post('/inserttask',addtaskdatamiddleware,uploadStorage.single("file"),inserttaskdata);
 // serach task api
-managerRouter.get('/searchtask',searchTask)
+managerRouter.post('/searchtask',searchTask)
+
+managerRouter.get('/notification',notifications)
 
 module.exports = managerRouter;

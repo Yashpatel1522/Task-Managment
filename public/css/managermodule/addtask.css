@@ -34,7 +34,6 @@ body{
   padding: 5px;
   margin: 0 auto;
   background-color: var(--white);
-  border: 5px solid black;
   border-radius: 10px;
   width: 500px;
 }

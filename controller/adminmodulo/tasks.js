@@ -26,7 +26,7 @@ exports.searchTasks = async (request,response) =>{
         let taskData = await db.executeQuery(query, [search,search]);
         return response.json({taskData});
     } catch (err) {
-        console.log(err);
+        logger.log(err);
         // logger.error(err);
     }
 }
