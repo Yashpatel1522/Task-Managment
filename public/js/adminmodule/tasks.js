@@ -1,0 +1,213 @@
+const getTaskData = async () => {
+  try {
+    let data = await (await fetch(`/admin/tasksData`)).json();
+    todoTask = document.getElementById("todoTask");
+    let todoData = ``;
+    data.todoData.forEach(e => {
+      todoData += `<div class="card m-3 p-2">
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+        <input type="button" value="view" onclick="openpopup2(${e.id})">
+      </div>
+    </div>`
+    });
+    todoTask.innerHTML = todoData;
+
+    let inprogressTask = document.getElementById("inprogressTask");
+    let inprogressData = ``;
+    data.inprogress.forEach(e => {
+      inprogressData += `<div class="card m-3 p-2">
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+         <input type="button" value="view" onclick="openpopup2(${e.id})">
+      </div>
+    </div>`
+    });
+    inprogressTask.innerHTML = inprogressData;
+
+    let completedTask = document.getElementById("completedTask");
+    let completedData = ``;
+    data.complete.forEach(e => {
+      completedData += `<div class="card m-3 p-2">
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+         <input type="button" value="view" onclick="openpopup2(${e.id})">
+      </div>
+    </div>`
+    });
+    completedTask.innerHTML = completedData;
+  } catch (error) {
+    // logger.error(error)
+    console.log(error);
+  }
+}
+
+const searchTaskData = async (value) => {
+  try {
+    let data = await (await fetch(`/admin/tasksData/${value}`)).json();
+    document.getElementById("todoTask").innerHTML = "";
+    if (value === "") {
+      getTaskData()
+    }
+    let todoTask = document.getElementById("todoTask");
+    let dataadd = ``
+    if (data.todoTask.length != 0) {
+      data.todoTask.forEach(e => {
+        dataadd += `<div class="card m-3 p-2">
+        <div class="card-body">
+          <p>${e.task_name}</p>
+          <p>${e.task_description}</p>
+           <input type="button" value="view" onclick="openpopup2(${e.id})">
+        </div>
+      </div>`
+      });
+      todoTask.innerHTML = dataadd;
+    } else {
+      document.getElementById("todoTask").innerText = "Not Data Found"
+    }
+
+    document.getElementById("inprogressTask").innerHTML = "";
+    if (value === "") {
+      getTaskData()
+    }
+<<<<<<< HEAD:public/js/adminmodule/tasks.js
+=======
+    let inprogressTask = document.getElementById("inprogressTask");
+    let dataadd1 = ``
+    if (data.inprogressTask.length != 0) {
+      data.inprogressTask.forEach(e => {
+        dataadd1 += `<div class="card m-3 p-2">
+        <div class="card-body">
+          <p>${e.task_name}</p>
+          <p>${e.task_description}</p>
+           <input type="button" value="view" onclick="openpopup2(${e.id})">
+        </div>
+      </div>`
+      });
+      inprogressTask.innerHTML = dataadd1;
+    } else {
+      document.getElementById("inprogressTask").innerText = "Not Data Found"
+    }
+
+    document.getElementById("completedTask").innerHTML = "";
+    if (value === "") {
+      getTaskData()
+    }
+    let completedTask = document.getElementById("completedTask");
+    let dataadd2 = ``
+    if (data.completedTask.length != 0) {
+      data.completedTask.forEach(e => {
+        dataadd2 += `<div class="card m-3 p-2">
+        <div class="card-body">
+          <p>${e.task_name}</p>
+          <p>${e.task_description}</p>
+           <input type="button" value="view" onclick="openpopup2(${e.id})">
+        </div>
+      </div>`
+      });
+      completedTask.innerHTML = dataadd2;
+    } else {
+      document.getElementById("completedTask").innerText = "Not Data Found"
+    }
+>>>>>>> dev:public/js/adminmodulo/tasks.js
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+let taskPopup = document.getElementById("task-detail");
+
+const closePopup2 = () => {
+  try {
+    taskPopup.classList.remove("open-popup")
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const openpopup2 = async (id) => {
+  try {
+    taskPopup.classList.add("open-popup");
+    let data = await (await fetch(`/admin/tasksDetails/${id}`)).json();
+    if (data.taskDetail.length != 0) {
+      document.getElementById("task").innerHTML = `
+        <div class="container width:fit-content p-4">
+          <div class="row mb-3">
+            <div class="col-md-11">
+              <h2 class="text-primary text-center">Employee Detalis</h2> 
+            </div>
+            <div class="col-md-1">
+              <i class='bx bxs-x-circle text-danger fs-2'onclick="closePopup2()"></i>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="text-primary">Task Name :</label>
+              <input type="text" class="form-control" tabindex="2" id="task_name" name="task_name"
+                    value="${data.taskDetail[0].task_name}" disabled>
+            </div>
+            <div class="col-md-6">
+              <label class="text-primary">Description :</label>
+              <input type="text" class="form-control" tabindex="3" id="description" name="description" 
+                  value="${data.taskDetail[0].task_description}" disabled>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="text-primary">Category :</label>
+              <input type="text" class="form-control" tabindex="2" id="category" name="category"
+                    value="${data.taskDetail[0].category}" disabled>
+            </div>
+            <div class="col-md-6">
+              <label class="text-primary">status :</label>
+              <input type="text" class="form-control" tabindex="3" id="status" name="status"
+                  value="${data.taskDetail[0].task_status}" disabled>
+            </div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="text-primary">Start Date :</label>
+              <input type="text" class="form-control" tabindex="2" id="start_date" name="start_date"
+                    value="${data.taskDetail[0].task_start_date}" disabled>
+            </div>
+            <div class="col-md-6">
+              <label class="text-primary">End Date :</label>
+              <input type="text" class="form-control" tabindex="3" id="end_date" name="end_date" 
+                  value="${data.taskDetail[0].task_end_date}" disabled>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="text-primary">Urgency :</label>
+              <input type="text" class="form-control" tabindex="3" id="Urgency" name="Urgency"
+                  value="${data.priorities[0].urgency}" disabled>
+            </div>
+            <div class="col-md-6">
+              <label class="text-primary">Importance :</label>
+              <input type="text" class="form-control" tabindex="3" id="importance" name="importance"
+                  value="${data.priorities[0].importance}" disabled>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="text-primary">Manager :</label>
+              <input type="text" class="form-control" tabindex="2" id="manager" name="manager"
+                    value="${data.taskDetail[0].manager}" disabled>
+            </div>
+            <div class="col-md-6">
+              <label class="text-primary">employees :</label>
+              <select name="cars" id="cars">
+                <option value="volvo">Volvo</option>
+              </select>
+            </div>
+          </div>
+        </div>`;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}

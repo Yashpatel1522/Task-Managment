@@ -4,7 +4,6 @@ const db = new database();
 const getProfiledata = async (request, response) => {
   try {
     let f = await db.executeQuery(`select * from users where id=1`);
-    console.log(f);
     return response.json({
       result: await db.executeQuery(`select * from users where id=1`),
     });

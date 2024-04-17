@@ -1,43 +1,43 @@
 const express = require("express");
-const { adminDashboard } = require("../controller/adminmodulo/dashboard");
-const { adminManagers, managerDetails, searchManData, dataDelete } = require("../controller/adminmodulo/managers");
-const { adminEmployees, employeeDetails, searchEmpData, empDataDelete } = require("../controller/adminmodulo/employees");
-const { adminTasks,searchTasks } = require("../controller/adminmodulo/tasks");
-const { adminTasktrack } = require("../controller/adminmodulo/tasktrack");
-const { adminCalender } = require("../controller/adminmodulo/calender");
+const { adminDashboard } = require("../controller/adminmodule/dashboard");
+const { adminManagers, managerDetails, searchManData, dataDelete, managerpage } = require("../controller/adminmodule/managers");
+const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeepage } = require("../controller/adminmodule/employees");
+const { adminTasks, searchTasks, taskpage } = require("../controller/adminmodule/tasks");
+const { adminTasktrack } = require("../controller/adminmodule/tasktrack");
+const { adminCalender } = require("../controller/adminmodule/calender");
 const router = express.Router();
 
+// Page Render
 router.route("/dashboard").get(adminDashboard);
-//
-router.get("/managers", (request, response)=> {
-  response.render('./adminmodulo/managers')
-});
+router.route("/managers").get(managerpage);
+router.route("/employees").get(employeepage);
+router.route("/tasks").get(taskpage);
 
-router.get("/employees", (request, response)=> {
-  response.render('./adminmodulo/employees')
-})
-
-router.get("/tasks", (request, response)=> {
-  response.render('./adminmodulo/tasks')
-})
-
-
+// Manager Api 
 router.get("/managersapi", adminManagers);
 router.get("/managersapi/:id", managerDetails);
 router.get("/managersapi/search/:searchdata", searchManData)
 router.delete("/managersapi/:id", dataDelete)
 
+// Employee Api
 router.route("/employeesapi").get(adminEmployees);
 router.get("/employeesapi/:id", employeeDetails);
 router.get("/employeesapi/search/:searchdata", searchEmpData)
 router.delete("/employeesapi/:id", empDataDelete)
 
+// Team
+router.route("/team").get(adminTasktrack);
+
+// Task Router
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
+router.get("/tasksDetails/:id", taskDetail)
 
-router.route("/tasktrack").get(adminTasktrack);
+
+// Calender
 router.route("/calender").get(adminCalender);
-router.route("/logout").get(adminDashboard);
+
+
 
 module.exports = router
 
