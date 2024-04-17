@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management System</title>
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
+  <link rel="stylesheet" href="/css/loginmodule/popup.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <script src="/js/bootstrap.js"></script>
+  <style>
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: calc(80%/3);
+    }
+  </style>
+</head>
+
+<body onload="getTaskData()">
+
+  <div class="container">
+    <div class="admin">
+      <%- include('../partials/adminmenubar') %>
+        <div class="rightbar">
+          <%- include('../partials/navigation') %>
+
+            <div class="my-5">
+              <div class="row1 my-4">
+                <div class="search float-start mx-3 ">
+                  <input type="text" placeholder="Search task.." class="rounded py-2 px-3 " tabindex="1"
+                    onchange="searchTaskData(this.value)">
+                </div>
+                <div class="addtasks">
+                  <input type="button" value="+  Add Task" class="btn btn-secondary float-end mx-2 my-2 px-3"
+                    tabindex="2" onclick="openPopup()">
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2>Todo</h2>
+              <div class="cards d-flex" id="todoTask">
+
+              </div>
+
+              <h2>Inprogress</h2>
+              <div class="cards d-flex" id="inprogressTask">
+
+              </div>
+
+              <h2>completed</h2>
+              <div class="cards d-flex" id="completedTask">
+
+              </div>
+            </div>
+            <div class="addregistrationcontainer" id="task-detail">
+              <div id="task">
+
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="addregistrationcontainer" id="open-registration">
+    <%- include("addtask")%>
+  </div>
+
+  <script src="/js/loginmodule/popup.js"></script>
+  <script src="/js/adminmodulo/tasks.js"></script>
+</body>
+
+</html>

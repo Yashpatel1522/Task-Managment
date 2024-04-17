@@ -1,9 +1,8 @@
 function sc(act, id) {
-  let row = document.getElementsByClassName('carddetails')[id];
-  if (act == 'next') {
+  let row = document.getElementsByClassName("carddetails")[id];
+  if (act == "next") {
     row.scrollLeft += 200;
-  }
-  else {
+  } else {
     row.scrollLeft -= 200;
   }
 }
@@ -11,16 +10,15 @@ function showDropdown() {
   document.getElementById("dropdown").classList.toggle("show");
 }
 
-let path = window.location.pathname.split("/")
-let id = path[path.length - 1]
-console.log(id, "id is ")
+let path = window.location.pathname.split("/");
+let id = path[path.length - 1];
+console.log(id, "id is ");
 
 var employeedata;
 async function fetchData() {
-
-  response = await fetch(`http://127.0.0.1:8000/employee/employeetasklist/${id}`)
-  data = await response.json()
-  employeedata = data
+  response = await fetch(`/employee/employeetasklist/${id}`);
+  data = await response.json();
+  employeedata = data;
   function setCard(id, element) {
     document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
@@ -35,27 +33,20 @@ async function fetchData() {
                   <label>due date :</label>
                   <p>${element.task_end_date}</p>
                 </div>
-              </div >`
+              </div >`;
   }
-  data.forEach(element => {
-    console.log(element, "elementic ")
-    if (element.task_status == 'todo') {
-      setCard('todo', element)
-    }
-
-    else if (element.task_status == 'inprogress') {
-      setCard('inprogress', element)
-
-    }
-    else if (element.task_status == 'completed') {
-      setCard('completed', element)
-
+  data.forEach((element) => {
+    console.log(element, "elementic ");
+    if (element.task_status == "todo") {
+      setCard("todo", element);
+    } else if (element.task_status == "inprogress") {
+      setCard("inprogress", element);
+    } else if (element.task_status == "completed") {
+      setCard("completed", element);
     }
   });
-
-
 }
-fetchData()
+fetchData();
 
 var gtaskid;
 let ides = (id) => document.getElementById(id);
@@ -66,7 +57,7 @@ const show = (id, taskid) => {
   gtaskid = taskid
   employeedata.forEach(element => {
     if (element.task_id == taskid) {
-      document.getElementById('taskdetails').innerHTML = `
+      document.getElementById("taskdetails").innerHTML = `
                   <div class="field">
                     <label>Task Name:</label>
                     <p>${element.task_name}</p>
@@ -105,16 +96,14 @@ const show = (id, taskid) => {
                     <button type="button" onclick="hide('popup')" class="btn btn-primary">Close</button>
                   </div>
 
-                </div >`
-
+                </div >`;
     }
   });
-
-}
+};
 
 const hide = (id) => {
   ides(id).style.display = "none";
-}
+};
 
 let ides_comment = (id) => document.getElementById(id);
 
@@ -129,9 +118,8 @@ const showComment = (id, taskid) => {
 }
 
 const hideComment = (id) => {
-
   ides_comment(id).style.display = "none";
-}
+};
 
 //user search section
 async function seachresult() {

@@ -154,3 +154,46 @@
 {"level":"error","timestamp":"2024-04-16T13:15:06.729Z"}
 {"level":"error","timestamp":"2024-04-16T13:19:47.844Z"}
 {"level":"error","timestamp":"2024-04-16T13:19:49.103Z"}
+{"level":"error","message":"Error executing query in update manager profile","timestamp":"2024-04-17T09:37:30.155Z"}
+{"level":"error","message":"Error executing query in update manager profile","timestamp":"2024-04-17T10:48:34.012Z"}
+{"level":"error","message":"Error executing query in update manager profile","timestamp":"2024-04-17T10:49:31.670Z"}
+{"level":"error","message":"Error executing query in update manager profile","timestamp":"2024-04-17T10:49:40.338Z"}
+{"level":"error","timestamp":"2024-04-17T10:50:22.760Z"}
+{"level":"error","timestamp":"2024-04-17T10:54:27.163Z"}
+{"level":"error","timestamp":"2024-04-17T10:55:19.948Z"}
+{"level":"error","timestamp":"2024-04-17T10:55:43.508Z"}
+{"level":"error","timestamp":"2024-04-17T10:55:55.336Z"}
+{"level":"error","timestamp":"2024-04-17T10:56:01.119Z"}
+{"level":"error","timestamp":"2024-04-17T10:56:26.728Z"}
+{"level":"error","timestamp":"2024-04-17T10:56:35.109Z"}
+{"level":"error","timestamp":"2024-04-17T10:56:47.536Z"}
+{"level":"error","timestamp":"2024-04-17T10:57:03.607Z"}
+{"level":"error","timestamp":"2024-04-17T10:57:41.271Z"}
+{"level":"error","timestamp":"2024-04-17T10:59:16.423Z"}
+{"level":"error","timestamp":"2024-04-17T10:59:28.041Z"}
+{"level":"error","timestamp":"2024-04-17T11:00:11.833Z"}
+{"level":"error","timestamp":"2024-04-17T11:00:36.301Z"}
+{"level":"error","timestamp":"2024-04-17T11:00:45.918Z"}
+{"level":"error","timestamp":"2024-04-17T11:02:10.371Z"}
+{"level":"error","timestamp":"2024-04-17T11:04:41.993Z"}
+{"level":"error","timestamp":"2024-04-17T11:05:12.000Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"update users set first_name = 'vishvas', last_name = 'panshiniya', email = 'manil@gmail.com', contact = '1234567890', date_of_birth = '2001-01-01' where user_id = 8;","sqlMessage":"Unknown column 'user_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-17T11:40:21.665Z"}
+{"level":"error","timestamp":"2024-04-17T11:41:01.792Z"}
+{"level":"error","timestamp":"2024-04-17T11:42:09.864Z"}
+{"level":"error","timestamp":"2024-04-17T11:43:38.471Z"}
+{"level":"error","timestamp":"2024-04-17T11:47:12.863Z"}
+{"level":"error","timestamp":"2024-04-17T11:47:26.363Z"}
+{"level":"error","timestamp":"2024-04-17T11:47:35.018Z"}
+{"level":"error","timestamp":"2024-04-17T11:48:24.113Z"}
+{"level":"error","timestamp":"2024-04-17T11:48:51.055Z"}
+{"level":"error","timestamp":"2024-04-17T11:48:54.987Z"}
+{"level":"error","timestamp":"2024-04-17T11:49:27.974Z"}
+{"level":"error","timestamp":"2024-04-17T11:51:34.618Z"}
+{"level":"error","timestamp":"2024-04-17T11:51:57.970Z"}
+{"level":"error","timestamp":"2024-04-17T12:01:23.813Z"}
+{"level":"error","timestamp":"2024-04-17T12:08:31.938Z"}
+{"level":"error","timestamp":"2024-04-17T12:13:51.369Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-17T09:39:50.508Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-17T09:43:18.000Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-17T09:43:19.895Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-17T09:48:32.723Z"}
