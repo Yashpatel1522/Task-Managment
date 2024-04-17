@@ -15,8 +15,10 @@ async function setData() {
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
                             <div class="card-body bg-light" style="border-radius: 10px;">
-                                <h5 class="card-title">${data.result[count].irst_name} ${data.result[count].last_name}</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title" style="font-size: 25px;">${data.result[count].first_name} ${data.result[count].last_name}</h5>
+                                <br>
+                                <p class="card-text"><b>Email - </b>${data.result[count].email}</p>
+                                <p class="card-text"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
                                 <a href="#" class="btn btn-primary">View More</a>
                             </div>
                         </div>
@@ -51,10 +53,3 @@ function remOption() {
 	document.getElementById('profClk').style.display = 'none';
 }
 
-function showNotifications() {
-    Swal.fire({
-		title: "Notifications",
-		text: "You clicked the button!",
-		icon: "success"
-	});
-}

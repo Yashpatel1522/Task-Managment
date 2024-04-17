@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add teams</title>
+</head>
+<body>
+    <form id="teamForm" name="teamForm">
+      <div class="addtask">
+        <div class="taskrow"><h3>ADD Team</h3></div>
+      <div class="taskrow">
+          <div class="subcol">
+          <label for="tname">Team Name</label>
+          <input type="text" name="team_name" placeholder="Team Name" id="team_name" class="reqfieled"/>
+          <span class="errclass" id="tnerr"></span>
+          </div>
+      </div>
+      <div class="taskrow">
+        <div class="subcol">
+        <label for="teammember">Select Team Members</label>
+        <select name="teammembers" id="select">
+          <option value="0">select</option>
+        </select>
+        <span class="errclass" id="tmerr"></span>
+      </div>
+    </div>
+    <div class="taskcol">
+      <input type="button" class="button" id="canclebtn" value="cancle" onclick="closePopup()">
+      <input type="button" class="button" id="savebtn" value="Save" onclick="addTeamValidations()">
+      <input type="button" class="button" id="resetbtn" value="Reset" onclick="onReset()">
+    </div>
+    </div>
+    </form>
+
+    <script src="/js/managermodule/addteam.js"></script>
+</body>
+</html>
