@@ -6,7 +6,6 @@ const getdashboardata = async (request,response) => {
 
         //converting current date into mysql compatible format
         const currentDate = new Date().toISOString().split("T")[0]
-
         let res = {}
         let employeeTaskStatusCountsQuery = `select count(task_id) as Assigned, count(case when task_status = 'todo' then 1 end) as ToDo,count(case when task_status = 'inprogress' then 1 end) as InProgress, count(case when task_status = 'completed' then 1 end) as Completed from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id where emp_id = 1;`
 

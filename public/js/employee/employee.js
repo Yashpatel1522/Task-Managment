@@ -18,7 +18,7 @@ console.log(id, "id is ")
 var employeedata;
 async function fetchData() {
 
-  response = await fetch(`http://127.0.0.1:8000/employee/employeetasklist/${id}`)
+  response = await fetch(`/employee/employeetasklist/${id}`)
   data = await response.json()
   employeedata = data
   function setCard(id, element) {
@@ -141,7 +141,7 @@ async function seachresult() {
     obj[key] = value;
   })
   console.log(obj, "obj is ")
-  const response = await fetch(`http://127.0.0.1:8000/employee/searchtask`, {
+  const response = await fetch(`/employee/searchtask`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json; charset=UTF-8',
@@ -201,7 +201,7 @@ async function addcomment(){
     obj[key] = value;
   })
   console.log(obj, "obj is comment")
-  const response = await fetch(`http://127.0.0.1:8000/employee/addcomment/${id}/?gtask=${gtaskid}`, {
+  const response = await fetch(`/employee/addcomment/${id}/?gtask=${gtaskid}`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json; charset=UTF-8',
