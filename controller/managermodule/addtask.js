@@ -71,18 +71,19 @@ const inserttaskdata = async(request,response) =>{
       let res=await db.insertData({manager_id:1,category_id:taskdata.task_category, prioritiy_id:prioritiy_id,task_name:taskdata.task_name,task_description:taskdata.task_description ,task_start_date : taskdata.task_start_date,task_end_date:taskdata.task_end_date,
       task_status:taskdata.task_status,},"tasks");
       lastInserted_id = res.insertId;
-      await taskdata.emp_id.forEach(element => {
+
+      Assin_task_to = taskdata.Assin_task_to.split(',')
+      await Assin_task_to.forEach(element => {
         db.insertData({task_id:lastInserted_id, emp_id:element},"tasks_assigend_to")
       });
-
-      // let file = taskdata.files
-      // console.log(request) 
-      let filedata={
+      await request.files.forEach(file => {
+        let filedata={
           "task_id":lastInserted_id,
           "oldfile_name":file.originalname,
           "newfile_name":file.filename,
       }
-      filedata = await db.insertData(filedata,"attechments")
+      filedata = db.insertData(filedata,"attechments")
+      });
       response.json({'msg':'done'});
 
   } catch (error) {

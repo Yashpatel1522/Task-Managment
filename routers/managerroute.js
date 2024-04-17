@@ -3,10 +3,9 @@ const {searchTask, managerTasks, notifications } = require("../controller/manage
 const taskCount = require("../controller/managermodule/taskCount")
 const employeeData = require("../controller/managermodule/employeeData")
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
-const addtaskdatamiddleware = require('../middleware/addtask')
-const multer = require('multer'); 
-const taskdetailfiles = require("../utility/multer");
-const uploadStorage = multer({ storage: taskdetailfiles})
+const addtaskdatamiddleware = require('../middleware/addtask');
+const { upload } = require('../utility/multer');
+
 const managerRouter = express.Router();
 
 managerRouter.get("/", (request, response)=> {
@@ -39,7 +38,7 @@ managerRouter.get("/getManagerTaskCount", taskCount)
 managerRouter.get('/getdataapi',addtaskdata);
 // insert task data
 // ,uploadStorage.array('')
-managerRouter.post('/inserttask',addtaskdatamiddleware,uploadStorage.array("files"),inserttaskdata);
+managerRouter.post('/inserttask',upload.array("files"),inserttaskdata);
 // serach task api
 managerRouter.post('/searchtask',searchTask)
 
