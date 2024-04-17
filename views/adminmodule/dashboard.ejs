@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management System</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/employee/employee.css">
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <script src="/js/bootstrap.js"></script>
+  <style>
+    .card {
+      width: calc(80%/3);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="admin">
+      <%- include('../partials/adminmenubar') %>
+        <div class="rightbar">
+          <%- include('../partials/navigation') %>
+            <div class="bodypage my-5">
+              <div class="row1">
+                <h4 class="m-3">Users</h4>
+                <div class="cards d-flex">
+                  <div class="card text-center mx-3">
+                    <a href="/admin/managers">
+                      <div class="card-body my-3 mx-5 text-dark">
+                        <h5 class="card-title">Managers</h5>
+                        <p class="card-text">
+                          <%=managerCount%>
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card text-center mx-3 ">
+                    <a href="/admin/employees">
+                      <div class="card-body my-3 mx-5 text-dark">
+                        <h5 class="card-title">Employees</h5>
+                        <p class="card-text">
+                          <%=employeeCount%>
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="row1">
+                <h4 class="m-3">Tasks</h4>
+                <div class="cards d-flex">
+                  <div class="card text-center mx-3">
+                    <div class="card-body my-3 mx-5">
+                      <h5 class="card-title">To-do</h5>
+                      <p class="card-text">
+                        <%=todoCount%>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card text-center mx-3">
+                    <div class="card-body my-3 mx-5">
+                      <h5 class="card-title">In progress</h5>
+                      <p class="card-text">
+                        <%=inprogressCount%>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card text-center mx-3">
+                    <div class="card-body my-3 mx-5">
+                      <h5 class="card-title">Completed</h5>
+                      <p class="card-text">
+                        <%=completedCount%>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>

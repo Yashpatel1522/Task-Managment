@@ -12,42 +12,53 @@
       <h3 class="text-center m-3"></h3>
     </div>
     <div class="d-flex position-absolute end-0">
-      <div class="bell" >
+      <div class="bell">
         <i class="bi bi-bell" onclick="shownotification()"></i>
       </div>
-
-      <div>
-        <div class="profile d-flex" style="cursor: pointer;" onclick="showDropdown()">
-          <i class="bi bi-person"></i>
-          <p><B>Name</B></p>
-        </div>
-        <div id="dropdown" class="dropdown-content">
-          <a href="/admin/profile" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-            onclick="loadprofile()">Profile</a>
-          <a href="/admin/changepassword">Change Password</a>
-          <a href="/admin/logout">Logout</a>
-        </div>
+      <div id="dropdown" class="dropdown-content">
+        <a href="/admin/profiledata" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+          onclick="loadprofile()">Profile</a>
+        <a href="/admin/changepassword">Change Password</a>
+        <a onclick="logoutpopup()">Logout</a>
       </div>
       <%- include('../adminmodulo/profile.ejs') %>
     </div>
+    <%- include('../adminmodule/profile.ejs') %>
+  </div>
   </div>
   <script>
-    function shownotification() {
-      Swal.fire({
-        title: "Notifications",
-        text: "Click!",
-        icon: "success",
-        button: "oh yes!",
-      });
-    }
-
     function showDropdown() {
       document.getElementById("dropdown").classList.toggle("show");
     }
 
+    function logoutpopup() {
+      try {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You Logout this page !",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+            window.location.href = '/login'
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
 
     async function loadprofile() {
-      let response = await fetch("http://localhost:8000/admin/profiledata").then((response) => { return response.json() }).then((data) => {
+      let response = await fetch("/admin/profiledata").then((response) => { return response.json() }).then((data) => {
         profileData = data.result;
         renderProfileData(profileData)
       })
@@ -60,6 +71,3 @@
       console.log(inputFields);
     }
   </script>
-</body>
-
-</html>

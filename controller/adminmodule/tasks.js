@@ -1,23 +1,28 @@
-
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
+exports.taskpage = (request, response) => {
+    try {
+        response.render('./adminmodule/tasks')
+    } catch (error) {
+        logger.error("Task page is not render !")
+    }
+}
 
-exports.adminTasks = async (request,response) => {
+exports.adminTasks = async (request, response) => {
     try {
         let db = new database();
         let query = `select t.*,u.first_name from tasks as t inner join users as u on t.manager_id = u.id where task_status=?`;
         let todoData = await db.executeQuery(query, ["todo"]);
         let inprogressData = await db.executeQuery(query, ["inprogress"]);
         let completedData = await db.executeQuery(query, ["completed"]);
-        return response.json({todoData:todoData,inprogress:inprogressData,complete:completedData});
+        return response.json({ todoData: todoData, inprogress: inprogressData, complete: completedData });
     } catch (err) {
-        console.log(err);
-        // logger.error(err);
+        logger.error("Task data is not found !");
     }
 }
 
-exports.searchTasks = async (request,response) =>{
+exports.searchTasks = async (request, response) => {
     try {
         let search = request.params.searchdata;
         search = "%" + search + "%";
@@ -28,8 +33,7 @@ exports.searchTasks = async (request,response) =>{
         let completedTask = await db.executeQuery(query, ["completed", search, search]);
         return response.json({todoTask,inprogressTask,completedTask});
     } catch (err) {
-        console.log(err);
-        // logger.error(err);
+        logger.error("Not task found it!");
     }
 }
 

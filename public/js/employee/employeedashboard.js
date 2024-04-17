@@ -80,7 +80,11 @@ async function getDashBoardData(url) {
 }
 
 async function loadProfile() {
+<<<<<<< HEAD
+  let response = await fetch("/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
+=======
   let response = await fetch("http://127.0.0.1:8000/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
+>>>>>>> dev
     profileData = data.result;
     renderProfileData(profileData)
   })
