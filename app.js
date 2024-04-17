@@ -9,7 +9,7 @@ const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
-const managerRouter = require('./routers/managerroute');
+// const managerRouter = require('./routers/managerroute');
 const login = require('./routers/loginroutes');
 
 let PORT = process.env.PORT;
@@ -39,4 +39,4 @@ app.listen(PORT, () => {
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
 app.use("/login",login)
-app.use("/manager", managerroute);
+// app.use("/manager", managerroute);
