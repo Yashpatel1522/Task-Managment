@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+}
+
+.container {
+  background-color: #DDD0C8;
+  margin: 0 auto;
+  width: 1400px;
+}
+
+.admin {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin .sidebar {
+  border-top-right-radius: 30px;
+  background-color: #323232;
+  width: 20%;
+  margin-left: -10px;
+  color: white;
+  height: 100vh;
+  margin-left: -10px;
+}
+
+.admin .sidebar .task-logo img {
+  width: 70px;
+  padding: 20px 40px;
+}
+
+.list {
+  display: flex;
+  padding: 20px;
+}
+
+.list i {
+  font-size: 20px;
+  padding-right: 15px;
+}
+
+.list li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.rightbar {
+  width: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightbar .profilename .bell {
+  font-size: 25px;
+  margin: 24px 15px;
+  color: #323232;
+}
+
+.rightbar .profilename .bell {
+  font-size: 25px;
+  margin: 24px 15px;
+  color: #323232;
+}
+
+.rightbar .profilename p {
+  margin-top: 27px;
+  padding-right: 20px;
+  color: #323232;
+}
+
+.rightbar .profile i {
+  margin: 15px 10px;
+  background-color: #323232;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

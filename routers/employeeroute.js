@@ -1,14 +1,11 @@
 const express = require('express')
 const router = express.Router();
-// const multer = require('multer');
-// const userProfileStorage = require("../utility/multer");
-// const uploadStorage = multer({ storage: userProfileStorage })
+const multer = require('multer');
+const {userProfileStorage} = require("../utility/multer");
 const { EmployeeTaskList, list, searchlist, addcomment } = require("../controller/employeemodule/employeetasklist")
 const { getdashboardata, dashboard } = require("../controller/employeemodule/dashboard")
 const { getProfiledata,updateProfiledata } = require('../controller/employeemodule/employeeprofile');
-const multer = require('multer');
-
-const userProfileStorage = require('../utility/multer');
+const uploadStorage = multer({ storage: userProfileStorage })
 const upload = multer({storage: userProfileStorage})
 
 router.get("/getdashboardata", getdashboardata)

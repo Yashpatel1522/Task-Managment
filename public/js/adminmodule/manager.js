@@ -6,7 +6,7 @@ const getManagerData = async () => {
   try {
     let data = await (await fetch(`/admin/managersapi`)).json();
     maxlength = data.result.length;
-    pagecount = Math.ceil(maxlength/pagelimit);
+    pagecount = Math.ceil(maxlength / pagelimit);
     let table = document.getElementById("man-table")
     let dataadd = `<thead>
                 <th>FirstName</th>
@@ -32,11 +32,11 @@ const getManagerData = async () => {
       });
       table.innerHTML = dataadd;
       document.getElementById("pagination").innerHTML = `
-        <input type="button" value="FirstPage" onclick="firstpage()">
-        <input type="button" value="Pervious" onclick="pervious()">
-        <span>${Math.ceil(pagelimit/5)}</span>
-        <input type="button" value="Next" onclick="next()">
-        <input type="button" value="LastPage" onclick="lastpage()">`
+        <input type="button" value="FirstPage" onclick="firstpage()" class="btn btn-secondary px-2 ">
+        <input type="button" value="Pervious" onclick="pervious()" class="btn btn-secondary px-2">
+        <span>${Math.ceil(pagelimit / 5)}</span>
+        <input type="button" value="Next" onclick="next()" class="btn btn-secondary px-2">
+        <input type="button" value="LastPage" onclick="lastpage()" class="btn btn-secondary px-2">`
     }
 
   } catch (error) {
@@ -126,7 +126,7 @@ const openPopup1 = async (id) => {
                     </div>
                     <div class="col-md-6">
                         <lable class="text-primary">Department</lable>
-                        <input type="text" class="form-control" tabindex="7" id="employee_role" name="employee_role" placeholder="Enter Department">
+                        <input type="text" class="form-control" tabindex="7" id="employee_role" name="employee_role" placeholder="Enter Department" value="${data.managerDetail[0].employee_role}" disabled>
                     </div>
                 </div>
                 </div>`
@@ -136,7 +136,7 @@ const openPopup1 = async (id) => {
   }
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == popupview) {
     closePopup1()
   }
@@ -203,7 +203,7 @@ const deleteManData = async (id) => {
       confirmButtonText: "Yes, delete it!",
       cancelButtonText: "No, cancel!",
       reverseButtons: true
-      
+
     }).then((result) => {
       if (result.isConfirmed) {
         userdelete(id)
