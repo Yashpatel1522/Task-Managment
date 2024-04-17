@@ -31,8 +31,8 @@ exports.searchManData = async (request,response) => {
         let search = request.params.searchdata;
         search = "%" + search + "%";    
         let db = new database()
-        let query = `select users.* from users left join roles on users.role_id = roles.id where role_name = ? and first_name like ? or last_name like ? `
-        let searchData = await db.executeQuery(query, ["Manager",search, search]);
+        let query = `select users.* from users left join roles on users.role_id = roles.id where role_name = ? and (first_name like ? or last_name like ?) `
+        let searchData = await db.executeQuery(query, ["Manager",search,search]);
         return response.json({searchData}) 
     } catch (error) {
         logger.log(error);

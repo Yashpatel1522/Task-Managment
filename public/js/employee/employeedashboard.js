@@ -55,7 +55,6 @@ const renderProfileData = (profileData) => {
 
   keys.map((key)=> {
 
-<<<<<<< HEAD
     if(!(document.getElementById(`${key}`) == null)) {
       document.getElementById(`${key}`).value = profileData[0][key]
     }
@@ -67,10 +66,6 @@ const renderProfileData = (profileData) => {
     document.getElementById('selectedImage').src = `/assets/userprofiles/${profileData[0].id}/${profileImageName[3]}`
   }
 getDashBoardData("/employee/getdashboardata").then((data) => {
-=======
-}
-getDashBoardData("http://127.0.0.1:8000/employee/getdashboardata").then((data) => {
->>>>>>> dev
   dashboardData = data.result
   renderData(dashboardData)
 });
@@ -85,11 +80,7 @@ async function getDashBoardData(url) {
 }
 
 async function loadProfile() {
-<<<<<<< HEAD
-  let response = await fetch("/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
-=======
   let response = await fetch("http://127.0.0.1:8000/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
->>>>>>> dev
     profileData = data.result;
     renderProfileData(profileData)
   })

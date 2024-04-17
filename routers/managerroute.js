@@ -18,10 +18,10 @@ managerRouter.get("/employeeDetails", (request, response)=> {
 })
 
 //api to Update Manager Profile Details
-managerRouter.post("/updateManager", updateManager);
+// managerRouter.post("/updateManager", updateManager);
 
 //api to get Manager Profile Details
-managerRouter.get("/getManagerProfile", managerProfile);
+// managerRouter.get("/getManagerProfile", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
