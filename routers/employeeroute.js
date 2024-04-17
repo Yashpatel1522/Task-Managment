@@ -15,7 +15,7 @@ router.post("/updateprofile",upload.single('profileimg'),updateProfiledata)
 router.get('/:id', list) //http://127.0.0.1:8000/employee/3
 router.get('/employeetasklist/:id', EmployeeTaskList)
 router.post('/searchtask', searchlist)
-router.post('/addcomment/:id', uploadStorage.single('img'), addcomment)
+router.post('/addcomment/:id', upload.single('img'), addcomment)
 
 
 // const { EmployeeTaskList,list } = require("../controller/employeemodule/employeetasklist")
