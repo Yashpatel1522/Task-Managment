@@ -9,7 +9,7 @@ const loginGet=(request,response)=>{
 const loginPost=async(request,response)=>{
     let data=request.body
     let db=new database()
-    let result=await db.executeQuery("select id from users where email=? or contact=?",[data.username,data.username]);
+    let result=await db.executeQuery("select id from users where email=? and status=?",[data.username,1]);
     console.log(result)
     if(result.length==0)
     {
@@ -21,8 +21,8 @@ const loginPost=async(request,response)=>{
         )
     }
     if(result.length>0){
-        let password=await db.executeQuery("select password from user_passwords where id=? and status=?",[result[0].id,'1'])
-
+        let password=await db.executeQuery("select password from user_passwords where user_id=?  order by create_at desc limit 1",[result[0].id])
+        console.log(password)
         if(password.length>0){
             bcrypt.compare(request.body.password,password[0].password,async(err, res)=>{
                 if(res==true)

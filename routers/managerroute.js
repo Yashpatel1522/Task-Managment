@@ -6,6 +6,8 @@ const { addtaskdata, inserttaskdata } = require('../controller/managermodule/add
 const addtaskdatamiddleware = require('../middleware/addtask')
 const multer = require('multer'); 
 const taskdetailfiles = require("../utility/multer");
+const updateManager = require('../controller/managermodule/updateManagerProfile');
+const managerProfile = require('../controller/managermodule/getManagerProfile');
 const uploadStorage = multer({ storage: taskdetailfiles})
 const managerRouter = express.Router();
 
