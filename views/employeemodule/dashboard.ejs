@@ -22,14 +22,14 @@
 <body>
   <%- include('../partials/employeemenubar') %>
     <div class="container mx-5">
-      <div class="search-and-profile">
+      <div class="search-and-profile mt-4">
         <div class="profile" class="dropbtn" onclick="showDropdown()">
-          <img class="userprofile" src="/assets/employee/user.png" alt="">
-        </div>
-        <div id="dropdown" class="dropdown-content">
-          <a href="employee/profile" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="loadProfile()">Profile</a>
-          <a href="employee/changepassword">Change Password</a>
-          <a href="employee/logout">Logout</a>
+          <img class="userprofile" src="/assets/employee/user.png" alt="">  
+          <div id="dropdown" class="dropdown-content">
+            <a  type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="loadProfile()">Profile</a>
+            <a href="employee/changepassword">Change Password</a>
+            <a href="employee/logout">Logout</a>
+          </div>
         </div>
       </div>
 
@@ -51,7 +51,7 @@
           </table>
         </div>
       </div>
-      <div class="row">
+      <div class="row mb-2">
         <div class="card">
           <div class="card-header">
             <h5 class="card-title">In Progress</h5>

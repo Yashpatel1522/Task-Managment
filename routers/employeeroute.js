@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
-const userProfileStorage = require("../utility/multer");
 const multer = require('multer');
+const {userProfileStorage} = require("../utility/multer");
 const { EmployeeTaskList, list, searchlist, addcomment } = require("../controller/employeemodule/employeetasklist")
 const { getdashboardata, dashboard } = require("../controller/employeemodule/dashboard")
 const { getProfiledata,updateProfiledata } = require('../controller/employeemodule/employeeprofile');
