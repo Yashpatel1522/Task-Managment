@@ -2,9 +2,10 @@ const express = require("express");
 const { adminDashboard } = require("../controller/adminmodulo/dashboard");
 const { adminManagers, managerDetails, searchManData, dataDelete } = require("../controller/adminmodulo/managers");
 const { adminEmployees, employeeDetails, searchEmpData, empDataDelete } = require("../controller/adminmodulo/employees");
-const { adminTasks,searchTasks } = require("../controller/adminmodulo/tasks");
+const { adminTasks,searchTasks,taskDetail } = require("../controller/adminmodulo/tasks");
 const { adminTasktrack } = require("../controller/adminmodulo/tasktrack");
 const { adminCalender } = require("../controller/adminmodulo/calender");
+const { profiledata } = require("../controller/adminmodulo/adminprofile");
 const router = express.Router();
 
 router.route("/dashboard").get(adminDashboard);
@@ -21,6 +22,8 @@ router.get("/tasks", (request, response)=> {
   response.render('./adminmodulo/tasks')
 })
 
+router.get("/profiledata", profiledata);
+
 
 router.get("/managersapi", adminManagers);
 router.get("/managersapi/:id", managerDetails);
@@ -34,6 +37,7 @@ router.delete("/employeesapi/:id", empDataDelete)
 
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
+router.get("/tasksDetails/:id",taskDetail)
 
 router.route("/tasktrack").get(adminTasktrack);
 router.route("/calender").get(adminCalender);
