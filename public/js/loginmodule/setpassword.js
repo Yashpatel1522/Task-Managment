@@ -22,10 +22,18 @@ const isValidSetPassword=async()=>{
                 icon: "error"
             });
         }
-        else {
+        else if(res.flag==true && res.source=="1"){
             Swal.fire({
                 title: "Good job!",
                 text: res.msg,
+                icon: "success"
+            });
+        }
+        else if(res.flag==true && res.source=="1")
+        {
+            Swal.fire({
+                title: "Good job!",
+                text: "password changed !",
                 icon: "success"
             });
         }

@@ -1,15 +1,21 @@
-const database = require("../../helpers/database.helper")
+const setNewPassword = require("../../services/auth/setnewpassword")
 
 const acticationGet=(request,response)=>{
+  console.log(request.rawHeaders)
   response.render("loginmodule/setnewpassword")
 }
 
 const acticationPost=async(request,response)=>{
   let activationcode=request.params.activationcode
-  console.log(activationcode)
-  let db=new database()
-  let res=await db.executeQuery(`select * from users where activation_code=?`,[activationcode])
-  console.log(res)
+  let res=await setNewPassword(activationcode,request.body.new_password)
+  if(res.flag==false)
+  {
+      response.send(res).status(200)
+  }
+  else
+  {
+      response.send(res).status(500)
+  }
 }
 
 module.exports={acticationGet,acticationPost};

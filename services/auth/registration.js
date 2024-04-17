@@ -35,7 +35,7 @@ const addUser=async(user,userprofile)=>{
     }
     else if(userexists.length>0 && userexists[0].status==0)
     {
-      let activationkey=randomNumberGenrater(8)
+      let activationkey=randomNumberGenrater(process.env.ACTIVATION_KEY_SIZE)
       let registrationdata={
           role_id:user.role_id,
           first_name:user.first_name,
