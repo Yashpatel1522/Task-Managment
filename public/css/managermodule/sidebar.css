@@ -1,7 +1,7 @@
 :root{
   --sidebarcolor : #323232;
   --white : white;
-  
+  --cornflowerblue : cornflowerblue;
 }
 *{
   margin: 0;
@@ -33,6 +33,10 @@ body{
   display: flex;
   padding: 20px 40px;
 }
+.list:hover{
+  background-color:var(--cornflowerblue);
+  border-radius: 5px;
+}
 .list i{
   font-size: 20px;
   padding-right: 15px;
@@ -48,4 +52,7 @@ body{
 
 .dots > img {
   cursor: pointer;
+}
+.sidebaricon{
+  color: var(--white);
 }
