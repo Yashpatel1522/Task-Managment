@@ -73,7 +73,8 @@ body {
 .search-and-profile {
   display: flex;
   align-items: center;
-  justify-content: end
+  justify-content: end;
+  position: relative;
 }
 
 .prostatus {
@@ -156,8 +157,8 @@ body {
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  top: 36px;
-  right: 114px;
+  top: 35px;
+  right: -45px;
 }
 
 .dropdown-content a {

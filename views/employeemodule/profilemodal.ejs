@@ -1,76 +1,146 @@
-<div class="modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body ">
-      <form action="/employee/updateprofile" method="post"  onchange="return isValidProfilDetails()" enctype="multipart/form-data">
-        <div class="d-flex p-2 justify-content-around">
-          <div class="d-flex p-2 flex-column">
-            <img src="/assets/employee/user_1.png" alt="profile image" id="selectedImage" width="200" height="200" class="rounded-circle">
-            <label for="change" class="text-center mt-4">Change</label>
-            <input type="file" name="profileimg" id="change">
+<div
+  class="modal fade modal-lg"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          action="/employee/updateprofile"
+          method="post"
+          onchange="return isValidProfilDetails()"
+          enctype="multipart/form-data"
+        >
+          <div class="d-flex p-2 justify-content-around">
+            <div class="d-flex p-2 flex-column">
+              <img
+                src="/assets/employee/user.png"
+                alt="profile image"
+                id="selectedImage"
+                width="200"
+                height="200"
+                class="rounded-circle"
+              />
+              <!-- <label for="change" class="text-center mt-4">Change</label> -->
+              <input type="file" name="profileimg" id="change" class="mt-4" />
+            </div>
+            <div>
+              <div class="mb-3">
+                <label for="firstname" class="form-label">First Name: </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="first_name"
+                  id="first_name"
+                  aria-describedby="textHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name: </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="last_name"
+                  id="last_name"
+                  aria-describedby="textHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email1" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="contact" class="form-label">Phone</label>
+                <input
+                  type="tel"
+                  required
+                  maxlength="50"
+                  class="form-control"
+                  name="contact"
+                  id="contact"
+                  name="Phone"
+                  placeholder="Phone"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="dob_input" class="form-label">Date Of Birth</label>
+                <input
+                  type="text"
+                  required
+                  style="width: 213px"
+                  class="form-control"
+                  name="date_of_birth"
+                  id="date_of_birth"
+                  name="dob"
+                  class="datepicker"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="emp_role" class="form-label">Role</label>
+                <select
+                  name="employee_role"
+                  id="employee_role"
+                  class="form-select form-select-lg mb-3"
+                  name="employee_role"
+                  aria-label="Large select example"
+                >
+                  <option value="sdl">SDL</option>
+                  <option value="design">Designer</option>
+                  <option value="sroprationmanager">
+                    Sr. Operation Manager
+                  </option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
           </div>
-          <div>
-            <div class="mb-3">
-              <label for="firstname" class="form-label">First Name: </label>
-              <input type="text" class="form-control" name="first_name" id="first_name" aria-describedby="textHelp">
-            </div>
-            <div class="mb-3">
-              <label for="lastname" class="form-label">Last Name: </label>
-              <input type="text" class="form-control" name="last_name" id="last_name" aria-describedby="textHelp">
-            </div>
-            <div class="mb-3">
-              <label for="email1" class="form-label">Email address</label>
-              <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="contact" class="form-label">Phone</label>
-              <input type="tel" required maxlength="50" class="form-control" name="contact" id="contact" name="Phone"
-                placeholder="Phone">
-            </div>
-
-            <div class="mb-3">
-              <label for="dob_input" class="form-label">Date Of Birth</label>
-              <input type="text" required style="width: 213px;" class="form-control" name="date_of_birth" id="date_of_birth" name="dob"
-                class="datepicker">
-            </div>
-
-            <div class="mb-3">
-              <label for="emp_role" class="form-label">Role</label>
-              <select name="Role" id="employee_role" class="form-select form-select-lg mb-3" name="employee_role"
-                aria-label="Large select example">
-                <option value="sdl">SDL</option>
-                <option value="design">Designer</option>
-                <option value="sroprationmanager">Sr. Operation Manager</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </form>
-
+        </form>
+      </div>
     </div>
   </div>
 </div>
-</div>
 
 <script>
-    const imageInput = document.getElementById("change");
-    const selectedImage = document.getElementById("selectedImage");
+  const imageInput = document.getElementById("change");
+  const selectedImage = document.getElementById("selectedImage");
 
-imageInput.addEventListener("change", function (event) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
+  imageInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
 
-  reader.onload = function (event) {
-    selectedImage.src = event.target.result;
-  };
+    reader.onload = function (event) {
+      selectedImage.src = event.target.result;
+    };
 
-  reader.readAsDataURL(file);
-});
+    reader.readAsDataURL(file);
+  });
 </script>

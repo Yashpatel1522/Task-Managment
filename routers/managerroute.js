@@ -2,9 +2,17 @@ const express = require('express');
 const {searchTask, managerTasks, notifications } = require("../controller/managermodule/managertasks")
 const taskCount = require("../controller/managermodule/taskCount")
 const employeeData = require("../controller/managermodule/employeeData")
+const updateManager = require('../controller/managermodule/updateManagerProfile');
+const managerProfile = require('../controller/managermodule/getManagerProfile');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
 const addtaskdatamiddleware = require('../middleware/addtask');
 const { upload } = require('../utility/multer');
+const addtaskdatamiddleware = require('../middleware/addtask')
+
+const multer = require('multer'); 
+const {taskdetailfiles, userProfileStorage} = require("../utility/multer");
+const uploadStorage = multer({ storage: taskdetailfiles})
+const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 
@@ -21,6 +29,7 @@ managerRouter.get("/Teams",(request,response)=>{
 
 //api to Update Manager Profile Details
 // managerRouter.post("/updateManager", updateManager);
+managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
 
 //api to get Manager Profile Details
 // managerRouter.get("/getManagerProfile", managerProfile);
