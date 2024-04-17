@@ -152,3 +152,21 @@ const isValidProfile=(id)=>{
     })
     return flag;
   }
+  const isPasswordMatch=(password,newpassword)=>{
+    let error = {};
+      if (!(document.getElementById(password).value.trim()===document.getElementById(newpassword).value.trim())) {
+          return{"re_password":"Confrim password"}
+      }
+    return error;
+  }
+  const isValidPassword=()=>{
+      removeErrorMessage();
+      let errors=isPasswordMatch("new_password","re_password")
+      console.log(errors)
+      let flag=true
+      Object.keys(errors).forEach(error => {
+        printErrorMessage(error, `${errors[error]} is Not Match...`)
+        flag = false;
+      })
+      return flag;
+  }

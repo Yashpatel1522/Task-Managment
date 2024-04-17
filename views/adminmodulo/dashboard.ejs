@@ -3,6 +3,9 @@
 <head>
   <!-- <link rel="stylesheet" href="/css/adminmodulo/admindashboard.css"> -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/employee/employee.css">
+
+  <script src="/js/bootstrap.js"></script>
   <style>
     .card {
       width: calc(80%/3);
@@ -14,22 +17,8 @@
   <%- include('../partials/adminmenubar') %>
 
     <div class="rightbar">
-      <div class="profilename position-relative">
-        <div class="float-start">
-          <h3 class="text-center m-3">Dashboard</h3>
-        </div>
-        <div class="d-flex position-absolute end-0">
-          <div class="bell">
-            <i class="fa-solid fa-bell"></i>
-          </div>
-
-          <div class="profile d-flex" onclick="profileShow()" style="cursor: pointer;">
-            <i class="fa-solid fa-user"></i>
-            <p><B>Name</B></p>
-          </div>
-        </div>
-      </div>
-      <div class="bodypage my-3">
+      <%- include('../partials/navigation') %>
+      <div class="bodypage my-5">
         <div class="row1">
           <h4 class="m-3">Users</h4>
           <div class="cards d-flex">
@@ -37,7 +26,9 @@
               <a href="/admin/managers">
                 <div class="card-body my-3 mx-5 text-dark">
                   <h5 class="card-title">Managers</h5>
-                  <p class="card-text"><%=managerCount%></p>
+                  <p class="card-text">
+                    <%=managerCount%>
+                  </p>
                 </div>
               </a>
             </div>
@@ -45,7 +36,9 @@
               <a href="/admin/employees">
                 <div class="card-body my-3 mx-5 text-dark">
                   <h5 class="card-title">Employees</h5>
-                  <p class="card-text"><%=employeeCount%></p>
+                  <p class="card-text">
+                    <%=employeeCount%>
+                  </p>
                 </div>
               </a>
             </div>
@@ -57,19 +50,25 @@
             <div class="card text-center mx-3">
               <div class="card-body my-3 mx-5">
                 <h5 class="card-title">To-do</h5>
-                <p class="card-text"><%=todoCount%></p>
+                <p class="card-text">
+                  <%=todoCount%>
+                </p>
               </div>
             </div>
             <div class="card text-center mx-3">
               <div class="card-body my-3 mx-5">
                 <h5 class="card-title">In progress</h5>
-                <p class="card-text"><%=inprogressCount%></p>
+                <p class="card-text">
+                  <%=inprogressCount%>
+                </p>
               </div>
             </div>
             <div class="card text-center mx-3">
               <div class="card-body my-3 mx-5">
                 <h5 class="card-title">Completed</h5>
-                <p class="card-text"><%=completedCount%></p>
+                <p class="card-text">
+                  <%=completedCount%>
+                </p>
               </div>
             </div>
           </div>

@@ -38,5 +38,5 @@ app.listen(PORT, () => {
 
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
-app.use("/login", login)
-app.use("/manager", managerRouter);
+app.use("/login",login)
+app.use("/manager", managerroute);
