@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/adminmodule/menubar.css">
   <link rel="stylesheet" href="/css/loginmodule/popup.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
   <script src="/js/bootstrap.js"></script>
   <style>
@@ -23,6 +24,7 @@
 </head>
 
 <body onload="getTaskData()">
+
   <div class="container">
     <div class="admin">
       <%- include('../partials/adminmenubar') %>
@@ -41,7 +43,7 @@
                 </div>
               </div>
             </div>
-            <div id="tasks">
+            <div>
               <h2>Todo</h2>
               <div class="cards d-flex" id="todoTask">
 
@@ -57,14 +59,20 @@
 
               </div>
             </div>
+            <div class="addregistrationcontainer" id="task-detail">
+              <div id="task">
+
+              </div>
+            </div>
         </div>
     </div>
   </div>
   <div class="addregistrationcontainer" id="open-registration">
     <%- include("addtask")%>
   </div>
+
   <script src="/js/loginmodule/popup.js"></script>
-  <script src="/js/adminmodule/tasks.js"></script>
+  <script src="/js/adminmodulo/tasks.js"></script>
 </body>
 
 </html>

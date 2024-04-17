@@ -31,10 +31,12 @@ router.route("/team").get(adminTasktrack);
 // Task Router
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
+router.get("/tasksDetails/:id", taskDetail)
 
 
 // Calender
 router.route("/calender").get(adminCalender);
+
 
 
 module.exports = router

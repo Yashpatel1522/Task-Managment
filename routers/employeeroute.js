@@ -7,7 +7,6 @@ const { EmployeeTaskList, list, searchlist, addcomment } = require("../controlle
 const { getdashboardata, dashboard } = require("../controller/employeemodule/dashboard")
 const { getProfiledata,updateProfiledata } = require('../controller/employeemodule/employeeprofile');
 
-const userProfileStorage = require('../utility/multer');
 const upload = multer({storage: userProfileStorage})
 
 router.get("/getdashboardata", getdashboardata)
