@@ -25,6 +25,11 @@ async function getProfile() {
 	document.getElementById('email1').value = data.result[0].email;
 	document.getElementById('phone_input').value = data.result[0].contact;
 	document.getElementById('dob_input').value = data.result[0].date_of_birth;
+
+	console.log(data.imageResult[0].newimage_name);
+	if(data.imageResult[0].newimage_name) {
+		document.getElementById('selectedImage').src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
+	}
 }
 
 function showNotifications() {

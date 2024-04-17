@@ -9,7 +9,6 @@ const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
-const managerRouter = require('./routers/managerroute');
 const login = require('./routers/loginroutes');
 const managerRouter = require('./routers/managerroute');
 const router = require('./routers/employeeroute');
