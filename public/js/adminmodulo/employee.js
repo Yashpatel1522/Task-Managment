@@ -15,7 +15,7 @@ const getEmpData = async () => {
               </thead>`
     if (data.result.length != 0) {
       data.result.slice(pagelimit - 5, pagelimit).forEach(element => {
-        dataadd += (`<tr><td>${element.first_name}</td><td>${element.last_name}</td><td>${element.email}</td><td>${element.contact}</td><td><input type="button" value="view" class="btn btn-secondary px-3" onclick = "openPopup1(${element.id})"></td><td>
+        dataadd += (`<tr><td>${element.first_name}</td><td>${element.last_name}</td><td>${element.email}</td><td>${element.contact}</td><td><input type="button" value="view" class="btn btn-secondary px-3" onclick = "openPopup2(${element.id})"></td><td>
               <input type="button" value="delete" class="btn btn-secondary px-3" onclick="deleteEmpData(${element.id})">
               </td>`)
       });
@@ -23,7 +23,7 @@ const getEmpData = async () => {
       document.getElementById("pagination").innerHTML = `
         <input type="button" value="FirstPage" onclick="firstpage()">
         <input type="button" value="Pervious" onclick="pervious()">
-        <span>${pagelimit/5}</span>
+        <span>${pagelimit / 5}</span>
         <input type="button" value="Next" onclick="next()">
         <input type="button" value="LastPage" onclick="lastpage()">`
     }
@@ -57,52 +57,66 @@ const lastpage = () => {
   getEmpData();
 }
 
-let popup = document.getElementById("show-detail");
-const openPopup = () => {
+let popupEmp = document.getElementById("show-detail");
+
+
+const closePopup2 = () => {
   try {
-    popup.classList.add("open-popup");
+    popupEmp.classList.remove("open-popup")
   } catch (error) {
     console.log(error);
   }
 }
 
-const closePopup = () => {
+const openPopup2 = async (id) => {
   try {
-    popup.classList.remove("open-popup")
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-const openPopup1 = async (id) => {
-  try {
-    popup.classList.add("open-popup");
+    popupEmp.classList.add("open-popup");
+    
     console.log(id);
     let data = await (await fetch(`/admin/employeesapi/${id}`)).json();
 
     if (data.employeeDetail.length != 0) {
       document.getElementById("employee-form").innerHTML =
-        `<div onclick = "closePopup()">
-            <i class="fa-solid fa-x"></i>
-          </div>
-            <table>
-                <tr>
-                  <td>
-                    FirstName: <input type="text" value="${data.employeeDetail[0].first_name}" name="fname" disabled>
-                  </td>
-                  <td>
-                    LastName: <input type="text" value="${data.employeeDetail[0].last_name}" name="fname" disabled>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Email: <input type="text" value="${data.employeeDetail[0].email}" name="email" disabled>
-                  </td>
-                  <td>
-                    Contact No: <input type="text" value="${data.employeeDetail[0].contact}" name="contact" disabled>
-                  </td>
-                </tr>
-            </table>`
+        `<div class="container width:fit-content p-4">
+        <div class="row mb-3">
+        <div class="col-md-11">
+            <h2 class="text-primary text-center">Employee Detalis</h2> 
+        </div>
+        <div class="col-md-1">
+            <i class='bx bxs-x-circle text-danger fs-2'onclick="closePopup2()"></i>
+        </div>
+    </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="text-primary">First Name :</label>
+                        <input type="text" class="form-control" tabindex="2" id="first_name" name="first_name" value="${data.employeeDetail[0].first_name}" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-primary">Last Name :</label>
+                        <input type="text" class="form-control" tabindex="3" id="last_name" name="last_name" value="${data.employeeDetail[0].last_name}" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="text-primary">Email :</label>
+                        <input type="text" class="form-control" tabindex="4" id="email" name="email" value="${data.employeeDetail[0].email}" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-primary">Mobile No: :</label>
+                        <input type="text" class="form-control" tabindex="5" id="contact" name="contact"  value="${data.employeeDetail[0].contact}" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <lable class="text-primary">Date Of Birth</lable>
+                        <input type="text" class="form-control" tabindex="6" id="date_of_birth" name="date_of_birth" value="${data.employeeDetail[0].date_of_birth}" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <lable class="text-primary">Department</lable>
+                        <input type="text" class="form-control" tabindex="7" id="employee_role" name="employee_role" placeholder="Enter Department">
+                    </div>
+                </div>
+                </div>`
     }
   } catch (error) {
     console.log(error);
@@ -134,15 +148,20 @@ const searchEmpData = async (value) => {
                 <td>${element.email}</td>
                 <td>${element.contact}</td>
                 <td>
-                <input type="button" value="view" class="btn btn-secondary px-3" onclick="openPopup1(${element.id})">
+                <input type="button" value="view" class="btn btn-secondary px-3" onclick="openPopup2(${element.id})">
                 </td>
                 <td>
-                <input type="button" value="delete" class="btn btn-secondary px-3" onclick="deleteData(${element.id})">
+                <input type="button" value="delete" class="btn btn-secondary px-3" onclick="deleteEmpData(${element.id})">
                 </td>`)
       });
       table.innerHTML = dataadd;
     } else {
-      document.getElementById("emp-table").innerText = "Not Data Found"
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Not Found Data"
+      });
+      getEmpData();
     }
   } catch (error) {
     console.log(error);
@@ -151,15 +170,41 @@ const searchEmpData = async (value) => {
 
 const deleteEmpData = (id) => {
   try {
-    popup.classList.add("open-popup");
-    document.getElementById("employee-form").innerHTML =
-      `<div>
-      <h3>Are You Sure !</h3>
-      <div>
-        <input type="button" value="Cancel" onclick="closePopup()">
-        <input type="button" value="Submit" onclick="userdelete(${id})">
-      </div>
-    </div>`   
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success btn-gap",
+        cancelButton: "btn btn-danger btn-gap"
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true
+      
+    }).then((result) => {
+      if (result.isConfirmed) {
+        userdelete(id)
+        swalWithBootstrapButtons.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          text: "Your date is safe :)",
+          icon: "error"
+        });
+      }
+    });
   } catch (error) {
     console.log(error);
   }
@@ -174,7 +219,12 @@ const userdelete = async (id) => {
         'Content-Type': 'application/json'
       },
     })
-    closePopup();
+    Swal.fire({
+      title: "You Data Deleted",
+      text: "You clicked the button!",
+      icon: "success"
+    });
+    closePopup2();
     getEmpData();
   } catch (error) {
     console.log(error);

@@ -30,7 +30,7 @@
                         <i class="bi bi-bell fa-2x col" onclick="showNotifications()"></i>
                         <i class="bi bi-person-circle fa-2x col" id="profImg" onmouseover="profOption()">
                             <div id="profClk" onmouseleave="remOption()">
-                                <p>Show Profile</p>
+                                <p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
                                 <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
                             </div>
                         </i>
@@ -53,7 +53,10 @@
                     
                 </div>
             </div>
+        </div>
 
+        <div class="managerProfile">
+            <%- include("managerprofile") %>
         </div>
     </div>
     <div class="addregistrationcontainer" id="open-registration">

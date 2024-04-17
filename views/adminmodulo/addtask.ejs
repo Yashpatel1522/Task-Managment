@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/managermodule/addtask.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/loginmodule/popup.css">
+  <title>addtask</title>
+</head>
+
+<body>
+  <form id="taskForm" onsubmit="return addTaskValidation()" name="taskform" style="background-color: white;">
+    <!-- <div class="addtaskcontainer"> -->
+    <div class="addtask">
+      <div class="taskrow">
+        <h3 class="text-primary text-center">ADD TASK</h3>
+      </div>
+      <div class="taskrow">
+        <div class="subcol">
+          <label for="tname" class="text-primary">Task Name</label>
+          <input type="text" name="task_name" placeholder="Test task" id="task_name" class="reqfieled form-control" />
+          <span class="errclass"></span>
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="subcol">
+          <label for="assignto" id="Assin_task" class="text-primary">Assign Task To</label>
+          <select id="Assin_task_to" class="form-control">
+            <option value="0">Select</option>
+          </select>
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="taskcol">
+          <div class="subcol select">
+            <label for="tstage" id="task_stage" class="text-primary">Task Stage</label>
+            <select class="form-control">
+              <option value="1">To Do</option>
+              <option value="2">In Progress</option>
+              <option value="3">Completed</option>
+            </select>
+          </div>
+          <div class="subcol select">
+            <label for="category" id="taskcategory" class="text-primary" >Category</label>
+            <select id="task_category" class="form-control">
+              <option value="0">Select</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="taskcol d-flex">
+          <div class="subcol select">
+            <label for="sdate" class="text-primary">Task Start Date</label>
+            <input type="text" placeholder="Task Start Date" name="task_start_date" id="task_start_date"
+              class="reqfieled form-control" />
+            <span class="errclass" id="dateerr"></span>
+          </div>
+          <div class="subcol select">
+            <label for="edate" class="text-primary">Task Due Date</label>
+            <input type="text" placeholder="Due date" name="task_end_date" id="task_end_date" class="reqfieled form-control" />
+            <span class="errclass" id="dateerr2"></span>
+          </div>
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="subcol">
+          <label for="task descriptions" class="text-primary">Descriptions</label>
+          <input type="text" name="task_description" placeholder="Descriptions" id="task_description" class="reqfieled form-control">
+          <span class="errclass"></span>
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="taskcol">
+          <div class="subcol select">
+            <label for="ilavel" id="ilevel" class="text-primary">Important Level</label>
+            <select id="impotant_level" class="form-control">
+              <option value="0">Select</option>
+            </select>
+          </div>
+          <div class="subcol select">
+            <label for="ulevel" id="ulevel" class="text-primary">Urgency Level</label>
+            <select id="urgency_level" class="form-control">
+              <option value="0">Select</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="subcol">
+          <label for="task descriptions" class="text-primary">Attachments</label>
+          <input type="file" name="attechment_url" placeholder="Descriptions" id="attechment_url" multiple class="form-control" />
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="taskcol">
+          <div class="subcol">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="taskcol">
+            <input type="button" class="button" id="canclebtn" value="cancle" onclick="closePopup()">
+            <input type="submit" class="button" id="savebtn" value="Save">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    </div>
+    <!-- </div> -->
+  </form>
+  <script src="/js/managermodule/addtask.js"></script>
+</body>
+
+</html>
