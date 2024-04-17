@@ -1,38 +1,55 @@
 let dashboardData;
 let profileData;
-
+const assignBadge = (type) => {
+  switch (type) {
+    case 'high':
+      return 'text-danger';
+    case 'mid':
+      return 'text-primary';
+    case 'low':
+       return 'text-secondary';
+    case 'todo':
+        return 'badge text-bg-secondary m-2'
+    case 'inprogress':
+      return 'badge text-bg-primary m-2'
+    case 'completed':
+      return 'badge text-bg-success m-2'
+ 
+  }
+}
 //dynamic table creation function
 function createTable(tableData, section) {
-  const keys = Object.keys(tableData[0])
+  const keys = Object.keys(tableData[0]);
 
-  let temp = `<tr>`
+  let temp = `<tr>`;
   keys.map((el) => {
-    temp += `<th scope="col">${el}</th>`
-  })
-  temp += `</tr>`
-  document.getElementById(`${section}heading`).innerHTML = temp
+    temp += `<th scope="col">${el}</th>`;
+  });
+  temp += `</tr>`;
+  document.getElementById(`${section}heading`).innerHTML = temp;
 
-
-  temp = ''
+  temp = "";
   tableData.map((dataobj) => {
-    const vals = Object.values(dataobj)
-    console.log('vals', vals);
+    const vals = Object.values(dataobj);
 
-    temp += `<tr>`
+    temp += `<tr>`;
     vals.map((val) => {
-      temp += `<td>${val}</td>`
-    })
-    temp += `</tr>`
-
-  })
+      temp += `<td class="${assignBadge(val)}">${val}</td>`;
+    });
+    temp += `</tr>`;
+  });
   document.getElementById(`${section}body`).innerHTML = temp;
+}
 
+const showNoData = (section) => {
+  let temp = '<h3 class="text-center mt-4">No Data</h3>'
+  document.getElementById(`${section}body`).innerHTML = temp
 }
 
 // function for rendering dashboardData dynamically
 const renderData = (dashboardData) => {
-  const taskCountsElement = document.getElementById('taskCountsElement')
-  Object.keys(dashboardData.taskStatusCounts[0]).forEach(key => {
+  const taskCountsElement = document.getElementById("taskCountsElement");
+  Object.keys(dashboardData.taskStatusCounts[0]).forEach((key) => {
     const value = dashboardData.taskStatusCounts[0][key];
 
     let taskCountBox = `<div class="col-sm-3 ps-0" id="taskCountBox">
@@ -42,16 +59,16 @@ const renderData = (dashboardData) => {
         <p class="card-text">${value}</p>
         </div>
         </div>
-        </div>`
-    taskCountsElement.innerHTML += taskCountBox
+        </div>`;
+    taskCountsElement.innerHTML += taskCountBox;
   });
-  createTable(dashboardData.upCommingDeadlineData, 'deadline')
-  createTable(dashboardData.employeeInprogressTaskData, 'inprogress')
-}
-
-const renderProfileData = (profileData) => {
-  let keys = Object.keys(profileData[0])
-  console.log(profileData[0]);
+  dashboardData.upCommingDeadlineData.length != 0
+    ? createTable(dashboardData.upCommingDeadlineData, "deadline")
+    : showNoData("deadline");
+  dashboardData.employeeInprogressTaskData.length != 0
+    ? createTable(dashboardData.employeeInprogressTaskData, "inprogress")
+    : showNoData("inprogress");
+};
 
   keys.map((key)=> {
 
@@ -64,28 +81,14 @@ const renderProfileData = (profileData) => {
     })
     let profileImageName = profileData[0].img_url.split("/")
     document.getElementById('selectedImage').src = `/assets/userprofiles/${profileData[0].id}/${profileImageName[3]}`
-  }
+  
 getDashBoardData("/employee/getdashboardata").then((data) => {
   dashboardData = data.result
   renderData(dashboardData)
 });
 
-function showDropdown() {
-  document.getElementById("dropdown").classList.toggle("show");
-}
 
 async function getDashBoardData(url) {
   const response = await fetch(url);
   return response.json();
-}
-
-async function loadProfile() {
-<<<<<<< HEAD
-  let response = await fetch("/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
-=======
-  let response = await fetch("http://127.0.0.1:8000/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
->>>>>>> dev
-    profileData = data.result;
-    renderProfileData(profileData)
-  })
 }
