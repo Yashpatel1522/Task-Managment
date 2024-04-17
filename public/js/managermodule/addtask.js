@@ -136,10 +136,11 @@ function insertTaskData() {
         let Taskdata = {};
         let formTd = document.forms.taskForm;
         let formData = new FormData(formTd);
-    //     let filess = document.getElementById("files");
-    //     for(let i =0; i < filess.filess.length; i++) {
-    //         formData.append("files", filess.filess[i]);
-    // }
+        let fileInput = document.getElementById("files");
+        let files = fileInput.files;
+        for(let i =0; i < files.length; i++) {
+            formData.append("files",files[i]);
+    }
         let selectedArray = new Array();
         let count = 0;
         let usres = document.getElementById('Assin_task_to');
@@ -153,9 +154,6 @@ function insertTaskData() {
         for (let [key, value] of formData) {
                 Taskdata[key] = value;
         }
-
-        let files=document.getElementsByName("file")[0].files[0];
-        Taskdata.files = files;
         Taskdata.emp_id = selectedArray;
         try {
             fetch(`${window.location.origin}/manager/inserttask`, {

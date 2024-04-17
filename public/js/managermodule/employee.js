@@ -51,10 +51,3 @@ function remOption() {
 	document.getElementById('profClk').style.display = 'none';
 }
 
-function showNotifications() {
-    Swal.fire({
-		title: "Notifications",
-		text: "You clicked the button!",
-		icon: "success"
-	});
-}

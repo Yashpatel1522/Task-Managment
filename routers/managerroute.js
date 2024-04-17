@@ -16,6 +16,9 @@ managerRouter.get("/", (request, response)=> {
 managerRouter.get("/employeeDetails", (request, response)=> {
     response.render('./managermodule/employee')
 })
+managerRouter.get("/Teams",(request,response)=>{
+    response.render('./managermodule/teams')
+})
 
 //api to Update Manager Profile Details
 // managerRouter.post("/updateManager", updateManager);
@@ -36,7 +39,7 @@ managerRouter.get("/getManagerTaskCount", taskCount)
 managerRouter.get('/getdataapi',addtaskdata);
 // insert task data
 // ,uploadStorage.array('')
-managerRouter.post('/inserttask',addtaskdatamiddleware,uploadStorage.single("file"),inserttaskdata);
+managerRouter.post('/inserttask',addtaskdatamiddleware,uploadStorage.array("files"),inserttaskdata);
 // serach task api
 managerRouter.post('/searchtask',searchTask)
 

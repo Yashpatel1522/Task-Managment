@@ -72,7 +72,7 @@ const inserttaskdata = async(request,response) =>{
       task_status:taskdata.task_status,},"tasks");
       lastInserted_id = res.insertId;
       await taskdata.emp_id.forEach(element => {
-        let team = db.insertData({task_id:lastInserted_id, emp_id:element},"tasks_assigend_to")
+        db.insertData({task_id:lastInserted_id, emp_id:element},"tasks_assigend_to")
       });
 
       // let file = taskdata.files
