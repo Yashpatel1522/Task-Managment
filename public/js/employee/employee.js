@@ -63,7 +63,7 @@ let ides = (id) => document.getElementById(id);
 const show = (id, taskid) => {
   ides(id).style.display = "block";
   console.log(taskid)
-  gtaskid=taskid
+  gtaskid = taskid
   employeedata.forEach(element => {
     if (element.task_id == taskid) {
       document.getElementById('taskdetails').innerHTML = `
@@ -122,10 +122,10 @@ const showComment = (id, taskid) => {
 
   document.getElementById('popup').style.display = "none";
   employeedata.forEach(element => {
-    if (element.task_id == taskid){
+    if (element.task_id == taskid) {
       ides_comment(id).style.display = "block";
     }
-});
+  });
 }
 
 const hideComment = (id) => {
@@ -135,28 +135,28 @@ const hideComment = (id) => {
 
 //user search section
 async function seachresult() {
-  if (document.getElementById('searchinput').value!=""){
-  obj = {}
-  new FormData(document.getElementById('form')).forEach((value, key) => {
-    obj[key] = value;
-  })
-  console.log(obj, "obj is ")
-  const response = await fetch(`http://127.0.0.1:8000/employee/searchtask`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(obj)
-  })
-  data = await response.json()
+  if (document.getElementById('searchinput').value != "") {
+    obj = {}
+    new FormData(document.getElementById('form')).forEach((value, key) => {
+      obj[key] = value;
+    })
+    console.log(obj, "obj is ")
+    const response = await fetch(`http://127.0.0.1:8000/employee/searchtask`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(obj)
+    })
+    data = await response.json()
 
-  ides('todo').style.display = "none";
-  ides('inprogress').style.display = "none";
-  ides('completed').style.display = "none";
+    ides('todo').style.display = "none";
+    ides('inprogress').style.display = "none";
+    ides('completed').style.display = "none";
 
-  function resetCard(id, element) {
-    document.getElementById(`${id}`).innerHTML = ''
-    document.getElementById(`${id}`).innerHTML += `
+    function resetCard(id, element) {
+      document.getElementById(`${id}`).innerHTML = ''
+      document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
                 <div class="field">
                   <h4>${element.task_name}</h4>
@@ -170,43 +170,45 @@ async function seachresult() {
                   <p>${element.task_end_date}</p>
                 </div>
               </div >`
+    }
+    data.forEach(element => {
+      console.log(element, "elementic ")
+      if (element.task_status == 'todo') {
+        console.log("todo list ===================")
+        ides('todo').removeAttribute('style')
+        resetCard('todo', element)
+      }
+
+      else if (element.task_status == 'inprogress') {
+        console.log("inprogress list ===================")
+        ides('inprogress').removeAttribute('style')
+        resetCard('inprogress', element)
+
+      }
+      else if (element.task_status == 'completed') {
+        console.log("completed list ===================")
+        ides('completed').removeAttribute('style')
+        resetCard('completed', element)
+
+      }
+    });
   }
-  data.forEach(element => {
-    console.log(element, "elementic ")
-    if (element.task_status == 'todo') {
-      console.log("todo list ===================")
-      ides('todo').removeAttribute('style')
-      resetCard('todo', element)
-    }
+}
 
-    else if (element.task_status == 'inprogress') {
-      console.log("inprogress list ===================")
-      ides('inprogress').removeAttribute('style')
-      resetCard('inprogress', element)
+async function addcomment() {
 
-    }
-    else if (element.task_status == 'completed') {
-      console.log("completed list ===================")
-      ides('completed').removeAttribute('style')
-      resetCard('completed', element)
+  const formData = new FormData()
+  const fields = ['taskcomment', 'taskstatus']
+  formData.append('file', document.getElementById('file'))
+  let file=document.getElementById('file');
+  formData.append('file', file.files[0])
+  fields.forEach((element) => {
+    formData.append(element, document.getElementById(element).value)
 
-    }
   });
-}
-}
-
-async function addcomment(){
-  
-  obj = {}
-  new FormData(document.getElementById('form')).forEach((value, key) => {
-    obj[key] = value;
-  })
-  console.log(obj, "obj is comment")
-  const response = await fetch(`http://127.0.0.1:8000/employee/addcomment/${id}/?gtask=${gtaskid}`, {
+  console.log(formData, "formdatai si sfsdfjsdfhasl;fhasdlfghasdhgasdlh")
+  const response = await fetch(`http://127.0.0.1:8000/employee/addcomment/${id}/${gtaskid}`, {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(obj)
+    body: formData
   })
 }
