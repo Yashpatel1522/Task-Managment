@@ -11,7 +11,7 @@ const { upload,userProfileStorage } = require('../utility/multer');
 const multer = require('multer'); 
 const taskdetailfiles = require("../utility/multer");
 const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
-const { teamdetails, searchTeamData} = require('../controller/managermodule/teamdata');
+const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData} = require('../controller/managermodule/teamdata');
 
 const uploadImage = multer({ storage: userProfileStorage });
 
@@ -61,5 +61,7 @@ managerRouter.get('/getempdata',getempdata)
 
 managerRouter.post('/addteamdata',addteam)
 managerRouter.get("/managerTeam/searchteam/:searchdata",searchTeamData)
+managerRouter.get("/managerTeam/showteamdata/:id",showTeamDataForUpdate)
+managerRouter.post("/updateteamdata",updateTeamData)
 
 module.exports = managerRouter;

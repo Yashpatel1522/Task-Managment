@@ -4,3 +4,29 @@
 {"level":"error","timestamp":"2024-04-18T06:34:08.564Z"}
 {"level":"error","timestamp":"2024-04-18T06:36:22.153Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"insert into teams(manager_id,team_name)values('1','hack')","sqlMessage":"Unknown column 'manager_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-18T08:32:22.069Z"}
+{"level":"error","timestamp":"2024-04-18T11:59:53.032Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:05.071Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:06.631Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:06.998Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:07.214Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:07.525Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:07.725Z"}
+{"level":"error","timestamp":"2024-04-18T12:24:01.232Z"}
+{"level":"error","timestamp":"2024-04-18T12:24:03.910Z"}
+{"level":"error","timestamp":"2024-04-18T12:24:06.133Z"}
+{"level":"error","timestamp":"2024-04-18T12:29:37.326Z"}
+{"level":"error","timestamp":"2024-04-18T12:32:25.595Z"}
+{"level":"error","timestamp":"2024-04-18T12:33:19.874Z"}
+{"level":"error","timestamp":"2024-04-18T12:34:44.219Z"}
+{"level":"error","timestamp":"2024-04-18T12:35:38.202Z"}
+{"level":"error","timestamp":"2024-04-18T12:35:49.008Z"}
+{"level":"error","timestamp":"2024-04-18T12:36:13.156Z"}
+{"level":"error","timestamp":"2024-04-18T12:36:48.530Z"}
+{"level":"error","timestamp":"2024-04-18T12:37:01.761Z"}
+{"level":"error","timestamp":"2024-04-18T12:38:48.031Z"}
+{"level":"error","timestamp":"2024-04-18T12:38:57.932Z"}
+{"level":"error","timestamp":"2024-04-18T12:39:03.134Z"}
+{"level":"error","timestamp":"2024-04-18T12:40:02.727Z"}
+{"level":"error","timestamp":"2024-04-18T12:40:04.631Z"}
+{"level":"error","message":"Not Search Data Found !","timestamp":"2024-04-18T13:25:11.819Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-18T13:31:45.126Z"}
