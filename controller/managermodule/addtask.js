@@ -9,14 +9,17 @@ const addtaskdata= async(request,response) => {
     let dataobj = {};
     let db = new database();
     const query = `select id,first_name from users where role_id = 1`;
+    const teamDataQuery = `select id,team_name from teams where is_deleted = 0`;
     const categoryDataQuery = `select * from categories`;
     const urgencyDataQuery = 'select * from urgency';
     const importancyDataQuery = 'select * from importants';
     let empdata =await db.executeQuery(query);
+    let teamdata = await db.executeQuery(teamDataQuery);
     let categorydata = await db.executeQuery(categoryDataQuery);
     let urgencyData = await db.executeQuery(urgencyDataQuery);
     let importancyData = await db.executeQuery(importancyDataQuery);
     dataobj.empdata = empdata;
+    dataobj.teamdata = teamdata;
     dataobj.categorydata = categorydata;
     dataobj.urgencyData = urgencyData;
     dataobj.importancyData = importancyData;
@@ -28,7 +31,6 @@ const addtaskdata= async(request,response) => {
 const inserttaskdata = async(request,response) =>{
   try {
       taskdata = request.body;
-      console.log(taskdata);
       let lastInserted_id;
       let db=new database();
       let prioritiy_id = 0;
@@ -72,10 +74,16 @@ const inserttaskdata = async(request,response) =>{
       task_status:taskdata.task_status,},"tasks");
       lastInserted_id = res.insertId;
 
-      Assin_task_to = taskdata.Assin_task_to.split(',')
+      let Assin_task_to = taskdata.Assin_task_to.split(',')
       await Assin_task_to.forEach(element => {
         db.insertData({task_id:lastInserted_id, emp_id:element},"tasks_assigend_to")
       });
+      let  Assin_task_to_team = taskdata.Assin_task_to_team.split(',')
+      console.log(Assin_task_to_team)
+      await Assin_task_to_team.forEach(team => {
+          db.insertData({task_id:lastInserted_id,team_id:team},"team_has_tasks")
+      })
+
       await request.files.forEach(file => {
         let filedata={
           "task_id":lastInserted_id,

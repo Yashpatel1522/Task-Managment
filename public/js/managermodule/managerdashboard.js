@@ -90,7 +90,7 @@ function remOption() {
   document.getElementById("profClk").style.display = "none";
 }
 
-//pop-up js of addtask.ejs
+
 let popup = document.getElementById("popup");
 
 function openPopup() {
