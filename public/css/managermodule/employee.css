@@ -17,6 +17,7 @@
 	width: 80%;
 	height: 1000px;
 	padding: 15px;
+	overflow: auto;
 }
 
 #profClk {

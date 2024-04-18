@@ -17,6 +17,8 @@
 	width: 80%;
 	height: 1000px;
 	padding: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
