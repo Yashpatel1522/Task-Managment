@@ -1,11 +1,11 @@
 const express = require("express");
-const { adminDashboard } = require("../controller/adminmodule/dashboard");
+const { adminDashboard, chartsData } = require("../controller/adminmodule/dashboard");
 const { adminManagers, managerDetails, searchManData, dataDelete, managerpage } = require("../controller/adminmodule/managers");
 const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeepage } = require("../controller/adminmodule/employees");
 const { adminTasks, searchTasks, taskpage, taskDetail } = require("../controller/adminmodule/tasks");
 const { adminCalender } = require("../controller/adminmodule/calender");
 const { profiledata } = require("../controller/adminmodule/adminprofile");
-const { adminTeam, teamdetails, deleteTeam, teamData, teamDetails } = require("../controller/adminmodule/teamdata");
+const { adminTeam, deleteTeam, teamData, teamDetails } = require("../controller/adminmodule/teamdata");
 
 const router = express.Router();
 
@@ -39,6 +39,8 @@ router.get("/tasksData/:searchdata", searchTasks)
 router.get("/tasksDetails/:id", taskDetail)
 
 router.get("/profiledata", profiledata)
+router.get("/chartsData", chartsData)
+
 
 
 
