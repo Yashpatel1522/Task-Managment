@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manager modulesidebar</title>
   <link rel="stylesheet" href="/css/managermodule/sidebar.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
 </head>
 <body>
@@ -14,6 +14,10 @@
             <img src="/assets/adminmodule/logo.png" alt="" width="50%">
           </div>
           <ul>
+            <div class="list" onclick="showDashboard()">
+              <i class="bi bi-house-door sidebaricon"></i>
+              <li>dashboard</li>
+            </div>
           <div class="list" onclick="showTask()">
             <i class="bi bi-list-task sidebaricon"></i>
             <li>Tasks</li>
@@ -34,6 +38,9 @@
     </div>
 
     <script>
+      function showDashboard() {
+        window.location.href = window.location.origin + `/manager/dashboard`;
+      }
       function showEmployee() {
         window.location.href = window.location.origin + `/manager/employeeDetails`
       }

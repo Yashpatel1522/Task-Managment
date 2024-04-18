@@ -18,7 +18,7 @@
 	background-color: #323232;
 }
 
-.employeeContent {
+.chartContent {
 	width: 80%;
 	height: 1000px;
 	padding: 15px;
@@ -46,18 +46,4 @@
 
 #profClk > p:hover {
 	background-color: lightgray;
-}
-
-.employeeHead {
-	display: flex;
-	align-items: center;
-	padding: 25px 0;
-}
-
-.tasklft {
-	width: 80%;
-}
-
-.tasklft > h2 {
-	font-size: 35px;
 }
