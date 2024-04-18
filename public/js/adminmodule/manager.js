@@ -90,7 +90,7 @@ const openPopup1 = async (id) => {
 
     if (data.managerDetail.length != 0) {
       document.getElementById("manager-form").innerHTML =
-        `<div class="container width:fit-content p-4">
+        `<div class="allform width:fit-content p-4" >
         <div class="row mb-3">
         <div class="col-md-11">
             <h2 class="text-primary text-center">Manager Detalis</h2> 
@@ -204,13 +204,22 @@ const deleteManData = async (id) => {
       cancelButtonText: "No, cancel!",
       reverseButtons: true
 
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        userdelete(id)
+        await fetch(`http://localhost:8000/admin/managersapi/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
         swalWithBootstrapButtons.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
           icon: "success"
+        }).then(async (result2) => {
+          if (result2.isConfirmed) {
+            getManagerData();
+          }
         });
       } else if (
         /* Read more about handling dismissals below */
@@ -227,22 +236,4 @@ const deleteManData = async (id) => {
     console.log(error);
   }
 }
-const userdelete = async (id) => {
-  try {
-    let data = await fetch(`http://localhost:8000/admin/managersapi/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    Swal.fire({
-      title: "You Data Deleted",
-      text: "You clicked the button!",
-      icon: "success"
-    });
-    closePopup1();
-    getManagerData();
-  } catch (error) {
-    console.log(error);
-  }
-}
+

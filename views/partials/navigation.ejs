@@ -16,28 +16,28 @@
         <i class="bi bi-bell" onclick="showNotification()"></i>
       </div>
 
-      <div id="dropdown" class="dropdown-content">
-        <a href="/admin/profiledata" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-          onclick="loadprofile()">Profile</a>
-        <a href="/admin/changepassword">Change Password</a>
-        <a onclick="logoutpopup()">Logout</a>
+      <div>
+        <div class="profile d-flex" style="cursor: pointer;" onclick="showDropdown()">
+          <i class="bi bi-person"></i>
+          <p><B>Name</B></p>
+        </div>
+        <div id="dropdown" class="dropdown-content">
+          <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="loadprofile()">Profile</a>
+          <a href="/admin/changepassword">Change Password</a>
+          <a onclick="logoutpopup()">Logout</a>
+        </div>
       </div>
       <%- include('../adminmodule/profile.ejs') %>
     </div>
-    <%- include('../adminmodule/profile.ejs') %>
-  </div>
   </div>
   <script>
     function showNotification() {
       Swal.fire({
-        title: "Your Notification",
-        text: "Your Notification Show!",
-        icon: "success"
+        title: "Notifications",
+        text: "Click!",
+        icon: "success",
+        button: "oh yes!",
       });
-    }
-
-    function showDropdown() {
-      document.getElementById("dropdown").classList.toggle("show");
     }
 
     function logoutpopup() {
@@ -65,18 +65,25 @@
       }
     }
 
+    function showDropdown() {
+      document.getElementById("dropdown").classList.toggle("show");
+    }
+
 
     async function loadprofile() {
-      let response = await fetch("/admin/profiledata").then((response) => { return response.json() }).then((data) => {
+      let response = await fetch("http://localhost:8000/admin/profiledata").then((response) => { return response.json() }).then((data) => {
         profileData = data.result;
-        renderProfileData(profileData)
+        // renderProfileData(profileData)
       })
     }
 
-    const renderProfileData = (profileData) => {
-      console.log('this is ', profileData);
-      let inputFields = document.querySelectorAll('.form-control')
-      inputFields = Array.from(inputFields)
-      console.log(inputFields);
-    }
+    // const renderProfileData = (profileData) => {
+    //   console.log('this is ', profileData);
+    //   let inputFields = document.querySelectorAll('.form-control')
+    //   inputFields = Array.from(inputFields)
+    //   console.log(inputFields);
+    // }
   </script>
+</body>
+
+</html>
