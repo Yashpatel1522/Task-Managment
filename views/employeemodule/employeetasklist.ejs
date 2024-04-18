@@ -10,6 +10,7 @@
   <script src="/js/employee/employeedashboard.js"></script>
   <script src="/js/employee/employeeprofile.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
   <script src="/js/bootstrap.js"></script>
 </head>
 
@@ -18,16 +19,6 @@
     <div class="container">
       <div class="main">
         <form method="POST" id="form" enctype="multipart/form-data">
-
-          <!-- <div class="search-and-profile">
-            <div class="search-container">
-              <input type="text" class="searchinput" id="searchinput" placeholder="Search.." value="" name="search">
-              <img class="searchbar" src="/assets/employee/search.png" alt="" onclick="seachresult()">
-            </div>
-            <div class="profile">
-              <img class="userprofile" src="/assets/employee/user.png" alt="">
-            </div>
-          </div> -->
           <div class="search-and-profile">
             <div class="search-container">
               <input type="text" class="searchinput" id="searchinput" placeholder="Search.." value="" name="search">
@@ -43,20 +34,20 @@
               <a href="employee/logout">Logout</a>
             </div>
           </div>
-          
+
           <!-- Modal -->
           <div class="popup-task" id="popup">
 
             <div class="body">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">Task Details</h5>
-                    </div>&nbsp;
-                    <div class="modal-body" id="taskdetails">
-                    </div>
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Task Details</h5>
+                  </div>&nbsp;
+                  <div class="modal-body" id="taskdetails">
                   </div>
                 </div>
+              </div>
             </div>
           </div>
           <!--closed  -->
@@ -64,51 +55,51 @@
           <div class="popup-comment" id="popup-comment">
 
             <div class="body">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">Comments</h5>
-                    </div>&nbsp;
-                    <div class="modal-body" id="taskcommentdetails">
-                      <table class="table">
-                        <tr>
-                          <td>
-                            Task Status :
-                          </td>
-                          <td>
-                            <select name="taskstatus" id="taskstatus" name="taskstatus">
-                              <option value="todo">ToDo</option>
-                              <option value="inprogress">Inprogress</option>
-                              <option value="completed">Completed</option>
-                            </select>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Comment :
-                          </td>
-                          <td>
-                            <textarea id="taskcomment" name="taskcomment" class="taskcomment" rows="4"
-                              cols="50"></textarea>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label for="myfile">Select a file:</label>
-                          </td>
-                          <td>
-                            <input type="file" id="file" name="file">
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
-                    <div class="modal-footer-user" id="commentpopup">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        onclick="hideComment('popup-comment')">Close</button>
-                      <button type="button" class="btn btn-primary" onclick="addcomment()">Submit</button>
-                    </div>
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Comments</h5>
+                  </div>&nbsp;
+                  <div class="modal-body" id="taskcommentdetails">
+                    <table class="table">
+                      <tr>
+                        <td>
+                          Task Status :
+                        </td>
+                        <td>
+                          <select name="taskstatus" id="taskstatus" name="taskstatus">
+                            <option value="todo">ToDo</option>
+                            <option value="inprogress">Inprogress</option>
+                            <option value="completed">Completed</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Comment :
+                        </td>
+                        <td>
+                          <textarea id="taskcomment" name="taskcomment" class="taskcomment" rows="4"
+                            cols="50"></textarea>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label for="myfile">Select a file:</label>
+                        </td>
+                        <td>
+                          <input type="file" id="file" name="file">
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="modal-footer-user" id="commentpopup">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                      onclick="hideComment('popup-comment')">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="addcomment()">Submit</button>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
           <!-- end -->

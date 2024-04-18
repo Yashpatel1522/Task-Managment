@@ -50,14 +50,14 @@ const addcomment = async (req, res) => {
 
         }
         let db = new database()
-        let res = await db.insertData(addcomment, "user_comments")
+        let result = await db.insertData(addcomment, "user_comments")
         let userprofiledata = {
-            "user_id": res.insertId,
-            "oldimage_name": file.originalname,
-            "newimage_name": file.filename,
+            "task_id": req.params.taskid,
+            "oldfile_name": file.originalname,
+            "newfile_name": file.filename,
         }
-        res = await db.insertData(userprofiledata, "user_profiles")
-        console.log(res)
+        resultprofile = await db.insertData(userprofiledata, "user_profiles")
+        res.status(200).json({ 'data': resultprofile,'msg':'done'})
     }
     catch (error) {
         console.log(error)

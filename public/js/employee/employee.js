@@ -199,4 +199,6 @@ async function addcomment() {
     method: 'POST',
     body: formData
   })
+  let data= await response.json()
+  console.log(data,"{}{}{}")
 }
