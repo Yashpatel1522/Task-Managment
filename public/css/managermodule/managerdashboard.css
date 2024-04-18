@@ -76,6 +76,7 @@
 :root{
   --white : white;
   --button-color : blue;
+  --lightblue : lightblue;
 }
 .addtaskcontainer{
   position: fixed;
@@ -106,7 +107,7 @@ body{
   padding: 5px;
   margin: 0 auto;
   background-color: var(--white);
-  border: 5px solid black;
+  box-shadow: 5px 5px 10px 10px var(--lightblue);
   border-radius: 10px;
   width: 500px;
 }

@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="/css/employee/employee.css">
   <script src="/js/employee/employee.js"></script>
+  <script src="/js/employee/employeedashboard.js"></script>
   <script src="/js/employee/employeeprofile.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <script src="/js/bootstrap.js"></script>
@@ -43,9 +44,6 @@
             </div>
           </div>
           
-          <!-- user profile modal -->
-          <%- include('./profilemodal') %>
-
           <!-- Modal -->
           <div class="popup-task" id="popup">
 
@@ -99,7 +97,7 @@
                             <label for="myfile">Select a file:</label>
                           </td>
                           <td>
-                            <input type="file" id="myfile" name="myfile">
+                            <input type="file" id="file" name="file">
                           </td>
                         </tr>
                       </table>
@@ -162,6 +160,8 @@
             <div class="carddetails" id="completed">
             </div>
           </div>
+          <!-- user profile modal -->
+          <%- include('./profilemodal') %>
         </form>
       </div>
     </div>

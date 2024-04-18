@@ -1,7 +1,3 @@
-// const UserTaskList= (req, res) => {
-//     res.render('UserTaskList')
-// }
-
 const { compareSync } = require("bcrypt")
 const database = require("../../helpers/database.helper")
 
@@ -43,30 +39,29 @@ const searchlist = async (req, res) => {
 }
 
 const addcomment = async (req, res) => {
+    let file = req.file
+    try {
+        let addcomment = {
+            employee_id: req.params.id,
+            task_id: req.params.taskid,
+            task_status: req.body.taskstatus,
+            comment: req.body.taskcomment,
+            attechment: file.filename
 
-    console.log(req.body,"----------",req.params.id,"-----------------",req.query.gtask)
-    // try {
-    //     let addcomment = {
-    //         task_status: req.body.taskstatus,
-    //         comment: req.body.taskcomment,
-    //         employee_id: req.params.id
-    //     }
-    //     let db = new database()
-    //     let res = await db.insertData(addcomment, "user_comments")
-    //     console.log(request.file)
-    //     let file = request.file
-    //     let userprofiledata = {
-    //         "user_id": res.insertId,
-    //         "oldimage_name": file.originalname,
-    //         "newimage_name": file.filename,
-    //         "path": file.path
-    //     }
-    //     res = await db.insertData(userprofiledata, "user_profiles")
-    //     console.log(res)
-    // }
-    // catch (error) {
-    //     console.log(error)
-    // }
+        }
+        let db = new database()
+        let res = await db.insertData(addcomment, "user_comments")
+        let userprofiledata = {
+            "user_id": res.insertId,
+            "oldimage_name": file.originalname,
+            "newimage_name": file.filename,
+        }
+        res = await db.insertData(userprofiledata, "user_profiles")
+        console.log(res)
+    }
+    catch (error) {
+        console.log(error)
+    }
 }
 
 module.exports = { EmployeeTaskList, list, searchlist, addcomment }
