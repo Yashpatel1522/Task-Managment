@@ -95,15 +95,15 @@ function showOption() {
 
 
 //pop-up js of addtask.ejs
-let popup = document.getElementById("popup");
+// let popup = document.getElementById("popup");
 
-function openPopup() {
-  popup.classList.add("open-popup");
-}
+// function openPopup() {
+//   popup.classList.add("open-popup");
+// }
 
-function closePopup() {
-  popup.classList.remove("open-popup");
-}
+// function closePopup() {
+//   popup.classList.remove("open-popup");
+// }
 
 
 // function for serach task
