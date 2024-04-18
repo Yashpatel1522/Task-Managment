@@ -13,10 +13,10 @@ body {
   width: 1400px;
 }
 
-.admin {
+/* .admin {
   display: flex;
   justify-content: space-between;
-}
+} */
 
 .admin .sidebar {
   border-top-right-radius: 30px;
