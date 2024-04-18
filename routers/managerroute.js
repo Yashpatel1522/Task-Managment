@@ -8,13 +8,22 @@ const dashboardView = require('../controller/managermodule/dashboard');
 const employeeView = require('../controller/managermodule/employeeView');
 const taskView = require('../controller/managermodule/taskView');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
-const addtaskdatamiddleware = require('../middleware/addtask');
+const { upload,userProfileStorage } = require('../utility/multer');
+// const addtaskdatamiddleware = require('../middleware/addtask')
+
+const multer = require('multer'); 
+const taskdetailfiles = require("../utility/multer");
+const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
+const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData} = require('../controller/managermodule/teamdata');
+
+const uploadImage = multer({ storage: userProfileStorage });
+// const addtaskdatamiddleware = require('../middleware/addtask');
 const { upload } = require('../utility/multer');
 
 const multer = require('multer'); 
 const { taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const uploadStorage = multer({ storage: taskdetailfiles})
-const uploadImage = multer({ storage: userProfileStorage });
+// const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 
@@ -34,6 +43,8 @@ managerRouter.get("/Teams",(request,response)=>{
 
 // Dashboard
 managerRouter.get('/dashboard', dashboardView().getPage)
+
+managerRouter.get("/teamapi", teamdetails)
 
 //api to Update Manager Profile Details
 managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
@@ -59,5 +70,13 @@ managerRouter.post('/inserttask',upload.array("files"),inserttaskdata);
 managerRouter.post('/searchtask',searchTask)
 
 managerRouter.get('/notification',notifications)
+
+// api to get only employe data for create team
+managerRouter.get('/getempdata',getempdata)
+
+managerRouter.post('/addteamdata',addteam)
+managerRouter.get("/managerTeam/searchteam/:searchdata",searchTeamData)
+managerRouter.get("/managerTeam/showteamdata/:id",showTeamDataForUpdate)
+managerRouter.post("/updateteamdata",updateTeamData)
 
 module.exports = managerRouter;

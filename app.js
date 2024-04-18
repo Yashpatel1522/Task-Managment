@@ -9,11 +9,8 @@ const ejs = require('ejs');
 const logger = require('./logger/logger')
 const adminroute = require('./routers/adminroute')
 const employeeroute = require('./routers/employeeroute');
-const managerRoute = require('./routers/managerroute');
 const managerroute = require('./routers/managerroute');
 const login = require('./routers/loginroutes');
-const managerRouter = require('./routers/managerroute');
-const router = require('./routers/employeeroute');
 
 let PORT = process.env.PORT;
 
@@ -39,7 +36,7 @@ app.listen(PORT, () => {
   console.log("listen portno is : " + PORT);
 });
 
-app.use('/admin', router);
+app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
-app.use("/login",login)
-app.use("/manager", managerRoute);
+app.use("/login", login)
+app.use("/manager", managerroute);

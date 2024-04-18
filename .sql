@@ -222,3 +222,23 @@ create table team_has_tasks (
     foreign key (team_id) references teams (id),
     foreign key (task_id) references tasks (id)
 );
+create table teams(
+	id int primary key auto_increment,
+    team_name varchar(100),
+    manager_id int,
+	is_deleted boolean default 0,
+    FOREIGN KEY (manager_id) REFERENCES users(id),
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_at TIMESTAMP default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+create table team_members(
+	id int primary key auto_increment,
+	team_id int,
+    FOREIGN KEY(team_id) REFERENCES teams(id),
+    emp_id int,
+	FOREIGN KEY (emp_id) REFERENCES users(id),
+    is_deleted boolean default 0,
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_at TIMESTAMP default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
