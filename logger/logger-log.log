@@ -30,3 +30,30 @@
 {"level":"error","timestamp":"2024-04-18T12:40:04.631Z"}
 {"level":"error","message":"Not Search Data Found !","timestamp":"2024-04-18T13:25:11.819Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-18T13:31:45.126Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:14:10.749Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:14:15.394Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:14:16.706Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:14:20.653Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:14:22.168Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:14:23.407Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:14:24.409Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:14:44.627Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:04.785Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:10.572Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:19.179Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:20.123Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:20.527Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:20.824Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:27.619Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:33.515Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:15:34.257Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:19:12.156Z"}
+{"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:19:14.054Z"}
+{"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:19:26.532Z"}
+{"level":"error","message":"Manager Data Can't deleted !","timestamp":"2024-04-18T08:53:06.523Z"}
+{"level":"error","message":"Manager Data Can't deleted !","timestamp":"2024-04-18T08:55:06.832Z"}
+{"level":"error","message":"Manager Data Can't deleted !","timestamp":"2024-04-18T08:55:10.966Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:05.617Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:15.737Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:18.513Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-18T12:39:17.637Z"}
