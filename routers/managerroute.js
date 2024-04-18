@@ -5,15 +5,14 @@ const employeeData = require("../controller/managermodule/employeeData")
 const updateManager = require('../controller/managermodule/updateManagerProfile');
 const managerProfile = require('../controller/managermodule/getManagerProfile');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
-const addtaskdatamiddleware = require('../middleware/addtask');
-const { upload } = require('../utility/multer');
+const { upload , userProfileStorage} = require('../utility/multer');
 const addtaskdatamiddleware = require('../middleware/addtask')
 
 const multer = require('multer'); 
 const taskdetailfiles = require("../utility/multer");
-const updateManager = require('../controller/managermodule/updateManagerProfile');
-const managerProfile = require('../controller/managermodule/getManagerProfile');
-const uploadStorage = multer({ storage: taskdetailfiles})
+// const updateManager = require('../controller/managermodule/updateManagerProfile');
+// const managerProfile = require('../controller/managermodule/getManagerProfile');
+// const uploadStorage = multer({ storage: taskdetailfiles})
 const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
