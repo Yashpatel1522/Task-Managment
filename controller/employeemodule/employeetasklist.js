@@ -12,9 +12,10 @@ const EmployeeTaskList = async (req, res) => {
     try {
         id = req.params.id
         console.log(id, "id is===")
-        const query = `select * from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id inner join categories as c on c.id=t.category_id inner join users as u on u.role_id=t.manager_id where a.emp_id=?;`
+        const query = `select * from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id inner join categories as c on c.id=t.category_id inner join users as u on u.role_id=t.manager_id inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id inner join importants as imp on imp.id=p.important_id  where a.emp_id=1 order by p.urgency_id;`
         let db = new database()
         let result = await db.executeQuery(query, id)
+        console.log(result, "imporratancy  ")
         res.json(result)
     }
     catch (error) {
@@ -25,8 +26,7 @@ const EmployeeTaskList = async (req, res) => {
 const searchlist = async (req, res) => {
     try {
         usersearch = req.body.search
-        console.log(usersearch, "fsdfsdfsdfsdf")
-        const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id = t.id where t.task_name like ? or t.task_end_date like ?`
+        const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join priorities as p on p.id=t.prioritiy_id  inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ?;`
         let db = new database()
         let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%'])
         console.log(result, "result data ")
@@ -50,14 +50,14 @@ const addcomment = async (req, res) => {
 
         }
         let db = new database()
-        let res = await db.insertData(addcomment, "user_comments")
+        let result = await db.insertData(addcomment, "user_comments")
         let userprofiledata = {
-            "user_id": res.insertId,
-            "oldimage_name": file.originalname,
-            "newimage_name": file.filename,
+            "task_id": req.params.taskid,
+            "oldfile_name": file.originalname,
+            "newfile_name": file.filename,
         }
-        res = await db.insertData(userprofiledata, "user_profiles")
-        console.log(res)
+        resultprofile = await db.insertData(userprofiledata, "user_profiles")
+        res.status(200).json({ 'data': resultprofile,'msg':'done'})
     }
     catch (error) {
         console.log(error)
