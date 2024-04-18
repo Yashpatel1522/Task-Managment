@@ -20,10 +20,18 @@
       <div class="main">
         <form method="POST" id="form" enctype="multipart/form-data">
           <div class="search-and-profile">
-            <div class="search-container">
+            <div class="input-group">
+              <div class="form-outline" >
+                <input type="text" id="searchinput" name="search" class="form-control" />
+              </div>
+              <button type="button" class="btn btn-primary" onclick="seachresult()" >
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <!-- <div class="search-container">
               <input type="text" class="searchinput" id="searchinput" placeholder="Search.." value="" name="search">
               <img class="searchbar" src="/assets/employee/search.png" alt="" onclick="seachresult()">
-            </div>
+            </div> -->
             <div class="profile" class="dropbtn" onclick="showDropdown()">
               <img class="userprofile" src="/assets/employee/user.png" alt="">
             </div>
