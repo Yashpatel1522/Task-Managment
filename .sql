@@ -198,3 +198,27 @@ newfile_name varchar(255),
 is_deleted boolean default 0,
 FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE
 );
+
+create table teams (
+	id int auto_increment primary key,
+    team_name varchar(50),
+    created_by int,
+    status boolean default 1,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp,
+    foreign key (created_by) references users (id)
+);
+
+create table team_details (
+	team_id int,
+    member_id int,
+    foreign key (team_id) references teams (id),
+    foreign key (member_id) references users (id)
+);
+
+create table team_has_tasks (
+	team_id int,
+    task_id int,
+    foreign key (team_id) references teams (id),
+    foreign key (task_id) references tasks (id)
+);
