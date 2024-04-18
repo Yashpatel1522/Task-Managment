@@ -2,9 +2,11 @@ const express = require("express");
 const { adminDashboard } = require("../controller/adminmodule/dashboard");
 const { adminManagers, managerDetails, searchManData, dataDelete, managerpage } = require("../controller/adminmodule/managers");
 const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeepage } = require("../controller/adminmodule/employees");
-const { adminTasks, searchTasks, taskpage } = require("../controller/adminmodule/tasks");
+const { adminTasks, searchTasks, taskpage, taskDetail } = require("../controller/adminmodule/tasks");
 const { adminTasktrack } = require("../controller/adminmodule/tasktrack");
 const { adminCalender } = require("../controller/adminmodule/calender");
+const { profiledata } = require("../controller/adminmodule/adminprofile");
+
 const router = express.Router();
 
 // Page Render
@@ -32,6 +34,11 @@ router.route("/team").get(adminTasktrack);
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
 router.get("/tasksDetails/:id", taskDetail)
+
+router.get("/profiledata", profiledata)
+
+
+
 
 
 // Calender

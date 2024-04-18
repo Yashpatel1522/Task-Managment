@@ -73,8 +73,6 @@ const searchTaskData = async (value) => {
     if (value === "") {
       getTaskData()
     }
-<<<<<<< HEAD:public/js/adminmodule/tasks.js
-=======
     let inprogressTask = document.getElementById("inprogressTask");
     let dataadd1 = ``
     if (data.inprogressTask.length != 0) {
@@ -112,7 +110,6 @@ const searchTaskData = async (value) => {
     } else {
       document.getElementById("completedTask").innerText = "Not Data Found"
     }
->>>>>>> dev:public/js/adminmodulo/tasks.js
   } catch (err) {
     console.log(err)
   }
