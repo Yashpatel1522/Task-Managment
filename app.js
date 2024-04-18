@@ -39,7 +39,7 @@ app.listen(PORT, () => {
   console.log("listen portno is : " + PORT);
 });
 
-app.use('/admin', router);
+app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
 app.use("/login",login)
 app.use("/manager", managerRoute);

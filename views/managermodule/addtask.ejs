@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,110 +9,115 @@
 </head>
 <body>
   <form id="taskForm" name="taskform" enctype="multipart/form-data">
-  <!-- <div class="addtaskcontainer"> -->
+    <!-- <div class="addtaskcontainer"> -->
     <div class="addtask">
-      <div class="taskrow"><h3>ADD TASK</h3></div>
-    <div class="taskrow">
+      <div class="taskrow">
+        <h3>ADD TASK</h3>
+      </div>
+      <div class="taskrow">
         <div class="subcol">
-        <label for="tname">Task Name</label>
-        <input type="text" name="task_name" placeholder="Test task" id="task_name" class="reqfieled"/>
-        <span class="errclass" id="tnerr"></span>
+          <label for="tname">Task Name</label>
+          <input type="text" name="task_name" placeholder="Test task" id="task_name" class="reqfieled" />
+          <span class="errclass" id="tnerr"></span>
         </div>
-    </div>
-    <div class="taskrow">
+      </div>
+      <div class="taskrow">
         <div class="subcol">
           <label for="assignto" id="Assin_task">Assign Task To</label>
-          <select id="Assin_task_to" name="Assin_task_to"  class="reqselect" multiple>
+          <select id="Assin_task_to" name="Assin_task_to" class="reqselect" multiple>
             <option value="0">Select</option>
           </select>
           <span class="reqselecterr" id="aterr"></span>
         </div>
-    </div>
-    <div class="taskrow">
-      <div class="taskcol">
-        <div class="subcol select">
-          <label for="tstage" id="task_stage">Task Stage</label>
-          <select name="task_status" class="reqselect">
-            <option value="0">Select</option>
-            <option value="1">To Do</option>
-            <option value="2">In Progress</option>
-            <option value="3">Completed</option>
-          </select>
-          <span class="reqselecterr" id="tserr"></span>
-        </div>
-        <div class="subcol select">
-          <label for="category" id="taskcategory">Category</label>
-          <select id="task_category" name="task_category" class="reqselect">
-            <option value="0">Select</option>
-          </select>
-          <span class="reqselecterr" id="cterr"></span>
-        </div>
       </div>
-    </div>
-    <div class="taskrow">
-      <div class="taskcol">
-        <div class="subcol select">
-          <label for="sdate">Task Start Date</label>
-          <input type="text" placeholder="Task Start Date" name="task_start_date" id="task_start_date" class="reqfieled"/>
-          <span class="errclass" id="dateerr"></span>
-        </div>
-        <div class="subcol select">
-          <label for="edate">Task Due Date</label>
-          <input type="text" placeholder="Due date" name="task_end_date" id="task_end_date" class="reqfieled"/>
-          <span class="errclass" id="dateerr2"></span>
+      <div class="taskrow">
+        <div class="taskcol">
+          <div class="subcol select">
+            <label for="tstage" id="task_stage">Task Stage</label>
+            <select name="task_status" class="reqselect">
+              <option value="0">Select</option>
+              <option value="1">To Do</option>
+              <option value="2">In Progress</option>
+              <option value="3">Completed</option>
+            </select>
+            <span class="reqselecterr" id="tserr"></span>
+          </div>
+          <div class="subcol select">
+            <label for="category" id="taskcategory">Category</label>
+            <select id="task_category" name="task_category" class="reqselect">
+              <option value="0">Select</option>
+            </select>
+            <span class="reqselecterr" id="cterr"></span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="taskrow">
-      <div class="subcol">
-        <label for="task descriptions">Descriptions</label>
-        <input type="text" name="task_description" placeholder="Descriptions" id="task_description" class="reqfieled">
-        <span class="errclass" id="descriptionserr"></span>
+      <div class="taskrow">
+        <div class="taskcol">
+          <div class="subcol select">
+            <label for="sdate">Task Start Date</label>
+            <input type="text" placeholder="Task Start Date" name="task_start_date" id="task_start_date"
+              class="reqfieled" />
+            <span class="errclass" id="dateerr"></span>
+          </div>
+          <div class="subcol select">
+            <label for="edate">Task Due Date</label>
+            <input type="text" placeholder="Due date" name="task_end_date" id="task_end_date" class="reqfieled" />
+            <span class="errclass" id="dateerr2"></span>
+          </div>
+        </div>
       </div>
-  </div>
-  <div class="taskrow">
-    <div class="taskcol">
-      <div class="subcol select">
-        <label for="ilavel" id="ilevel">Important Level</label>
-        <select id="impotant_level" name="impotant_level" class="reqselect">
-          <option value="0">Select</option>
-        </select>
-        <span class="reqselecterr" id="ilerr"></span>
+      <div class="taskrow">
+        <div class="subcol">
+          <label for="task descriptions">Descriptions</label>
+          <input type="text" name="task_description" placeholder="Descriptions" id="task_description" class="reqfieled">
+          <span class="errclass" id="descriptionserr"></span>
+        </div>
       </div>
-      <div class="subcol select">
-        <label for="ulevel" id="ulevel">Urgency Level</label>
-        <select id="urgency_level" name="urgency_level" class="reqselect">
-          <option value="0">Select</option>
-        </select>
-        <span class="reqselecterr" id="ulerr"></span>
+      <div class="taskrow">
+        <div class="taskcol">
+          <div class="subcol select">
+            <label for="ilavel" id="ilevel">Important Level</label>
+            <select id="impotant_level" name="impotant_level" class="reqselect">
+              <option value="0">Select</option>
+            </select>
+            <span class="reqselecterr" id="ilerr"></span>
+          </div>
+          <div class="subcol select">
+            <label for="ulevel" id="ulevel">Urgency Level</label>
+            <select id="urgency_level" name="urgency_level" class="reqselect">
+              <option value="0">Select</option>
+            </select>
+            <span class="reqselecterr" id="ulerr"></span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="taskrow">
-    <div class="subcol">
-      <label for="task descriptions">Attachments</label>
-      <input type="file" name="files"  id="files" multiple/>
-    </div>
-</div>
-<div class="taskrow">
-  <div class="taskcol">
-    <div class="subcol">
-      <div></div>
-      <div></div>
-    </div>
-    <div class="taskcol">
-      <input type="button" class="button" id="canclebtn" value="cancle" onclick="closePopup()">
-      <input type="button" class="button" id="savebtn" value="Save" onclick="insertTaskData()">
-      <input type="button" class="button" id="resetbtn" value="Reset" onclick="onReset()">
-    </div>
-  </div>
-</div>
+      <div class="taskrow">
+        <div class="subcol">
+          <label for="task descriptions">Attachments</label>
+          <input type="file" name="files" id="files" multiple />
+        </div>
+      </div>
+      <div class="taskrow">
+        <div class="taskcol">
+          <div class="subcol">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="taskcol">
+            <input type="button" class="button" id="canclebtn" value="cancle" onclick="closePopup()">
+            <input type="button" class="button" id="savebtn" value="Save" onclick="insertTaskData()">
+            <input type="button" class="button" id="resetbtn" value="Reset" onclick="onReset()">
+          </div>
+        </div>
+      </div>
 
-</div>
     </div>
-    </div>
-  <!-- </div> -->
-</form>
-<script src="/js/managermodule/addtask.js"></script>
+    
+    <!-- </div>
+    </div> -->
+    <!-- </div> -->
+  </form>
+  <script src="/js/managermodule/addtask.js"></script>
 </body>
+
 </html>

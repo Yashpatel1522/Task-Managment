@@ -4,7 +4,7 @@ const getTaskData = async () => {
     todoTask = document.getElementById("todoTask");
     let todoData = ``;
     data.todoData.forEach(e => {
-      todoData += `<div class="card m-3 p-2">
+      todoData += `<div class="card m-3 p-2 tasks" draggable="true">
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
@@ -17,20 +17,20 @@ const getTaskData = async () => {
     let inprogressTask = document.getElementById("inprogressTask");
     let inprogressData = ``;
     data.inprogress.forEach(e => {
-      inprogressData += `<div class="card m-3 p-2">
+      inprogressData += `<div class="card m-3 p-2 tasks"  draggable="true"> 
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
          <input type="button" value="view" onclick="openpopup2(${e.id})">
       </div>
-    </div>`
+    </div>` 
     });
     inprogressTask.innerHTML = inprogressData;
 
     let completedTask = document.getElementById("completedTask");
     let completedData = ``;
     data.complete.forEach(e => {
-      completedData += `<div class="card m-3 p-2">
+      completedData += `<div class="card m-3 p-2 tasks" draggable="true">
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
@@ -131,7 +131,7 @@ const openpopup2 = async (id) => {
     let data = await (await fetch(`/admin/tasksDetails/${id}`)).json();
     if (data.taskDetail.length != 0) {
       document.getElementById("task").innerHTML = `
-        <div class="container width:fit-content p-4">
+        <div class="containere bg-white width:fit-content p-4" style="border-radius:10px;">
           <div class="row mb-3">
             <div class="col-md-11">
               <h2 class="text-primary text-center">Employee Detalis</h2> 
@@ -197,13 +197,16 @@ const openpopup2 = async (id) => {
             </div>
             <div class="col-md-6">
               <label class="text-primary">employees :</label>
-              <select name="cars" id="cars">
-                <option value="volvo">Volvo</option>
+              <select name="emp" id="emp">
               </select>
             </div>
           </div>
-        </div>`;
-    }
+        </div>` 
+          let employees = await (await fetch(`/login/employee/${id}`)).json();
+              employees.forEach(employee=>
+                document.getElementById("emp").innerHTML += `<option value="volvo">${employee.first_name+""+employee.last_name}</option>`
+              )
+    }   
   } catch (err) {
     console.log(err);
   }

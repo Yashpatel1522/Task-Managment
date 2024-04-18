@@ -5,6 +5,8 @@ const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeep
 const { adminTasks, searchTasks, taskpage, taskDetail } = require("../controller/adminmodule/tasks");
 const { adminTasktrack } = require("../controller/adminmodule/tasktrack");
 const { adminCalender } = require("../controller/adminmodule/calender");
+const { profiledata } = require("../controller/adminmodule/adminprofile");
+
 const router = express.Router();
 
 // Page Render
@@ -32,6 +34,11 @@ router.route("/team").get(adminTasktrack);
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
 router.get("/tasksDetails/:id", taskDetail)
+
+router.get("/profiledata", profiledata)
+
+
+
 
 
 // Calender

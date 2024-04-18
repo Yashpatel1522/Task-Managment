@@ -2,82 +2,161 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+	<script src="/sweetalert2/sweetalert2.min.js"defer></script>
+	<script src="/bootstrape/js/bootstrap.min.js"defer></script>
+	<script src="/js/managermodule/managerdashboard.js" defer></script>
+	<script src="/js/loginmodule/tasks.js"defer></script>
+	<script src="/js/loginmodule/draganddrop.js" defer></script>
+
+	
+	<style>
+		.section{
+			max-width: 1170px;
+			margin:0 auto;
+		}
+		.lanes{
+			display: flex;
+			align-items: flex-start;
+			justify-content: start;
+			padding: 24px 32px;
+			overflow: scroll;
+			height: 100%;
+		}
+		.swim-lane{
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+
+			background-color: #f4f4f4;
+			box-shadow: 0px 5px 15px rgba(0, 0,0, 0.25);
+
+			padding: 12px;
+			border-radius: 4px;
+			width: 270px;
+			min-height: 120px;
+
+			flex-shrink: 0;
+		}
+		.tasks{
+			background-color: white;
+			color: black;
+			box-shadow: 0px 5px 15px rgba(0, 0,0, 0.15);
+
+			padding: 12px;
+			border-radius: 4px;
+
+			font-size: 16px;
+			cursor: move;
+		}
+		.is-dragging{
+			scale: 1.05;
+			box-shadow: 0px 5px 15px rgba(0, 0,0, 0.25);
+			background:black;
+			color: white;
+		}
+	</style>
+	
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Manager Dashboard</title>
 	<link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
 	<link rel="stylesheet" href="/bootstrape/css/bootstrap.css">
 	<link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
 	<link rel="stylesheet" href="/css/managermodule/managerdashboard.css">
+	<link rel="stylesheet" href="/css/adminmodule/menubar.css">
+	<link rel="stylesheet" href="/css/loginmodule/popup.css">
+	<link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
+
 </head>
 
-<body onload="getData()">
-	<!-- <section style="max-width: 1170px;"> -->
-		<div class="managerMain">
-			<div class="managerSidebar">
-				<%- include("sidebar.ejs")%>
-			</div>
-	
-			<div class="managerContent pt-4">
-	
-				<div class="row">
-					<div class="col-9">
-						<input type="text" placeholder="Search" style="border-radius: 10px;" onchange="searchTasks(this.value)">
-					</div>
-					<div class="col-3">
-						<div class="row ps-5">
-							<i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
-							<i class="bi bi-person-circle fa-2x col" id="profImg" onmouseover="profOption()">
-								<div id="profClk" onmouseleave="remOption()">
-									<p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
-									<p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
-								</div>
-							</i>
-						</div>
-					</div>
-				</div>
+<body onload="getTaskData()">
+	<section class="section">
+	<div class="managerMain">
+		<div class="managerSidebar">
+			<%- include("sidebar.ejs")%>
+		</div>
 
-				<div class="taskCount p-4">
-					<div class="row">
-						<div class="col">
-							<div class="card" style="width: 100%;">
-								<div class="card-body">
-								  <h5 class="card-title text-center pb-3 count" style="font-size: 55px;"></h5>
-								  <p class="card-text text-center text-primary pb-2" style="font-size: 25px;">Todo</p>
-								</div>
-							  </div>
+		<div class="managerContent pt-4">
+
+			<div class="row">
+				<div class="col-9">
+					<input type="text" placeholder="Search" style="border-radius: 10px;" onchange="searchTasks(this.value)">
+				</div>
+				<div class="col-3">
+					<div class="row ps-5">
+						<i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
+						<i class="bi bi-person-circle fa-2x col" id="profImg" onmouseover="profOption()">
+							<div id="profClk" onmouseleave="remOption()">
+								<p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
+								<p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
+							</div>
+						</i>
+					</div>
+				</div>
+			</div>
+
+			<div class="taskCount p-4">
+				<div class="row">
+					<div class="col-4">
+						<div class="card" style="width: 100%;">
+							<div class="card-body">
+								<h5 class="card-title text-center pb-3 count" style="font-size: 55px;"></h5>
+								<p class="card-text text-center text-primary pb-2" style="font-size: 25px;">Todo</p>
+							</div>
 						</div>
-						<div class="col">
-							<div class="card" style="width: 100%;">
-								<div class="card-body">
-								  <h5 class="card-title text-center pb-3 count" style="font-size: 55px;"></h5>
-								  <p class="card-text text-center text-warning pb-2" style="font-size: 25px;">In Progress</p>
-								</div>
-							  </div>
+					</div>
+					<div class="col-4">
+						<div class="card" style="width: 100%;">
+							<div class="card-body">
+								<h5 class="card-title text-center pb-3 count" style="font-size: 55px;"></h5>
+								<p class="card-text text-center text-warning pb-2" style="font-size: 25px;">In Progress</p>
+							</div>
 						</div>
-						<div class="col">
-							<div class="card" style="width: 100%;">
-								<div class="card-body">
-								  <h5 class="card-title text-center pb-3 count" style="font-size: 55px;"></h5>
-								  <p class="card-text text-center text-success pb-2" style="font-size: 25px;">Completed</p>
-								</div>
-							  </div>
+					</div>
+					<div class="col-4">
+						<div class="card" style="width: 100%;">
+							<div class="card-body">
+								<h5 class="card-title text-center pb-3 count" style="font-size: 55px;"></h5>
+								<p class="card-text text-center text-success pb-2" style="font-size: 25px;">Completed</p>
+							</div>
 						</div>
 					</div>
 				</div>
-	
-				<div class="showtasks">
-					
-					<div class="taskhead p-5">
-						<div class="tasklft">
-							<h2>Tasks</h2>
-						</div>
-						<div>
-							<button type="button" class="btn btn-primary" onclick="openPopup()">Add Task</button>
-						</div>	
+			</div>
+			<div class="showtasks">
+		</div>
+				<div class="taskhead p-5">
+					<div class="tasklft">inprogressTask
+					<div>
+						<button type="button" class="btn btn-primary" onclick="openPopup()">Add Task</button>
 					</div>
-					
 				</div>
+			</div>
+			<div class="containere">
+				<div class="row lanes">
+					<div class="col-4">
+						<div id="todo-lane" class="swim-lane">
+							<h2>Todo</h2>
+							<div class="cards "id="todoTask">
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="swim-lane">
+							<h2>Inprogress</h2>
+							<div class="cards " id="inprogressTask">
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="swim-lane">
+							<h2>completed</h2>
+							<div class="cards"id="completedTask">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="addtaskcontainer" id="popup">
 			<%- include("addtask.ejs")%>
@@ -86,10 +165,16 @@
 		<div class="managerProfile" id="managerProfile">
 			<%- include("managerprofile") %>
 		</div>
+		<div class="addregistrationcontainer" id="task-detail">
+			<div id="task">
+
+			</div>
+		</div>
 	</div>
-	<!-- </section> -->
-	<script src="/sweetalert2/sweetalert2.min.js"></script>
-	<script src="/bootstrape/js/bootstrap.min.js"></script>
-	<script src="/js/managermodule/managerdashboard.js"></script>
+	</section>
+	
+
+	<!-- <script src="/js/loginmodule/popup.js"></script> -->
 </body>
+
 </html>
