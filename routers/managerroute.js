@@ -5,15 +5,12 @@ const employeeData = require("../controller/managermodule/employeeData")
 const updateManager = require('../controller/managermodule/updateManagerProfile');
 const managerProfile = require('../controller/managermodule/getManagerProfile');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
-const addtaskdatamiddleware = require('../middleware/addtask');
-const { upload } = require('../utility/multer');
-const addtaskdatamiddleware = require('../middleware/addtask')
+const { upload,userProfileStorage } = require('../utility/multer');
+// const addtaskdatamiddleware = require('../middleware/addtask')
 
 const multer = require('multer'); 
 const taskdetailfiles = require("../utility/multer");
-const updateManager = require('../controller/managermodule/updateManagerProfile');
-const managerProfile = require('../controller/managermodule/getManagerProfile');
-const uploadStorage = multer({ storage: taskdetailfiles})
+const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
 const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
@@ -54,5 +51,10 @@ managerRouter.post('/inserttask',upload.array("files"),inserttaskdata);
 managerRouter.post('/searchtask',searchTask)
 
 managerRouter.get('/notification',notifications)
+
+// api to get only employe data for create team
+managerRouter.get('/getempdata',getempdata)
+
+managerRouter.post('/addteamdata',addteam)
 
 module.exports = managerRouter;

@@ -126,7 +126,7 @@ function insertTaskData() {
   let err = addTaskValidation();
   if (err === true) {
     let form = document.getElementById("taskForm");
-    let btnSubmit = document.getElementById("savebtn");
+    // let btnSubmit = document.getElementById("savebtn");
     let formData = new FormData(form);
     formData.delete("Assin_task_to");
     formData.delete("files");
@@ -214,3 +214,4 @@ function DataINsertedSuccessfully() {
     icon: "success",
   });
 }
+
