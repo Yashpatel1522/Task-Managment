@@ -11,6 +11,8 @@ const { upload,userProfileStorage } = require('../utility/multer');
 const multer = require('multer'); 
 const taskdetailfiles = require("../utility/multer");
 const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
+const { teamdetails, searchTeamData} = require('../controller/managermodule/teamdata');
+
 const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
@@ -25,6 +27,8 @@ managerRouter.get("/employeeDetails", (request, response)=> {
 managerRouter.get("/Teams",(request,response)=>{
     response.render('./managermodule/teams')
 })
+
+managerRouter.get("/teamapi", teamdetails)
 
 //api to Update Manager Profile Details
 // managerRouter.post("/updateManager", updateManager);
@@ -56,5 +60,6 @@ managerRouter.get('/notification',notifications)
 managerRouter.get('/getempdata',getempdata)
 
 managerRouter.post('/addteamdata',addteam)
+managerRouter.get("/managerTeam/searchteam/:searchdata",searchTeamData)
 
 module.exports = managerRouter;

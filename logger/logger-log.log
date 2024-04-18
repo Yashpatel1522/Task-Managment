@@ -3,3 +3,4 @@
 {"level":"error","timestamp":"2024-04-18T06:33:36.286Z"}
 {"level":"error","timestamp":"2024-04-18T06:34:08.564Z"}
 {"level":"error","timestamp":"2024-04-18T06:36:22.153Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"insert into teams(manager_id,team_name)values('1','hack')","sqlMessage":"Unknown column 'manager_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-18T08:32:22.069Z"}

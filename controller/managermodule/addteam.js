@@ -19,7 +19,7 @@ const addteam = async(request,response)=>{
     let teamdata = request.body;
     let lastInserted_id;
     let db = new database();
-    let res = await db.insertData({manager_id:1,team_name:teamdata.team_name},"teams")
+    let res = await db.insertData({created_by:1,team_name:teamdata.team_name},"teams")
     lastInserted_id = res.insertId;
     await teamdata.employe.forEach(emp => {
       db.insertData({team_id:lastInserted_id,emp_id:emp}," team_members")

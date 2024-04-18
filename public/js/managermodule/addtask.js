@@ -65,6 +65,7 @@ function addUserList() {
       .then((data) => {
         console.log("Data received:", data);
         employeeDynamicCombo(data.empdata);
+        teamDynamicCombo(data.teamdata);
         catagoryDynamicCombo(data.categorydata);
         importantLevelCombo(data.importancyData);
         urgencyLevelCombo(data.urgencyData);
@@ -87,6 +88,17 @@ function employeeDynamicCombo(data) {
     option.textContent = `${data[i].first_name}`;
     empcombo.appendChild(option);
   }
+}
+
+function teamDynamicCombo(data){
+  let teamcombo = document.getElementById("Assin_task_to_team")
+  data.forEach(team => {
+    let option = document.createElement("option");
+    option.setAttribute("value", `${team.id}`);
+    option.setAttribute("id", `${team.id}`);
+    option.textContent = `${team.team_name}`;
+    teamcombo.appendChild(option);
+  });
 }
 
 function catagoryDynamicCombo(data) {
@@ -130,6 +142,7 @@ function insertTaskData() {
     let formData = new FormData(form);
     formData.delete("Assin_task_to");
     formData.delete("files");
+    formData.delete("Assin_task_to_team")
     let selectedArray = new Array();
     let count = 0;
     let usres = document.getElementById("Assin_task_to");
@@ -139,7 +152,17 @@ function insertTaskData() {
         count++;
       }
     }
+    let selectedTeamArray = new Array();
+    let teamCount = 0;
+    let teams = document.getElementById("Assin_task_to_team");
+    for (i = 0; i < teams.options.length; i++) {
+      if (teams.options[i].selected) {
+        selectedTeamArray[teamCount] = teams.options[i].value;
+        teamCount++;
+      }
+    }
     formData.append("Assin_task_to", selectedArray.toString());
+    formData.append("Assin_task_to_team",selectedTeamArray.toString());
     var files = document.getElementById("files").files;
     console.log(files);
     for (var x = 0; x < files.length; x++) {

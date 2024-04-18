@@ -2,7 +2,7 @@ const express = require("express");
 const { adminDashboard } = require("../controller/adminmodule/dashboard");
 const { adminManagers, managerDetails, searchManData, dataDelete, managerpage } = require("../controller/adminmodule/managers");
 const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeepage } = require("../controller/adminmodule/employees");
-const { adminTasks, searchTasks, taskpage ,taskDetail } = require("../controller/adminmodule/tasks");
+const { adminTasks, searchTasks, taskpage } = require("../controller/adminmodule/tasks");
 const { adminTasktrack } = require("../controller/adminmodule/tasktrack");
 const { adminCalender } = require("../controller/adminmodule/calender");
 const router = express.Router();
@@ -31,7 +31,7 @@ router.route("/team").get(adminTasktrack);
 // Task Router
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
-router.get("/tasksDetails/:id", taskDetail)
+// router.get("/tasksDetails/:id", taskDetail)
 
 
 // Calender
