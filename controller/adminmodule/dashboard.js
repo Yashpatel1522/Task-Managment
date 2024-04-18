@@ -36,8 +36,20 @@ exports.adminDashboard = async (request, response) => {
         if (count4 !== undefined) {
             completedCount = count4.count;
         }
+        let [teamCount] = await db.executeQuery(`select count(*) as count from teams where is_active = 1`);
+        if (teamCount !== undefined) {
+            teamCount = teamCount.count;
+        }
+        response.render("adminmodule/dashboard", { employeeCount, managerCount, teamCount, todoCount, inprogressCount, completedCount })
+    } catch (err) {
+        logger.error("Admin dashboard data error !")
+    }
+}
 
-        response.render("adminmodule/dashboard", { employeeCount, managerCount, todoCount, inprogressCount, completedCount })
+exports.chartsData = async (request, response) => {
+    try {
+        let chartData = await db.executeQuery(`select task_status as label , count(*) as data from tasks group by task_status`);
+        return response.json({ chartData })
     } catch (err) {
         logger.error("Admin dashboard data error !")
     }

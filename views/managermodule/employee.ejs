@@ -15,7 +15,7 @@
 </head>
 
 <body onload="setData()">
-	<!-- <section style="max-width: 1170px;"> -->
+	<section class="section">
     <div class="managerMain">
         <div class="managerSidebar">
             <%- include("sidebar.ejs")%>
@@ -24,13 +24,13 @@
         <div class="employeeContent pt-4">
             <div class="row">
                 <div class="col-9">
-                    <input type="text" placeholder="Search" style="border-radius: 10px; height: 35px;" class="search" tabindex="13">
+                    <input type="text" placeholder="Search" style="border-radius: 10px;" onchange="searchTasks(this.value)">
                 </div>
                 <div class="col-3">
                     <div class="row ps-5">
                         <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
-                        <i class="bi bi-person-circle fa-2x col" id="profImg" onmouseover="profOption()">
-                            <div id="profClk" onmouseleave="remOption()">
+                        <i class="bi bi-person-circle fa-2x col" id="profImg" onclick="showOption()">
+                            <div id="profClk">
                                 <p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
                                 <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
                             </div>
@@ -63,7 +63,7 @@
     <div class="addregistrationcontainer" id="open-registration">
         <%- include("../loginmodule/registration")%>
       </div>
-	<!-- </section> -->
+	</section>
 
 	<script src="/sweetalert2/sweetalert2.min.js"></script>
 	<script src="/bootstrape/js/bootstrap.min.js"></script>

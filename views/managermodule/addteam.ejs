@@ -19,7 +19,7 @@
       <div class="taskrow">
         <div class="subcol">
         <label for="teammember">Select Team Members</label>
-        <select name="teammembers" id="select">
+        <select name="teammembers" id="empselect" multiple>
           <option value="0">select</option>
         </select>
         <span class="errclass" id="tmerr"></span>
@@ -27,7 +27,7 @@
     </div>
     <div class="taskcol">
       <input type="button" class="button" id="canclebtn" value="cancle" onclick="closePopup()">
-      <input type="button" class="button" id="savebtn" value="Save" onclick="addTeamValidations()">
+      <input type="button" class="button" id="savebtn" value="Save" onclick="insertTaskData()">
       <input type="button" class="button" id="resetbtn" value="Reset" onclick="onReset()">
     </div>
     </div>
