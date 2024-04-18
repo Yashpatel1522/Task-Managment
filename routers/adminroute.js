@@ -13,7 +13,7 @@ router.route("/managers").get(managerpage);
 router.route("/employees").get(employeepage);
 router.route("/tasks").get(taskpage);
 
-// Manager Api 
+// Manager Api
 router.get("/managersapi", adminManagers);
 router.get("/managersapi/:id", managerDetails);
 router.get("/managersapi/search/:searchdata", searchManData)
@@ -31,13 +31,11 @@ router.route("/team").get(adminTasktrack);
 // Task Router
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
-router.get("/tasksDetails/:id", taskDetail)
+// router.get("/tasksDetails/:id", taskDetail)
 
 
 // Calender
 router.route("/calender").get(adminCalender);
 
 
-
 module.exports = router
-
