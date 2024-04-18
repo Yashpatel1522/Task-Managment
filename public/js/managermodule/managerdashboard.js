@@ -27,6 +27,10 @@ async function getProfile() {
   document.getElementById("email1").value = data.result[0].email;
   document.getElementById("phone_input").value = data.result[0].contact;
   document.getElementById("dob_input").value = data.result[0].date_of_birth;
+
+  if(data.imageResult[0]) {
+		document.getElementById('selectedImage').src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
+	}
 }
 // fetch api of notification data
 async function fetchNotificationData() {
@@ -57,17 +61,7 @@ async function fetchNotificationData() {
   } catch (error) {
     console.log(error);
   }
-	document.getElementById('id').value = data.result[0].id;
-	document.getElementById('firstname').value = data.result[0].first_name;
-	document.getElementById('lastname').value = data.result[0].last_name;
-	document.getElementById('email1').value = data.result[0].email;
-	document.getElementById('phone_input').value = data.result[0].contact;
-	document.getElementById('dob_input').value = data.result[0].date_of_birth;
-
-	console.log();
-	if(data.imageResult[0]) {
-		document.getElementById('selectedImage').src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
-	}
+	
 }
 
 function showNotifications(data) {
@@ -90,7 +84,17 @@ function remOption() {
   document.getElementById("profClk").style.display = "none";
 }
 
+function showOption() {
+  if(document.getElementById("profClk").style.display == 'none' || document.getElementById("profClk").style.display == '') {
+    document.getElementById("profClk").style.display = 'block'
+  }
+  else {
+    document.getElementById("profClk").style.display = 'none'
+  }
+}
 
+
+//pop-up js of addtask.ejs
 let popup = document.getElementById("popup");
 
 function openPopup() {
