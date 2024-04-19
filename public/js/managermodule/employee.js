@@ -20,7 +20,6 @@ async function setData() {
                                 <p class="card-text"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
                                 <button class="btn btn-primary" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
-                                <span></span>
                             </div>
                         </div>
                     </div>
@@ -34,11 +33,25 @@ async function setData() {
     document.getElementsByClassName('employeeList')[0].innerHTML = str
 }
 
-function showEmployeeDetails(id, first_name, last_name, email, contact, dob, join, url) {
-  Swal.fire({
+async function showEmployeeDetails(id, first_name, last_name, email, contact, dob, join, img_url) {
+  let url = window.location.origin+`/manager/getManagerProfile`
+  let response = await fetch(url);
+  let data = await response.json();
+  console.log(data.imageResult[0].newimage_name);
+  let path = ``;
+  if(!data.imageResult[0]) {
+    path = `/assets/employee/user.png`
+  }
+  else {
+    path = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
+  }
+
+
+ await Swal.fire({
     position: "top",
     title: `Full Details`,
     html: `
+      <img src="${path}" height="150px"><br><br>
       <p><b>Employee Id : </b>${id}</p>
       <p><b>First Name : </b>${first_name}</p>
       <p><b>Last Name : </b>${last_name}</p>
@@ -47,24 +60,8 @@ function showEmployeeDetails(id, first_name, last_name, email, contact, dob, joi
       <p><b>Birth Date : </b>${dob}</p>
       <p><b>Date Of Joining : </b>${join.slice(0, 10)}</p>
     `,
-    showClass: {
-      popup: `
-        animate__animated
-        animate__fadeInUp
-        animate__slower
-      `
-    },
     confirmButtonText: 'Close'
   });
-
-  // Swal.fire({
-  //   title: "Sweet!",
-  //   text: "Modal with a custom image.",
-  //   imageUrl: "https://unsplash.it/400/200",
-  //   imageWidth: 400,
-  //   imageHeight: 200,
-  //   imageAlt: "Custom image"
-  // });
 }
 
 async function getProfile() {
