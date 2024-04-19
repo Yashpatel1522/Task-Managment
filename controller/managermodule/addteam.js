@@ -5,8 +5,8 @@ const logger = require("../../logger/logger")
 const getempdata = async(request,response) => {
   try {
     let db = new database();
-    const query = `select id,first_name from users where role_id = 1`;
-    let empdata =await db.executeQuery(query);
+    const query = `select id,first_name from users where role_id = ?`;
+    let empdata =await db.executeQuery(query,[1]);
     return response.json(empdata);
 
   } catch (error) {

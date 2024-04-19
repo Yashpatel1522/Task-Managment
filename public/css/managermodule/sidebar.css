@@ -30,6 +30,9 @@ body{
   width: 70px;
   padding: 20px 40px;
 }
+.sidebarcontain{
+  position: sticky;
+}
 .list{
   display: flex;
   padding: 20px 40px;
