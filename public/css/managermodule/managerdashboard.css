@@ -1,3 +1,8 @@
+.section {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
 .managerMain {
 	display: flex;
 	justify-content: center;
@@ -17,6 +22,8 @@
 	width: 80%;
 	height: 1000px;
 	padding: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
@@ -31,7 +38,7 @@
 }
 
 .tasklft > h2 {
-	font-size: 35px;
+	font-size: 35px;    
 }
 
 #profClk {
@@ -76,6 +83,7 @@
 :root{
   --white : white;
   --button-color : blue;
+  --lightblue : lightblue;
 }
 .addtaskcontainer{
   position: fixed;
@@ -106,17 +114,17 @@ body{
   padding: 5px;
   margin: 0 auto;
   background-color: var(--white);
-  border: 5px solid black;
+  box-shadow: 5px 5px 10px 10px var(--lightblue);
   border-radius: 10px;
   width: 500px;
 }
-
+/* 
 .addtask{
   border-radius: 5px;
   margin: 0 auto;
   background-color: var(--white);
   width: 500px;
-}
+} */
 .addtask{
   padding: 5px;
 }

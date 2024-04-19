@@ -5,21 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manager modulesidebar</title>
   <link rel="stylesheet" href="/css/managermodule/sidebar.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
 </head>
 <body>
         <div class="sidebarcontain">
           <div class="logo">
-            <img src="/assets/adminmodulo/logo.png" alt="" width="50%">
+            <img src="/assets/adminmodule/logo.png" alt="" width="10%">
           </div>
           <ul>
+            <div class="list" onclick="showDashboard()">
+              <i class="bi bi-house-door sidebaricon"></i>
+              <li>dashboard</li>
+            </div>
           <div class="list" onclick="showTask()">
-            <img src="/assets/managerassets/task.svg" alt="">
-            <li>Task</li>
+            <i class="bi bi-list-task sidebaricon"></i>
+            <li>Tasks</li>
           </div>
           <div class="list" onclick="showEmployee()">
-            <img src="/assets/managerassets/employee.svg" alt="">
+            <i class="bi bi-people-fill sidebaricon"></i>
             <li>Employee</li>
+          </div>
+          <div class="list" onclick="showTeams()">
+            <i class="bi bi-people-fill sidebaricon"></i>
+            <li>Teams</li>
           </div>
           <div class="list">
             <img src="/assets/managerassets/logout.svg"></i>
@@ -29,11 +38,17 @@
     </div>
 
     <script>
+      function showDashboard() {
+        window.location.href = window.location.origin + `/manager/dashboard`;
+      }
       function showEmployee() {
         window.location.href = window.location.origin + `/manager/employeeDetails`
       }
       function showTask() {
         window.location.href = window.location.origin + `/manager/`
+      }
+      function showTeams(){
+        window.location.href = window.location.origin + `/manager/Teams`
       }
     </script>
 </body>

@@ -79,3 +79,10 @@ async function getDashBoardData(url) {
   const response = await fetch(url);
   return response.json();
 }
+
+async function loadProfile() {
+  let response = await fetch("/employee/getprofiledata").then((response) => { return response.json() }).then((data) => {
+    profileData = data.result;
+    renderProfileData(profileData)
+  })
+}

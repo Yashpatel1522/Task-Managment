@@ -10,9 +10,11 @@ const userProfileStorage= multer.diskStorage({
   },
 })
 
-const taskdetailfiles=multer.diskStorage({
+
+
+// Set up storage for uploaded files
+const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    console.log(file)
     cb(null,path.join(__dirname,"../public/assets/taskdetailfiles"))
   },
   filename: (req, file, cb) => {
@@ -20,4 +22,7 @@ const taskdetailfiles=multer.diskStorage({
   }
 });
 
-module.exports={userProfileStorage,taskdetailfiles};
+// Create the multer instance
+const upload = multer({ storage: storage });
+
+module.exports ={ userProfileStorage,upload} 

@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
-    .container {
-        background-color: rgba(255, 255, 255);
-        border-radius: 15px;
-        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-        margin: auto;
-      }
+        .regForm {
+            background-color: rgba(255, 255, 255);
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            margin: auto;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
-  <script src="/sweetalert2/sweetalert2.min.js"></script>
-  <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet">
-  <script src="/boxicon/dist/boxicons.js"></script>
-  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/boxicon/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
 </head>
+
 <body>
-    <div class="container width:fit-content p-4">
+    <div class="regForm width:fit-content p-4">
         <div class="registration">
             <div class="row mb-3">
                 <div class="col-md-11">
-                    <h2 class="text-primary text-center">Registration From</h2> 
+                    <h2 class="text-primary text-center">Registration From</h2>
                 </div>
                 <div class="col-md-1">
-                    <i class='bx bxs-x-circle text-danger fs-2'onclick="closePopup()"></i>
+                    <i class='bx bxs-x-circle text-danger fs-2' onclick="closePopup()"></i>
                 </div>
             </div>
             <form onchange="return isValidRegistration()" id="registration-form" enctype="multipart/form-data">
@@ -47,43 +49,50 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="text-primary">First Name :</label>
-                        <input type="text" class="form-control" tabindex="2" id="first_name" name="first_name" placeholder="Enter First Name">
+                        <input type="text" class="form-control" tabindex="2" id="first_name" name="first_name"
+                            placeholder="Enter First Name">
                     </div>
                     <div class="col-md-6">
                         <label class="text-primary">Last Name :</label>
-                        <input type="text" class="form-control" tabindex="3" id="last_name" name="last_name" placeholder="Enter Last Name">
+                        <input type="text" class="form-control" tabindex="3" id="last_name" name="last_name"
+                            placeholder="Enter Last Name">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="text-primary">Email :</label>
-                        <input type="text" class="form-control" tabindex="4" id="email" name="email" placeholder="Enter Email Address">
+                        <input type="text" class="form-control" tabindex="4" id="email" name="email"
+                            placeholder="Enter Email Address">
                     </div>
                     <div class="col-md-6">
                         <label class="text-primary">Mobile No: :</label>
-                        <input type="text" class="form-control" tabindex="5" id="contact" name="contact" placeholder="Enter Mobile Number">
+                        <input type="text" class="form-control" tabindex="5" id="contact" name="contact"
+                            placeholder="Enter Mobile Number">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <lable class="text-primary">Date Of Birth</lable>
-                        <input type="text" class="form-control" tabindex="6" id="date_of_birth" name="date_of_birth" placeholder="Enter Birthdate"
-                        onfocus="this.type='date'">
+                        <input type="text" class="form-control" tabindex="6" id="date_of_birth" name="date_of_birth"
+                            placeholder="Enter Birthdate" onfocus="this.type='date'">
                     </div>
                     <div class="col-md-6">
                         <lable class="text-primary">Department</lable>
-                        <input type="text" class="form-control" tabindex="7" id="employee_role" name="employee_role" placeholder="Enter Department">
+                        <input type="text" class="form-control" tabindex="7" id="employee_role" name="employee_role"
+                            placeholder="Enter Department">
                     </div>
                 </div>
                 <div class="row mb-3">
-                <div class="col-md-12">
-                    <label class="text-primary">Profile Photo</label>
-                    <input type="file" tabindex="8" class="form-control" id="img" name="img" placeholder="Profile Photo">
-                </div>
+                    <div class="col-md-12">
+                        <label class="text-primary">Profile Photo</label>
+                        <input type="file" tabindex="8" class="form-control" id="img" name="img"
+                            placeholder="Profile Photo">
+                    </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <input type="button" class="btn btn-primary form-control" value="Submit" tabindex="9" onclick="return isRegistration()">
+                        <input type="button" class="btn btn-primary form-control" value="Submit" tabindex="9"
+                            onclick="return isRegistration()">
                     </div>
                     <div class="col-md-6">
                         <input type="reset" class="btn btn-danger form-control" value="Reset" tabindex="10">
@@ -92,8 +101,9 @@
             </form>
         </div>
     </div>
-    <script src="/js/loginmodule/validation.js"></script>   
-    <script src="/js/loginmodule/registration.js"></script>   
-    <script src="/js/loginmodule/timmer.js"></script>   
+    <script src="/js/loginmodule/validation.js"></script>
+    <script src="/js/loginmodule/registration.js"></script>
+    <script src="/js/loginmodule/timmer.js"></script>
 </body>
+
 </html>

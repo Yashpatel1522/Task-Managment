@@ -14,16 +14,13 @@ let path = window.location.pathname.split("/");
 let id = path[path.length - 1];
 console.log(id, "id is ");
 
-var employeedata;
-async function fetchData() {
-  response = await fetch(`/employee/employeetasklist/${id}`);
-  data = await response.json();
-  employeedata = data;
+function reusablecard(data) {
   function setCard(id, element) {
     document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
                 <div class="field">
                   <h4>${element.task_name}</h4>
+                  <span class="ms-3" id='urgent-${element.task_id}'><span>
                 </div>
                 <div class="field">
                   <label>Description:</label>
@@ -36,7 +33,6 @@ async function fetchData() {
               </div >`;
   }
   data.forEach((element) => {
-    console.log(element, "elementic ");
     if (element.task_status == "todo") {
       setCard("todo", element);
     } else if (element.task_status == "inprogress") {
@@ -44,7 +40,34 @@ async function fetchData() {
     } else if (element.task_status == "completed") {
       setCard("completed", element);
     }
+    console.log(element.urgency_id, "urgency")
+    switch (element.urgency_id) {
+      case 1:
+        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`
+        break;
+      case 2:
+        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`
+        break;
+      case 3:
+        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`
+        break;
+      case 4:
+        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`
+        break;
+    }
   });
+}
+
+
+
+
+var employeedata;
+async function fetchData() {
+  response = await fetch(`/employee/employeetasklist/${id}`);
+  data = await response.json();
+  employeedata = data;
+  reusablecard(data);
+
 }
 fetchData();
 
@@ -53,9 +76,9 @@ let ides = (id) => document.getElementById(id);
 
 const show = (id, taskid) => {
   ides(id).style.display = "block";
-  console.log(taskid);
-  gtaskid = taskid;
-  employeedata.forEach((element) => {
+  console.log(taskid)
+  gtaskid = taskid
+  employeedata.forEach(element => {
     if (element.task_id == taskid) {
       document.getElementById("taskdetails").innerHTML = `
                   <div class="field">
@@ -79,8 +102,12 @@ const show = (id, taskid) => {
                     <p>${element.task_status}</p>
                   </div>
                    <div class="field">
-                   <label>prioritiy :</label>
-                    <p>${element.prioritiy_id}</p>
+                   <label>urgency :</label>
+                    <p>${element.urgencytype}</p>
+                  </div>
+                   <div class="field">
+                   <label>importancy :</label>
+                    <p>${element.importancetype}</p>
                   </div>
                    <div class="field">
                    <label>category name:</label>
@@ -108,13 +135,14 @@ const hide = (id) => {
 let ides_comment = (id) => document.getElementById(id);
 
 const showComment = (id, taskid) => {
-  document.getElementById("popup").style.display = "none";
-  employeedata.forEach((element) => {
+
+  document.getElementById('popup').style.display = "none";
+  employeedata.forEach(element => {
     if (element.task_id == taskid) {
       ides_comment(id).style.display = "block";
     }
   });
-};
+}
 
 const hideComment = (id) => {
   ides_comment(id).style.display = "none";
@@ -122,31 +150,31 @@ const hideComment = (id) => {
 
 //user search section
 async function seachresult() {
-  if (document.getElementById("searchinput").value != "") {
-    obj = {};
-    new FormData(document.getElementById("form")).forEach((value, key) => {
+  if (document.getElementById('searchinput').value != "") {
+    obj = {}
+    new FormData(document.getElementById('form')).forEach((value, key) => {
       obj[key] = value;
-    });
-    console.log(obj, "obj is ");
-    const response = await fetch(`/employee/searchtask`, {
-      method: "POST",
+    })
+    console.log(obj, "obj is ")
+    const response = await fetch(`http://127.0.0.1:8000/employee/searchtask`, {
+      method: 'POST',
       headers: {
-        "content-type": "application/json; charset=UTF-8",
+        'content-type': 'application/json; charset=UTF-8',
       },
-      body: JSON.stringify(obj),
-    });
-    data = await response.json();
+      body: JSON.stringify(obj)
+    })
+    data = await response.json()
 
-    ides("todo").style.display = "none";
-    ides("inprogress").style.display = "none";
-    ides("completed").style.display = "none";
-
+    ides('todo').style.display = "none";
+    ides('inprogress').style.display = "none";
+    ides('completed').style.display = "none";
     function resetCard(id, element) {
-      document.getElementById(`${id}`).innerHTML = "";
+      document.getElementById(`${id}`).innerHTML = ''
       document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
                 <div class="field">
                   <h4>${element.task_name}</h4>
+                  <span class="ms-3" id='urgent-${element.task_id}'><span>
                 </div>
                 <div class="field">
                   <label>Description:</label>
@@ -156,38 +184,60 @@ async function seachresult() {
                   <label>due date :</label>
                   <p>${element.task_end_date}</p>
                 </div>
-              </div >`;
+              </div >`
     }
-    data.forEach((element) => {
-      console.log(element, "elementic ");
-      if (element.task_status == "todo") {
-        console.log("todo list ===================");
-        ides("todo").removeAttribute("style");
-        resetCard("todo", element);
-      } else if (element.task_status == "inprogress") {
-        console.log("inprogress list ===================");
-        ides("inprogress").removeAttribute("style");
-        resetCard("inprogress", element);
-      } else if (element.task_status == "completed") {
-        console.log("completed list ===================");
-        ides("completed").removeAttribute("style");
-        resetCard("completed", element);
+    data.forEach(element => {
+      console.log(element, "elementic ")
+      if (element.task_status == 'todo') {
+        ides('todo').removeAttribute('style')
+        resetCard('todo', element)
+      }
+
+      else if (element.task_status == 'inprogress') {
+        ides('inprogress').removeAttribute('style')
+        resetCard('inprogress', element)
+
+      }
+      else if (element.task_status == 'completed') {
+        ides('completed').removeAttribute('style')
+        resetCard('completed', element)
+
+      }
+      switch (element.urgency_id) {
+        case 1:
+          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`
+          break;
+        case 2:
+          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`
+          break;
+        case 3:
+          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`
+          break;
+        case 4:
+          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`
+          break;
       }
     });
   }
 }
 
 async function addcomment() {
-  obj = {};
-  new FormData(document.getElementById("form")).forEach((value, key) => {
-    obj[key] = value;
+
+  const formData = new FormData()
+  const fields = ['taskcomment', 'taskstatus']
+  formData.append('file', document.getElementById('file'))
+  let file = document.getElementById('file');
+  formData.append('file', file.files[0])
+  fields.forEach((element) => {
+    formData.append(element, document.getElementById(element).value)
+
   });
-  console.log(obj, "obj is comment");
-  const response = await fetch(`/employee/addcomment/${id}/?gtask=${gtaskid}`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json; charset=UTF-8",
-    },
-    body: JSON.stringify(obj),
-  });
+  const response = await fetch(`http://127.0.0.1:8000/employee/addcomment/${id}/${gtaskid}`, {
+    method: 'POST',
+    body: formData
+  })
+  let data = await response.json()
+  if (data.msg == 'done') {
+    hideComment('popup-comment')
+  }
 }

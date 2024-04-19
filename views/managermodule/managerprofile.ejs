@@ -7,7 +7,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body ">
-      <form action="/manager/updateManager" method="post" onsubmit="return validation()">
+      <form action="/manager/updateManager" method="post" enctype="multipart/form-data" onsubmit="return validation()">
         <div class="d-flex p-2 justify-content-around">
           <div class="d-flex p-2 flex-column">
             <img src="/assets/employee/user.png" alt="profile image" id="selectedImage" width="200" height="200" class="rounded-circle">
@@ -17,7 +17,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           </div>
           <div>
             <div class="mb-3">
-              <input type="hidden" id="id" value="">
+              <input type="hidden" id="id" name="id" value="">
               <label for="firstname" class="form-label">First Name: </label>
               <input type="text" class="form-control" id="firstname" aria-describedby="textHelp" name="first_name">
               <span class="msg" style="color: red;"></span>

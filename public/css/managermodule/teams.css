@@ -1,0 +1,51 @@
+:root{
+  --backgroundcolor : #DDD0C8;
+  --sidebarcolor : #323232;
+  --tableheader : #006DCC;
+  --white : white;
+}
+
+.managerMain {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:var(--backgroundcolor);
+}
+
+.managerSidebar {
+	width: 20%;
+	height: 1000px;
+	padding: 15px;
+	border-top-right-radius: 30px;
+	background-color:var(--sidebarcolor);
+}
+
+
+.teamcontent{
+	width: 80%;
+	height: 1000px;
+	padding: 15px;
+}
+
+#taskstable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#taskstable td, #taskstable th {
+  border: 1px solid var(--backgroundcolor);
+  padding: 8px;
+}
+
+#taskstable tr:nth-child(even){background-color: #f2f2f2;}
+
+#taskstable tr:hover {background-color: #ddd;}
+
+#taskstable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--tableheader);
+  color:var(--white);
+}

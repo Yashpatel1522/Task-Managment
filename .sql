@@ -198,3 +198,47 @@ newfile_name varchar(255),
 is_deleted boolean default 0,
 FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE
 );
+
+create table teams (
+	id int auto_increment primary key,
+    team_name varchar(50),
+    created_by int,
+    status boolean default 1,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp,
+    foreign key (created_by) references users (id)
+);
+
+create table team_details (
+	team_id int,
+    member_id int,
+    foreign key (team_id) references teams (id),
+    foreign key (member_id) references users (id)
+);
+
+create table team_has_tasks (
+	team_id int,
+    task_id int,
+    foreign key (team_id) references teams (id),
+    foreign key (task_id) references tasks (id)
+);
+create table teams(
+	id int primary key auto_increment,
+    team_name varchar(100),
+    manager_id int,
+	is_deleted boolean default 0,
+    FOREIGN KEY (manager_id) REFERENCES users(id),
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_at TIMESTAMP default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+create table team_members(
+	id int primary key auto_increment,
+	team_id int,
+    FOREIGN KEY(team_id) REFERENCES teams(id),
+    emp_id int,
+	FOREIGN KEY (emp_id) REFERENCES users(id),
+    is_deleted boolean default 0,
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_at TIMESTAMP default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

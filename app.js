@@ -15,6 +15,8 @@ const login = require('./routers/loginroutes');
 let PORT = process.env.PORT;
 
 app.use("/bootstrap_icon_css", express.static("./node_modules/bootstrap-icons/font"));
+app.use("/charts", express.static(path.join(__dirname, "node_modules/apexcharts/dist")));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(
@@ -30,13 +32,11 @@ app.use("/bootstrape", express.static(path.join(__dirname, '/node_modules/bootst
 app.use("/sweetalert2", express.static(path.join(__dirname, '/node_modules/sweetalert2/dist')))
 app.use("/boxicon", express.static(path.join(__dirname, '/node_modules/boxicons')))
 
-// To test logger
-
 app.listen(PORT, () => {
   console.log("listen portno is : " + PORT);
 });
 
 app.use('/admin', adminroute);
 app.use('/employee', employeeroute);
-app.use("/login",login)
+app.use("/login", login)
 app.use("/manager", managerroute);
