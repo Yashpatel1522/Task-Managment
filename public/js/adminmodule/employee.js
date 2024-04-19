@@ -23,7 +23,7 @@ const getEmpData = async () => {
       document.getElementById("emppagination").innerHTML = `
       <input type="button" value="FirstPage" onclick="firstpage()" class="btn btn-secondary px-2 ">
       <input type="button" value="Pervious" onclick="pervious()" class="btn btn-secondary px-2">
-      <span>${Math.ceil(pagelimit/5)}</span>
+      <span>${Math.ceil(pagelimit / 5)}</span>
       <input type="button" value="Next" onclick="next()" class="btn btn-secondary px-2">
       <input type="button" value="LastPage" onclick="lastpage()" class="btn btn-secondary px-2">`
     }
@@ -71,13 +71,13 @@ const closePopup2 = () => {
 const openPopup2 = async (id) => {
   try {
     popupEmp.classList.add("open-popup");
-    
+
     console.log(id);
     let data = await (await fetch(`/admin/employeesapi/${id}`)).json();
 
     if (data.employeeDetail.length != 0) {
       document.getElementById("employee-form").innerHTML =
-        `<div class="container width:fit-content p-4">
+        `<div class="allform  width:fit-content p-4">
         <div class="row mb-3">
         <div class="col-md-11">
             <h2 class="text-primary text-center">Employee Detalis</h2> 
@@ -125,7 +125,6 @@ const openPopup2 = async (id) => {
 
 const searchEmpData = async (value) => {
   try {
-    console.log(value);
     let data = await (await fetch(`/admin/employeesapi/search/${value}`)).json();
     document.getElementById("emp-table").innerHTML = "";
     if (value === "") {
@@ -168,7 +167,7 @@ const searchEmpData = async (value) => {
   }
 }
 
-const deleteEmpData = (id) => {
+const deleteEmpData = async (id) => {
   try {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -185,14 +184,23 @@ const deleteEmpData = (id) => {
       confirmButtonText: "Yes, delete it!",
       cancelButtonText: "No, cancel!",
       reverseButtons: true
-      
-    }).then((result) => {
+
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        userdelete(id)
+        await fetch(`http://localhost:8000/admin/employeesapi/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
         swalWithBootstrapButtons.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
           icon: "success"
+        }).then(async (result2) => {
+          if (result2.isConfirmed) {
+            getEmpData();
+          }
         });
       } else if (
         /* Read more about handling dismissals below */
@@ -205,27 +213,6 @@ const deleteEmpData = (id) => {
         });
       }
     });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-
-const userdelete = async (id) => {
-  try {
-    let data = await fetch(`http://localhost:8000/admin/employeesapi/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    Swal.fire({
-      title: "You Data Deleted",
-      text: "You clicked the button!",
-      icon: "success"
-    });
-    closePopup2();
-    getEmpData();
   } catch (error) {
     console.log(error);
   }

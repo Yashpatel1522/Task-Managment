@@ -14,7 +14,7 @@ const updateManager = async (request,response) => {
         const countRes = await db.executeQuery(countQuery, [8]);
         
         if(countRes[0].count == 0) {
-            if(request.files) {
+            if(request.file) {
                 const oldName = request.file.filename.slice(request.file.filename.indexOf('-')+1);
                 const updateImageQuery = `insert into user_profiles (user_id, oldimage_name, newimage_name) values (?, ?, ?)`;
                 console.log(oldName);

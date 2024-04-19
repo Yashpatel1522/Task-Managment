@@ -1,3 +1,35 @@
+{"level":"error","timestamp":"2024-04-18T06:31:31.056Z"}
+{"level":"error","timestamp":"2024-04-18T06:31:35.069Z"}
+{"level":"error","timestamp":"2024-04-18T06:33:36.286Z"}
+{"level":"error","timestamp":"2024-04-18T06:34:08.564Z"}
+{"level":"error","timestamp":"2024-04-18T06:36:22.153Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"insert into teams(manager_id,team_name)values('1','hack')","sqlMessage":"Unknown column 'manager_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-18T08:32:22.069Z"}
+{"level":"error","timestamp":"2024-04-18T11:59:53.032Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:05.071Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:06.631Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:06.998Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:07.214Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:07.525Z"}
+{"level":"error","timestamp":"2024-04-18T12:23:07.725Z"}
+{"level":"error","timestamp":"2024-04-18T12:24:01.232Z"}
+{"level":"error","timestamp":"2024-04-18T12:24:03.910Z"}
+{"level":"error","timestamp":"2024-04-18T12:24:06.133Z"}
+{"level":"error","timestamp":"2024-04-18T12:29:37.326Z"}
+{"level":"error","timestamp":"2024-04-18T12:32:25.595Z"}
+{"level":"error","timestamp":"2024-04-18T12:33:19.874Z"}
+{"level":"error","timestamp":"2024-04-18T12:34:44.219Z"}
+{"level":"error","timestamp":"2024-04-18T12:35:38.202Z"}
+{"level":"error","timestamp":"2024-04-18T12:35:49.008Z"}
+{"level":"error","timestamp":"2024-04-18T12:36:13.156Z"}
+{"level":"error","timestamp":"2024-04-18T12:36:48.530Z"}
+{"level":"error","timestamp":"2024-04-18T12:37:01.761Z"}
+{"level":"error","timestamp":"2024-04-18T12:38:48.031Z"}
+{"level":"error","timestamp":"2024-04-18T12:38:57.932Z"}
+{"level":"error","timestamp":"2024-04-18T12:39:03.134Z"}
+{"level":"error","timestamp":"2024-04-18T12:40:02.727Z"}
+{"level":"error","timestamp":"2024-04-18T12:40:04.631Z"}
+{"level":"error","message":"Not Search Data Found !","timestamp":"2024-04-18T13:25:11.819Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-18T13:31:45.126Z"}
 {"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:14:10.749Z"}
 {"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:14:15.394Z"}
 {"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:14:16.706Z"}
@@ -18,4 +50,10 @@
 {"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:19:12.156Z"}
 {"level":"error","message":"Employee data is not found !","timestamp":"2024-04-18T05:19:14.054Z"}
 {"level":"error","message":"Manager data is not found !","timestamp":"2024-04-18T05:19:26.532Z"}
+{"level":"error","message":"Manager Data Can't deleted !","timestamp":"2024-04-18T08:53:06.523Z"}
+{"level":"error","message":"Manager Data Can't deleted !","timestamp":"2024-04-18T08:55:06.832Z"}
+{"level":"error","message":"Manager Data Can't deleted !","timestamp":"2024-04-18T08:55:10.966Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:05.617Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:15.737Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:18.513Z"}
 {"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-18T12:39:17.637Z"}
