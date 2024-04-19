@@ -3,6 +3,7 @@ async function setData() {
 	  let response = await fetch(url);
     let data = await response.json();
     let str = ``;
+    console.log(data.result);
     if(data.result) {
         let count =0;
         for(let i=0; i<Math.ceil(data.result.length/3); i++) {
@@ -20,6 +21,7 @@ async function setData() {
                                 <p class="card-text"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
                                 <a href="#" class="btn btn-primary">View More</a>
+                                <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>
                     </div>
@@ -109,7 +111,6 @@ function showNotifications(data) {
   }
 
 async function searchEmployee(value){
-  console.log(value);
   try {
     let data = await (await fetch(`${window.location.origin}/manager/searchEmploye/${value}`)).json();
     if (value === "") {
@@ -133,6 +134,7 @@ async function searchEmployee(value){
                                 <p class="card-text"><b>Email - </b>${data.searchData[count].email}</p>
                                 <p class="card-text"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
                                 <a href="#" class="btn btn-primary">View More</a>
+                                <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.searchData[count].id})">
                             </div>
                         </div>
                     </div>
@@ -153,5 +155,56 @@ async function searchEmployee(value){
     }
     } catch (error) {
     console.log(error)
+  }
+}
+
+const removeEmployee = async (id) => {
+  try {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success btn-gap",
+        cancelButton: "btn btn-danger btn-gap"
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true
+
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await fetch(`http://localhost:8000/manager/removeemployeapi/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
+        swalWithBootstrapButtons.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        }).then(async (result2) => {
+          if (result2.isConfirmed) {
+            setData();
+          }
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          text: "Your date is safe :)",
+          icon: "error"
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error);
   }
 }

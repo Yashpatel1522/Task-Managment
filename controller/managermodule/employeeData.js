@@ -1,3 +1,4 @@
+const { request } = require("express");
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger")
 let db=new database();
@@ -26,5 +27,14 @@ const searchEmpData = async (request, response) => {
     }
 }
 
+const removeEmployee = async(request,response)=>{
+     try {
+        let deletedata = await db.updateOr({ status: "0" }, "users", { id: request.params.id });
+        return response.json({ deletedata });
+     } catch (error) {
+        logger.error("Remove employee successfully");
+     }
+}
 
-module.exports = {employeeData,searchEmpData};
+
+module.exports = {employeeData,searchEmpData,removeEmployee};
