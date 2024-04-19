@@ -7,6 +7,7 @@ const managerProfile = require('../controller/managermodule/getManagerProfile');
 const dashboardView = require('../controller/managermodule/dashboard');
 const employeeView = require('../controller/managermodule/employeeView');
 const taskView = require('../controller/managermodule/taskView');
+const upcomingTasks = require('../controller/managermodule/upcomingTasks');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
 const { upload } = require('../utility/multer');
 
@@ -35,6 +36,9 @@ managerRouter.get("/Teams",(request,response)=>{
 managerRouter.get('/dashboard', dashboardView().getPage)
 
 managerRouter.get("/teamapi", teamdetails)
+
+//api to get upcoming manager tasks
+managerRouter.get('/getManagerUpcomingTasks', upcomingTasks);
 
 //api to Update Manager Profile Details
 managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
