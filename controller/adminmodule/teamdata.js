@@ -1,4 +1,3 @@
-
 const { request } = require("http");
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
@@ -10,6 +9,22 @@ exports.adminTeam = (request, response) => {
         response.render("adminmodule/teamdata")
     } catch (err) {
         logger.error("Team data not found!");
+    }
+}
+
+exports.addNewTeam = async (request, response) => {
+    try {
+        let { team_name, member_id } = request.body;
+        let teamadd = await db.insertData({ team_name: team_name, created_by: 45 }, "teams");
+        let lastid = teamadd.insertId;
+        member_id.split(",").forEach(async (element) => {
+            await db.insertData({ team_id: lastid, member_id: element }, "team_details");
+        });
+
+        return response.json({ status: 500, msg: "New Team Insert Succefully" })
+
+    } catch (error) {
+        logger.error("New team is not added !")
     }
 }
 
@@ -34,6 +49,16 @@ exports.teamDetails = async (request, response) => {
         return response.json({ teamCreate: teamCreate, memberDetails: memberDetails, teamTask: teamTask })
     } catch (error) {
         logger.error("Team details is not found it!");
+    }
+}
+
+exports.searchTeam = async (request, response) => {
+    try {
+        let search = "%" + request.params.searchdata + "%";
+        let searchTeam = await db.executeQuery(`select * from teams where team_name like ? `, [search]);
+        return response.json({ searchTeam });
+    } catch (error) {
+        logger.error("Team data not found it!");
     }
 }
 
