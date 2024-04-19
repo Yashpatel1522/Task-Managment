@@ -4,10 +4,9 @@ const logger = require("../../logger/logger");
 
 const managerTasks = async (request, response) => {
   try {
-    let managerTaskDashoardQuery = `select * from tasks where manager_id = 3 and task_status = 'todo';`;
-    console.log("IN func");
+    let managerTaskDashoardQuery = `select * from tasks where manager_id = ? and task_status = 'todo';`;
     let db = new database();
-    let res = await db.executeQuery(managerTaskDashoardQuery);
+    let res = await db.executeQuery(managerTaskDashoardQuery,[3]);
     console.log(res);
     return response.json({ result: res });
   } catch (error) {

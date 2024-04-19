@@ -66,13 +66,17 @@ async function fetchNotificationData() {
 
 function showNotifications(data) {
 	let notificatiodata = "";
-	data.forEach(element => {
-		notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`
-	});
-  Swal.fire({
+  if(data.length != 0){
+    data.forEach(element => {
+      notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`
+    });
+  }
+  else{
+    notificatiodata += `<h3>Today there is no due date of any task<h3>`
+  }
+	Swal.fire({
 		title: ` ${notificatiodata}`,
     icon: "info",
-		
   });
 }
 
@@ -94,16 +98,16 @@ function showOption() {
 }
 
 
-//pop-up js of addtask.ejs
-// let popup = document.getElementById("popup");
+// pop-up js of addtask.ejs
+let popup = document.getElementById("popup");
 
-// function openPopup() {
-//   popup.classList.add("open-popup");
-// }
+function openPopup() {
+  popup.classList.add("open-popup");
+}
 
-// function closePopup() {
-//   popup.classList.remove("open-popup");
-// }
+function closePopup() {
+  popup.classList.remove("open-popup");
+}
 
 
 // function for serach task

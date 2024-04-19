@@ -1,3 +1,4 @@
+
 const isValidSetPassword=async()=>{
     if(isValidPassword())
     {
@@ -26,16 +27,14 @@ const isValidSetPassword=async()=>{
             Swal.fire({
                 title: "Good job!",
                 text: res.msg,
-                icon: "success"
+                icon: "success",
+                // confirmButtonText:"ok"
+            }).then((res)=>{
+                if(res.isConfirmed){
+                        window.location.href="/login/" 
+                }
             });
         }
-        else if(res.flag==true && res.source=="1")
-        {
-            Swal.fire({
-                title: "Good job!",
-                text: "password changed !",
-                icon: "success"
-            });
-        }
+        
     }
 }
