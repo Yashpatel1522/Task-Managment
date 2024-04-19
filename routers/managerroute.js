@@ -8,7 +8,6 @@ const dashboardView = require('../controller/managermodule/dashboard');
 const employeeView = require('../controller/managermodule/employeeView');
 const taskView = require('../controller/managermodule/taskView');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
-const { upload,userProfileStorage } = require('../utility/multer');
 // const addtaskdatamiddleware = require('../middleware/addtask')
 
 const multer = require('multer'); 
@@ -16,22 +15,19 @@ const multer = require('multer');
 // const updateManager = require('../controller/managermodule/updateManagerProfile');
 // const managerProfile = require('../controller/managermodule/getManagerProfile');
 // const uploadStorage = multer({ storage: taskdetailfiles})
-const uploadImage = multer({ storage: userProfileStorage });
 const addtaskdatamiddleware = require('../middleware/addtask');
 // const { upload } = require('../utility/multer');
 
 // const multer = require('multer'); 
-const taskdetailfiles = require("../utility/multer");
 const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
 const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData} = require('../controller/managermodule/teamdata');
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
-const { upload } = require('../utility/multer');
 
-const multer = require('multer'); 
-const { taskdetailfiles, userProfileStorage } = require("../utility/multer");
+const {upload, taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const uploadStorage = multer({ storage: taskdetailfiles})
+const uploadImage = multer({ storage: userProfileStorage });
 // const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();

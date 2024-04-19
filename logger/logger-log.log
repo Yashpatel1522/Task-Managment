@@ -57,3 +57,13 @@
 {"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:15.737Z"}
 {"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:18.513Z"}
 {"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-18T12:39:17.637Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-19T07:08:31.235Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-19T07:24:10.030Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-19T07:24:31.281Z"}
+{"level":"error","message":"Team details not found it!","timestamp":"2024-04-19T07:49:09.096Z"}
+{"level":"error","message":"Team details not found it!","timestamp":"2024-04-19T07:53:46.769Z"}
+{"level":"error","message":"Team details not found it!","timestamp":"2024-04-19T07:59:29.092Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T07:59:33.317Z"}
+{"level":"error","message":"Team details not found it!","timestamp":"2024-04-19T08:57:00.635Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T08:57:02.620Z"}
+{"level":"error","message":"Team details not found it!","timestamp":"2024-04-19T08:57:04.031Z"}

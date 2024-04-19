@@ -36,7 +36,7 @@ exports.adminDashboard = async (request, response) => {
         if (count4 !== undefined) {
             completedCount = count4.count;
         }
-        let [teamCount] = await db.executeQuery(`select count(*) as count from teams where is_active = 1`);
+        let [teamCount] = await db.executeQuery(`select count(*) as count from teams where status = 1`);
         if (teamCount !== undefined) {
             teamCount = teamCount.count;
         }
