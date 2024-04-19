@@ -69,7 +69,7 @@ const renderData = (dashboardData) => {
     ? createTable(dashboardData.employeeInprogressTaskData, "inprogress")
     : showNoData("inprogress");
 };
-
+  
 getDashBoardData("/employee/getdashboardata").then((data) => {
   dashboardData = data.result;
   renderData(dashboardData);
