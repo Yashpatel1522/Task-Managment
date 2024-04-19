@@ -112,7 +112,7 @@ function showNotifications(data) {
 
 async function searchEmployee(value){
   try {
-    let data = await (await fetch(`${window.location.origin}/manager/searchEmploye/${value}`)).json();
+    let data = await (await fetch(`/manager/searchEmploye/${value}`)).json();
     if (value === "") {
       setData();
     }

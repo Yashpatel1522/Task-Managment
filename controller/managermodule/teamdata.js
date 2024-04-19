@@ -36,13 +36,13 @@ exports.updateTeamData = async(request,response)=>{
   try {
     let teamdata = request.body;
     await db.updateAnd({team_name:teamdata.team_name},"teams",{id:teamdata.id})
-    let emp_id_data = await db.executeQuery(`select emp_id from team_members where team_id = ? and is_deleted = 0`,[teamdata.id]); 
+    let emp_id_data = await db.executeQuery(`select * from team_members where team_id = ? and is_deleted = 0`,[teamdata.id]);
+    console.log(emp_id_data); 
       for(let j=0;j<teamdata.employe.length;j++){
         for(let i=0;i<emp_id_data.length;i++){
-          console.log(emp_id_data[i].emp_id,teamdata.employe[j]);
           if(teamdata.employe[j] != emp_id_data[i].emp_id){
-            await db.updateAnd({is_deleted:1},"team_members",{id:teamdata.id,emp_id:emp_id_data[i].emp_id})
-            // await db.insertData({team_id:teamdata.id,emp_id:teamdata.employe[j]},"team_members")
+            await db.updateAnd({is_deleted:"1"},"team_members",{id:teamdata.id,emp_id:emp_id_data[i].emp_id})
+            await db.insertData({team_id:teamdata.id,emp_id:teamdata.employe[j]},"team_members")
           }
       }
     }
@@ -72,7 +72,8 @@ exports.teamDetailsForView = async (request, response) => {
 exports.deleteTeam = async (request, response) => {
   try {
       let deletedata = await db.updateOr({ is_active: "0" }, "teams", { id: request.params.id });
-      return response.json({ deletedata });
+      let deleteteammember = await db.updateOr({is_deleted :"1"},"team_members",{team_id : request.params.id });
+      return response.json({ deletedata,deleteteammember });
   } catch (error) {
       logger.error("Team Data Can't deleted !");
   }
