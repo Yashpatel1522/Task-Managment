@@ -38,7 +38,7 @@ router.delete("/teamapi/:id", deleteTeam)
 // Task Router
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
-// router.get("/tasksDetails/:id", taskDetail)
+router.get("/tasksDetails/:id", taskDetail)
 
 router.get("/profiledata", profiledata)
 router.get("/chartsData", chartsData)

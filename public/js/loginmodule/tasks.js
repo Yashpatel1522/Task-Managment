@@ -2,9 +2,10 @@ const getTaskData = async () => {
   try {
     let data = await (await fetch(`/admin/tasksData`)).json();
     todoTask = document.getElementById("todoTask");
+    console.log(data)
     let todoData = ``;
     data.todoData.forEach(e => {
-      todoData += `<div class="card m-3 p-2 tasks" draggable="true">
+      todoData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
@@ -17,7 +18,7 @@ const getTaskData = async () => {
     let inprogressTask = document.getElementById("inprogressTask");
     let inprogressData = ``;
     data.inprogress.forEach(e => {
-      inprogressData += `<div class="card m-3 p-2 tasks"  draggable="true"> 
+      inprogressData += `<div class="m-3 p-2 tasks"  draggable="true" id=${e.id}> 
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
@@ -30,7 +31,7 @@ const getTaskData = async () => {
     let completedTask = document.getElementById("completedTask");
     let completedData = ``;
     data.complete.forEach(e => {
-      completedData += `<div class="card m-3 p-2 tasks" draggable="true">
+      completedData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
@@ -115,7 +116,7 @@ const searchTaskData = async (value) => {
   }
 }
 
-let taskPopup = document.getElementById("task-detail");
+let taskPopup = document.getElementById("task-detailes");
 
 const closePopup2 = () => {
   try {
@@ -125,9 +126,11 @@ const closePopup2 = () => {
   }
 }
 
+
 const openpopup2 = async (id) => {
   try {
     taskPopup.classList.add("open-popup");
+    // console.log(document.getElementById("task-detailes"))
     let data = await (await fetch(`/admin/tasksDetails/${id}`)).json();
     if (data.taskDetail.length != 0) {
       document.getElementById("task").innerHTML = `
@@ -203,11 +206,22 @@ const openpopup2 = async (id) => {
           </div>
         </div>` 
           let employees = await (await fetch(`/login/employee/${id}`)).json();
-              employees.forEach(employee=>
-                document.getElementById("emp").innerHTML += `<option value="volvo">${employee.first_name+""+employee.last_name}</option>`
-              )
+              employees.forEach((employee)=>{
+                document.getElementById("emp").innerHTML += `<option value="volvo">${employee.first_name+""+employee.last_name}</option>`})
     }   
   } catch (err) {
     console.log(err);
   }
+}
+// setTimeout(()=>{
+  // const fun2=()=>{
+  //   alert("yes")
+  //   let draggable=document.getElementById('inprogressTask').children
+  //   console.log(draggable)  
+  //   draggable=Array.from(draggable)
+  //   console.log(draggable)
+  // } 
+const taskDetails=async()=>{
+  await getTaskData()
+  await dragEvent()
 }

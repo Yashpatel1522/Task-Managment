@@ -57,6 +57,27 @@
 {"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:15.737Z"}
 {"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:18.513Z"}
 {"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-18T12:39:17.637Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:44:41.185Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:44:49.722Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:44:52.511Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:44:55.226Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:45:00.986Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:45:03.121Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:45:06.032Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:45:12.588Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:49:54.209Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:49:55.548Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:49:57.061Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:49:57.647Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:50:08.258Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:51:20.228Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:51:23.461Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T03:51:36.691Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Table 'task_managment_db.teams' doesn't exist","sqlState":"42S02","timestamp":"2024-04-19T03:51:41.069Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T04:00:48.677Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-04-19T04:00:49.912Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T04:02:00.409Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_active = 1","sqlMessage":"Unknown column 'is_active' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T04:03:31.323Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T03:56:02.246Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T03:56:28.277Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T03:56:34.211Z"}
