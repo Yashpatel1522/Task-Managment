@@ -1,5 +1,6 @@
 const { compareSync } = require("bcrypt")
 const database = require("../../helpers/database.helper")
+const logger = require("../../logger/logger");
 
 // module.exports={UserTaskList}
 
@@ -12,29 +13,33 @@ const EmployeeTaskList = async (req, res) => {
     try {
         id = req.params.id
         console.log(id, "id is===")
-        const query = `select * from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id inner join categories as c on c.id=t.category_id inner join users as u on u.role_id=t.manager_id inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id inner join importants as imp on imp.id=p.important_id  where a.emp_id=1 order by p.urgency_id;`
+        const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
+        inner join categories as c on c.id=t.category_id 
+        inner join users as u on u.role_id=t.manager_id 
+        inner join priorities as p on p.id=t.prioritiy_id 
+        inner join urgency on urgency.id=p.urgency_id
+        inner join importants as imp on imp.id=p.important_id  where a.emp_id=? order by p.urgency_id;`
         let db = new database()
         let result = await db.executeQuery(query, id)
-        console.log(result, "imporratancy  ")
         res.json(result)
     }
     catch (error) {
-        console.log(error)
+        logger.error("Employee Task data is not found !");
     }
 }
 
 const searchlist = async (req, res) => {
     try {
+        console.log(req.body, "[][][[][[[]")
         usersearch = req.body.search
         const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join priorities as p on p.id=t.prioritiy_id  inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ?;`
         let db = new database()
         let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%'])
-        console.log(result, "result data ")
         res.json(result)
 
     }
     catch (error) {
-        console.log(error)
+        logger.error("Employee Task search data is not found !");
     }
 }
 
@@ -57,10 +62,10 @@ const addcomment = async (req, res) => {
             "newfile_name": file.filename,
         }
         resultprofile = await db.insertData(userprofiledata, "user_profiles")
-        res.status(200).json({ 'data': resultprofile,'msg':'done'})
+        res.status(200).json({ 'data': resultprofile, 'msg': 'done' })
     }
     catch (error) {
-        console.log(error)
+        logger.error("Employee Task comments is not inserted");
     }
 }
 

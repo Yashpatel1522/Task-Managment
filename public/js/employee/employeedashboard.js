@@ -69,18 +69,6 @@ const renderData = (dashboardData) => {
     ? createTable(dashboardData.employeeInprogressTaskData, "inprogress")
     : showNoData("inprogress");
 };
-
-  keys.map((key)=> {
-
-    if(!(document.getElementById(`${key}`) == null)) {
-      document.getElementById(`${key}`).value = profileData[0][key]
-    }
-    else if(key=="employee_role"){
-      document.getElementById(`${key}`).value = profileData[0][key]
-    }
-    })
-    let profileImageName = profileData[0].img_url.split("/")
-    document.getElementById('selectedImage').src = `/assets/userprofiles/${profileData[0].id}/${profileImageName[3]}`
   
 getDashBoardData("/employee/getdashboardata").then((data) => {
   dashboardData = data.result

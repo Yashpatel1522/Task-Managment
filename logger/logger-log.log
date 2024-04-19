@@ -57,3 +57,11 @@
 {"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:15.737Z"}
 {"level":"error","message":"Team details is not found it!","timestamp":"2024-04-18T11:03:18.513Z"}
 {"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-18T12:39:17.637Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-19T06:07:43.587Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-19T06:07:45.682Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-19T06:07:49.470Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-19T07:19:01.894Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-19T07:44:12.177Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-19T10:02:21.559Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-19T10:05:33.919Z"}
+{"code":"ERR_HTTP_INVALID_STATUS_CODE","level":"error","timestamp":"2024-04-19T10:39:46.860Z"}

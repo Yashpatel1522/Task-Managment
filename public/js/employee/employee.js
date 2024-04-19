@@ -219,6 +219,9 @@ async function seachresult() {
       }
     });
   }
+  else {
+    fetchData()
+    }
 }
 
 async function addcomment() {
