@@ -31,6 +31,8 @@ const inserttaskdata = async(request,response) =>{
       let lastInserted_id;
       let db=new database();
       let prioritiy_id = 0;
+      let prioritydata = await db.executeQuery(`select id from priorities where urgency_id = ? and important_id = ?`,[taskdata.urgency_level,taskdata.impotant_level]) 
+      console.log(prioritydata);
       if(taskdata.impotant_level == 1 && taskdata.urgency_level == 1)
       {
         prioritiy_id = 1

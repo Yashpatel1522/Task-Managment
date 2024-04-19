@@ -31,7 +31,7 @@
           <i class='bx bxs-x-circle text-danger fs-2' onclick="closePopup()"></i>
         </div>
       </div>
-      <form onchange="return isValidRegistration()" id="new-team-form" enctype="multipart/form-data">
+      <form onsubmit="return isTeamForm()" id="new-team-form" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-12">
             <p class="bg-danger text-white text-center" id="error" style="display: none;"></p>
@@ -42,21 +42,22 @@
             <label class="text-primary">Team Name :</label>
             <input type="text" class="form-control" tabindex="1" id="team_name" name="team_name"
               placeholder="Enter Team Name">
+            <span id="tnameerr"></span>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-12">
-            <label class="text-primary">User Role</label>
-            <select tabindex="2" class="form-control" id="user_role" name="user_role">
-              <option class="text-secondary" value="employee">employee1</option>
-              <option class="text-secondary" value="employee">employee2</option>
+            <label class="text-primary">Employee List :-</label>
+            <select tabindex="2" class="form-control" id="emp_select" name="emp_select[]" multiple>
+              <option value="0">select</option>
             </select>
+            <span id="toptionerr"></span>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-6">
             <input type="button" class="btn btn-primary form-control" value="Submit" tabindex="9"
-              onclick="return isRegistration()">
+              onclick="return isTeamSubmit()">
           </div>
           <div class="col-md-6">
             <input type="reset" class="btn btn-danger form-control" value="Reset" tabindex="10">
@@ -65,7 +66,8 @@
       </form>
     </div>
   </div>
-
+  <script src="/js/adminmodule/allvalidation.js"></script>
+  <script src="/js/adminmodule/adminteamdata.js"></script>
 </body>
 
 </html>

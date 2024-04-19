@@ -5,7 +5,7 @@ const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeep
 const { adminTasks, searchTasks, taskpage, taskDetail } = require("../controller/adminmodule/tasks");
 const { adminCalender } = require("../controller/adminmodule/calender");
 const { profiledata } = require("../controller/adminmodule/adminprofile");
-const { adminTeam, deleteTeam, teamData, teamDetails } = require("../controller/adminmodule/teamdata");
+const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam } = require("../controller/adminmodule/teamdata");
 
 const router = express.Router();
 
@@ -31,12 +31,14 @@ router.delete("/employeesapi/:id", empDataDelete)
 // Team
 router.get("/teamapi", teamData);
 router.get("/teamapi/:id", teamDetails);
+router.post("/newteam", addNewTeam)
+router.get("/teamapi/search/:searchdata", searchTeam)
 router.delete("/teamapi/:id", deleteTeam)
 
 // Task Router
 router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks)
-// router.get("/tasksDetails/:id", taskDetail)
+router.get("/tasksDetails/:id", taskDetail)
 
 router.get("/profiledata", profiledata)
 router.get("/chartsData", chartsData)

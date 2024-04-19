@@ -1,7 +1,7 @@
 const express = require('express');
 const {searchTask, managerTasks, notifications } = require("../controller/managermodule/managertasks")
 const taskCount = require("../controller/managermodule/taskCount")
-const employeeData = require("../controller/managermodule/employeeData")
+const {employeeData,searchEmpData,removeEmployee}= require("../controller/managermodule/employeeData")
 const updateManager = require('../controller/managermodule/updateManagerProfile');
 const managerProfile = require('../controller/managermodule/getManagerProfile');
 const dashboardView = require('../controller/managermodule/dashboard');
@@ -16,9 +16,20 @@ const { taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const uploadImage = multer({ storage: userProfileStorage });
 const addtaskdatamiddleware = require('../middleware/addtask');
 
-const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
-const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData} = require('../controller/managermodule/teamdata');
+// const multer = require('multer'); 
 
+const taskdetailfiles = require("../utility/multer");
+const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
+const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData ,teamDetailsForView,deleteTeam} = require('../controller/managermodule/teamdata');
+
+// const uploadImage = multer({ storage: userProfileStorage });
+// const addtaskdatamiddleware = require('../middleware/addtask');
+const { upload } = require('../utility/multer');
+
+const multer = require('multer'); 
+// const { taskdetailfiles, userProfileStorage } = require("../utility/multer");
+const uploadStorage = multer({ storage: taskdetailfiles})
+// const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 
@@ -41,14 +52,15 @@ managerRouter.get("/teamapi", teamdetails)
 managerRouter.get('/getManagerUpcomingTasks', upcomingTasks);
 
 //api to Update Manager Profile Details
-managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
+// managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
 
 //api to get Manager Profile Details
 managerRouter.get("/getManagerProfile", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
-
+managerRouter.get("/searchEmploye/:searchdata",searchEmpData);
+managerRouter.delete("/removeemployeapi/:id",removeEmployee)
 // api to get manager tasks
 managerRouter.get("/getManagerTasks", managerTasks);
 
@@ -73,5 +85,7 @@ managerRouter.post('/addteamdata',addteam)
 managerRouter.get("/managerTeam/searchteam/:searchdata",searchTeamData)
 managerRouter.get("/managerTeam/showteamdata/:id",showTeamDataForUpdate)
 managerRouter.post("/updateteamdata",updateTeamData)
+managerRouter.get("/teamapi/:id",teamDetailsForView);
+managerRouter.delete("/deleteteamapi/:id",deleteTeam)
 
 module.exports = managerRouter;
