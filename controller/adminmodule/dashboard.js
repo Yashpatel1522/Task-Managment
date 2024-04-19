@@ -17,30 +17,28 @@ exports.adminDashboard = async (request, response) => {
             managerCount = count1.count;
         }
 
-        let query1 = `select task_status,count(*) as count from tasks group by task_status having task_status = ?`;
-        let [count2] = await db.executeQuery(query1, ["todo"]);
-        let [count3] = await db.executeQuery(query1, ["inprogress"]);
-        let [count4] = await db.executeQuery(query1, ["completed"]);
-
-        let todoCount = 0;
-        if (count2 !== undefined) {
-            todoCount = count2.count;
-        }
-
-        let inprogressCount = 0;
-        if (count3 !== undefined) {
-            inprogressCount = count3.count;
-        }
-
-        let completedCount = 0;
-        if (count4 !== undefined) {
-            completedCount = count4.count;
-        }
         let [teamCount] = await db.executeQuery(`select count(*) as count from teams where is_active = 1`);
         if (teamCount !== undefined) {
             teamCount = teamCount.count;
         }
-        response.render("adminmodule/dashboard", { employeeCount, managerCount, teamCount, todoCount, inprogressCount, completedCount })
+
+        let [count4] = await db.executeQuery(`select task_status,count(*) as count from tasks group by task_status having task_status = ?`, ["completed"]);
+        let completedCount = 0;
+        if (count4 !== undefined) {
+            completedCount = count4.count;
+        }
+
+        let [category] = await db.executeQuery(`select count(*) as count from categories`);
+        if (category !== undefined) {
+            category = category.count;
+        }
+
+        let [totalTask] = await db.executeQuery(`select count(*) as count from tasks`);
+        if (totalTask !== undefined) {
+            totalTask = totalTask.count;
+        }
+        
+        response.render("adminmodule/dashboard", { employeeCount, managerCount, teamCount, completedCount, category, totalTask })
     } catch (err) {
         logger.error("Admin dashboard data error !")
     }
@@ -50,6 +48,15 @@ exports.chartsData = async (request, response) => {
     try {
         let chartData = await db.executeQuery(`select task_status as label , count(*) as data from tasks group by task_status`);
         return response.json({ chartData })
+    } catch (err) {
+        logger.error("Admin dashboard data error !")
+    }
+}
+
+exports.managerTask = async (request, response) => {
+    try {
+        let managerAssignTask = await db.executeQuery(`select t.id,t.task_name,u.first_name,DATE_FORMAT(t.create_at, "%Y-%m-%d") as create_date from users as u inner join tasks as t on t.manager_id = u.id where DATE_FORMAT(t.create_at, "%Y-%m-%d") = current_date() and (t.task_status = "todo" or t.task_status = "inprogress") order by t.create_at desc;`);
+        return response.json({ managerAssignTask })
     } catch (err) {
         logger.error("Admin dashboard data error !")
     }

@@ -7,13 +7,15 @@
   <title>Task Management System</title>
   <link rel="stylesheet" href="/css/adminmodule/menubar.css">
   <link rel="stylesheet" href="/css/loginmodule/popup.css">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
-  <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+  <script src="/boxicon/dist/boxicons.js"></script>
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
   <style>
     .cards {
-      display: flex;
+
       flex-wrap: wrap;
     }
 
@@ -23,8 +25,7 @@
   </style>
 </head>
 
-<body onload="getTaskData()">
-
+<body onload="getCategoryData()">
   <div class="container">
     <div class="admin">
       <%- include('../partials/adminmenubar') %>
@@ -34,33 +35,17 @@
             <div class="my-5">
               <div class="row1 my-4">
                 <div class="search float-start mx-3 ">
-                  <input type="text" placeholder="Search task.." class="rounded py-2 px-3 " tabindex="1"
-                    onchange="searchTaskData(this.value)">
+                  <input type="text" placeholder="Search Category.." class="rounded py-2 px-3 " tabindex="1"
+                    onchange="searchCategoryData(this.value)">
                 </div>
                 <div class="addtasks">
-                  <input type="button" value="+  Add Task" class="btn btn-secondary float-end mx-2 my-2 px-3"
-                    tabindex="2" onclick="openPopup()">
+                  <input type="button" value="+  Add Category" class="btn btn-secondary float-end mx-2 my-2 px-3"
+                    tabindex="2">
                 </div>
               </div>
             </div>
             <div>
-              <h2>Todo</h2>
-              <div class="cards d-flex" id="todoTask">
-
-              </div>
-
-              <h2>Inprogress</h2>
-              <div class="cards d-flex" id="inprogressTask">
-
-              </div>
-
-              <h2>completed</h2>
-              <div class="cards d-flex" id="completedTask">
-
-              </div>
-            </div>
-            <div class="addregistrationcontainer" id="task-detail">
-              <div id="task">
+              <div class="cards d-flex" id="category">
 
               </div>
             </div>
@@ -70,11 +55,7 @@
       copyright@2024
     </div>
   </div>
-  <div class="addregistrationcontainer" id="popup">
-    <%- include("addtask")%>
-  </div>
-  <script src="/js/loginmodule/login.js"></script>
-  <script src="/js/adminmodule/tasks.js"></script>
+  <script src="/js/adminmodule/category.js"></script>
 </body>
 
 </html>
