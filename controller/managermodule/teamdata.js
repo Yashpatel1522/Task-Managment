@@ -36,20 +36,18 @@ exports.updateTeamData = async(request,response)=>{
   try {
     let teamdata = request.body;
     await db.updateAnd({team_name:teamdata.team_name},"teams",{id:teamdata.id})
-    let emp_id_data = await db.executeQuery(`select * from team_members where team_id = ? and is_deleted = 0`,[teamdata.id]);
-    console.log(emp_id_data); 
+    let emp_id_data = await db.executeQuery(`select * from team_members where team_id = ? and is_deleted = 0`,[teamdata.id])
       for(let j=0;j<teamdata.employe.length;j++){
         for(let i=0;i<emp_id_data.length;i++){
           if(teamdata.employe[j] != emp_id_data[i].emp_id){
-            await db.updateAnd({is_deleted:"1"},"team_members",{id:teamdata.id,emp_id:emp_id_data[i].emp_id})
+            await db.updateAnd({is_deleted:"1"},"team_members",{team_id:teamdata.id,emp_id:emp_id_data[i].emp_id});
             await db.insertData({team_id:teamdata.id,emp_id:teamdata.employe[j]},"team_members")
+          }
+          else{
+            await db.updateAnd({emp_id:teamdata.employe[j]},"team_members",{team_id:teamdata.id})
           }
       }
     }
-    // await teamdata.employe.forEach(emp => {
-    //   console.log(emp);
-    //   db.updateAnd({emp_id:emp},"team_members",{id:teamdata.id})
-    // });
     return response.json({'msg':'done'});
   } catch (error) {
     logger.error(error)

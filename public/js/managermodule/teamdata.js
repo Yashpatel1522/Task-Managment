@@ -141,6 +141,8 @@ function DataupdatedSuccessfully(){
     title: "Done",
     text: "Task updated Succesfully",
     icon: "success",
+  }).then(()=>{
+    window.location.href = '/manager/Teams'
   });
 }
 
