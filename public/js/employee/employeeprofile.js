@@ -1,6 +1,5 @@
 const renderProfileData = (profileData) => {
   let keys = Object.keys(profileData[0]);
-  console.log(document.getElementById(`first_name`))
 
   keys.map((key) => {
     if (!(document.getElementById(`${key}`) == null)) {
