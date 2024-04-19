@@ -1,6 +1,6 @@
 async function setData() {
     let url = window.location.origin+`/manager/getEmployees`
-	let response = await fetch(url);
+	  let response = await fetch(url);
     let data = await response.json();
     let str = ``;
     if(data.result) {
@@ -96,7 +96,7 @@ async function fetchNotificationData() {
       
   }
   
-  function showNotifications(data) {
+function showNotifications(data) {
       let notificatiodata = "";
       data.forEach(element => {
           notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`
@@ -107,3 +107,51 @@ async function fetchNotificationData() {
           
     });
   }
+
+async function searchEmployee(value){
+  console.log(value);
+  try {
+    let data = await (await fetch(`${window.location.origin}/manager/searchEmploye/${value}`)).json();
+    if (value === "") {
+      setData();
+    }
+    let str = ``;
+    if (data.searchData.length != 0) {
+        let count =0;
+        for(let i=0; i<Math.ceil(data.searchData.length/3); i++) {
+            str += `<div class="row pb-3">`;
+            for(let j=0; j<3; j++) {
+                if(data.searchData[count]) {
+                    console.log(data.searchData[count].last_name);
+                    str+=`
+                    <div class="col-4">
+                        <div class="card" style="width: 100%;">
+                            <img src="" class="card-img-top" alt="">
+                            <div class="card-body bg-light" style="border-radius: 10px;">
+                                <h5 class="card-title" style="font-size: 25px;">${data.searchData[count].first_name} ${data.searchData[count].last_name}</h5>
+                                <br>
+                                <p class="card-text"><b>Email - </b>${data.searchData[count].email}</p>
+                                <p class="card-text"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
+                                <a href="#" class="btn btn-primary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    count++;
+                }
+            }
+            str += `</div>`;
+        }
+        document.getElementsByClassName('employeeList')[0].innerHTML = str
+    }else{
+          Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Not Found Data"
+        });
+        setData();
+    }
+    } catch (error) {
+    console.log(error)
+  }
+}

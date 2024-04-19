@@ -15,7 +15,7 @@ exports.teamdetails = async (request, response) => {
 exports.searchTeamData = async (request, response) => {
   try {
     let search = "%" + request.params.searchdata + "%";
-    let searchData = await db.executeQuery(`select * from teams where created_by = ? and (team_name like ?)`,[1,search]);
+    let searchData = await db.executeQuery(`select * from teams where created_by = ? and (team_name like ?) and is_active = ?`,[1,search,1]);
     return response.json({ searchData });
   } catch (error) {
       logger.error("Not Search Data Found !")

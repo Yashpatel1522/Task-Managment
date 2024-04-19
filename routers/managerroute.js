@@ -1,7 +1,7 @@
 const express = require('express');
 const {searchTask, managerTasks, notifications } = require("../controller/managermodule/managertasks")
 const taskCount = require("../controller/managermodule/taskCount")
-const employeeData = require("../controller/managermodule/employeeData")
+const {employeeData,searchEmpData}= require("../controller/managermodule/employeeData")
 const updateManager = require('../controller/managermodule/updateManagerProfile');
 const managerProfile = require('../controller/managermodule/getManagerProfile');
 const dashboardView = require('../controller/managermodule/dashboard');
@@ -58,7 +58,7 @@ managerRouter.get("/getManagerProfile", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
-
+managerRouter.get("/searchEmploye/:searchdata",searchEmpData)
 // api to get manager tasks
 managerRouter.get("/getManagerTasks", managerTasks);
 
