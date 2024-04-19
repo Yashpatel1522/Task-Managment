@@ -9,27 +9,38 @@
   <link rel="stylesheet" href="/css/employee/employee.css">
   <link rel="stylesheet" href="/css/adminmodule/menubar.css">
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/charts/apexcharts.css">
+  <script src="/boxicon/dist/boxicons.js"></script>
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
+
   <script src="/js/bootstrap.js"></script>
   <style>
     .card {
-      width: calc(80%/3);
+      width: calc(90%/3);
+    }
+
+    #recentActivity {
+      background-color: white;
+      border-radius: 10px;
+      height: 200px;
+      overflow: scroll;
     }
   </style>
 </head>
 
-<body>
+<body onload="chartShow()">
   <div class="container">
     <div class="admin">
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-            <div class="bodypage my-5">
+            <div class="bodypage mt-5">  
               <div class="row1">
-                <h4 class="m-3">Users</h4>
+                <h4 class="m-3"></h4>
                 <div class="cards d-flex">
                   <div class="card text-center mx-3">
                     <a href="/admin/managers" class="list-group-item list-group-item-action">
-                      <div class="card-body my-3 mx-5 text-dark">
+                      <div class="card-body my-3 text-dark">
                         <p class="card-text h1">
                           <%=managerCount%>
                         </p>
@@ -39,7 +50,7 @@
                   </div>
                   <div class="card text-center mx-3 ">
                     <a href="/admin/employees" class="list-group-item list-group-item-action">
-                      <div class="card-body my-3 mx-5 text-dark">
+                      <div class="card-body my-3 text-dark">
                         <p class="card-text h1">
                           <%=employeeCount%>
                         </p>
@@ -49,7 +60,11 @@
                   </div>
                   <div class="card text-center mx-3 ">
                     <a href="/admin/team" class="list-group-item list-group-item-action">
+<<<<<<< HEAD
+                      <div class="card-body my-3 text-dark">
+=======
                       <div class="card-body my-3 mx-5 text-dark">
+>>>>>>> dev
                         <p class="card-text h1">
                           <%=teamCount%>
                         </p>
@@ -59,39 +74,73 @@
                   </div>
                 </div>
               </div>
-              <div class="row1">
-                <h4 class="m-3">Tasks</h4>
+              <div class="row1 my-5">
+                <h4 class="m-3"></h4>
                 <div class="cards d-flex">
-                  <div class="card text-center mx-3">
-                    <div class="card-body my-3 mx-5">
+                  <div class="card text-center mx-3 text-dark">
+                    <a href="/admin/tasks" class="list-group-item list-group-item-action">
+                    <div class="card-body my-3">
                       <p class="card-text h1">
-                        <%=todoCount%>
+                        <%=totalTask%>
                       </p>
-                      <h5 class="card-title">To-do</h5>
+                      <h5 class="card-title">Tasks</h5>
                     </div>
+                    </a>
                   </div>
-                  <div class="card text-center mx-3">
-                    <div class="card-body my-3 mx-5">
+                  <div class="card text-center mx-3 text-dark">
+                    <a href="/admin/category" class="list-group-item list-group-item-action">
+                    <div class="card-body my-3">
                       <p class="card-text h1">
-                        <%=inprogressCount%>
+                        <%=category%>
                       </p>
-                      <h5 class="card-title">In progress</h5>
+                      <h5 class="card-title">Category</h5>
                     </div>
+                    </a>
                   </div>
-                  <div class="card text-center mx-3">
-                    <div class="card-body my-3 mx-5">
+                  <div class="card text-center mx-3 text-dark">
+                    <div class="card-body my-3">
                       <p class="card-text h1">
                         <%=completedCount%>
                       </p>
-                      <h5 class="card-title">Completed</h5>
+                      <h5 class="card-title">Completed Task</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row1 mx-5 my-5 d-flex">
+                <div class="col1">
+                  <h4 class="mx-4">chart</h4>
+                  <div class=" p-2">
+                    <div id="chart"></div>
+                  </div>
+                </div>
+                <div class="col2" style="width: 45%;">
+                  <div>
+                    <div class="position-relative">
+                      <div>
+                        <h4 class="mx-4">Task Logs</h4>
+                      </div>
+                      <div class="position-absolute top-0 end-0 mx-4 h4 rounded bg-secondary text-white">
+                        <i class='bx bx-refresh p-1' onclick="managerAssignTask()" style="cursor: pointer;"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-3 p-3" id="recentActivity">
+                    <div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-    </div>
-  </div>
+        <div class="text-center text-secondary p-2 " style="background-color: #323232; margin: 0 -10px;">
+          copyright@2024
+        </div>
+      </div>
+  <script src="/charts/apexcharts.min.js"></script>
+  <script src="/js/adminmodule/chart.js"></script>
+
 </body>
 
 </html>

@@ -8,12 +8,12 @@ const assignBadge = (type) => {
       return 'text-primary';
     case 'low':
        return 'text-secondary';
-    case 'todo':
-        return 'badge text-bg-secondary m-2'
     case 'inprogress':
       return 'badge text-bg-primary m-2'
     case 'completed':
       return 'badge text-bg-success m-2'
+    case 'todo':
+      return 'badge text-bg-secondary m-2'
  
   }
 }
@@ -71,10 +71,9 @@ const renderData = (dashboardData) => {
 };
   
 getDashBoardData("/employee/getdashboardata").then((data) => {
-  dashboardData = data.result
-  renderData(dashboardData)
+  dashboardData = data.result;
+  renderData(dashboardData);
 });
-
 
 async function getDashBoardData(url) {
   const response = await fetch(url);
