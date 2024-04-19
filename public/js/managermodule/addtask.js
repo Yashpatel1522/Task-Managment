@@ -237,4 +237,3 @@ function DataINsertedSuccessfully() {
     icon: "success",
   });
 }
-

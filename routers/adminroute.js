@@ -16,7 +16,7 @@ router.route("/employees").get(employeepage);
 router.route("/tasks").get(taskpage);
 router.route("/team").get(adminTeam);
 
-// Manager Api 
+// Manager Api
 router.get("/managersapi", adminManagers);
 router.get("/managersapi/:id", managerDetails);
 router.get("/managersapi/search/:searchdata", searchManData)
@@ -50,6 +50,4 @@ router.get("/chartsData", chartsData)
 router.route("/calender").get(adminCalender);
 
 
-
 module.exports = router
-
