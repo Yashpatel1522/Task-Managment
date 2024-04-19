@@ -48,10 +48,6 @@ exports.updateTeamData = async(request,response)=>{
           }
       }
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> dev
     return response.json({'msg':'done'});
   } catch (error) {
     logger.error(error)
