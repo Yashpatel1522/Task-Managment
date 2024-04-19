@@ -1,15 +1,12 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
-
-
-
 const addtaskdata= async(request,response) => {
   try {
     let dataobj = {};
     let db = new database();
     const query = `select id,first_name from users where role_id = 1`;
-    const teamDataQuery = `select id,team_name from teams where is_deleted = 0`;
+    const teamDataQuery = `select id,team_name from teams where is_active = 1`;
     const categoryDataQuery = `select * from categories`;
     const urgencyDataQuery = 'select * from urgency';
     const importancyDataQuery = 'select * from importants';
@@ -34,6 +31,8 @@ const inserttaskdata = async(request,response) =>{
       let lastInserted_id;
       let db=new database();
       let prioritiy_id = 0;
+      let prioritydata = await db.executeQuery(`select id from priorities where urgency_id = ? and important_id = ?`,[taskdata.urgency_level,taskdata.impotant_level]) 
+      console.log(prioritydata);
       if(taskdata.impotant_level == 1 && taskdata.urgency_level == 1)
       {
         prioritiy_id = 1

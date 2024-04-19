@@ -78,6 +78,7 @@ async function insertTaskData() {
       }
     }
     dataobj.employe = selectedArray;
+    console.log(dataobj);
     try {
       await fetch(`${window.location.origin}/manager/addteamdata`, {
         method: "post", // *GET, POST, PUT, DELETE, etc.
@@ -125,5 +126,7 @@ function closePopup() {
       title: "Done",
       text: "Task inserted Succesfully",
       icon: "success",
-    });
+    }).then(function(){
+      window.location.href = '/manager/Teams'
+    })
   }

@@ -235,5 +235,7 @@ function DataINsertedSuccessfully() {
     title: "Done",
     text: "Task inserted Succesfully",
     icon: "success",
+  }).then(function(){
+    window.location.href = '/manager/'
   });
 }
