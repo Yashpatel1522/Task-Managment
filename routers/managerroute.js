@@ -27,10 +27,10 @@ const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData} = re
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
-const { upload } = require('../utility/multer');
+// const { upload } = require('../utility/multer');
 
-const multer = require('multer'); 
-const { taskdetailfiles, userProfileStorage } = require("../utility/multer");
+// const multer = require('multer'); 
+// const { taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const uploadStorage = multer({ storage: taskdetailfiles})
 // const uploadImage = multer({ storage: userProfileStorage });
 
