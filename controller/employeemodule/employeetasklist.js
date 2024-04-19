@@ -11,7 +11,6 @@ const list = async (req, res) => {
 const EmployeeTaskList = async (req, res) => {
     try {
         id = req.params.id
-        console.log(id, "id is===")
         const query = `select * from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id inner join categories as c on c.id=t.category_id inner join users as u on u.role_id=t.manager_id inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id inner join importants as imp on imp.id=p.important_id  where a.emp_id=1 order by p.urgency_id;`
         let db = new database()
         let result = await db.executeQuery(query, id)
@@ -57,7 +56,7 @@ const addcomment = async (req, res) => {
             "newfile_name": file.filename,
         }
         resultprofile = await db.insertData(userprofiledata, "user_profiles")
-        res.status(200).json({ 'data': resultprofile,'msg':'done'})
+        res.status(200).json({ 'data': resultprofile, 'msg': 'done' })
     }
     catch (error) {
         console.log(error)
