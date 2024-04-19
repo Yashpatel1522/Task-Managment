@@ -9,6 +9,7 @@ const { userProfileStorage } = require("../utility/multer");
 const { registrationPost } = require("../controller/loginmodule/registration.controller");
 const { forgetGet, forgetPost } = require("../controller/loginmodule/forget.controller");
 const workingEmployyeInTask = require("../controller/loginmodule/workingemployee.controllers");
+const updateTaskDetailsPost = require("../controller/loginmodule/updatetask.controller");
 const uploadStorage = multer({ storage: userProfileStorage })
 // const jwtStrategy=require('passport-jwt').Strategy;
 require('../middleware/jwtpassport')
@@ -26,6 +27,8 @@ login.get("/forget",forgetGet)
 login.post("/forget",forgetPost)
 
 login.get("/employee/:taskid",workingEmployyeInTask)
+
+login.post("/updateKanban",updateTaskDetailsPost)
 
 login.get("/dashboard",passport.authenticate("jwt",{session:false,failureRedirect:"/login/"}),checkUserRole,adminDashboard)
 module.exports=login;

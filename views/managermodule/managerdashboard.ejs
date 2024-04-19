@@ -3,55 +3,6 @@
 
 <head>
 	
-
-	
-	<style>
-		.section{
-			max-width: 1170px;
-			margin:0 auto;
-		}
-		.lanes{
-			display: flex;
-			align-items: flex-start;
-			justify-content: start;
-			padding: 24px 32px;
-			overflow: scroll;
-			height: 100%;
-		}
-		.swim-lane{
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
-
-			background-color: #f4f4f4;
-			box-shadow: 0px 5px 15px rgba(0, 0,0, 0.25);
-
-			padding: 12px;
-			border-radius: 4px;
-			width: 270px;
-			min-height: 120px;
-
-			flex-shrink: 0;
-		}
-		.tasks{
-			background-color: white;
-			color: black;
-			box-shadow: 0px 5px 15px rgba(0, 0,0, 0.15);
-
-			padding: 12px;
-			border-radius: 4px;
-
-			font-size: 16px;
-			cursor: move;
-		}
-		.is-dragging{
-			scale: 1.05;
-			box-shadow: 0px 5px 15px rgba(0, 0,0, 0.25);
-			background:black;
-			color: white;
-		}
-	</style>
-	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Manager Dashboard</title>
@@ -62,10 +13,11 @@
 	<link rel="stylesheet" href="/css/adminmodule/menubar.css">
 	<link rel="stylesheet" href="/css/loginmodule/popup.css">
 	<link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
+	<link rel="stylesheet" href="/css/loginmodule/draganddrop.css">
 
 </head>
 
-<body onload="getTaskData()">
+<body onload="taskDetails()">
 	<section class="section">
 	<div class="managerMain">
 		<div class="managerSidebar">
@@ -131,21 +83,21 @@
 			<div class="containere">
 				<div class="row lanes">
 					<div class="col-4">
-						<div id="todo-lane" class="swim-lane">
+						<div id="todo" class="swim-lane">
 							<h2>Todo</h2>
 							<div class="cards "id="todoTask">
 							</div>
 						</div>
 					</div>
-					<div class="col-4">
-						<div class="swim-lane">
+					<div class="col-4" >
+						<div class="swim-lane" id="inprogress">
 							<h2>Inprogress</h2>
 							<div class="cards " id="inprogressTask">
 							</div>
 						</div>
 					</div>
 					<div class="col-4">
-						<div class="swim-lane">
+						<div class="swim-lane" id="completed">
 							<h2>completed</h2>
 							<div class="cards"id="completedTask">
 							</div>

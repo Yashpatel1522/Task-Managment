@@ -67,7 +67,7 @@ async function fetchNotificationData() {
 function showNotifications(data) {
 	let notificatiodata = "";
 	data.forEach(element => {
-		notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`
+		notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b>task<h3>`
 	});
   Swal.fire({
 		title: ` ${notificatiodata}`,
