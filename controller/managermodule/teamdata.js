@@ -45,10 +45,7 @@ exports.updateTeamData = async(request,response)=>{
           }
       }
     }
-    // await teamdata.employe.forEach(emp => {
-    //   console.log(emp);
-    //   db.updateAnd({emp_id:emp},"team_members",{id:teamdata.id})
-    // });
+    
     return response.json({'msg':'done'});
   } catch (error) {
     logger.error(error)

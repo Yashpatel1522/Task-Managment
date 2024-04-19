@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,50 +46,6 @@
           <table class="table mx-2 text-center" id="team-table">
 
           </table>
-=======
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teams</title>
-  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
-  <link rel="stylesheet" href="/bootstrape/css/bootstrap.css">
-  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="/css/managermodule/managerdashboard.css">
-  <link rel="stylesheet" href="/css/managermodule/teams.css">
-</head>
-
-<body>
-  <div class="managerMain">
-    <div class="managerSidebar">
-      <%- include("sidebar.ejs")%>
-    </div>
-    <div class="teamcontent pt-4">
-      <div class="row">
-        <div class="col-9">
-          <input type="text" placeholder="Search" style="border-radius: 10px;" onchange="searchTasks(this.value)">
-        </div>
-        <div class="col-3">
-          <div class="row ps-5">
-            <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
-            <i class="bi bi-person-circle fa-2x col" id="profImg" onmouseover="profOption()">
-              <div id="profClk" onmouseleave="remOption()">
-                <p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
-                <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
-              </div>
-            </i>
-          </div>
-        </div>
-      </div>
-      <div class="showtasks">
-        <div class="taskhead p-5">
-          <div class="tasklft">
-            <h2>Teams</h2>
-          </div>
-          <div>
-            <button type="button" class="btn btn-primary" onclick="openPopup()">Create Team</button>
-          </div>
->>>>>>> dev
         </div>
       </div>
       <div class="row">
@@ -144,23 +99,10 @@
 
     </div>
     <div class="addtaskcontainer" id="popup">
-<<<<<<< HEAD
 			<%- include("addteam.ejs")%>
 		</div>
     <script src="/js/managermodule/teamdata.js"></script>
     <script src="/sweetalert2/sweetalert2.min.js"></script>
     <script src="/bootstrape/js/bootstrap.min.js"></script>
-    <script src="/js/managermodule/managerdashboard.js"></script>
-    <!-- <script src="/js/managermodule/addteam.js"></script> -->
   </body>
 </html>
-=======
-      <%- include("addteam.ejs")%>
-    </div>
-    <script src="/sweetalert2/sweetalert2.min.js"></script>
-    <script src="/bootstrape/js/bootstrap.min.js"></script>
-    <script src="/js/managermodule/managerdashboard.js"></script>
-</body>
-
-</html>
->>>>>>> dev

@@ -1,15 +1,12 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
-
-
-
 const addtaskdata= async(request,response) => {
   try {
     let dataobj = {};
     let db = new database();
     const query = `select id,first_name from users where role_id = 1`;
-    const teamDataQuery = `select id,team_name from teams where is_deleted = 0`;
+    const teamDataQuery = `select id,team_name from teams where is_active = 1`;
     const categoryDataQuery = `select * from categories`;
     const urgencyDataQuery = 'select * from urgency';
     const importancyDataQuery = 'select * from importants';
