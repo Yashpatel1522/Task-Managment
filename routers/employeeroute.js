@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router();
 const multer = require('multer');
 const { userProfileStorage } = require("../utility/multer");
-// const uploadStorage = multer({ storage: taskdetailfiles })
 const uploadStorageprofile = multer({ storage: userProfileStorage })
 
 const { EmployeeTaskList, list, searchlist, addcomment } = require("../controller/employeemodule/employeetask")
@@ -13,7 +12,7 @@ router.get("/getdashboardata", getdashboardata)
 router.get("/dashboard", dashboard)
 router.get("/getprofiledata", getProfiledata)
 router.post("/updateprofile", uploadStorageprofile.single('profileimg'), updateProfiledata)
-router.get('/task/:id', list) //http://127.0.0.1:8000/employee/task/1
+router.get('/task/:id', list) //http://127.0.0.1:8000/employee/task/1   
 router.get('/employeetasklist/:id', EmployeeTaskList)
 router.post('/searchtask', searchlist)
 router.post('/addcomment/:id/:taskid', uploadStorageprofile.single('file'), addcomment)

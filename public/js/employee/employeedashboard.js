@@ -60,7 +60,7 @@ const renderData = (dashboardData) => {
         </div>
         </div>
         </div>`;
-    taskCountsElement.innerHTML += taskCountBox;
+        taskCountsElement !== null ? taskCountsElement.innerHTML += taskCountBox: '';
   });
   dashboardData.upCommingDeadlineData.length != 0
     ? createTable(dashboardData.upCommingDeadlineData, "deadline")

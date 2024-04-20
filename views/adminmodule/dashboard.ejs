@@ -29,12 +29,12 @@
 </head>
 
 <body onload="chartShow()">
-  <div class="container">
+  <div class="container-div">
     <div class="admin">
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-            <div class="bodypage mt-5">  
+            <div class="bodypage mt-5">
               <div class="row1">
                 <h4 class="m-3"></h4>
                 <div class="cards d-flex">
@@ -60,7 +60,7 @@
                   </div>
                   <div class="card text-center mx-3 ">
                     <a href="/admin/team" class="list-group-item list-group-item-action">
-                      <div class="card-body my-3 text-dark">
+                      <div class="card-body my-3 mx-5 text-dark">
                         <p class="card-text h1">
                           <%=teamCount%>
                         </p>
@@ -75,22 +75,22 @@
                 <div class="cards d-flex">
                   <div class="card text-center mx-3 text-dark">
                     <a href="/admin/tasks" class="list-group-item list-group-item-action">
-                    <div class="card-body my-3">
-                      <p class="card-text h1">
-                        <%=totalTask%>
-                      </p>
-                      <h5 class="card-title">Tasks</h5>
-                    </div>
+                      <div class="card-body my-3">
+                        <p class="card-text h1">
+                          <%=totalTask%>
+                        </p>
+                        <h5 class="card-title">Tasks</h5>
+                      </div>
                     </a>
                   </div>
                   <div class="card text-center mx-3 text-dark">
                     <a href="/admin/category" class="list-group-item list-group-item-action">
-                    <div class="card-body my-3">
-                      <p class="card-text h1">
-                        <%=category%>
-                      </p>
-                      <h5 class="card-title">Category</h5>
-                    </div>
+                      <div class="card-body my-3">
+                        <p class="card-text h1">
+                          <%=category%>
+                        </p>
+                        <h5 class="card-title">Category</h5>
+                      </div>
                     </a>
                   </div>
                   <div class="card text-center mx-3 text-dark">
@@ -128,12 +128,12 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
-        <div class="text-center text-secondary p-2 " style="background-color: #323232; margin: 0 -10px;">
-          copyright@2024
-        </div>
-      </div>
+    </div>
+    <div class="text-center text-secondary p-2 " style="background-color: #323232; margin: 0px -20px 0px -10px;">
+      copyright@2024
+    </div>
+  </div>
   <script src="/charts/apexcharts.min.js"></script>
   <script src="/js/adminmodule/chart.js"></script>
 

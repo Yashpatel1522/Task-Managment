@@ -11,12 +11,20 @@ const upcomingTasks = require('../controller/managermodule/upcomingTasks');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
 const {upload, taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const multer = require('multer');
-const uploadImage = multer({ storage: userProfileStorage });
 const addtaskdatamiddleware = require('../middleware/addtask');
 const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
 const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData ,teamDetailsForView,deleteTeam} = require('../controller/managermodule/teamdata');
-const uploadStorage = multer({ storage: taskdetailfiles});
 const getTeams = require('../controller/managermodule/getTeams')
+
+// const uploadImage = multer({ storage: userProfileStorage });
+// const addtaskdatamiddleware = require('../middleware/addtask');
+
+// const { upload } = require('../utility/multer');
+
+// const {upload, taskdetailfiles, userProfileStorage } = require("../utility/multer");
+const uploadStorage = multer({ storage: taskdetailfiles})
+// const uploadImage = multer({ storage: userProfileStorage });
+const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 

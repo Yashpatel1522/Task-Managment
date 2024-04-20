@@ -16,7 +16,7 @@
 </head>
 
 <body onload="getManagerData()">
-  <div class="container">
+  <div class="container-div">
     <div class="admin">
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
@@ -38,22 +38,29 @@
 
               </table>
             </div>
-            <div id="pagination">
+
+            <div id="pagination" class="pagenation-data">
 
             </div>
-
-            <div class="addregistrationcontainer" id="show-detail">
+            <div class=" addregistrationcontainer" id="show-detail">
               <div id="manager-form">
 
               </div>
             </div>
         </div>
     </div>
+    <div class="text-center text-secondary p-2 " style="background-color: #323232; margin: 0px -20px 0px -10px;">
+      copyright@2024
+    </div>
   </div>
   <div class="addregistrationcontainer" id="open-registration">
     <%- include("../loginmodule/registration")%>
   </div>
   </div>
+  <script src="/js/adminmodule/fetchdatatable.js"></script>
+  <script src="/js/adminmodule/viewdata.js"></script>
+  <script src="/js/adminmodule/searchdata.js"></script>
+  <script src="/js/adminmodule/deletedata.js"></script>
   <script src="/js/adminmodule/manager.js"></script>
   <script src="/js/loginmodule/popup.js"></script>
 

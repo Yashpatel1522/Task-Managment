@@ -41,13 +41,9 @@
               </div>
 
               <div class="mb-3">
-                <label for="emp_role" class="form-label">Role</label>
-                <select name="Role" id="emp_role" class="form-select form-select-lg mb-3"
-                  aria-label="Large select example">
-                  <option value="sdl">SDL</option>
-                  <option value="design">Designer</option>
-                  <option value="sroprationmanager">Sr. Operation Manager</option>
-                </select>
+                <label for="role_name" class="form-label">Role</label>
+                <input type="text" value="Admin" name="role_name" id="role_name" class="form-control" class="datepicker"
+                  disabled>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -60,7 +56,7 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
   const imageInput = document.getElementById("change");
   const selectedImage = document.getElementById("selectedImage");
 
@@ -74,4 +70,4 @@
 
     reader.readAsDataURL(file);
   });
-</script>
+</script> -->
