@@ -25,8 +25,7 @@ const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData ,team
 
 
 
-const {upload, taskdetailfiles, userProfileStorage } = require("../utility/multer");
-const uploadStorage = multer({ storage: taskdetailfiles})
+const {upload, userProfileStorage } = require("../utility/multer");
 // const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
