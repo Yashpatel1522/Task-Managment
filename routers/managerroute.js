@@ -9,11 +9,8 @@ const employeeView = require('../controller/managermodule/employeeView');
 const taskView = require('../controller/managermodule/taskView');
 const upcomingTasks = require('../controller/managermodule/upcomingTasks');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
-const { upload } = require('../utility/multer');
 
 const multer = require('multer');
-const { taskdetailfiles, userProfileStorage } = require("../utility/multer"); 
-const uploadImage = multer({ storage: userProfileStorage });
 const addtaskdatamiddleware = require('../middleware/addtask');
 
 // const multer = require('multer'); 
@@ -30,6 +27,7 @@ const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData ,team
 // const {upload, taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const uploadStorage = multer({ storage: taskdetailfiles})
 // const uploadImage = multer({ storage: userProfileStorage });
+const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 

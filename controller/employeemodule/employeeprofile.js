@@ -1,4 +1,5 @@
 const database = require("../../helpers/database.helper");
+const logger = require("../../logger/logger");
 const db = new database();
 
 const getProfiledata = async (request, response) => {
@@ -12,7 +13,7 @@ const getProfiledata = async (request, response) => {
       result: profledata,
     });
   } catch (error) {
-    return response.send({ error: error });
+    logger.error("profile data is not found !");
   }
 };
 const updateProfiledata = async (request, response) => {
@@ -28,7 +29,7 @@ const updateProfiledata = async (request, response) => {
       'message':'updated'
     });
   } catch (error) {
-    return response.send({ error: error });
+    logger.error("profile is not updated!!");
   }
 };
 module.exports = { getProfiledata, updateProfiledata };

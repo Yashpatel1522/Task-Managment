@@ -1,95 +1,95 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    position: relative;
-  }
-  
-  .container {
-    max-width: 1400px;
-    background-color: #DDD0C8;
-    margin: 0 auto;
-  }
-  
-  .employee {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .employee .sidebar {
-    border-top-right-radius: 30px;
-    background-color: #323232;
-    width: 20%;
-    margin-left: -10px;
-    color: white;
-    height: auto;
-    margin-left: -10px;
-  }
-  
-  .employee .sidebar .task-logo img {
-    width: 70px;
-    padding: 20px 40px;
-  }
-  
-  /* 
-  .list {
-    display: flex;
-    padding: 20px;
-  } */
-  
-  .list i {
-    font-size: 20px;
-    padding-right: 15px;
-  }
-  
-  .list li {
-    list-style: none;
-    cursor: pointer;
-  }
-  
-  .rightbar {
-    width: 80%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .rightbar .profilename .bell {
-    font-size: 25px;
-    margin: 24px 15px;
-    color: #323232;
-  }
-  
-  .rightbar .profilename .bell {
-    font-size: 25px;
-    margin: 24px 15px;
-    color: #323232;
-  }
-  
-  .rightbar .profilename p {
-    margin-top: 27px;
-    padding-right: 20px;
-    color: #323232;
-  }
-  
-  .rightbar .profile i {
-    margin: 15px 10px;
-    background-color: #323232;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-  }
-  
-  
-  .allform {
-    background-color: rgba(255, 255, 255);
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    margin: auto;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  #form{
-    width: 83%;
-  }
+body {
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  background-color: #DDD0C8;
+  margin: 0 auto;
+}
+
+.employee {
+  display: flex;
+  justify-content: space-between;
+}
+
+.employee .sidebar {
+  border-top-right-radius: 30px;
+  background-color: #323232;
+  width: 20%;
+  margin-left: -10px;
+  color: white;
+  height: auto;
+  margin-left: -10px;
+}
+
+.employee .sidebar .task-logo img {
+  width: 70px;
+  padding: 20px 40px;
+}
+
+/* 
+.list {
+  display: flex;
+  padding: 20px;
+} */
+
+.list i {
+  font-size: 20px;
+  padding-right: 15px;
+}
+
+.list li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.rightbar {
+  width: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightbar .profilename .bell {
+  font-size: 25px;
+  margin: 24px 15px;
+  color: #323232;
+}
+
+.rightbar .profilename .bell {
+  font-size: 25px;
+  margin: 24px 15px;
+  color: #323232;
+}
+
+.rightbar .profilename p {
+  margin-top: 27px;
+  padding-right: 20px;
+  color: #323232;
+}
+
+.rightbar .profile i {
+  margin: 15px 10px;
+  background-color: #323232;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+
+.allform {
+  background-color: rgba(255, 255, 255);
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  margin: auto;
+}
+
+#form{
+  width: 100%;
+}

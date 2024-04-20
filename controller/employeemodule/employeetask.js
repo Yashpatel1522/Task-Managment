@@ -1,8 +1,7 @@
 const { compareSync } = require("bcrypt")
 const database = require("../../helpers/database.helper")
 const logger = require("../../logger/logger");
-
-// module.exports={UserTaskList}
+const db = new database();
 
 const list = async (req, res) => {
     res.render('employeemodule/employeetasklist')
@@ -12,14 +11,12 @@ const list = async (req, res) => {
 const EmployeeTaskList = async (req, res) => {
     try {
         id = req.params.id
-        console.log(id, "id is===")
         const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
         inner join categories as c on c.id=t.category_id 
         inner join users as u on u.role_id=t.manager_id 
         inner join priorities as p on p.id=t.prioritiy_id 
         inner join urgency on urgency.id=p.urgency_id
         inner join importants as imp on imp.id=p.important_id  where a.emp_id=? order by p.urgency_id;`
-        let db = new database()
         let result = await db.executeQuery(query, id)
         res.json(result)
     }
@@ -30,10 +27,8 @@ const EmployeeTaskList = async (req, res) => {
 
 const searchlist = async (req, res) => {
     try {
-        console.log(req.body, "[][][[][[[]")
         usersearch = req.body.search
         const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join priorities as p on p.id=t.prioritiy_id  inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ?;`
-        let db = new database()
         let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%'])
         res.json(result)
 
@@ -54,7 +49,6 @@ const addcomment = async (req, res) => {
             attechment: file.filename
 
         }
-        let db = new database()
         let result = await db.insertData(addcomment, "user_comments")
         let userprofiledata = {
             "task_id": req.params.taskid,
