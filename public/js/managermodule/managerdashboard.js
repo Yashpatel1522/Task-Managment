@@ -2,6 +2,7 @@ async function getData() {
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();
+  console.log(data);
   document.getElementsByClassName("count")[0].innerText =
     data.todoResult[0].count;
   document.getElementsByClassName("count")[1].innerText =

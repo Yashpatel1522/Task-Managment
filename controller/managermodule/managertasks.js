@@ -4,7 +4,7 @@ const logger = require("../../logger/logger");
 
 const managerTasks = async (request, response) => {
   try {
-    let managerTaskDashoardQuery = `select * from tasks where manager_id = ? and task_status = 'todo';`;
+    let managerTaskDashoardQuery = `select * from tasks where manager_id = ? and status = 1;`;
     let db = new database();
     let res = await db.executeQuery(managerTaskDashoardQuery,[3]);
     console.log(res);

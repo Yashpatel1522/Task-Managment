@@ -224,4 +224,5 @@ const openpopup2 = async (id) => {
 const taskDetails=async()=>{
   await getTaskData()
   await dragEvent()
+  await getData()
 }

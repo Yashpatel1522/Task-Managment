@@ -91,3 +91,17 @@
 {"level":"error","message":"category not found it!","timestamp":"2024-04-19T12:38:46.471Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T12:54:38.085Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T12:55:07.619Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from tasks where task_end_date between '3' and ? and manager_id = ? and task_status != 'compleated' and status = 1;","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? and manager_id = ? and task_status != 'compleated' and status = 1' at line 1","sqlState":"42000","timestamp":"2024-04-20T06:11:12.266Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select teams.team_name,team_members.emp_id,users.first_name from teams left join team_members on teams.id = team_members.team_id left join users on team_members.emp_id = users.id where teams.id = '1' and team_members.is_deleted = 0","sqlMessage":"Table 'task_managment_db.team_members' doesn't exist","sqlState":"42S02","timestamp":"2024-04-20T06:36:56.834Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:36:59.902Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:37:00.645Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:37:00.822Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:37:00.998Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:37:01.181Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:37:03.927Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:37:04.249Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T06:37:04.418Z"}
+{"level":"error","message":"Team Data Can't deleted !","timestamp":"2024-04-20T06:40:00.469Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-20T09:08:30.908Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select teams.team_name,team_members.emp_id,users.first_name from teams left join team_members on teams.id = team_members.team_id left join users on team_members.emp_id = users.id where teams.id = '2' and team_members.is_deleted = 0","sqlMessage":"Table 'task_managment_db.team_members' doesn't exist","sqlState":"42S02","timestamp":"2024-04-20T09:08:32.591Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select teams.team_name,team_members.emp_id,users.first_name from teams left join team_members on teams.id = team_members.team_id left join users on team_members.emp_id = users.id where teams.id = '2' and team_members.is_deleted = 0","sqlMessage":"Table 'task_managment_db.team_members' doesn't exist","sqlState":"42S02","timestamp":"2024-04-20T09:38:55.377Z"}
