@@ -15,7 +15,7 @@ const login = require('./routers/loginroutes');
 let PORT = process.env.PORT;
 
 app.use("/bootstrap_icon_css", express.static("./node_modules/bootstrap-icons/font"));
-app.use("/charts", express.static(path.join(__dirname, "node_modules/apexcharts/dist")));
+app.use("/charts", express.static(path.join(__dirname, "node_modules/apexcharts/dist/")));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

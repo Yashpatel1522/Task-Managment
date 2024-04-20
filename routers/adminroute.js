@@ -1,10 +1,11 @@
 const express = require("express");
-const { adminDashboard, chartsData } = require("../controller/adminmodule/dashboard");
+const { adminDashboard, chartsData, managerTask } = require("../controller/adminmodule/dashboard");
 const { adminManagers, managerDetails, searchManData, dataDelete, managerpage } = require("../controller/adminmodule/managers");
 const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeepage } = require("../controller/adminmodule/employees");
 const { adminTasks, searchTasks, taskpage, taskDetail } = require("../controller/adminmodule/tasks");
 const { adminCalender } = require("../controller/adminmodule/calender");
 const { profiledata } = require("../controller/adminmodule/adminprofile");
+const { categoryPage, adminCategory, searchCategory } = require("../controller/adminmodule/caregory");
 const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam } = require("../controller/adminmodule/teamdata");
 
 const router = express.Router();
@@ -15,6 +16,8 @@ router.route("/managers").get(managerpage);
 router.route("/employees").get(employeepage);
 router.route("/tasks").get(taskpage);
 router.route("/team").get(adminTeam);
+router.route("/category").get(categoryPage);
+
 
 // Manager Api
 router.get("/managersapi", adminManagers);
@@ -42,10 +45,11 @@ router.get("/tasksDetails/:id", taskDetail)
 
 router.get("/profiledata", profiledata)
 router.get("/chartsData", chartsData)
+router.get("/managerTask", managerTask)
 
-
-
-
+// Category
+router.route("/categoryData").get(adminCategory);
+router.get("/categoryData/:searchdata", searchCategory)
 
 
 // Calender

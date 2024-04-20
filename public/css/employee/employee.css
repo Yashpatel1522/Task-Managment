@@ -19,6 +19,7 @@ body {
 
 .field {
   display: flex;
+  margin-left: 3px;
 }
 
 .carddetails {
@@ -53,7 +54,7 @@ body {
 
 .sidebar {
   width: 20%;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   height: auto;
 }
 
@@ -160,7 +161,7 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   top: 35px;
-  right: -45px;
+  right: -23px;
 }
 
 .dropdown-content a {
@@ -216,6 +217,42 @@ body {
 }
 
 .popup-comment {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: 71px;
+  background: #FFF;
+  z-index: 20;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 41px;
+}
+
+#team:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+#team:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
+.popup-team {
   display: none;
   position: fixed;
   flex-direction: column;

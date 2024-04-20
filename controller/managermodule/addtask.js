@@ -1,9 +1,6 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
-
-
-
 const addtaskdata= async(request,response) => {
   try {
     let dataobj = {};
