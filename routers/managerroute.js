@@ -8,7 +8,7 @@ const dashboardView = require('../controller/managermodule/dashboard');
 const employeeView = require('../controller/managermodule/employeeView');
 const taskView = require('../controller/managermodule/taskView');
 const upcomingTasks = require('../controller/managermodule/upcomingTasks');
-const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
+const { addtaskdata, inserttaskdata} = require('../controller/managermodule/addtask');
 
 
 const multer = require('multer');
@@ -64,6 +64,7 @@ managerRouter.get("/getManagerTasks", managerTasks);
 
 //api for Manager task Count
 managerRouter.get("/getManagerTaskCount", taskCount);
+managerRouter.get("/searchTask/:searchdata",searchTask);
 
 // // api for get user,category from database
 managerRouter.get('/getdataapi',addtaskdata);
