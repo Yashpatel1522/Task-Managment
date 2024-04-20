@@ -5,11 +5,12 @@ const getTaskData = async () => {
     console.log(data)
     let todoData = ``;
     data.todoData.forEach(e => {
-      todoData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
+      todoData += `<div class="m-3 p-2 tasks" draggable="true" id="${e.id}">
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <input type="button" value="view" onclick="openpopup2(${e.id})">
+        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
       </div>
     </div>`
     });
@@ -22,7 +23,8 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-         <input type="button" value="view" onclick="openpopup2(${e.id})">
+        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
       </div>
     </div>` 
     });
@@ -35,7 +37,8 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-         <input type="button" value="view" onclick="openpopup2(${e.id})">
+        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
       </div>
     </div>`
     });
@@ -43,7 +46,7 @@ const getTaskData = async () => {
   } catch (error) {
     // logger.error(error)
     console.log(error);
-  }
+  } 
 }
 
 const searchTaskData = async (value) => {
