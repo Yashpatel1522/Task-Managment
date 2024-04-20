@@ -22,6 +22,7 @@
         <form
           action="/employee/updateprofile"
           method="post"
+          id="profileform"
           onchange="return isValidProfilDetails()"
           enctype="multipart/form-data"
         >
@@ -36,7 +37,7 @@
                 class="rounded-circle"
               />
               <!-- <label for="change" class="text-center mt-4">Change</label> -->
-              <input type="file" name="profileimg" id="change" class="mt-4" />
+              <input type="file" class="form-control" name="profileimg" id="change" class="mt-4" />
             </div>
             <div>
               <div class="mb-3">
@@ -113,7 +114,8 @@
                   </option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              <input type="button" class="btn btn-primary" onclick="updateUserProfile()">Update</input>
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -128,7 +130,6 @@
     </div>
   </div>
 </div>
-
 <script>
   const imageInput = document.getElementById("change");
   const selectedImage = document.getElementById("selectedImage");

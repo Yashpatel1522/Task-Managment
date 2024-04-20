@@ -12,7 +12,6 @@ function showDropdown() {
 
 let path = window.location.pathname.split("/");
 let id = path[path.length - 1];
-console.log(id, "id is ");
 
 function reusablecard(data) {
   function setCard(id, element) {
@@ -40,26 +39,30 @@ function reusablecard(data) {
     } else if (element.task_status == "completed") {
       setCard("completed", element);
     }
-    console.log(element.urgency_id, "urgency")
     switch (element.urgency_id) {
       case 1:
-        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`
+        document.getElementById(
+          `urgent-${element.task_id}`
+        ).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`;
         break;
       case 2:
-        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`
+        document.getElementById(
+          `urgent-${element.task_id}`
+        ).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`;
         break;
       case 3:
-        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`
+        document.getElementById(
+          `urgent-${element.task_id}`
+        ).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`;
         break;
       case 4:
-        document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`
+        document.getElementById(
+          `urgent-${element.task_id}`
+        ).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`;
         break;
     }
   });
 }
-
-
-
 
 var employeedata;
 async function fetchData() {
@@ -67,7 +70,6 @@ async function fetchData() {
   data = await response.json();
   employeedata = data;
   reusablecard(data);
-
 }
 fetchData();
 
@@ -76,54 +78,76 @@ let ides = (id) => document.getElementById(id);
 
 const show = (id, taskid) => {
   ides(id).style.display = "block";
-  console.log(taskid)
-  gtaskid = taskid
-  employeedata.forEach(element => {
+  console.log(taskid);
+  gtaskid = taskid;
+  employeedata.forEach((element) => {
     if (element.task_id == taskid) {
       document.getElementById("taskdetails").innerHTML = `
-                  <div class="field">
-                    <label>Task Name:</label>
-                    <p>${element.task_name}</p>
-                  </div>
-                  <div class="field">
-                    <label>Description:</label>
-                    <p>${element.task_description}</p>
-                  </div>
-                  <div class="field">
-                    <label>start date :</label>
-                    <p>${element.task_start_date}</p>
-                  </div>
-                   <div class="field">
-                    <label>end date :</label>
-                    <p>${element.task_end_date}</p>
-                  </div>
-                   <div class="field">
-                   <label>task status:</label>
-                    <p>${element.task_status}</p>
-                  </div>
-                   <div class="field">
-                   <label>urgency :</label>
-                    <p>${element.urgencytype}</p>
-                  </div>
-                   <div class="field">
-                   <label>importancy :</label>
-                    <p>${element.importancetype}</p>
-                  </div>
-                   <div class="field">
-                   <label>category name:</label>
-                    <p>${element.category}</p>
-                  </div>
-                   <div class="field">
-                   <label>manager name :</label>
-                    <p>${element.first_name}</p>
-                  </div>
-                    <div class="modal-footer-user" id="commentpopup">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                      onclick="showComment('popup-comment',${element.task_id})">Comment</button>
-                    <button type="button" onclick="hide('popup')" class="btn btn-primary">Close</button>
-                  </div>
+      <div class="field">
+        <p class="fs-1 text fw-bold">${element.task_name}</p>
+      </div>
+    
+      <div class="row">
+      
+      <div class="field fs-6 text p-3 col">
+      <i class="bi bi-record-circle me-2"></i>
+      <label>Status: &nbsp;</label>
+       <p>${element.task_status}</p>
+     </div>
+     <div class="field fs-6 text p-3 col">
+     <i class="bi bi-info-circle me-2"></i>
+<label>Description:</label>
+<p>${element.task_description}</p>
+</div>
+      </div>
+      <div class="row">
+      
+      <div class="field fs-6 text p-3 col">
+      <i class="bi bi-calendar me-2"></i>
+      <label>Start date :&nbsp;</label>
+      <p>${element.task_start_date}</p>
+      </div>
+      <div class="field fs-6 text p-3 col">
+      <i class="bi bi-calendar me-2"></i>
+      <label>End date :&nbsp;</label>
+      <p>${element.task_end_date}</p>
+      </div> 
+      </div>
 
-                </div >`;
+      <div class="row">
+      
+      <div class="field fs-6 text p-3 col">
+      <i class="bi bi-flag me-2"></i>
+      <label>Urgency :&nbsp;</label>
+       <p>${element.urgencytype}</p>
+     </div>
+      <div class="field fs-6 text p-3 col">
+      <i class="bi bi-flag me-2"></i>
+      <label>Importancy :&nbsp;</label>
+       <p>${element.importancetype}</p>
+     </div>
+      </div>
+
+      <div class="row">
+      
+      <div class="field fs-6 text p-3 col">
+      <i class="bi bi-columns-gap me-2"></i>
+      <label>Category name :&nbsp;</label>
+       <p>${element.category}</p>
+     </div>
+      <div class="field fs-6 text p-3 col">
+      <i class="bi bi-person-circle me-2"></i>
+      <label>Manager name :&nbsp;</label>
+       <p>${element.first_name}</p>
+     </div>
+      </div>
+        <div class="modal-footer-user" id="commentpopup">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          onclick="showComment('popup-comment',${element.task_id})">Comment</button>
+        <button type="button" onclick="hide('popup')" class="btn btn-primary">Close</button>
+      </div>
+
+    </div >`;
     }
   });
 };
@@ -135,14 +159,13 @@ const hide = (id) => {
 let ides_comment = (id) => document.getElementById(id);
 
 const showComment = (id, taskid) => {
-
-  document.getElementById('popup').style.display = "none";
-  employeedata.forEach(element => {
+  document.getElementById("popup").style.display = "none";
+  employeedata.forEach((element) => {
     if (element.task_id == taskid) {
       ides_comment(id).style.display = "block";
     }
   });
-}
+};
 
 const hideComment = (id) => {
   ides_comment(id).style.display = "none";
@@ -150,26 +173,26 @@ const hideComment = (id) => {
 
 //user search section
 async function seachresult() {
-  if (document.getElementById('searchinput').value != "") {
-    obj = {}
-    new FormData(document.getElementById('form')).forEach((value, key) => {
+  if (document.getElementById("searchinput").value != "") {
+    obj = {};
+    new FormData(document.getElementById("form")).forEach((value, key) => {
       obj[key] = value;
-    })
-    console.log(obj, "obj is ")
+    });
+    console.log(obj, "obj is ");
     const response = await fetch(`http://127.0.0.1:8000/employee/searchtask`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json; charset=UTF-8',
+        "content-type": "application/json; charset=UTF-8",
       },
-      body: JSON.stringify(obj)
-    })
-    data = await response.json()
+      body: JSON.stringify(obj),
+    });
+    data = await response.json();
 
-    ides('todo').style.display = "none";
-    ides('inprogress').style.display = "none";
-    ides('completed').style.display = "none";
+    ides("todo").style.display = "none";
+    ides("inprogress").style.display = "none";
+    ides("completed").style.display = "none";
     function resetCard(id, element) {
-      document.getElementById(`${id}`).innerHTML = ''
+      document.getElementById(`${id}`).innerHTML = "";
       document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
                 <div class="field">
@@ -184,63 +207,99 @@ async function seachresult() {
                   <label>due date : </label>
                   <p>${element.task_end_date}</p>
                 </div>
-              </div >`
+              </div >`;
     }
-    data.forEach(element => {
-      console.log(element, "elementic ")
-      if (element.task_status == 'todo') {
-        ides('todo').removeAttribute('style')
-        resetCard('todo', element)
-      }
-
-      else if (element.task_status == 'inprogress') {
-        ides('inprogress').removeAttribute('style')
-        resetCard('inprogress', element)
-
-      }
-      else if (element.task_status == 'completed') {
-        ides('completed').removeAttribute('style')
-        resetCard('completed', element)
-
+    data.forEach((element) => {
+      console.log(element, "elementic ");
+      if (element.task_status == "todo") {
+        ides("todo").removeAttribute("style");
+        resetCard("todo", element);
+      } else if (element.task_status == "inprogress") {
+        ides("inprogress").removeAttribute("style");
+        resetCard("inprogress", element);
+      } else if (element.task_status == "completed") {
+        ides("completed").removeAttribute("style");
+        resetCard("completed", element);
       }
       switch (element.urgency_id) {
         case 1:
-          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`
+          document.getElementById(
+            `urgent-${element.task_id}`
+          ).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`;
           break;
         case 2:
-          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`
+          document.getElementById(
+            `urgent-${element.task_id}`
+          ).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`;
           break;
         case 3:
-          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`
+          document.getElementById(
+            `urgent-${element.task_id}`
+          ).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`;
           break;
         case 4:
-          document.getElementById(`urgent-${element.task_id}`).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`
+          document.getElementById(
+            `urgent-${element.task_id}`
+          ).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`;
           break;
       }
     });
+  } else {
+    fetchData();
   }
-  else {
-    fetchData()
-    }
 }
 
 async function addcomment() {
-
-  const formData = new FormData()
-  const fields = ['taskcomment', 'taskstatus']
-  formData.append('file', document.getElementById('file'))
-  let file = document.getElementById('file');
-  formData.append('file', file.files[0])
+  const formData = new FormData();
+  const fields = ["taskcomment", "taskstatus"];
+  formData.append("file", document.getElementById("file"));
+  let file = document.getElementById("file");
+  formData.append("file", file.files[0]);
   fields.forEach((element) => {
-    formData.append(element, document.getElementById(element).value)
-
+    formData.append(element, document.getElementById(element).value);
   });
-  const response = await fetch(`http://127.0.0.1:8000/employee/addcomment/${id}/${gtaskid}`, {
-    method: 'POST',
-    body: formData
-  })
-  let data = await response.json()
-  if (data.msg == 'done') {
-    hideComment('popup-comment')
+  const response = await fetch(
+    `/employee/addcomment/${id}/${gtaskid}`,
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+  let data = await response.json();
+  if (data.msg == "done") {
+    hideComment("popup-comment");
   }
+}
+
+function updateUserProfile() {
+  let form = document.getElementById('profileform')
+  let formData = new FormData(form)
+  fetch( `/employee/updateprofile`,{
+    method: 'POST',
+    body:formData
+  }).then(
+    (response)=> {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    }
+  )
+  .then((data) => {
+    if (data.message == "updated") {
+      Swal.fire({
+        title: "Done",
+        text: "Profile Updated Succesfully",
+        icon: "success",
+      }).then(function(){
+        window.location.reload();
+      });
+    } else {
+      Swal.fire({
+        title: "Done",
+        text: "Profile is not Updated",
+        icon: "error",
+      })
+    }
+  })
 }
