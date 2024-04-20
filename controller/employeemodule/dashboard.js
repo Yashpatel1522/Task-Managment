@@ -1,4 +1,5 @@
 const database = require("../../helpers/database.helper");
+const logger = require("../../logger/logger");
 
 //converting current date into mysql compatible format
 const currentDate = new Date().toISOString().split("T")[0];
@@ -21,7 +22,7 @@ const getdashboardata = async (request, response) => {
 
     return response.json({ result: res });
   } catch (error) {
-    return response.send(error);
+    logger.error("Dash data is not found !");
   }
 };
 const dashboard = (request, response) => {

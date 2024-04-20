@@ -5,7 +5,7 @@ const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeep
 const { adminTasks, searchTasks, taskpage, taskDetail } = require("../controller/adminmodule/tasks");
 const { adminCalender } = require("../controller/adminmodule/calender");
 const { profiledata } = require("../controller/adminmodule/adminprofile");
-const { categoryPage, adminCategory, searchCategory } = require("../controller/adminmodule/caregory");
+const { categoryPage, adminCategory, searchCategory } = require("../controller/adminmodule/category");
 const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam } = require("../controller/adminmodule/teamdata");
 
 const router = express.Router();

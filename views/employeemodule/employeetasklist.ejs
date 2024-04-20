@@ -7,12 +7,14 @@
   <title>Document</title>
   <link rel="stylesheet" href="/css/employee/employee.css">
   <script src="/js/employee/employee.js"></script>
-  <script src="/js/employee/employeedashboard.js"></script>
   <script src="/js/employee/employeeprofile.js"></script>
+  <script src="/js/employee/employeedashboard.js"></script>
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/employee/menubar.css"/> 
   <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
 </head>
 
 <body>
@@ -20,11 +22,9 @@
     <div class="employee">
         <%- include('../partials/employeemenubar') %>
   <div class="container mx-5">
-
-  
-    <div class="d-flex position-relative mt-4">
-      <form method="POST" id="form" enctype="multipart/form-data" class="mb-2">
-        <div class="input-group">
+    <div class="d-flex position-relative mt-4 mb-4">
+      <form method="POST" id="form" enctype="multipart/form-data">
+        <div class="input-group searchbar mt-3 me-0" style="width: 33%;">
           <div class="form-outline" >
             <input type="text" id="searchinput" name="search" class="form-control" />
           </div>
@@ -33,11 +33,12 @@
           </button>
         </div>
       </form>
-      <div class="profile" class="dropbtn" onclick="showDropdown()">
+      <div class="profile dropbtn" onclick="showDropdown()">
         <img class="userprofile" src="/assets/employee/user.png" alt="" />
         <div id="dropdown" class="dropdown-content">
        
           <a
+          href="/"
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
@@ -57,7 +58,6 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Task Details</h5>
                   </div>&nbsp;
                   <div class="modal-body" id="taskdetails">
                   </div>
@@ -73,7 +73,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Comments</h5>
+                    <h5 class="modal-title fs-3 text" id="exampleModalLongTitle">Comments</h5>
                   </div>&nbsp;
                   <div class="modal-body" id="taskcommentdetails">
                     <table class="table">
