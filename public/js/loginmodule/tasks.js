@@ -2,7 +2,6 @@ const getTaskData = async () => {
   try {
     let data = await (await fetch(`/admin/tasksData`)).json();
     todoTask = document.getElementById("todoTask");
-    console.log(data)
     let todoData = ``;
     data.todoData.forEach(e => {
       todoData += `<div class="m-3 p-2 tasks" draggable="true" id="${e.id}">
@@ -19,7 +18,7 @@ const getTaskData = async () => {
     let inprogressTask = document.getElementById("inprogressTask");
     let inprogressData = ``;
     data.inprogress.forEach(e => {
-      inprogressData += `<div class="m-3 p-2 tasks"  draggable="true" id=${e.id}> 
+      inprogressData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
