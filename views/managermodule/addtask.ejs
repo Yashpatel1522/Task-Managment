@@ -149,17 +149,17 @@
       <div class="row mb-2">
         <div class="col-md-6">
           <label for="assignto" id="Assin_task" class="text-primary">Assign Task To employe</label>
-          <select id="Assin_task_to" name="Assin_task_to" class="reqselect form-control" multiple>
+          <select id="Assin_task_to" name="Assin_task_to" class="form-control" multiple>
             <option value="0">Select</option>
           </select>
-          <span class="reqselecterr" id="aterr"></span>
+          <!-- <span class="reqselecterr" id="aterr"></span> -->
         </div>
         <div class="col-md-6">
           <label for="assignto" id="Assin_task" class="text-primary">Assign Task To Team</label>
-          <select id="Assin_task_to_team" name="Assin_task_to_team" class="reqselect form-control" multiple>
+          <select id="Assin_task_to_team" name="Assin_task_to_team" class="form-control" multiple>
             <option value="0">Select</option>
           </select>
-          <span class="reqselecterr" id="aterr"></span>
+          <!-- <span class="reqselecterr" id="aterr"></span> -->
         </div>
       </div>
       <div class="row mb-2">
@@ -167,9 +167,9 @@
           <label for="tstage" id="task_stage" class="text-primary">Task Stage</label>
           <select name="task_status" class="reqselect form-control">
             <option value="0">Select</option>
-            <option value="1">To Do</option>
-            <option value="2">In Progress</option>
-            <option value="3">Completed</option>
+            <option value="todo">To Do</option>
+            <option value="inprogress">In Progress</option>
+            <option value="completed">Completed</option>
           </select>
           <span class="reqselecterr" id="tserr"></span>
         </div>

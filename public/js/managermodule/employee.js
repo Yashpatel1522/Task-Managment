@@ -21,7 +21,6 @@ async function setData() {
                                 <p class="card-text"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
                                 <button class="btn btn-primary" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
-                              
                                 <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>

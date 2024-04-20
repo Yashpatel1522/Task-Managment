@@ -50,7 +50,7 @@ const getTaskData = async () => {
 
 const searchTaskData = async (value) => {
   try {
-    let data = await (await fetch(`/admin/tasksData/${value}`)).json();
+    let data = await (await fetch(`/manager/searchTask/${value}`)).json();
     document.getElementById("todoTask").innerHTML = "";
     if (value === "") {
       getTaskData()
