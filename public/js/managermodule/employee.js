@@ -39,7 +39,6 @@ async function showEmployeeDetails(id, first_name, last_name, email, contact, do
   let url = window.location.origin+`/manager/getManagerProfile`
   let response = await fetch(url);
   let data = await response.json();
-  console.log(data.imageResult[0].newimage_name);
   let path = ``;
   if(!data.imageResult[0]) {
     path = `/assets/employee/user.png`
