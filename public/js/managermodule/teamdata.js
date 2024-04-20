@@ -171,23 +171,31 @@ const getTeamDataGrid = async (elements) => {
 //   getTeamData();
 // };
 
-// const searchTeams = async (value) => {
-//   try {
-//     if (value === "") {
-//       showteamdata();
-//     }
-//     let data = await (
-//       await fetch(`/manager/managerTeam/searchteam/${value}`)
-//     ).json();
-//     if (data.result.length != 0) {
-//       getTeamDataGrid(data.results);
-//     } else {
-//       alert("data not found");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const searchTeams = async (value) => {
+  let filterArray = [];
+  if (value != "") {
+    teamDataGlobal.forEach((element) => {
+      for (let key in element) {
+        let values = element[key].toString().toLowerCase();
+        let status = values.includes(value.toString().toLowerCase());
+        if (status) {
+          filterArray.push(element);
+        }
+      }
+    });
+    console.log(filterArray);
+    if (filterArray.length > pageLimit) {
+      let startIndex = (currentPage - 1) * pageLimit;
+      let endIndex = Math.min(startIndex + pageLimit, maxLength);
+      let elements = filterArray.slice(startIndex, endIndex);
+      getTeamDataGrid(elements);
+    } else {
+      getTeamDataGrid(filterArray);
+    }
+  } else {
+    showteamdata();
+  }
+};
 
 // const searchTeams = async (value) => {
 //   try {
