@@ -73,28 +73,22 @@ function showOption() {
   }
 }
 
-let pageLimit = 2;
-let currentPage = 1;
-let maxLength;
-let pageCount;
+const showteamdata = () => {
+  pagignation("/manager/teamapi");
+};
 
-const getTeamData = async () => {
-  let data = await (await fetch(`/manager/teamapi`)).json();
-  maxLength = data.result.length;
-  pageCount = Math.ceil(maxLength / pageLimit);
+const getTeamDataGrid = async (elements) => {
+  console.log(elements);
   let table = document.getElementById("team-table");
   let dataadd = `<thead>
-              <th>TeamId</th>
-              <th>TeamName</th>
-              <th>View Details</th>
-              <th>Edit Team</th>
-              <th>Delete Team</th>
-              </thead>`;
-  if (data.result.length != 0) {
-    let startIndex = (currentPage - 1) * pageLimit;
-    let endIndex = Math.min(startIndex + pageLimit, maxLength);
-    data.result.slice(startIndex, endIndex).forEach((element) => {
-      dataadd += `<tr>
+                <th>TeamId</th>
+                <th>TeamName</th>
+                <th>View Details</th>
+                <th>Edit Team</th>
+                <th>Delete Team</th>
+                </thead>`;
+  elements.forEach((element) => {
+    dataadd += `<tr>
               <td>${element.id}</td>
               <td>${element.team_name}</td>
               <td>
@@ -104,83 +98,137 @@ const getTeamData = async () => {
               <td>
               <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
               </td>`;
-    });
-    table.innerHTML = dataadd;
-    document.getElementById(
-      "team-pagignation"
-    ).innerHTML = `<div class = "pagination">
-          <input type="button" value="firstpage" class="page-link" onclick="firstPage1()">
-          <input type="button" value="previous" class="page-link" onclick="previous1()">
-          <span class="page-link" >${currentPage}</span>
-          <input type="button" value="next" class="page-link" onclick="next1()">
-          <input type="button" value="lastpage" class="page-link" onclick="lastPage1()"></div>`;
-  }
+  });
+
+  table.innerHTML = dataadd;
 };
 
-const firstPage1 = () => {
-  currentPage = 1;
-  getTeamData();
-};
+// let pageLimit = 2;
+// let currentPage = 1;
+// let maxLength;
+// let pageCount;
 
-const previous1 = () => {
-  if (currentPage > 1) {
-    currentPage--;
-    getTeamData();
-  }
-};
+// const getTeamData = async () => {
+//   let data = await (await fetch(`/manager/teamapi`)).json();
+//   maxLength = data.result.length;
+//   pageCount = Math.ceil(maxLength / pageLimit);
+//   let table = document.getElementById("team-table");
+//   let dataadd = `<thead>
+//               <th>TeamId</th>
+//               <th>TeamName</th>
+//               <th>View Details</th>
+//               <th>Edit Team</th>
+//               <th>Delete Team</th>
+//               </thead>`;
+//   if (data.result.length != 0) {
+//     let startIndex = (currentPage - 1) * pageLimit;
+//     let endIndex = Math.min(startIndex + pageLimit, maxLength);
+//     data.result.slice(startIndex, endIndex).forEach((element) => {
+//       dataadd += `<tr>
+//               <td>${element.id}</td>
+//               <td>${element.team_name}</td>
+//               <td>
+//               <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
+//               </td>
+//               <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="showTeamData(${element.id})"></td>
+//               <td>
+//               <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
+//               </td>`;
+//     });
+//     table.innerHTML = dataadd;
+//     document.getElementById(
+//       "team-pagignation"
+//     ).innerHTML = `<div class = "pagination">
+//           <input type="button" value="firstpage" class="page-link" onclick="firstPage1()">
+//           <input type="button" value="previous" class="page-link" onclick="previous1()">
+//           <span class="page-link" >${currentPage}</span>
+//           <input type="button" value="next" class="page-link" onclick="next1()">
+//           <input type="button" value="lastpage" class="page-link" onclick="lastPage1()"></div>`;
+//   }
+// };
 
-const next1 = () => {
-  if (currentPage < pageCount) {
-    currentPage++;
-    getTeamData();
-  }
-};
+// const firstPage1 = () => {
+//   currentPage = 1;
+//   getTeamData();
+// };
 
-const lastPage1 = () => {
-  currentPage = pageCount;
-  getTeamData();
-};
+// const previous1 = () => {
+//   if (currentPage > 1) {
+//     currentPage--;
+//     getTeamData();
+//   }
+// };
 
-const searchTeams = async (value) => {
-  try {
-    let data = await (
-      await fetch(`/manager/managerTeam/searchteam/${value}`)
-    ).json();
-    document.getElementById("team-table").innerHTML = "";
-    if (value === "") {
-      getTeamData();
-    }
-    let table = document.getElementById("team-table");
-    let dataadd = `<thead>
-    <th>TeamId</th>
-    <th>TeamName</th>
-    <th>View Details</th>
-    <th>Edit Team</th>
-    <th>Delete Team</th>
-    </thead>`;
-    if (data.searchData.length != 0) {
-      data.searchData.forEach((element) => {
-        dataadd += `<tr>
-        <td>${element.id}</td>
-        <td>${element.team_name}</td>
-        <td>
-        <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
-        </td>
-        <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="showTeamData(${element.id})"></td>
-        <td>
-        <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
-        </td>`;
-      });
-      table.innerHTML = dataadd;
-    } else {
-      table.innerHTML = `<div class="alert alert-danger" role="alert">
-      data not found
-    </div>`;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+// const next1 = () => {
+//   if (currentPage < pageCount) {
+//     currentPage++;
+//     getTeamData();
+//   }
+// };
+
+// const lastPage1 = () => {
+//   currentPage = pageCount;
+//   getTeamData();
+// };
+
+// const searchTeams = async (value) => {
+//   try {
+//     if (value === "") {
+//       showteamdata();
+//     }
+//     let data = await (
+//       await fetch(`/manager/managerTeam/searchteam/${value}`)
+//     ).json();
+//     if (data.result.length != 0) {
+//       getTeamDataGrid(data.results);
+//     } else {
+//       alert("data not found");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// const searchTeams = async (value) => {
+//   try {
+//     let data = await (
+//       await fetch(`/manager/managerTeam/searchteam/${value}`)
+//     ).json();
+//     document.getElementById("team-table").innerHTML = "";
+//     if (value === "") {
+//       getTeamData();
+//     }
+//     let table = document.getElementById("team-table");
+//     let dataadd = `<thead>
+//     <th>TeamId</th>
+//     <th>TeamName</th>
+//     <th>View Details</th>
+//     <th>Edit Team</th>
+//     <th>Delete Team</th>
+//     </thead>`;
+//     if (data.searchData.length != 0) {
+//       data.searchData.forEach((element) => {
+//         dataadd += `<tr>
+//         <td>${element.id}</td>
+//         <td>${element.team_name}</td>
+//         <td>
+//         <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
+//         </td>
+//         <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="showTeamData(${element.id})"></td>
+//         <td>
+//         <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
+//         </td>`;
+//       });
+//       table.innerHTML = dataadd;
+//     } else {
+//       table.innerHTML = `<div class="alert alert-danger" role="alert">
+//       data not found
+//     </div>`;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 const showTeamData = async (id) => {
   let popup = document.getElementById("popup");
