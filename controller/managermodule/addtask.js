@@ -30,46 +30,8 @@ const inserttaskdata = async(request,response) =>{
       taskdata = request.body;
       let lastInserted_id;
       let db=new database();
-      let prioritiy_id = 0;
-      let prioritydata = await db.executeQuery(`select id from priorities where urgency_id = ? and important_id = ?`,[taskdata.urgency_level,taskdata.impotant_level]) 
-      console.log(prioritydata);
-      if(taskdata.impotant_level == 1 && taskdata.urgency_level == 1)
-      {
-        prioritiy_id = 1
-      }
-      else if(taskdata.impotant_level == 1 && taskdata.urgency_level == 2)
-      {
-        prioritiy_id = 2
-      }
-      else if(taskdata.impotant_level == 1 && taskdata.urgency_level == 3)
-      {
-        prioritiy_id = 3
-      }
-      else if(taskdata.impotant_level == 2 && taskdata.urgency_level == 1)
-      {
-        prioritiy_id = 4
-      }
-      else if(taskdata.impotant_level == 2 && taskdata.urgency_level == 2)
-      {
-        prioritiy_id = 5
-      }
-      else if(taskdata.impotant_level == 2 && taskdata.urgency_level == 3)
-      {
-        prioritiy_id = 6
-      }
-      else if(taskdata.impotant_level == 3 && taskdata.urgency_level == 1)
-      {
-        prioritiy_id = 7
-      }
-      else if(taskdata.impotant_level === 3 && taskdata.urgency_level === 2)
-      {
-        prioritiy_id = 8
-      }
-      else if(taskdata.impotant_level == 3 && taskdata.urgency_level == 3)
-      {
-        prioritiy_id = 9
-      }
-      let res=await db.insertData({manager_id:1,category_id:taskdata.task_category, prioritiy_id:prioritiy_id,task_name:taskdata.task_name,task_description:taskdata.task_description ,task_start_date : taskdata.task_start_date,task_end_date:taskdata.task_end_date,
+      let priorityData = await db.executeQuery(`select id from priorities where urgency_id = ? and important_id = ?`,[taskdata.urgency_level,taskdata.impotant_level]) 
+      let res=await db.insertData({manager_id:1,category_id:taskdata.task_category, prioritiy_id:priorityData[0].id,task_name:taskdata.task_name,task_description:taskdata.task_description ,task_start_date : taskdata.task_start_date,task_end_date:taskdata.task_end_date,
       task_status:taskdata.task_status,},"tasks");
       lastInserted_id = res.insertId;
 

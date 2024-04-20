@@ -91,3 +91,9 @@
 {"level":"error","message":"category not found it!","timestamp":"2024-04-19T12:38:46.471Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T12:54:38.085Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,team_name from teams where is_deleted = 0","sqlMessage":"Unknown column 'is_deleted' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-19T12:55:07.619Z"}
+{"level":"error","timestamp":"2024-04-20T04:34:27.093Z"}
+{"level":"error","timestamp":"2024-04-20T04:34:29.811Z"}
+{"level":"error","timestamp":"2024-04-20T04:34:43.666Z"}
+{"level":"error","timestamp":"2024-04-20T04:35:20.349Z"}
+{"level":"error","timestamp":"2024-04-20T04:35:26.544Z"}
+{"level":"error","timestamp":"2024-04-20T04:37:03.547Z"}
