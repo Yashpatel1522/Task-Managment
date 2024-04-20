@@ -9,15 +9,12 @@ const employeeView = require('../controller/managermodule/employeeView');
 const taskView = require('../controller/managermodule/taskView');
 const upcomingTasks = require('../controller/managermodule/upcomingTasks');
 const { addtaskdata, inserttaskdata } = require('../controller/managermodule/addtask');
-
+const {upload, taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const multer = require('multer');
 const addtaskdatamiddleware = require('../middleware/addtask');
-
-// const multer = require('multer'); 
-
-// const taskdetailfiles = require("../utility/multer");
 const { addteamdata, getempdata, addteam } = require('../controller/managermodule/addteam');
 const { teamdetails, searchTeamData, showTeamDataForUpdate, updateTeamData ,teamDetailsForView,deleteTeam} = require('../controller/managermodule/teamdata');
+const getTeams = require('../controller/managermodule/getTeams')
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -35,14 +32,17 @@ const managerRouter = express.Router();
 managerRouter.get("/", taskView().getPage);
 
 // Displaying Employee details
-managerRouter.get('/employeeDetails', employeeView().getPage)
+managerRouter.get('/employeeDetails', employeeView().getPage);
 
 managerRouter.get("/Teams",(request,response)=>{
     response.render('./managermodule/teams')
 });
 
 // Dashboard
-managerRouter.get('/dashboard', dashboardView().getPage)
+managerRouter.get('/dashboard', dashboardView().getPage);
+
+// API to get team details of the particular manager
+managerRouter.get('/getTeams', getTeams)
 
 managerRouter.get("/teamapi", teamdetails)
 
