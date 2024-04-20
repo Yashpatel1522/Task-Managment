@@ -24,7 +24,7 @@ exports.managerDetails = async (request, response) => {
     try {
         let managerId = request.params.id;
         let managerDetail = await db.executeQuery(`select users.* from users left join roles on users.role_id = roles.id where role_name = ? and users.id = ?`, ["Manager", managerId]);
-        return response.json({ managerDetail });
+        return response.json({ result: managerDetail });
     } catch (error) {
         logger.error("Manager data is not found !");
     }
@@ -34,7 +34,7 @@ exports.searchManData = async (request, response) => {
     try {
         let search = "%" + request.params.searchdata + "%";
         let searchData = await db.executeQuery(`select users.* from users left join roles on users.role_id = roles.id where role_name = ? and (first_name like ? or last_name like ?)`, ["Manager", search, search]);
-        return response.json({ searchData });
+        return response.json({ result: searchData });
     } catch (error) {
         logger.error("Not Search Data Found !");
     }
