@@ -23,11 +23,11 @@ function reusablecard(data) {
                   <span class="ms-3" id='urgent-${element.task_id}'><span>
                 </div>
                 <div class="field">
-                  <label>Description:</label>
+                  <label>Description :&nbsp;</label>
                   <p>${element.task_description}</p>
                 </div>
                 <div class="field">
-                  <label>due date :</label>
+                  <label>due date :&nbsp;</label>
                   <p>${element.task_end_date}</p>
                 </div>
               </div >`;
@@ -181,7 +181,7 @@ async function seachresult() {
                   <p>${element.task_description}</p>
                 </div>
                 <div class="field">
-                  <label>due date :</label>
+                  <label>due date : </label>
                   <p>${element.task_end_date}</p>
                 </div>
               </div >`

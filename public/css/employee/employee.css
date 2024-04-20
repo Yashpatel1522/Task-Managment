@@ -46,10 +46,14 @@ body {
 }
 
 .userprofile {
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   display: flex;
 
+}
+
+.profile{
+  margin-left: auto;
 }
 
 .sidebar {
@@ -69,6 +73,7 @@ body {
   border: 1px solid rgb(94, 89, 89);
   padding: 10px;
   margin-bottom: 1%;
+  max-width: 1045px;
 }
 
 .search-and-profile {
@@ -134,7 +139,7 @@ body {
 }
 
 .dropbtn {
-  background-color: #3498DB;
+  /* background-color: #3498DB; */
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -144,7 +149,7 @@ body {
 
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #2980B9;
+  /* background-color: #2980B9; */
 }
 
 .dropdown {
@@ -160,8 +165,8 @@ body {
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  top: 35px;
-  right: -23px;
+  top: 60px;
+  right: -60px;
 }
 
 .dropdown-content a {
@@ -265,7 +270,10 @@ body {
   overflow: hidden;
   padding: 41px;
 }
-
 .input-group {
-  margin-left: 70%;
+  margin-left: 67%;
+}
+
+.table-responsive {
+  max-height:200px;
 }
