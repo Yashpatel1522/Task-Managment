@@ -55,7 +55,7 @@ exports.chartsData = async (request, response) => {
 
 exports.managerTask = async (request, response) => {
     try {
-        let managerAssignTask = await db.executeQuery(`select t.id,t.task_name,u.first_name,DATE_FORMAT(t.create_at, "%Y-%m-%d") as create_date from users as u inner join tasks as t on t.manager_id = u.id where DATE_FORMAT(t.create_at, "%Y-%m-%d") = current_date() and (t.task_status = "todo" or t.task_status = "inprogress") order by t.create_at desc;`);
+        let managerAssignTask = await db.executeQuery(`select t.id,t.task_name,u.first_name,DATE_FORMAT(t.create_at, "%Y-%m-%d") as create_date from users as u inner join tasks as t on t.manager_id = u.id where DATE_FORMAT(t.create_at, "%Y-%m-%d") = current_date() and (t.task_status = "todo" or t.task_status = "inprogress") order by t.create_at desc`);
         return response.json({ managerAssignTask })
     } catch (err) {
         logger.error("Admin dashboard data error !")

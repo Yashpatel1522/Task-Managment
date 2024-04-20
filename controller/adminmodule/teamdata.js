@@ -42,7 +42,7 @@ exports.teamDetails = async (request, response) => {
         let teamId = request.params.id;
         let teamCreate = await db.executeQuery(`select t.id,t.team_name, concat(u.first_name ,' ', u.last_name) as created_by from teams as t left join users as u on t.created_by = u.id where t.id = ?`, [teamId]);
 
-        let memberDetails = await db.executeQuery(`select t.detail_id,t.team_id,concat(u.first_name ,' ', u.last_name) as employees  from team_details as t left join teams on t.team_id = teams.id left join users as u on t.member_id = u.id where t.team_id = ?`, [teamId]);
+        let memberDetails = await db.executeQuery(`select t.detail_id,t.team_id , u.id ,concat(u.first_name ,' ', u.last_name) as employees from team_details as t left join teams on t.team_id = teams.id left join users as u on t.member_id = u.id where t.team_id = ?`, [teamId]);
 
         let teamTask = await db.executeQuery(`select h.id,h.team_id,t.task_name from team_has_tasks as h left join tasks as t on h.task_id = t.id where h.team_id = ?`, [teamId]);
 
@@ -56,7 +56,7 @@ exports.searchTeam = async (request, response) => {
     try {
         let search = "%" + request.params.searchdata + "%";
         let searchTeam = await db.executeQuery(`select * from teams where team_name like ? `, [search]);
-        return response.json({ searchTeam });
+        return response.json({ result: searchTeam });
     } catch (error) {
         logger.error("Team data not found it!");
     }
