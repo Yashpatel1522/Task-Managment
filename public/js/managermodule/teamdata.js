@@ -6,7 +6,11 @@ async function fetchNotificationData() {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+<<<<<<< HEAD
+      }
+=======
       },
+>>>>>>> dev
     })
       .then((response) => {
         if (!response.ok) {
@@ -15,9 +19,16 @@ async function fetchNotificationData() {
         return response.json();
       })
       .then((data) => {
+<<<<<<< HEAD
+				if(typeof data !== "undefined"){
+					showNotifications(data);
+				}
+			
+=======
         if (typeof data !== "undefined") {
           showNotifications(data);
         }
+>>>>>>> dev
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -25,6 +36,20 @@ async function fetchNotificationData() {
   } catch (error) {
     console.log(error);
   }
+<<<<<<< HEAD
+	
+}
+
+function showNotifications(data) {
+	let notificatiodata = "";
+	data.forEach(element => {
+		notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`
+	});
+  Swal.fire({
+		title: ` ${notificatiodata}`,
+    icon: "info",
+		
+=======
 }
 
 function showNotifications(data) {
@@ -35,6 +60,7 @@ function showNotifications(data) {
   Swal.fire({
     title: ` ${notificatiodata}`,
     icon: "info",
+>>>>>>> dev
   });
 }
 
@@ -42,12 +68,20 @@ async function getProfile() {
   let url = window.location.origin + "/manager/getManagerProfile";
   let response = await fetch(url);
   let data = await response.json();
+<<<<<<< HEAD
+
+=======
+>>>>>>> dev
   let spanEle = document.getElementsByClassName("msg");
   Object.keys(spanEle).forEach((element) => {
     spanEle[element].innerText = ``;
   });
   document.getElementById("imgMsg").innerText = ``;
+<<<<<<< HEAD
+  
+=======
 
+>>>>>>> dev
   document.getElementById("id").value = data.result[0].id;
   document.getElementById("firstname").value = data.result[0].first_name;
   document.getElementById("lastname").value = data.result[0].last_name;
@@ -55,6 +89,24 @@ async function getProfile() {
   document.getElementById("phone_input").value = data.result[0].contact;
   document.getElementById("dob_input").value = data.result[0].date_of_birth;
 
+<<<<<<< HEAD
+  if(data.imageResult[0]) {
+		document.getElementById('selectedImage').src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
+	}
+}
+
+function showOption() {
+  if(document.getElementById("profClk").style.display == 'none' || document.getElementById("profClk").style.display == '') {
+    document.getElementById("profClk").style.display = 'block'
+  }
+  else {
+    document.getElementById("profClk").style.display = 'none'
+  }
+}
+
+const getTeamData = async () => {
+  let data = await (await fetch(`/manager/teamapi`)).json();
+=======
   if (data.imageResult[0]) {
     document.getElementById(
       "selectedImage"
@@ -79,6 +131,7 @@ const showteamdata = () => {
 
 const getTeamDataGrid = async (elements) => {
   console.log(elements);
+>>>>>>> dev
   let table = document.getElementById("team-table");
   let dataadd = `<thead>
                 <th>TeamId</th>

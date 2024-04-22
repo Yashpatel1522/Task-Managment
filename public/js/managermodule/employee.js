@@ -21,6 +21,10 @@ async function setData() {
                                 <p class="card-text"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
                                 <button class="btn btn-primary" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
+<<<<<<< HEAD
+                              
+=======
+>>>>>>> dev
                                 <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>
@@ -39,6 +43,10 @@ async function showEmployeeDetails(id, first_name, last_name, email, contact, do
   let url = window.location.origin+`/manager/getManagerProfile`
   let response = await fetch(url);
   let data = await response.json();
+<<<<<<< HEAD
+  console.log(data.imageResult[0].newimage_name);
+=======
+>>>>>>> dev
   let path = ``;
   if(!data.imageResult[0]) {
     path = `/assets/employee/user.png`

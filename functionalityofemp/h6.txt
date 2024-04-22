@@ -1,1 +1,822 @@
 9/4/2024 : database and admin panel design 
+
+INSERT INTO  importants(`id`, `type`) VALUES ('1', 'High');
+INSERT INTO importants(`id`, `type`) VALUES ('2', 'Moderate');
+INSERT INTO importants(`id`, `type`) VALUES ('3', 'Low');
+
+INSERT INTO urgency(`id`, `type`) VALUES ('1', 'Urgent');
+INSERT INTO urgency(`id`, `type`) VALUES ('2', 'High');
+INSERT INTO urgency(`id`, `type`) VALUES ('3', 'Moderate');
+INSERT INTO urgency(`id`, `type`) VALUES ('4', 'Low');
+
+INSERT INTO priorities (`urgency_id`, `important_id`) VALUES ('1', '1'),('1','2'),('1','3'),
+('2', '1'),('2','2'),('2','3'),('3', '1'),('3','2'),('3','3'),('4', '1'),('4','2'),('4','3');
+
+
+INSERT INTO roles(`id`, `role_name`) VALUES ('1', 'Admin');
+INSERT INTO roles(`id`, `role_name`) VALUES ('2', 'Manager');
+INSERT INTO roles(`id`, `role_name`) VALUES ('3', 'Employee');
+
+
+
+insert into select_masters (select_key,select_type,multiple) values ('Andaman & Nicobar Islands' ,'Andaman & Nicobar Islands' ,0),
+('Andhra Pradesh','Andhra Pradesh',0),
+('Arunachal Pradesh','Arunachal Pradesh' ,0),
+('Assam','Assam',0),
+('Bihar','Bihar',0),
+('Chandigarh'  ,'Chandigarh' ,0),
+('Chhattisgarh','Chhattisgarh' ,0),
+('Dadra & Nagar Haveli','Dadra & Nagar Haveli',0),
+('Daman & Diu','Daman & Diu' ,0),
+('Delhi','Delhi',0),
+('Goa' ,'Goa' ,0),
+('Gujarat'  ,'Gujarat'  ,0),
+('Haryana'  ,'Haryana'  ,0),
+('Himachal Pradesh'  ,'Himachal Pradesh'  ,0),
+('Jammu & Kashmir'  ,'Jammu & Kashmir'  ,0),
+('Jharkhand'  ,'Jharkhand'  ,0),
+('Karnataka'  ,'Karnataka'  ,0),
+('Kerala'  ,'Kerala'  ,0),
+('Lakshadweep'  ,'Lakshadweep'  ,0),
+('Madhya Pradesh'  ,'Madhya Pradesh'  ,0),
+('Maharashtra'  ,'Maharashtra'  ,0),
+('Manipur'  ,'Manipur'  ,0),
+('Meghalaya'  ,'Meghalaya'  ,0),
+('Mizoram'  ,'Mizoram'  ,0),
+('Nagaland'  ,'Nagaland'  ,0),
+('Odisha'  ,'Odisha'  ,0),
+('Puducherry'  ,'Puducherry'  ,0),
+('Punjab'  ,'Punjab'  ,0),
+('Rajasthan'  ,'Rajasthan'  ,0),
+('Sikkim'  ,'Sikkim'  ,0),
+('Tamil Nadu'  ,'Tamil Nadu'  ,0),
+('Telangana'  ,'Telangana'  ,0),
+('Tripura'  ,'Tripura'  ,0),
+('Uttar Pradesh'  ,'Uttar Pradesh'  ,0),
+('Uttarakhand'  ,'Uttarakhand'  ,0),
+('West Bengal'  ,'West Bengal'  ,0);
+
+insert into option_masters (select_id,options) values ( 1 ,"Nicobar");
+insert into option_masters (select_id,options) values ( 1 ,"North Middle Andaman");
+insert into option_masters (select_id,options) values ( 1 ,"South Andaman");
+insert into option_masters (select_id,options) values ( 2 ,'Anantapur');
+insert into option_masters (select_id,options) values ( 2 ,'Chittoor');
+insert into option_masters (select_id,options) values ( 2 ,'East Godavari');
+insert into option_masters (select_id,options) values ( 2 ,'Guntur');
+insert into option_masters (select_id,options) values ( 2 ,'Kadapa');
+insert into option_masters (select_id,options) values ( 2 ,'Krishna');
+insert into option_masters (select_id,options) values ( 2 ,'Kurnool');
+insert into option_masters (select_id,options) values ( 2 ,'Prakasam');
+insert into option_masters (select_id,options) values ( 2 ,'Nellore');
+insert into option_masters (select_id,options) values ( 2 ,'Srikakulam');
+insert into option_masters (select_id,options) values ( 2 ,'Visakhapatnam');
+insert into option_masters (select_id,options) values ( 2 ,'Vizianagaram');
+insert into option_masters (select_id,options) values ( 2 ,'West Godavari');
+
+insert into option_masters (select_id,options) values ( 3 ,'Anjaw');
+insert into option_masters (select_id,options) values ( 3 ,'Changlang');
+insert into option_masters (select_id,options) values ( 3 ,'Dibang Valley');
+insert into option_masters (select_id,options) values ( 3 ,'East Kameng');
+insert into option_masters (select_id,options) values ( 3 ,'East Siang');
+insert into option_masters (select_id,options) values ( 3 ,'Kra Daadi');
+insert into option_masters (select_id,options) values ( 3 ,'Kurung Kumey');
+insert into option_masters (select_id,options) values ( 3 ,'Lohit');
+insert into option_masters (select_id,options) values ( 3 ,'Longding');
+insert into option_masters (select_id,options) values ( 3 ,'Lower Dibang Valley');
+insert into option_masters (select_id,options) values ( 3 ,'Lower Subansiri');
+insert into option_masters (select_id,options) values ( 3 ,'Namsai');
+insert into option_masters (select_id,options) values ( 3 ,'Papum Pare');
+insert into option_masters (select_id,options) values ( 3 ,'Siang');
+insert into option_masters (select_id,options) values ( 3 ,'Tawang');
+insert into option_masters (select_id,options) values ( 3 ,'Tirap');
+insert into option_masters (select_id,options) values ( 3 ,'Upper Siang');
+insert into option_masters (select_id,options) values ( 3 ,'Upper Subansiri');
+insert into option_masters (select_id,options) values ( 3 ,'West Kameng');
+insert into option_masters (select_id,options) values ( 3 ,'West Siang');
+insert into option_masters (select_id,options) values ( 3 ,'Itanagar');
+
+insert into option_masters (select_id,options) values ( 4 ,'Baksa');
+insert into option_masters (select_id,options) values ( 4 ,'Barpeta');
+insert into option_masters (select_id,options) values ( 4 ,'Biswanath');
+insert into option_masters (select_id,options) values ( 4 ,'Bongaigaon');
+insert into option_masters (select_id,options) values ( 4 ,'Cachar');
+insert into option_masters (select_id,options) values ( 4 ,'Charaideo');
+insert into option_masters (select_id,options) values ( 4 ,'Chirang');
+insert into option_masters (select_id,options) values ( 4 ,'Darrang');
+insert into option_masters (select_id,options) values ( 4 ,'Dhemaji');
+insert into option_masters (select_id,options) values ( 4 ,'Dhubri');
+insert into option_masters (select_id,options) values ( 4 ,'Dibrugarh');
+insert into option_masters (select_id,options) values ( 4 ,'Goalpara');
+insert into option_masters (select_id,options) values ( 4 ,'Golaghat');
+insert into option_masters (select_id,options) values ( 4 ,'Hailakandi');
+insert into option_masters (select_id,options) values ( 4 ,'Hojai');
+insert into option_masters (select_id,options) values ( 4 ,'Jorhat');
+insert into option_masters (select_id,options) values ( 4 ,'Kamrup Metropolitan');
+insert into option_masters (select_id,options) values ( 4 ,'Kamrup (Rural)');
+insert into option_masters (select_id,options) values ( 4 ,'Karbi Anglong');
+insert into option_masters (select_id,options) values ( 4 ,'Karimganj');
+insert into option_masters (select_id,options) values ( 4 ,'Kokrajhar');
+insert into option_masters (select_id,options) values ( 4 ,'Lakhimpur');
+insert into option_masters (select_id,options) values ( 4 ,'Majuli');
+insert into option_masters (select_id,options) values ( 4 ,'Morigaon');
+insert into option_masters (select_id,options) values ( 4 ,'Nagaon');
+insert into option_masters (select_id,options) values ( 4 ,'Nalbari');
+insert into option_masters (select_id,options) values ( 4 ,'Dima Hasao');
+insert into option_masters (select_id,options) values ( 4 ,'Sivasagar');
+insert into option_masters (select_id,options) values ( 4 ,'Sonitpur');
+insert into option_masters (select_id,options) values ( 4 ,'South Salmara Mankachar');
+insert into option_masters (select_id,options) values ( 4 ,'Tinsukia');
+insert into option_masters (select_id,options) values ( 4 ,'Udalguri');
+insert into option_masters (select_id,options) values ( 4 ,'West Karbi Anglong');
+
+insert into option_masters (select_id,options) values ( 5 ,'Araria');
+insert into option_masters (select_id,options) values ( 5 ,'Arwal');
+insert into option_masters (select_id,options) values ( 5 ,'Aurangabad');
+insert into option_masters (select_id,options) values ( 5 ,'Banka');
+insert into option_masters (select_id,options) values ( 5 ,'Begusarai');
+insert into option_masters (select_id,options) values ( 5 ,'Bhagalpur');
+insert into option_masters (select_id,options) values ( 5 ,'Bhojpur');
+insert into option_masters (select_id,options) values ( 5 ,'Buxar');
+insert into option_masters (select_id,options) values ( 5 ,'Darbhanga');
+insert into option_masters (select_id,options) values ( 5 ,'East Champaran');
+insert into option_masters (select_id,options) values ( 5 ,'Gaya');
+insert into option_masters (select_id,options) values ( 5 ,'Gopalganj');
+insert into option_masters (select_id,options) values ( 5 ,'Jamui');
+insert into option_masters (select_id,options) values ( 5 ,'Jehanabad');
+insert into option_masters (select_id,options) values ( 5 ,'Kaimur');
+insert into option_masters (select_id,options) values ( 5 ,'Katihar');
+insert into option_masters (select_id,options) values ( 5 ,'Khagaria');
+insert into option_masters (select_id,options) values ( 5 ,'Kishanganj');
+insert into option_masters (select_id,options) values ( 5 ,'Lakhisarai');
+insert into option_masters (select_id,options) values ( 5 ,'Madhepura');
+insert into option_masters (select_id,options) values ( 5 ,'Madhubani');
+insert into option_masters (select_id,options) values ( 5 ,'Munger');
+insert into option_masters (select_id,options) values ( 5 ,'Muzaffarpur');
+insert into option_masters (select_id,options) values ( 5 ,'Nalanda');
+insert into option_masters (select_id,options) values ( 5 ,'Nawada');
+insert into option_masters (select_id,options) values ( 5 ,'Patna');
+insert into option_masters (select_id,options) values ( 5 ,'Purnia');
+insert into option_masters (select_id,options) values ( 5 ,'Rohtas');
+insert into option_masters (select_id,options) values ( 5 ,'Saharsa');
+insert into option_masters (select_id,options) values ( 5 ,'Samastipur');
+insert into option_masters (select_id,options) values ( 5 ,'Saran');
+insert into option_masters (select_id,options) values ( 5 ,'Sheikhpura');
+insert into option_masters (select_id,options) values ( 5 ,'Sheohar');
+insert into option_masters (select_id,options) values ( 5 ,'Sitamarhi');
+insert into option_masters (select_id,options) values ( 5 ,'Siwan');
+insert into option_masters (select_id,options) values ( 5 ,'Supaul');
+insert into option_masters (select_id,options) values ( 5 ,'Vaishali');
+insert into option_masters (select_id,options) values ( 5 ,'West Champaran');
+
+insert into option_masters (select_id,options) values ( 6 ,'Chandigarh');
+
+insert into option_masters (select_id,options) values ( 7 ,'Balod');
+insert into option_masters (select_id,options) values ( 7 ,'Baloda Bazar');
+insert into option_masters (select_id,options) values ( 7 ,'Balrampur');
+insert into option_masters (select_id,options) values ( 7 ,'Bastar');
+insert into option_masters (select_id,options) values ( 7 ,'Bemetara');
+insert into option_masters (select_id,options) values ( 7 ,'Bijapur');
+insert into option_masters (select_id,options) values ( 7 ,'Bilaspur');
+insert into option_masters (select_id,options) values ( 7 ,'Dantewada');
+insert into option_masters (select_id,options) values ( 7 ,'Dhamtari');
+insert into option_masters (select_id,options) values ( 7 ,'Durg');
+insert into option_masters (select_id,options) values ( 7 ,'Gariaband');
+insert into option_masters (select_id,options) values ( 7 ,'Janjgir Champa');
+insert into option_masters (select_id,options) values ( 7 ,'Jashpur');
+insert into option_masters (select_id,options) values ( 7 ,'Kabirdham');
+insert into option_masters (select_id,options) values ( 7 ,'Kanker');
+insert into option_masters (select_id,options) values ( 7 ,'Kondagaon');
+insert into option_masters (select_id,options) values ( 7 ,'Korba');
+insert into option_masters (select_id,options) values ( 7 ,'Koriya');
+insert into option_masters (select_id,options) values ( 7 ,'Mahasamund');
+insert into option_masters (select_id,options) values ( 7 ,'Mungeli');
+insert into option_masters (select_id,options) values ( 7 ,'Narayanpur');
+insert into option_masters (select_id,options) values ( 7 ,'Raigarh');
+insert into option_masters (select_id,options) values ( 7 ,'Raipur');
+insert into option_masters (select_id,options) values ( 7 ,'Rajnandgaon');
+insert into option_masters (select_id,options) values ( 7 ,'Sukma');
+insert into option_masters (select_id,options) values ( 7 ,'Surajpur');
+insert into option_masters (select_id,options) values ( 7 ,'Surguja');
+
+insert into option_masters (select_id,options) values ( 8 ,'Dadra Nagar Haveli');
+
+insert into option_masters (select_id,options) values ( 9 ,'Daman');
+insert into option_masters (select_id,options) values ( 9 ,'Diu');
+
+insert into option_masters (select_id,options) values ( 10 ,'Central Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'East Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'New Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'North Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'North East Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'North West Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'Shahdara');
+insert into option_masters (select_id,options) values ( 10 ,'South Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'South East Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'South West Delhi');
+insert into option_masters (select_id,options) values ( 10 ,'West Delhi');
+
+insert into option_masters (select_id,options) values ( 11 ,'North Goa');
+insert into option_masters (select_id,options) values ( 11 ,'South Goa');
+
+insert into option_masters (select_id,options) values ( 12 ,'Ahmedabad');
+insert into option_masters (select_id,options) values ( 12 ,'Amreli');
+insert into option_masters (select_id,options) values ( 12 ,'Anand');
+insert into option_masters (select_id,options) values ( 12 ,'Aravalli');
+insert into option_masters (select_id,options) values ( 12 ,'Banaskantha');
+insert into option_masters (select_id,options) values ( 12 ,'Bharuch');
+insert into option_masters (select_id,options) values ( 12 ,'Bhavnagar');
+insert into option_masters (select_id,options) values ( 12 ,'Botad');
+insert into option_masters (select_id,options) values ( 12 ,'Chhota Udaipur');
+insert into option_masters (select_id,options) values ( 12 ,'Dahod');
+insert into option_masters (select_id,options) values ( 12 ,'Dang');
+insert into option_masters (select_id,options) values ( 12 ,'Devbhoomi Dwarka');
+insert into option_masters (select_id,options) values ( 12 ,'Gandhinagar');
+insert into option_masters (select_id,options) values ( 12 ,'Gir Somnath');
+insert into option_masters (select_id,options) values ( 12 ,'Jamnagar');
+insert into option_masters (select_id,options) values ( 12 ,'Junagadh');
+insert into option_masters (select_id,options) values ( 12 ,'Kheda');
+insert into option_masters (select_id,options) values ( 12 ,'Kutch');
+insert into option_masters (select_id,options) values ( 12 ,'Mahisagar');
+insert into option_masters (select_id,options) values ( 12 ,'Mehsana');
+insert into option_masters (select_id,options) values ( 12 ,'Morbi');
+insert into option_masters (select_id,options) values ( 12 ,'Narmada');
+insert into option_masters (select_id,options) values ( 12 ,'Navsari');
+insert into option_masters (select_id,options) values ( 12 ,'Panchmahal');
+insert into option_masters (select_id,options) values ( 12 ,'Patan');
+insert into option_masters (select_id,options) values ( 12 ,'Porbandar');
+insert into option_masters (select_id,options) values ( 12 ,'Rajkot');
+insert into option_masters (select_id,options) values ( 12 ,'Sabarkantha');
+insert into option_masters (select_id,options) values ( 12 ,'Surat');
+insert into option_masters (select_id,options) values ( 12 ,'Surendranagar');
+insert into option_masters (select_id,options) values ( 12 ,'Tapi');
+insert into option_masters (select_id,options) values ( 12 ,'Vadodara');
+insert into option_masters (select_id,options) values ( 12 ,'Valsad');
+
+insert into option_masters (select_id,options) values ( 13 ,'Ambala');
+insert into option_masters (select_id,options) values ( 13 ,'Bhiwani');
+insert into option_masters (select_id,options) values ( 13 ,'Charkhi Dadri');
+insert into option_masters (select_id,options) values ( 13 ,'Faridabad');
+insert into option_masters (select_id,options) values ( 13 ,'Fatehabad');
+insert into option_masters (select_id,options) values ( 13 ,'Gurugram');
+insert into option_masters (select_id,options) values ( 13 ,'Hisar');
+insert into option_masters (select_id,options) values ( 13 ,'Jhajjar');
+insert into option_masters (select_id,options) values ( 13 ,'Jind');
+insert into option_masters (select_id,options) values ( 13 ,'Kaithal');
+insert into option_masters (select_id,options) values ( 13 ,'Karnal');
+insert into option_masters (select_id,options) values ( 13 ,'Kurukshetra');
+insert into option_masters (select_id,options) values ( 13 ,'Mahendragarh');
+insert into option_masters (select_id,options) values ( 13 ,'Mewat');
+insert into option_masters (select_id,options) values ( 13 ,'Palwal');
+insert into option_masters (select_id,options) values ( 13 ,'Panchkula');
+insert into option_masters (select_id,options) values ( 13 ,'Panipat');
+insert into option_masters (select_id,options) values ( 13 ,'Rewari');
+insert into option_masters (select_id,options) values ( 13 ,'Rohtak');
+insert into option_masters (select_id,options) values ( 13 ,'Sirsa');
+insert into option_masters (select_id,options) values ( 13 ,'Sonipat');
+insert into option_masters (select_id,options) values ( 13 ,'Yamunanagar');
+
+insert into option_masters (select_id,options) values ( 14 ,'Bilaspur');
+insert into option_masters (select_id,options) values ( 14 ,'Chamba');
+insert into option_masters (select_id,options) values ( 14 ,'Hamirpur');
+insert into option_masters (select_id,options) values ( 14 ,'Kangra');
+insert into option_masters (select_id,options) values ( 14 ,'Kinnaur');
+insert into option_masters (select_id,options) values ( 14 ,'Kullu');
+insert into option_masters (select_id,options) values ( 14 ,'Lahaul Spiti');
+insert into option_masters (select_id,options) values ( 14 ,'Mandi');
+insert into option_masters (select_id,options) values ( 14 ,'Shimla');
+insert into option_masters (select_id,options) values ( 14 ,'Sirmaur');
+insert into option_masters (select_id,options) values ( 14 ,'Solan');
+insert into option_masters (select_id,options) values ( 14 ,'Una');
+
+insert into option_masters (select_id,options) values ( 15 ,'Anantnag');
+insert into option_masters (select_id,options) values ( 15 ,'Bandipora');
+insert into option_masters (select_id,options) values ( 15 ,'Baramulla');
+insert into option_masters (select_id,options) values ( 15 ,'Budgam');
+insert into option_masters (select_id,options) values ( 15 ,'Doda');
+insert into option_masters (select_id,options) values ( 15 ,'Ganderbal');
+insert into option_masters (select_id,options) values ( 15 ,'Jammu');
+insert into option_masters (select_id,options) values ( 15 ,'Kargil');
+insert into option_masters (select_id,options) values ( 15 ,'Kathua');
+insert into option_masters (select_id,options) values ( 15 ,'Kishtwar');
+insert into option_masters (select_id,options) values ( 15 ,'Kulgam');
+insert into option_masters (select_id,options) values ( 15 ,'Kupwara');
+insert into option_masters (select_id,options) values ( 15 ,'Leh');
+insert into option_masters (select_id,options) values ( 15 ,'Poonch');
+insert into option_masters (select_id,options) values ( 15 ,'Pulwama');
+insert into option_masters (select_id,options) values ( 15 ,'Rajouri');
+insert into option_masters (select_id,options) values ( 15 ,'Ramban');
+insert into option_masters (select_id,options) values ( 15 ,'Reasi');
+insert into option_masters (select_id,options) values ( 15 ,'Samba');
+insert into option_masters (select_id,options) values ( 15 ,'Shopian');
+insert into option_masters (select_id,options) values ( 15 ,'Srinagar');
+insert into option_masters (select_id,options) values ( 15 ,'Udhampur');
+
+insert into option_masters (select_id,options) values ( 16 ,'Bokaro');
+insert into option_masters (select_id,options) values ( 16 ,'Chatra');
+insert into option_masters (select_id,options) values ( 16 ,'Deoghar');
+insert into option_masters (select_id,options) values ( 16 ,'Dhanbad');
+insert into option_masters (select_id,options) values ( 16 ,'Dumka');
+insert into option_masters (select_id,options) values ( 16 ,'East Singhbhum');
+insert into option_masters (select_id,options) values ( 16 ,'Garhwa');
+insert into option_masters (select_id,options) values ( 16 ,'Giridih');
+insert into option_masters (select_id,options) values ( 16 ,'Godda');
+insert into option_masters (select_id,options) values ( 16 ,'Gumla');
+insert into option_masters (select_id,options) values ( 16 ,'Hazaribagh');
+insert into option_masters (select_id,options) values ( 16 ,'Jamtara');
+insert into option_masters (select_id,options) values ( 16 ,'Khunti');
+insert into option_masters (select_id,options) values ( 16 ,'Koderma');
+insert into option_masters (select_id,options) values ( 16 ,'Latehar');
+insert into option_masters (select_id,options) values ( 16 ,'Lohardaga');
+insert into option_masters (select_id,options) values ( 16 ,'Pakur');
+insert into option_masters (select_id,options) values ( 16 ,'Palamu');
+insert into option_masters (select_id,options) values ( 16 ,'Ramgarh');
+insert into option_masters (select_id,options) values ( 16 ,'Ranchi');
+insert into option_masters (select_id,options) values ( 16 ,'Sahebganj');
+insert into option_masters (select_id,options) values ( 16 ,'Seraikela Kharsawan');
+insert into option_masters (select_id,options) values ( 16 ,'Simdega');
+insert into option_masters (select_id,options) values ( 16 ,'West Singhbhum');
+
+insert into option_masters (select_id,options) values ( 17 ,'Bagalkot');
+insert into option_masters (select_id,options) values ( 17 ,'Bangalore Rural');
+insert into option_masters (select_id,options) values ( 17 ,'Bangalore Urban');
+insert into option_masters (select_id,options) values ( 17 ,'Belgaum');
+insert into option_masters (select_id,options) values ( 17 ,'Bellary');
+insert into option_masters (select_id,options) values ( 17 ,'Bidar');
+insert into option_masters (select_id,options) values ( 17 ,'Vijayapura');
+insert into option_masters (select_id,options) values ( 17 ,'Chamarajanagar');
+insert into option_masters (select_id,options) values ( 17 ,'Chikkaballapur');
+insert into option_masters (select_id,options) values ( 17 ,'Chikkamagaluru');
+insert into option_masters (select_id,options) values ( 17 ,'Chitradurga');
+insert into option_masters (select_id,options) values ( 17 ,'Dakshina Kannada');
+insert into option_masters (select_id,options) values ( 17 ,'Davanagere');
+insert into option_masters (select_id,options) values ( 17 ,'Dharwad');
+insert into option_masters (select_id,options) values ( 17 ,'Gadag');
+insert into option_masters (select_id,options) values ( 17 ,'Gulbarga');
+insert into option_masters (select_id,options) values ( 17 ,'Hassan');
+insert into option_masters (select_id,options) values ( 17 ,'Haveri');
+insert into option_masters (select_id,options) values ( 17 ,'Kodagu');
+insert into option_masters (select_id,options) values ( 17 ,'Kolar');
+insert into option_masters (select_id,options) values ( 17 ,'Koppal');
+insert into option_masters (select_id,options) values ( 17 ,'Mandya');
+insert into option_masters (select_id,options) values ( 17 ,'Mysore');
+insert into option_masters (select_id,options) values ( 17 ,'Raichur');
+insert into option_masters (select_id,options) values ( 17 ,'Ramanagara');
+insert into option_masters (select_id,options) values ( 17 ,'Shimoga');
+insert into option_masters (select_id,options) values ( 17 ,'Tumkur');
+insert into option_masters (select_id,options) values ( 17 ,'Udupi');
+insert into option_masters (select_id,options) values ( 17 ,'Uttara Kannada');
+insert into option_masters (select_id,options) values ( 17 ,'Yadgir');
+
+insert into option_masters (select_id,options) values ( 18 ,'Alappuzha');
+insert into option_masters (select_id,options) values ( 18 ,'Ernakulam');
+insert into option_masters (select_id,options) values ( 18 ,'Idukki');
+insert into option_masters (select_id,options) values ( 18 ,'Kannur');
+insert into option_masters (select_id,options) values ( 18 ,'Kasaragod');
+insert into option_masters (select_id,options) values ( 18 ,'Kollam');
+insert into option_masters (select_id,options) values ( 18 ,'Kottayam');
+insert into option_masters (select_id,options) values ( 18 ,'Kozhikode');
+insert into option_masters (select_id,options) values ( 18 ,'Malappuram');
+insert into option_masters (select_id,options) values ( 18 ,'Palakkad');
+insert into option_masters (select_id,options) values ( 18 ,'Pathanamthitta');
+insert into option_masters (select_id,options) values ( 18 ,'Thiruvananthapuram');
+insert into option_masters (select_id,options) values ( 18 ,'Thrissur');
+insert into option_masters (select_id,options) values ( 18 ,'Wayanad');
+
+insert into option_masters (select_id,options) values ( 19 ,'Lakshadweep');
+
+insert into option_masters (select_id,options) values ( 20 ,'Agar Malwa');
+insert into option_masters (select_id,options) values ( 20 ,'Alirajpur');
+insert into option_masters (select_id,options) values ( 20 ,'Anuppur');
+insert into option_masters (select_id,options) values ( 20 ,'Ashoknagar');
+insert into option_masters (select_id,options) values ( 20 ,'Balaghat');
+insert into option_masters (select_id,options) values ( 20 ,'Barwani');
+insert into option_masters (select_id,options) values ( 20 ,'Betul');
+insert into option_masters (select_id,options) values ( 20 ,'Bhind');
+insert into option_masters (select_id,options) values ( 20 ,'Bhopal');
+insert into option_masters (select_id,options) values ( 20 ,'Burhanpur');
+insert into option_masters (select_id,options) values ( 20 ,'Chhatarpur');
+insert into option_masters (select_id,options) values ( 20 ,'Chhindwara');
+insert into option_masters (select_id,options) values ( 20 ,'Damoh');
+insert into option_masters (select_id,options) values ( 20 ,'Datia');
+insert into option_masters (select_id,options) values ( 20 ,'Dewas');
+insert into option_masters (select_id,options) values ( 20 ,'Dhar');
+insert into option_masters (select_id,options) values ( 20 ,'Dindori');
+insert into option_masters (select_id,options) values ( 20 ,'Guna');
+insert into option_masters (select_id,options) values ( 20 ,'Gwalior');
+insert into option_masters (select_id,options) values ( 20 ,'Harda');
+insert into option_masters (select_id,options) values ( 20 ,'Hoshangabad');
+insert into option_masters (select_id,options) values ( 20 ,'Indore');
+insert into option_masters (select_id,options) values ( 20 ,'Jabalpur');
+insert into option_masters (select_id,options) values ( 20 ,'Jhabua');
+insert into option_masters (select_id,options) values ( 20 ,'Katni');
+insert into option_masters (select_id,options) values ( 20 ,'Khandwa');
+insert into option_masters (select_id,options) values ( 20 ,'Khargone');
+insert into option_masters (select_id,options) values ( 20 ,'Mandla');
+insert into option_masters (select_id,options) values ( 20 ,'Mandsaur');
+insert into option_masters (select_id,options) values ( 20 ,'Morena');
+insert into option_masters (select_id,options) values ( 20 ,'Narsinghpur');
+insert into option_masters (select_id,options) values ( 20 ,'Neemuch');
+insert into option_masters (select_id,options) values ( 20 ,'Panna');
+insert into option_masters (select_id,options) values ( 20 ,'Raisen');
+insert into option_masters (select_id,options) values ( 20 ,'Rajgarh');
+insert into option_masters (select_id,options) values ( 20 ,'Ratlam');
+insert into option_masters (select_id,options) values ( 20 ,'Rewa');
+insert into option_masters (select_id,options) values ( 20 ,'Sagar');
+insert into option_masters (select_id,options) values ( 20 ,'Satna');
+insert into option_masters (select_id,options) values ( 20 ,'Sehore');
+insert into option_masters (select_id,options) values ( 20 ,'Seoni');
+insert into option_masters (select_id,options) values ( 20 ,'Shahdol');
+insert into option_masters (select_id,options) values ( 20 ,'Shajapur');
+insert into option_masters (select_id,options) values ( 20 ,'Sheopur');
+insert into option_masters (select_id,options) values ( 20 ,'Shivpuri');
+insert into option_masters (select_id,options) values ( 20 ,'Sidhi');
+insert into option_masters (select_id,options) values ( 20 ,'Singrauli');
+insert into option_masters (select_id,options) values ( 20 ,'Tikamgarh');
+insert into option_masters (select_id,options) values ( 20 ,'Ujjain');
+insert into option_masters (select_id,options) values ( 20 ,'Umaria');
+insert into option_masters (select_id,options) values ( 20 ,'Vidisha');
+
+insert into option_masters (select_id,options) values ( 21 ,'Ahmednagar');
+insert into option_masters (select_id,options) values ( 21 ,'Akola');
+insert into option_masters (select_id,options) values ( 21 ,'Amravati');
+insert into option_masters (select_id,options) values ( 21 ,'Aurangabad');
+insert into option_masters (select_id,options) values ( 21 ,'Beed');
+insert into option_masters (select_id,options) values ( 21 ,'Bhandara');
+insert into option_masters (select_id,options) values ( 21 ,'Buldhana');
+insert into option_masters (select_id,options) values ( 21 ,'Chandrapur');
+insert into option_masters (select_id,options) values ( 21 ,'Dhule');
+insert into option_masters (select_id,options) values ( 21 ,'Gadchiroli');
+insert into option_masters (select_id,options) values ( 21 ,'Gondia');
+insert into option_masters (select_id,options) values ( 21 ,'Hingoli');
+insert into option_masters (select_id,options) values ( 21 ,'Jalgaon');
+insert into option_masters (select_id,options) values ( 21 ,'Jalna');
+insert into option_masters (select_id,options) values ( 21 ,'Kolhapur');
+insert into option_masters (select_id,options) values ( 21 ,'Latur');
+insert into option_masters (select_id,options) values ( 21 ,'Mumbai options');
+insert into option_masters (select_id,options) values ( 21 ,'Mumbai Suburban');
+insert into option_masters (select_id,options) values ( 21 ,'Nagpur');
+insert into option_masters (select_id,options) values ( 21 ,'Nanded');
+insert into option_masters (select_id,options) values ( 21 ,'Nandurbar');
+insert into option_masters (select_id,options) values ( 21 ,'Nashik');
+insert into option_masters (select_id,options) values ( 21 ,'Osmanabad');
+insert into option_masters (select_id,options) values ( 21 ,'Palghar');
+insert into option_masters (select_id,options) values ( 21 ,'Parbhani');
+insert into option_masters (select_id,options) values ( 21 ,'Pune');
+insert into option_masters (select_id,options) values ( 21 ,'Raigad');
+insert into option_masters (select_id,options) values ( 21 ,'Ratnagiri');
+insert into option_masters (select_id,options) values ( 21 ,'Sangli');
+insert into option_masters (select_id,options) values ( 21 ,'Satara');
+insert into option_masters (select_id,options) values ( 21 ,'Sindhudurg');
+insert into option_masters (select_id,options) values ( 21 ,'Solapur');
+insert into option_masters (select_id,options) values ( 21 ,'Thane');
+insert into option_masters (select_id,options) values ( 21 ,'Wardha');
+insert into option_masters (select_id,options) values ( 21 ,'Washim');
+insert into option_masters (select_id,options) values ( 21 ,'Yavatmal');
+
+insert into option_masters (select_id,options) values ( 22 ,'Bishnupur');
+insert into option_masters (select_id,options) values ( 22 ,'Chandel');
+insert into option_masters (select_id,options) values ( 22 ,'Churachandpur');
+insert into option_masters (select_id,options) values ( 22 ,'Imphal East');
+insert into option_masters (select_id,options) values ( 22 ,'Imphal West');
+insert into option_masters (select_id,options) values ( 22 ,'Jiribam');
+insert into option_masters (select_id,options) values ( 22 ,'Kakching');
+insert into option_masters (select_id,options) values ( 22 ,'Kamjong');
+insert into option_masters (select_id,options) values ( 22 ,'Kangpokpi');
+insert into option_masters (select_id,options) values ( 22 ,'Noney');
+insert into option_masters (select_id,options) values ( 22 ,'Pherzawl');
+insert into option_masters (select_id,options) values ( 22 ,'Senapati');
+insert into option_masters (select_id,options) values ( 22 ,'Tamenglong');
+insert into option_masters (select_id,options) values ( 22 ,'Tengnoupal');
+insert into option_masters (select_id,options) values ( 22 ,'Thoubal');
+insert into option_masters (select_id,options) values ( 22 ,'Ukhrul');
+
+insert into option_masters (select_id,options) values ( 23 ,'East Garo Hills');
+insert into option_masters (select_id,options) values ( 23 ,'East Jaintia Hills');
+insert into option_masters (select_id,options) values ( 23 ,'East Khasi Hills');
+insert into option_masters (select_id,options) values ( 23 ,'North Garo Hills');
+insert into option_masters (select_id,options) values ( 23 ,'Ri Bhoi');
+insert into option_masters (select_id,options) values ( 23 ,'South Garo Hills');
+insert into option_masters (select_id,options) values ( 23 ,'South West Garo Hills');
+insert into option_masters (select_id,options) values ( 23 ,'South West Khasi Hills');
+insert into option_masters (select_id,options) values ( 23 ,'West Garo Hills');
+insert into option_masters (select_id,options) values ( 23 ,'West Jaintia Hills');
+insert into option_masters (select_id,options) values ( 23 ,'West Khasi Hills');
+
+insert into option_masters (select_id,options) values ( 24 ,'Aizawl');
+insert into option_masters (select_id,options) values ( 24 ,'Champhai');
+insert into option_masters (select_id,options) values ( 24 ,'Kolasib');
+insert into option_masters (select_id,options) values ( 24 ,'Lawngtlai');
+insert into option_masters (select_id,options) values ( 24 ,'Lunglei');
+insert into option_masters (select_id,options) values ( 24 ,'Mamit');
+insert into option_masters (select_id,options) values ( 24 ,'Saiha');
+insert into option_masters (select_id,options) values ( 24 ,'Serchhip');
+insert into option_masters (select_id,options) values ( 24 ,'Aizawl');
+insert into option_masters (select_id,options) values ( 24 ,'Champhai');
+insert into option_masters (select_id,options) values ( 24 ,'Kolasib');
+insert into option_masters (select_id,options) values ( 24 ,'Lawngtlai');
+insert into option_masters (select_id,options) values ( 24 ,'Lunglei');
+insert into option_masters (select_id,options) values ( 24 ,'Mamit');
+insert into option_masters (select_id,options) values ( 24 ,'Saiha');
+insert into option_masters (select_id,options) values ( 24 ,'Serchhip');
+
+insert into option_masters (select_id,options) values ( 25 ,'Dimapur');
+insert into option_masters (select_id,options) values ( 25 ,'Kiphire');
+insert into option_masters (select_id,options) values ( 25 ,'Kohima');
+insert into option_masters (select_id,options) values ( 25 ,'Longleng');
+insert into option_masters (select_id,options) values ( 25 ,'Mokokchung');
+insert into option_masters (select_id,options) values ( 25 ,'Mon');
+insert into option_masters (select_id,options) values ( 25 ,'Peren');
+insert into option_masters (select_id,options) values ( 25 ,'Phek');
+insert into option_masters (select_id,options) values ( 25 ,'Tuensang');
+insert into option_masters (select_id,options) values ( 25 ,'Wokha');
+insert into option_masters (select_id,options) values ( 25 ,'Zunheboto');
+
+insert into option_masters (select_id,options) values ( 26 ,'Angul');
+insert into option_masters (select_id,options) values ( 26 ,'Balangir');
+insert into option_masters (select_id,options) values ( 26 ,'Balasore');
+insert into option_masters (select_id,options) values ( 26 ,'Bargarh');
+insert into option_masters (select_id,options) values ( 26 ,'Bhadrak');
+insert into option_masters (select_id,options) values ( 26 ,'Boudh');
+insert into option_masters (select_id,options) values ( 26 ,'Cuttack');
+insert into option_masters (select_id,options) values ( 26 ,'Debagarh');
+insert into option_masters (select_id,options) values ( 26 ,'Dhenkanal');
+insert into option_masters (select_id,options) values ( 26 ,'Gajapati');
+insert into option_masters (select_id,options) values ( 26 ,'Ganjam');
+insert into option_masters (select_id,options) values ( 26 ,'Jagatsinghpur');
+insert into option_masters (select_id,options) values ( 26 ,'Jajpur');
+insert into option_masters (select_id,options) values ( 26 ,'Jharsuguda');
+insert into option_masters (select_id,options) values ( 26 ,'Kalahandi');
+insert into option_masters (select_id,options) values ( 26 ,'Kandhamal');
+insert into option_masters (select_id,options) values ( 26 ,'Kendrapara');
+insert into option_masters (select_id,options) values ( 26 ,'Kendujhar');
+insert into option_masters (select_id,options) values ( 26 ,'Khordha');
+insert into option_masters (select_id,options) values ( 26 ,'Koraput');
+insert into option_masters (select_id,options) values ( 26 ,'Malkangiri');
+insert into option_masters (select_id,options) values ( 26 ,'Mayurbhanj');
+insert into option_masters (select_id,options) values ( 26 ,'Nabarangpur');
+insert into option_masters (select_id,options) values ( 26 ,'Nayagarh');
+insert into option_masters (select_id,options) values ( 26 ,'Nuapada');
+insert into option_masters (select_id,options) values ( 26 ,'Puri');
+insert into option_masters (select_id,options) values ( 26 ,'Rayagada');
+insert into option_masters (select_id,options) values ( 26 ,'Sambalpur');
+insert into option_masters (select_id,options) values ( 26 ,'Subarnapur');
+insert into option_masters (select_id,options) values ( 26 ,'Sundergarh');
+
+insert into option_masters (select_id,options) values ( 27 ,'Karaikal');
+insert into option_masters (select_id,options) values ( 27 ,'Mahe');
+insert into option_masters (select_id,options) values ( 27 ,'Puducherry');
+insert into option_masters (select_id,options) values ( 27 ,'Yanam');
+
+insert into option_masters (select_id,options) values ( 28 ,'Amritsar');
+insert into option_masters (select_id,options) values ( 28 ,'Barnala');
+insert into option_masters (select_id,options) values ( 28 ,'Bathinda');
+insert into option_masters (select_id,options) values ( 28 ,'Faridkot');
+insert into option_masters (select_id,options) values ( 28 ,'Fatehgarh Sahib');
+insert into option_masters (select_id,options) values ( 28 ,'Fazilka');
+insert into option_masters (select_id,options) values ( 28 ,'Firozpur');
+insert into option_masters (select_id,options) values ( 28 ,'Gurdaspur');
+insert into option_masters (select_id,options) values ( 28 ,'Hoshiarpur');
+insert into option_masters (select_id,options) values ( 28 ,'Jalandhar');
+insert into option_masters (select_id,options) values ( 28 ,'Kapurthala');
+insert into option_masters (select_id,options) values ( 28 ,'Ludhiana');
+insert into option_masters (select_id,options) values ( 28 ,'Mansa');
+insert into option_masters (select_id,options) values ( 28 ,'Moga');
+insert into option_masters (select_id,options) values ( 28 ,'Mohali');
+insert into option_masters (select_id,options) values ( 28 ,'Muktsar');
+insert into option_masters (select_id,options) values ( 28 ,'Pathankot');
+insert into option_masters (select_id,options) values ( 28 ,'Patiala');
+insert into option_masters (select_id,options) values ( 28 ,'Rupnagar');
+insert into option_masters (select_id,options) values ( 28 ,'Sangrur');
+insert into option_masters (select_id,options) values ( 28 ,'Shaheed Bhagat Singh Nagar');
+insert into option_masters (select_id,options) values ( 28 ,'Tarn Taran');
+
+insert into option_masters (select_id,options) values ( 29 ,'Ajmer');
+insert into option_masters (select_id,options) values ( 29 ,'Alwar');
+insert into option_masters (select_id,options) values ( 29 ,'Banswara');
+insert into option_masters (select_id,options) values ( 29 ,'Baran');
+insert into option_masters (select_id,options) values ( 29 ,'Barmer');
+insert into option_masters (select_id,options) values ( 29 ,'Bharatpur');
+insert into option_masters (select_id,options) values ( 29 ,'Bhilwara');
+insert into option_masters (select_id,options) values ( 29 ,'Bikaner');
+insert into option_masters (select_id,options) values ( 29 ,'Bundi');
+insert into option_masters (select_id,options) values ( 29 ,'Chittorgarh');
+insert into option_masters (select_id,options) values ( 29 ,'Churu');
+insert into option_masters (select_id,options) values ( 29 ,'Dausa');
+insert into option_masters (select_id,options) values ( 29 ,'Dholpur');
+insert into option_masters (select_id,options) values ( 29 ,'Dungarpur');
+insert into option_masters (select_id,options) values ( 29 ,'Ganganagar');
+insert into option_masters (select_id,options) values ( 29 ,'Hanumangarh');
+insert into option_masters (select_id,options) values ( 29 ,'Jaipur');
+insert into option_masters (select_id,options) values ( 29 ,'Jaisalmer');
+insert into option_masters (select_id,options) values ( 29 ,'Jalore');
+insert into option_masters (select_id,options) values ( 29 ,'Jhalawar');
+insert into option_masters (select_id,options) values ( 29 ,'Jhunjhunu');
+insert into option_masters (select_id,options) values ( 29 ,'Jodhpur');
+insert into option_masters (select_id,options) values ( 29 ,'Karauli');
+insert into option_masters (select_id,options) values ( 29 ,'Kota');
+insert into option_masters (select_id,options) values ( 29 ,'Nagaur');
+insert into option_masters (select_id,options) values ( 29 ,'Pali');
+insert into option_masters (select_id,options) values ( 29 ,'Pratapgarh');
+insert into option_masters (select_id,options) values ( 29 ,'Rajsamand');
+insert into option_masters (select_id,options) values ( 29 ,'Sawai Madhopur');
+insert into option_masters (select_id,options) values ( 29 ,'Sikar');
+insert into option_masters (select_id,options) values ( 29 ,'Sirohi');
+insert into option_masters (select_id,options) values ( 29 ,'Tonk');
+insert into option_masters (select_id,options) values ( 29 ,'Udaipur');
+
+insert into option_masters (select_id,options) values ( 30 ,'East Sikkim');
+insert into option_masters (select_id,options) values ( 30 ,'North Sikkim');
+insert into option_masters (select_id,options) values ( 30 ,'South Sikkim');
+insert into option_masters (select_id,options) values ( 30 ,'West Sikkim');
+
+insert into option_masters (select_id,options) values ( 31 ,'Ariyalur');
+insert into option_masters (select_id,options) values ( 31 ,'Chennai');
+insert into option_masters (select_id,options) values ( 31 ,'Coimbatore');
+insert into option_masters (select_id,options) values ( 31 ,'Cuddalore');
+insert into option_masters (select_id,options) values ( 31 ,'Dharmapuri');
+insert into option_masters (select_id,options) values ( 31 ,'Dindigul');
+insert into option_masters (select_id,options) values ( 31 ,'Erode');
+insert into option_masters (select_id,options) values ( 31 ,'Kanchipuram');
+insert into option_masters (select_id,options) values ( 31 ,'Kanyakumari');
+insert into option_masters (select_id,options) values ( 31 ,'Karur');
+insert into option_masters (select_id,options) values ( 31 ,'Krishnagiri');
+insert into option_masters (select_id,options) values ( 31 ,'Madurai');
+insert into option_masters (select_id,options) values ( 31 ,'Nagapattinam');
+insert into option_masters (select_id,options) values ( 31 ,'Namakkal');
+insert into option_masters (select_id,options) values ( 31 ,'Nilgiris');
+insert into option_masters (select_id,options) values ( 31 ,'Perambalur');
+insert into option_masters (select_id,options) values ( 31 ,'Pudukkottai');
+insert into option_masters (select_id,options) values ( 31 ,'Ramanathapuram');
+insert into option_masters (select_id,options) values ( 31 ,'Salem');
+insert into option_masters (select_id,options) values ( 31 ,'Sivaganga');
+insert into option_masters (select_id,options) values ( 31 ,'Thanjavur');
+insert into option_masters (select_id,options) values ( 31 ,'Theni');
+insert into option_masters (select_id,options) values ( 31 ,'Thoothukudi');
+insert into option_masters (select_id,options) values ( 31 ,'Tiruchirappalli');
+insert into option_masters (select_id,options) values ( 31 ,'Tirunelveli');
+insert into option_masters (select_id,options) values ( 31 ,'Tiruppur');
+insert into option_masters (select_id,options) values ( 31 ,'Tiruvallur');
+insert into option_masters (select_id,options) values ( 31 ,'Tiruvannamalai');
+insert into option_masters (select_id,options) values ( 31 ,'Tiruvarur');
+insert into option_masters (select_id,options) values ( 31 ,'Vellore');
+insert into option_masters (select_id,options) values ( 31 ,'Viluppuram');
+insert into option_masters (select_id,options) values ( 31 ,'Virudhunagar');
+
+
+insert into option_masters (select_id,options) values ( 32 ,'Adilabad');
+insert into option_masters (select_id,options) values ( 32 ,'Bhadradri Kothagudem');
+insert into option_masters (select_id,options) values ( 32 ,'Hyderabad');
+insert into option_masters (select_id,options) values ( 32 ,'Jagtial');
+insert into option_masters (select_id,options) values ( 32 ,'Jangaon');
+insert into option_masters (select_id,options) values ( 32 ,'Jayashankar');
+insert into option_masters (select_id,options) values ( 32 ,'Jogulamba');
+insert into option_masters (select_id,options) values ( 32 ,'Kamareddy');
+insert into option_masters (select_id,options) values ( 32 ,'Karimnagar');
+insert into option_masters (select_id,options) values ( 32 ,'Khammam');
+insert into option_masters (select_id,options) values ( 32 ,'Komaram Bheem');
+insert into option_masters (select_id,options) values ( 32 ,'Mahabubabad');
+insert into option_masters (select_id,options) values ( 32 ,'Mahbubnagar');
+insert into option_masters (select_id,options) values ( 32 ,'Mancherial');
+insert into option_masters (select_id,options) values ( 32 ,'Medak');
+insert into option_masters (select_id,options) values ( 32 ,'Medchal');
+insert into option_masters (select_id,options) values ( 32 ,'Nagarkurnool');
+insert into option_masters (select_id,options) values ( 32 ,'Nalgonda');
+insert into option_masters (select_id,options) values ( 32 ,'Nirmal');
+insert into option_masters (select_id,options) values ( 32 ,'Nizamabad');
+insert into option_masters (select_id,options) values ( 32 ,'Peddapalli');
+insert into option_masters (select_id,options) values ( 32 ,'Rajanna Sircilla');
+insert into option_masters (select_id,options) values ( 32 ,'Ranga Reddy');
+insert into option_masters (select_id,options) values ( 32 ,'Sangareddy');
+insert into option_masters (select_id,options) values ( 32 ,'Siddipet');
+insert into option_masters (select_id,options) values ( 32 ,'Suryapet');
+insert into option_masters (select_id,options) values ( 32 ,'Vikarabad');
+insert into option_masters (select_id,options) values ( 32 ,'Wanaparthy');
+insert into option_masters (select_id,options) values ( 32 ,'Warangal Rural');
+insert into option_masters (select_id,options) values ( 32 ,'Warangal Urban');
+insert into option_masters (select_id,options) values ( 32 ,'Yadadri Bhuvanagiri');
+
+insert into option_masters (select_id,options) values ( 33 ,'Dhalai');
+insert into option_masters (select_id,options) values ( 33 ,'Gomati');
+insert into option_masters (select_id,options) values ( 33 ,'Khowai');
+insert into option_masters (select_id,options) values ( 33 ,'North Tripura');
+insert into option_masters (select_id,options) values ( 33 ,'Sepahijala');
+insert into option_masters (select_id,options) values ( 33 ,'South Tripura');
+insert into option_masters (select_id,options) values ( 33 ,'Unakoti');
+insert into option_masters (select_id,options) values ( 33 ,'West Tripura');
+
+insert into option_masters (select_id,options) values ( 34 ,'Agra');
+insert into option_masters (select_id,options) values ( 34 ,'Aligarh');
+insert into option_masters (select_id,options) values ( 34 ,'Allahabad');
+insert into option_masters (select_id,options) values ( 34 ,'Ambedkar Nagar');
+insert into option_masters (select_id,options) values ( 34 ,'Amethi');
+insert into option_masters (select_id,options) values ( 34 ,'Amroha');
+insert into option_masters (select_id,options) values ( 34 ,'Auraiya');
+insert into option_masters (select_id,options) values ( 34 ,'Azamgarh');
+insert into option_masters (select_id,options) values ( 34 ,'Baghpat');
+insert into option_masters (select_id,options) values ( 34 ,'Bahraich');
+insert into option_masters (select_id,options) values ( 34 ,'Ballia');
+insert into option_masters (select_id,options) values ( 34 ,'Balrampur');
+insert into option_masters (select_id,options) values ( 34 ,'Banda');
+insert into option_masters (select_id,options) values ( 34 ,'Barabanki');
+insert into option_masters (select_id,options) values ( 34 ,'Bareilly');
+insert into option_masters (select_id,options) values ( 34 ,'Basti');
+insert into option_masters (select_id,options) values ( 34 ,'Bhadohi');
+insert into option_masters (select_id,options) values ( 34 ,'Bijnor');
+insert into option_masters (select_id,options) values ( 34 ,'Budaun');
+insert into option_masters (select_id,options) values ( 34 ,'Bulandshahr');
+insert into option_masters (select_id,options) values ( 34 ,'Chandauli');
+insert into option_masters (select_id,options) values ( 34 ,'Chitrakoot');
+insert into option_masters (select_id,options) values ( 34 ,'Deoria');
+insert into option_masters (select_id,options) values ( 34 ,'Etah');
+insert into option_masters (select_id,options) values ( 34 ,'Etawah');
+insert into option_masters (select_id,options) values ( 34 ,'Faizabad');
+insert into option_masters (select_id,options) values ( 34 ,'Farrukhabad');
+insert into option_masters (select_id,options) values ( 34 ,'Fatehpur');
+insert into option_masters (select_id,options) values ( 34 ,'Firozabad');
+insert into option_masters (select_id,options) values ( 34 ,'Gautam Buddha Nagar');
+insert into option_masters (select_id,options) values ( 34 ,'Ghaziabad');
+insert into option_masters (select_id,options) values ( 34 ,'Ghazipur');
+insert into option_masters (select_id,options) values ( 34 ,'Gonda');
+insert into option_masters (select_id,options) values ( 34 ,'Gorakhpur');
+insert into option_masters (select_id,options) values ( 34 ,'Hamirpur');
+insert into option_masters (select_id,options) values ( 34 ,'Hapur');
+insert into option_masters (select_id,options) values ( 34 ,'Hardoi');
+insert into option_masters (select_id,options) values ( 34 ,'Hathras');
+insert into option_masters (select_id,options) values ( 34 ,'Jalaun');
+insert into option_masters (select_id,options) values ( 34 ,'Jaunpur');
+insert into option_masters (select_id,options) values ( 34 ,'Jhansi');
+insert into option_masters (select_id,options) values ( 34 ,'Kannauj');
+insert into option_masters (select_id,options) values ( 34 ,'Kanpur Dehat');
+insert into option_masters (select_id,options) values ( 34 ,'Kanpur Nagar');
+insert into option_masters (select_id,options) values ( 34 ,'Kasganj');
+insert into option_masters (select_id,options) values ( 34 ,'Kaushambi');
+insert into option_masters (select_id,options) values ( 34 ,'Kheri');
+insert into option_masters (select_id,options) values ( 34 ,'Kushinagar');
+insert into option_masters (select_id,options) values ( 34 ,'Lalitpur');
+insert into option_masters (select_id,options) values ( 34 ,'Lucknow');
+insert into option_masters (select_id,options) values ( 34 ,'Maharajganj');
+insert into option_masters (select_id,options) values ( 34 ,'Mahoba');
+insert into option_masters (select_id,options) values ( 34 ,'Mainpuri');
+insert into option_masters (select_id,options) values ( 34 ,'Mathura');
+insert into option_masters (select_id,options) values ( 34 ,'Mau');
+insert into option_masters (select_id,options) values ( 34 ,'Meerut');
+insert into option_masters (select_id,options) values ( 34 ,'Mirzapur');
+insert into option_masters (select_id,options) values ( 34 ,'Moradabad');
+insert into option_masters (select_id,options) values ( 34 ,'Muzaffarnagar');
+insert into option_masters (select_id,options) values ( 34 ,'Pilibhit');
+insert into option_masters (select_id,options) values ( 34 ,'Pratapgarh');
+insert into option_masters (select_id,options) values ( 34 ,'Raebareli');
+insert into option_masters (select_id,options) values ( 34 ,'Rampur');
+insert into option_masters (select_id,options) values ( 34 ,'Saharanpur');
+insert into option_masters (select_id,options) values ( 34 ,'Sambhal');
+insert into option_masters (select_id,options) values ( 34 ,'Sant Kabir Nagar');
+insert into option_masters (select_id,options) values ( 34 ,'Shahjahanpur');
+insert into option_masters (select_id,options) values ( 34 ,'Shamli');
+insert into option_masters (select_id,options) values ( 34 ,'Shravasti');
+insert into option_masters (select_id,options) values ( 34 ,'Siddharthnagar');
+insert into option_masters (select_id,options) values ( 34 ,'Sitapur');
+insert into option_masters (select_id,options) values ( 34 ,'Sonbhadra');
+insert into option_masters (select_id,options) values ( 34 ,'Sultanpur');
+insert into option_masters (select_id,options) values ( 34 ,'Unnao');
+insert into option_masters (select_id,options) values ( 34 ,'Varanasi');
+
+insert into option_masters (select_id,options) values ( 35 ,'Almora');
+insert into option_masters (select_id,options) values ( 35 ,'Bageshwar');
+insert into option_masters (select_id,options) values ( 35 ,'Chamoli');
+insert into option_masters (select_id,options) values ( 35 ,'Champawat');
+insert into option_masters (select_id,options) values ( 35 ,'Dehradun');
+insert into option_masters (select_id,options) values ( 35 ,'Haridwar');
+insert into option_masters (select_id,options) values ( 35 ,'Nainital');
+insert into option_masters (select_id,options) values ( 35 ,'Pauri');
+insert into option_masters (select_id,options) values ( 35 ,'Pithoragarh');
+insert into option_masters (select_id,options) values ( 35 ,'Rudraprayag');
+insert into option_masters (select_id,options) values ( 35 ,'Tehri');
+insert into option_masters (select_id,options) values ( 35 ,'Udham Singh Nagar');
+insert into option_masters (select_id,options) values ( 35 ,'Uttarkashi');
+
+
+insert into option_masters (select_id,options) values ( 36 ,'Alipurduar');
+insert into option_masters (select_id,options) values ( 36 ,'Bankura');
+insert into option_masters (select_id,options) values ( 36 ,'Birbhum');
+insert into option_masters (select_id,options) values ( 36 ,'Cooch Behar');
+insert into option_masters (select_id,options) values ( 36 ,'Dakshin Dinajpur');
+insert into option_masters (select_id,options) values ( 36 ,'Darjeeling');
+insert into option_masters (select_id,options) values ( 36 ,'Hooghly');
+insert into option_masters (select_id,options) values ( 36 ,'Howrah');
+insert into option_masters (select_id,options) values ( 36 ,'Jalpaiguri');
+insert into option_masters (select_id,options) values ( 36 ,'Jhargram');
+insert into option_masters (select_id,options) values ( 36 ,'Kalimpong');
+insert into option_masters (select_id,options) values ( 36 ,'Kolkata');
+insert into option_masters (select_id,options) values ( 36 ,'Malda');
+insert into option_masters (select_id,options) values ( 36 ,'Murshidabad');
+insert into option_masters (select_id,options) values ( 36 ,'Nadia');
+insert into option_masters (select_id,options) values ( 36 ,'North 24 Parganas');
+insert into option_masters (select_id,options) values ( 36 ,'Paschim Bardhaman');
+insert into option_masters (select_id,options) values ( 36 ,'Paschim Medinipur');
+insert into option_masters (select_id,options) values ( 36 ,'Purba Bardhaman');
+insert into option_masters (select_id,options) values ( 36 ,'Purba Medinipur');
+insert into option_masters (select_id,options) values ( 36 ,'Purulia');
+insert into option_masters (select_id,options) values ( 36 ,'South 24 Parganas');
+insert into option_masters (select_id,options) values ( 36 ,'Uttar Dinajpur');
+
+
