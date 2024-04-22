@@ -13,7 +13,16 @@ function showDropdown() {
 let path = window.location.pathname.split("/");
 let id = path[path.length - 1];
 
-function reusablecard(data) {
+
+
+
+var employeedata;
+async function fetchData() {
+
+  response = await fetch(`/employee/employeetasklist/${id}`);
+  data = await response.json();
+  employeedata = data;
+
   function setCard(id, element) {
     document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
@@ -62,14 +71,6 @@ function reusablecard(data) {
         break;
     }
   });
-}
-
-var employeedata;
-async function fetchData() {
-  response = await fetch(`/employee/employeetasklist/${id}`);
-  data = await response.json();
-  employeedata = data;
-  reusablecard(data);
 }
 fetchData();
 
@@ -172,25 +173,22 @@ const hideComment = (id) => {
 };
 
 //user search section
-async function seachresult() {
-  if (document.getElementById("searchinput").value != "") {
-    obj = {};
-    new FormData(document.getElementById("form")).forEach((value, key) => {
-      obj[key] = value;
-    });
-    console.log(obj, "obj is ");
-    const response = await fetch(`/employee/searchtask`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify(obj),
-    });
-    data = await response.json();
+const seachresultnew = async () => {
+  let svalue = document.getElementById('seachtaskresult').value
+  if (svalue === "") {
+    ides("todo").innerHTML = ""
+    ides("inprogress").innerHTML = ""
+    ides("completed").innerHTML = ""
 
-    ides("todo").style.display = "none";
-    ides("inprogress").style.display = "none";
-    ides("completed").style.display = "none";
+    fetchData()
+  }
+  let response = await fetch(`/employee/searchtask/${svalue}`)
+  let data = await response.json();
+  ides("todo").innerHTML = ""
+  ides("inprogress").innerHTML = ""
+  ides("completed").innerHTML = ""
+
+  if (data.length != 0) {
     function resetCard(id, element) {
       document.getElementById(`${id}`).innerHTML = "";
       document.getElementById(`${id}`).innerHTML += `
@@ -244,10 +242,95 @@ async function seachresult() {
           break;
       }
     });
-  } else {
+  }
+  else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Data Not Found"
+    });
+    ides("seachtaskresult").value = ""
     fetchData();
   }
 }
+
+
+// async function seachresult() {
+//   if (document.getElementById("searchinput").value != "") {
+//     obj = {};
+//     new FormData(document.getElementById("form")).forEach((value, key) => {
+//       obj[key] = value;
+//     });
+//     console.log(obj, "obj is ");
+//     const response = await fetch(`/employee/searchtask`, {
+//       method: "POST",
+//       headers: {
+//         "content-type": "application/json; charset=UTF-8",
+//       },
+//       body: JSON.stringify(obj),
+//     });
+//     data = await response.json();
+
+//     ides("todo").style.display = "none";
+//     ides("inprogress").style.display = "none";
+//     ides("completed").style.display = "none";
+//     function resetCard(id, element) {
+//       document.getElementById(`${id}`).innerHTML = "";
+//       document.getElementById(`${id}`).innerHTML += `
+//       <div class="card1" onclick="show('popup','${element.task_id}')">
+//                 <div class="field">
+//                   <h4>${element.task_name}</h4>
+//                   <span class="ms-3" id='urgent-${element.task_id}'><span>
+//                 </div>
+//                 <div class="field">
+//                   <label>Description:</label>
+//                   <p>${element.task_description}</p>
+//                 </div>
+//                 <div class="field">
+//                   <label>due date : </label>
+//                   <p>${element.task_end_date}</p>
+//                 </div>
+//               </div >`;
+//     }
+//     data.forEach((element) => {
+//       console.log(element, "elementic ");
+//       if (element.task_status == "todo") {
+//         ides("todo").removeAttribute("style");
+//         resetCard("todo", element);
+//       } else if (element.task_status == "inprogress") {
+//         ides("inprogress").removeAttribute("style");
+//         resetCard("inprogress", element);
+//       } else if (element.task_status == "completed") {
+//         ides("completed").removeAttribute("style");
+//         resetCard("completed", element);
+//       }
+//       switch (element.urgency_id) {
+//         case 1:
+//           document.getElementById(
+//             `urgent-${element.task_id}`
+//           ).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`;
+//           break;
+//         case 2:
+//           document.getElementById(
+//             `urgent-${element.task_id}`
+//           ).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`;
+//           break;
+//         case 3:
+//           document.getElementById(
+//             `urgent-${element.task_id}`
+//           ).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`;
+//           break;
+//         case 4:
+//           document.getElementById(
+//             `urgent-${element.task_id}`
+//           ).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`;
+//           break;
+//       }
+//     });
+//   } else {
+//     fetchData();
+//   }
+// }
 
 async function addcomment() {
   const formData = new FormData();
@@ -274,32 +357,32 @@ async function addcomment() {
 function updateUserProfile() {
   let form = document.getElementById('profileform')
   let formData = new FormData(form)
-  fetch( `/employee/updateprofile`,{
+  fetch(`/employee/updateprofile`, {
     method: 'POST',
-    body:formData
+    body: formData
   }).then(
-    (response)=> {
+    (response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       return response.json();
     }
   )
-  .then((data) => {
-    if (data.message == "updated") {
-      Swal.fire({
-        title: "Done",
-        text: "Profile Updated Succesfully",
-        icon: "success",
-      }).then(function(){
-        window.location.reload();
-      });
-    } else {
-      Swal.fire({
-        title: "Done",
-        text: "Profile is not Updated",
-        icon: "error",
-      })
-    }
-  })
+    .then((data) => {
+      if (data.message == "updated") {
+        Swal.fire({
+          title: "Done",
+          text: "Profile Updated Succesfully",
+          icon: "success",
+        }).then(function () {
+          window.location.reload();
+        });
+      } else {
+        Swal.fire({
+          title: "Done",
+          text: "Profile is not Updated",
+          icon: "error",
+        })
+      }
+    })
 }

@@ -82,7 +82,7 @@ const seachresultteam = async () => {
   }
   let response = await (fetch(`/employee/teamsearchdetails/${svalue}`))
   let data = await response.json();
-  console.log(data, "////")
+
   document.getElementById("details").innerHTML = `<tr>
     <th> Team Name</th>
     <th>Members Details</th></tr>`;
@@ -98,6 +98,7 @@ const seachresultteam = async () => {
       title: "Oops...",
       text: "Data Not Found"
     });
+    ides_team('searchteam').value = ""
     viewteamdata();
   }
 }
