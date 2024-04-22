@@ -1,17 +1,17 @@
-async function setData() {
-    let url = window.location.origin+`/manager/getEmployees`
-	  let response = await fetch(url);
-    let data = await response.json();
-    let str = ``;
-    console.log(data.result);
-    if(data.result) {
-        let count =0;
-        for(let i=0; i<Math.ceil(data.result.length/3); i++) {
-            str += `<div class="row pb-3">`;
-            for(let j=0; j<3; j++) {
-                if(data.result[count]) {
-                    console.log(data.result[count].last_name);
-                    str+=`
+const setData = async () => {
+  let url = window.location.origin + `/manager/getEmployees`;
+  let response = await fetch(url);
+  let data = await response.json();
+  let str = ``;
+  console.log(data.result);
+  if (data.result) {
+    let count = 0;
+    for (let i = 0; i < Math.ceil(data.result.length / 3); i++) {
+      str += `<div class="row pb-3">`;
+      for (let j = 0; j < 3; j++) {
+        if (data.result[count]) {
+          console.log(data.result[count].last_name);
+          str += `
                     <div class="col-4">
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
@@ -21,42 +21,41 @@ async function setData() {
                                 <p class="card-text"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
                                 <button class="btn btn-primary" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
-<<<<<<< HEAD
-                              
-=======
->>>>>>> dev
                                 <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>
                     </div>
                     `;
-                    count++;
-                }
-            }
-            str += `</div>`;
+          count++;
         }
+      }
+      str += `</div>`;
     }
-    document.getElementsByClassName('employeeList')[0].innerHTML = str
-}
+  }
+  document.getElementsByClassName("employeeList")[0].innerHTML = str;
+};
 
-async function showEmployeeDetails(id, first_name, last_name, email, contact, dob, join, img_url) {
-  let url = window.location.origin+`/manager/getManagerProfile`
+async function showEmployeeDetails(
+  id,
+  first_name,
+  last_name,
+  email,
+  contact,
+  dob,
+  join,
+  img_url
+) {
+  let url = window.location.origin + `/manager/getManagerProfile`;
   let response = await fetch(url);
   let data = await response.json();
-<<<<<<< HEAD
-  console.log(data.imageResult[0].newimage_name);
-=======
->>>>>>> dev
   let path = ``;
-  if(!data.imageResult[0]) {
-    path = `/assets/employee/user.png`
-  }
-  else {
-    path = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
+  if (!data.imageResult[0]) {
+    path = `/assets/employee/user.png`;
+  } else {
+    path = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
   }
 
-
- await Swal.fire({
+  await Swal.fire({
     position: "top",
     title: `Full Details`,
     html: `
@@ -69,86 +68,47 @@ async function showEmployeeDetails(id, first_name, last_name, email, contact, do
       <p><b>Birth Date : </b>${dob}</p>
       <p><b>Date Of Joining : </b>${join.slice(0, 10)}</p>
     `,
-    confirmButtonText: 'Close'
+    confirmButtonText: "Close",
   });
 }
 
-async function getProfile() {
-    let url = window.location.origin + "/manager/getManagerProfile";
-    let response = await fetch(url);
-    let data = await response.json();
-  
-    let spanEle = document.getElementsByClassName("msg");
-    Object.keys(spanEle).forEach((element) => {
-      spanEle[element].innerText = ``;
-    });
-    document.getElementById("imgMsg").innerText = ``;
-  
-    document.getElementById("id").value = data.result[0].id;
-    document.getElementById("firstname").value = data.result[0].first_name;
-    document.getElementById("lastname").value = data.result[0].last_name;
-    document.getElementById("email1").value = data.result[0].email;
-    document.getElementById("phone_input").value = data.result[0].contact;
-    document.getElementById("dob_input").value = data.result[0].date_of_birth;
-  
-    if(data.imageResult[0]) {
-          document.getElementById('selectedImage').src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
-    }
-}
+const getProfile = async () => {
+  let url = window.location.origin + "/manager/getManagerProfile";
+  let response = await fetch(url);
+  let data = await response.json();
 
-function showOption() {
-    if(document.getElementById("profClk").style.display == 'none' || document.getElementById("profClk").style.display == '') {
-      document.getElementById("profClk").style.display = 'block'
-    }
-    else {
-      document.getElementById("profClk").style.display = 'none'
-    }
-}
+  let spanEle = document.getElementsByClassName("msg");
+  Object.keys(spanEle).forEach((element) => {
+    spanEle[element].innerText = ``;
+  });
+  document.getElementById("imgMsg").innerText = ``;
 
-async function fetchNotificationData() {
-    try {
-      await fetch(`${window.location.origin}/manager/notification`, {
-        method: "get", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        }
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-                  if(typeof data !== "undefined"){
-                      showNotifications(data);
-                  }
-              
-        })
-        .catch((error) => {
-          console.error("There was a problem with the fetch operation:", error);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-      
+  document.getElementById("id").value = data.result[0].id;
+  document.getElementById("firstname").value = data.result[0].first_name;
+  document.getElementById("lastname").value = data.result[0].last_name;
+  document.getElementById("email1").value = data.result[0].email;
+  document.getElementById("phone_input").value = data.result[0].contact;
+  document.getElementById("dob_input").value = data.result[0].date_of_birth;
+
+  if (data.imageResult[0]) {
+    document.getElementById(
+      "selectedImage"
+    ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
   }
-  
-function showNotifications(data) {
-      let notificatiodata = "";
-      data.forEach(element => {
-          notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`
-      });
-    Swal.fire({
-          title: ` ${notificatiodata}`,
-      icon: "info",
-          
-    });
-  }
+};
 
-async function searchEmployee(value){
+const showOption = () => {
+  if (
+    document.getElementById("profClk").style.display == "none" ||
+    document.getElementById("profClk").style.display == ""
+  ) {
+    document.getElementById("profClk").style.display = "block";
+  } else {
+    document.getElementById("profClk").style.display = "none";
+  }
+};
+
+const searchEmployee = async (value) => {
   try {
     let data = await (await fetch(`/manager/searchEmploye/${value}`)).json();
     if (value === "") {
@@ -156,13 +116,13 @@ async function searchEmployee(value){
     }
     let str = ``;
     if (data.searchData.length != 0) {
-        let count =0;
-        for(let i=0; i<Math.ceil(data.searchData.length/3); i++) {
-            str += `<div class="row pb-3">`;
-            for(let j=0; j<3; j++) {
-                if(data.searchData[count]) {
-                    console.log(data.searchData[count].last_name);
-                    str+=`
+      let count = 0;
+      for (let i = 0; i < Math.ceil(data.searchData.length / 3); i++) {
+        str += `<div class="row pb-3">`;
+        for (let j = 0; j < 3; j++) {
+          if (data.searchData[count]) {
+            console.log(data.searchData[count].last_name);
+            str += `
                     <div class="col-4">
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
@@ -177,72 +137,75 @@ async function searchEmployee(value){
                         </div>
                     </div>
                     `;
-                    count++;
-                }
-            }
-            str += `</div>`;
+            count++;
+          }
         }
-        document.getElementsByClassName('employeeList')[0].innerHTML = str
-    }else{
-          Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Not Found Data"
-        });
-        setData();
+        str += `</div>`;
+      }
+      document.getElementsByClassName("employeeList")[0].innerHTML = str;
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Not Found Data",
+      });
+      setData();
     }
-    } catch (error) {
-    console.log(error)
+  } catch (error) {
+    console.log(error);
   }
-}
+};
 
 const removeEmployee = async (id) => {
   try {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success btn-gap",
-        cancelButton: "btn btn-danger btn-gap"
+        cancelButton: "btn btn-danger btn-gap",
       },
-      buttonsStyling: false
+      buttonsStyling: false,
     });
-    swalWithBootstrapButtons.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, cancel!",
-      reverseButtons: true
-
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await fetch(`http://localhost:8000/manager/removeemployeapi/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        })
-        swalWithBootstrapButtons.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success"
-        }).then(async (result2) => {
-          if (result2.isConfirmed) {
-            setData();
-          }
-        });
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire({
-          title: "Cancelled",
-          text: "Your date is safe :)",
-          icon: "error"
-        });
-      }
-    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then(async (result) => {
+        if (result.isConfirmed) {
+          await fetch(`http://localhost:8000/manager/removeemployeapi/${id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          swalWithBootstrapButtons
+            .fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            })
+            .then(async (result2) => {
+              if (result2.isConfirmed) {
+                setData();
+              }
+            });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelled",
+            text: "Your date is safe :)",
+            icon: "error",
+          });
+        }
+      });
   } catch (error) {
     console.log(error);
   }
-}
+};
