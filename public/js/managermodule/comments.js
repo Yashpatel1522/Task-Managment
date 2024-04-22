@@ -12,17 +12,19 @@ const getDataGrid = async (elements) => {
                 <th>Task_Status</th>
                 <th>Comment</th>
                 <th>Attechments</th>
+                <th>Confirm Status</th>
                 </thead>`;
   elements.forEach((element) => {
     dataadd += `<tr>
-                <th>${element.id}</th>
-                <th>${element.first_name}</th>
-                <th>${element.task_status}</th>
-                <th>${element.comment}</th>
-                <th><iframe src="../../public/assets/taskdetailfiles/${element.attechment}" title="W3Schools Free Online Web Tutorials">${element.attechment}</iframe></th>
+                <td>${element.id}</td>
+                <td>${element.first_name}</td>
+                <td>${element.task_status}</td>
+                <td>${element.comment}</td>
+                <td><iframe src="../../public/assets/taskdetailfiles/${element.attechment}" title="W3Schools Free Online Web Tutorials">${element.attechment}</iframe></td>
+        <button class="btn btn-primary" onclick="updateTaskStatus(${element.task_id},'${element.task_status}', ${element.employee_id})">View Comments</button>
+                <td></td>
             </tr>`;
   });
-
   table.innerHTML = dataadd;
 };
 
@@ -49,5 +51,65 @@ const searchComments = async (value) => {
     }
   } else {
     showteamdata();
+  }
+};
+
+const updateTaskStatus = async (taskId, taskStatus, employeeId) => {
+  let dataobj = {};
+  dataobj.taskId = taskId;
+  dataobj.taskStatus = taskStatus;
+  dataobj.employeeId = employeeId;
+
+  try {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success btn-gap",
+        cancelButton: "btn btn-danger btn-gap",
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, update it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then(async (result) => {
+        if (result.isConfirmed) {
+          await fetch(`http://localhost:8000/manager/updateTaskStatus/`, {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataobj),
+          });
+          swalWithBootstrapButtons
+            .fire({
+              title: "Deleted!",
+              text: "Your task has been updated.",
+              icon: "success",
+            })
+            .then(async (result2) => {
+              if (result2.isConfirmed) {
+                showComments();
+              }
+            });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelled",
+            text: "Your date is safe :)",
+            icon: "error",
+          });
+        }
+      });
+  } catch (error) {
+    console.log(error);
   }
 };
