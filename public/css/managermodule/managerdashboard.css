@@ -68,7 +68,7 @@
 	background-color: lightgray;
 }
 
-.addtaskcontainer{
+.addtaskcontainer, .editTaskContainer{
   position: fixed;
   top : 0;
   left: 50%;
@@ -89,7 +89,7 @@
   --button-color : blue;
   --lightblue : lightblue;
 }
-.addtaskcontainer{
+.addtaskcontainer, .editTaskContainer{
   position: fixed;
   top : 0;
   left: 50%;

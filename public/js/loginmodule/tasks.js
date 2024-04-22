@@ -9,7 +9,7 @@ const getTaskData = async () => {
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+        <button class="btn btn-secondary" onclick="editTaskPopup(${e.id})">Edit</button>
       </div>
     </div>`
     });
@@ -23,7 +23,7 @@ const getTaskData = async () => {
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+        <button class="btn btn-secondary" onclick="editTaskPopup(${e.id})">Edit</button>
       </div>
     </div>` 
     });
@@ -37,7 +37,7 @@ const getTaskData = async () => {
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+        <button class="btn btn-secondary" onclick="editTaskPopup(${e.id})">Edit</button>
       </div>
     </div>`
     });
@@ -128,6 +128,7 @@ const closePopup2 = () => {
   }
 }
 
+//---------------------------------------------------------------------------------
 
 const openpopup2 = async (id) => {
   try {
