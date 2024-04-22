@@ -54,7 +54,11 @@ const uploadImage = multer({ storage: userProfileStorage });
 const managerRouter = express.Router();
 
 // Displaying Tasks of manager
-managerRouter.get("/", taskView().getPage);
+managerRouter.get(
+  "/",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  taskView().getPage
+);
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView().getPage);
@@ -64,7 +68,7 @@ managerRouter.get("/Teams", (request, response) => {
 });
 
 // Dashboard
-managerRouter.get("/dashboard",dashboardView().getPage);
+managerRouter.get("/dashboard", dashboardView().getPage);
 
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);

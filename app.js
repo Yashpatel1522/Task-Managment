@@ -12,6 +12,7 @@ const employeeroute = require("./routers/employeeroute");
 const managerroute = require("./routers/managerroute");
 const login = require("./routers/loginroutes");
 const { loginGet } = require("./controller/loginmodule/login.controller");
+const { errorGet } = require("./controller/loginmodule/error.controller");
 
 let PORT = process.env.PORT;
 
@@ -60,3 +61,4 @@ app.use("/admin", adminroute);
 app.use("/employee", employeeroute);
 app.use("/login", login);
 app.use("/manager", managerroute);
+app.get("*",errorGet)

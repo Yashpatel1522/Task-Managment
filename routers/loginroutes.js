@@ -48,7 +48,7 @@ login.get("/managertasks/:id", managerTasks);
 
 // login.get(
 //   "/dashboard",
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/login/" }),
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
 //   checkUserRole,
 //   adminDashboard
 // );
