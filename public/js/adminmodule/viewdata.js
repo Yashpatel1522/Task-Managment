@@ -3,7 +3,6 @@ const viewFetchData = async (api, id) => {
   try {
     popupview.classList.add("open-popup");
     let data = await (await fetch(`${api}`)).json();
-    console.log(id);
     if (id === "team-form") {
       let dataadd = " ";
       if (data.teamCreate.length != 0 || data.memberDetails.length != 0 || data.teamTask.length != 0) {

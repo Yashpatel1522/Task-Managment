@@ -1,4 +1,4 @@
-function requireValidation(allfields, reqfields) {
+const requireValidation = (allfields, reqfields) => {
   let flag = true;
   for (var i = 0; i < reqfields.length; i++) {
     if (reqfields[i].value.trim().length === 0) {
@@ -7,9 +7,9 @@ function requireValidation(allfields, reqfields) {
     }
   }
   return flag;
-}
+};
 
-function addTaskValidation() {
+const addTaskValidation = () => {
   let err = true;
   const validdob = /[12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])/;
   const allfields = document.querySelectorAll(".errclass");
@@ -44,9 +44,9 @@ function addTaskValidation() {
   }
 
   return err;
-}
+};
 
-function addUserList() {
+const addUserList = () => {
   try {
     fetch(`${window.location.origin}/manager/getdataapi`, {
       method: "get", // *GET, POST, PUT, DELETE, etc.
@@ -57,9 +57,9 @@ function addUserList() {
       },
     })
       .then((response) => {
-        // if (!response.ok) {
-        //     throw new Error('Network response was not ok');
-        // }
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
         return response.json();
       })
       .then((data) => {
@@ -76,10 +76,10 @@ function addUserList() {
   } catch (error) {
     console.log(error);
   }
-}
+};
 addUserList();
 
-function employeeDynamicCombo(data) {
+const employeeDynamicCombo = (data) => {
   let empcombo = document.getElementById("Assin_task_to");
   for (var i = 0; i < data.length; i++) {
     let option = document.createElement("option");
@@ -88,20 +88,20 @@ function employeeDynamicCombo(data) {
     option.textContent = `${data[i].first_name}`;
     empcombo.appendChild(option);
   }
-}
+};
 
-function teamDynamicCombo(data){
-  let teamcombo = document.getElementById("Assin_task_to_team")
-  data.forEach(team => {
+const teamDynamicCombo = (data) => {
+  let teamcombo = document.getElementById("Assin_task_to_team");
+  data.forEach((team) => {
     let option = document.createElement("option");
     option.setAttribute("value", `${team.id}`);
     option.setAttribute("id", `${team.id}`);
     option.textContent = `${team.team_name}`;
     teamcombo.appendChild(option);
   });
-}
+};
 
-function catagoryDynamicCombo(data) {
+const catagoryDynamicCombo = (data) => {
   let categoryCombo = document.getElementById("task_category");
   for (var i = 0; i < data.length; i++) {
     let option = document.createElement("option");
@@ -110,9 +110,9 @@ function catagoryDynamicCombo(data) {
     option.textContent = `${data[i].category}`;
     categoryCombo.appendChild(option);
   }
-}
+};
 
-function importantLevelCombo(data) {
+const importantLevelCombo = (data) => {
   let importantCombo = document.getElementById("impotant_level");
   for (var i = 0; i < data.length; i++) {
     let option = document.createElement("option");
@@ -121,9 +121,9 @@ function importantLevelCombo(data) {
     option.textContent = `${data[i].type}`;
     importantCombo.appendChild(option);
   }
-}
+};
 
-function urgencyLevelCombo(data) {
+const urgencyLevelCombo = (data) => {
   let urgencyCombo = document.getElementById("urgency_level");
   for (var i = 0; i < data.length; i++) {
     let option = document.createElement("option");
@@ -132,9 +132,9 @@ function urgencyLevelCombo(data) {
     option.textContent = `${data[i].type}`;
     urgencyCombo.appendChild(option);
   }
-}
+};
 
-function insertTaskData() {
+const insertTaskData = () => {
   let err = addTaskValidation();
   if (err === true) {
     let form = document.getElementById("taskForm");
@@ -142,7 +142,7 @@ function insertTaskData() {
     let formData = new FormData(form);
     formData.delete("Assin_task_to");
     formData.delete("files");
-    formData.delete("Assin_task_to_team")
+    formData.delete("Assin_task_to_team");
     let selectedArray = new Array();
     let count = 0;
     let usres = document.getElementById("Assin_task_to");
@@ -162,7 +162,7 @@ function insertTaskData() {
       }
     }
     formData.append("Assin_task_to", selectedArray.toString());
-    formData.append("Assin_task_to_team",selectedTeamArray.toString());
+    formData.append("Assin_task_to_team", selectedTeamArray.toString());
     var files = document.getElementById("files").files;
     console.log(files);
     for (var x = 0; x < files.length; x++) {
@@ -174,7 +174,7 @@ function insertTaskData() {
         body: formData,
       })
         .then((response) => {
-            console.log((response));
+          console.log(response);
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
@@ -194,13 +194,13 @@ function insertTaskData() {
       console.log(error);
     }
   }
-}
+};
 
-function onReset() {
+const onReset = () => {
   document.getElementById("taskForm").reset();
-}
+};
 
-function serverValidation(data) {
+const serverValidation = (data) => {
   if (typeof data.task_name_err !== "undefined") {
     document.getElementById("tnerr").innerHTML = data.task_name_err;
   }
@@ -228,14 +228,14 @@ function serverValidation(data) {
   if (typeof data.urgency_level_err !== "undefined") {
     document.getElementById("ulerr").innerHTML = data.urgency_level_err;
   }
-}
+};
 
-function DataINsertedSuccessfully() {
+const DataINsertedSuccessfully = () => {
   Swal.fire({
     title: "Done",
     text: "Task inserted Succesfully",
     icon: "success",
-  }).then(function(){
-    window.location.href = '/manager/'
+  }).then(function () {
+    window.location.href = "/manager/";
   });
-}
+};

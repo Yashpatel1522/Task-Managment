@@ -29,3 +29,31 @@ exports.searchCategory = async (request, response) => {
     logger.error("Not task found it!");
   }
 }
+
+exports.categoryDetail = async (request, response) => {
+  try {
+    let categoryId = request.params.id;
+    let viewCategory = await db.executeQuery(`select * from categories as c left join tasks as t on c.id = t.category_id where (t.category_id = ? and  c.status = 1 and t.status = 1);`, [categoryId]);
+    return response.json({ viewCategory});
+  } catch (err) {
+    logger.error("task not found it!");
+  }
+}
+
+exports.deleteCategory = async (request, response) => {
+  try {
+    let categoryDelete = await db.updateOr({ status: "0" }, "categories", { id: request.params.id });
+    return response.json({ categoryDelete });
+  } catch (error) {
+    logger.error("Category Data Can't deleted !");
+  }
+}
+
+exports.addCategory = async (request,response) =>{
+  try { 
+    let categoryAdd = db.insertData({ category: request.body.category_name},"categories")
+    return response.json({ categoryAdd });
+  } catch (error) {
+    logger.error("Category Data Can't deleted !");
+  }
+}
