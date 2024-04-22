@@ -41,6 +41,10 @@ const {
   deleteTeam,
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
+const {
+  viewComments,
+  getComments,
+} = require("../controller/managermodule/comments");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -110,5 +114,8 @@ managerRouter.get("/managerTeam/showteamdata/:id", showTeamDataForUpdate);
 managerRouter.post("/updateteamdata", updateTeamData);
 managerRouter.get("/teamapi/:id", teamDetailsForView);
 managerRouter.delete("/deleteteamapi/:id", deleteTeam);
+
+managerRouter.get("/comments/:teamId", viewComments);
+managerRouter.get("/getcomments/:teamId", getComments);
 
 module.exports = managerRouter;

@@ -29,9 +29,11 @@ async function getProfile() {
   document.getElementById("phone_input").value = data.result[0].contact;
   document.getElementById("dob_input").value = data.result[0].date_of_birth;
 
-  if(data.imageResult[0]) {
-		document.getElementById('selectedImage').src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`
-	}
+  if (data.imageResult[0]) {
+    document.getElementById(
+      "selectedImage"
+    ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
+  }
 }
 // fetch api of notification data
 async function fetchNotificationData() {
@@ -42,7 +44,7 @@ async function fetchNotificationData() {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
-      }
+      },
     })
       .then((response) => {
         if (!response.ok) {
@@ -51,10 +53,9 @@ async function fetchNotificationData() {
         return response.json();
       })
       .then((data) => {
-				if(typeof data !== "undefined"){
-					showNotifications(data);
-				}
-			
+        if (typeof data !== "undefined") {
+          showNotifications(data);
+        }
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -62,21 +63,19 @@ async function fetchNotificationData() {
   } catch (error) {
     console.log(error);
   }
-	
 }
 
 function showNotifications(data) {
-	let notificatiodata = "";
-  if(data.length != 0){
-    data.forEach(element => {
-      notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`
+  let notificatiodata = "";
+  if (data.length != 0) {
+    data.forEach((element) => {
+      notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`;
     });
+  } else {
+    notificatiodata += `<h3>Today there is no due date of any task<h3>`;
   }
-  else{
-    notificatiodata += `<h3>Today there is no due date of any task<h3>`
-  }
-	Swal.fire({
-		title: ` ${notificatiodata}`,
+  Swal.fire({
+    title: ` ${notificatiodata}`,
     icon: "info",
   });
 }
@@ -90,14 +89,15 @@ function remOption() {
 }
 
 function showOption() {
-  if(document.getElementById("profClk").style.display == 'none' || document.getElementById("profClk").style.display == '') {
-    document.getElementById("profClk").style.display = 'block'
-  }
-  else {
-    document.getElementById("profClk").style.display = 'none'
+  if (
+    document.getElementById("profClk").style.display == "none" ||
+    document.getElementById("profClk").style.display == ""
+  ) {
+    document.getElementById("profClk").style.display = "block";
+  } else {
+    document.getElementById("profClk").style.display = "none";
   }
 }
-
 
 // pop-up js of addtask.ejs
 let popup = document.getElementById("popup");
@@ -110,11 +110,7 @@ function closePopup() {
   popup.classList.remove("open-popup");
 }
 
-
 // function for serach task
-function searchTasks()
-{
-  
-	searchtask
-
+async function openViewComments(teamId) {
+  window.location.href = `/manager/comments/${teamId}`;
 }

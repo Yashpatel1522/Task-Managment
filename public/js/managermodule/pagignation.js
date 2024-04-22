@@ -5,7 +5,9 @@ let pageCount;
 let teamDataGlobal = [];
 
 const pagignation = async (url) => {
+  await console.log(url);
   let teamData = await (await fetch(url)).json();
+  console.log(teamData);
   teamDataGlobal = [...teamData.result];
   console.log(teamDataGlobal);
   maxLength = teamData.result.length;
@@ -13,7 +15,7 @@ const pagignation = async (url) => {
   let startIndex = (currentPage - 1) * pageLimit;
   let endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = teamDataGlobal.slice(startIndex, endIndex);
-  getTeamDataGrid(elements);
+  getDataGrid(elements);
   document.getElementById("current_page").innerHTML = `${currentPage}`;
 };
 
@@ -23,7 +25,7 @@ const firstPage1 = () => {
   let startIndex = (currentPage - 1) * pageLimit;
   let endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = teamDataGlobal.slice(startIndex, endIndex);
-  getTeamDataGrid(elements);
+  getDataGrid(elements);
   document.getElementById("first").style.opacity = 0.5;
   document.getElementById("previous").style.opacity = 0.5;
   document.getElementById("next").style.opacity = 1;
@@ -37,7 +39,7 @@ const previous1 = () => {
     let startIndex = (currentPage - 1) * pageLimit;
     let endIndex = Math.min(startIndex + pageLimit, maxLength);
     elements = teamDataGlobal.slice(startIndex, endIndex);
-    getTeamDataGrid(elements);
+    getDataGrid(elements);
     if (currentPage === 1) {
       document.getElementById("first").style.opacity = 0.5;
       document.getElementById("previous").style.opacity = 0.5;
@@ -55,7 +57,7 @@ const next1 = () => {
     let startIndex = (currentPage - 1) * pageLimit;
     let endIndex = Math.min(startIndex + pageLimit, maxLength);
     elements = teamDataGlobal.slice(startIndex, endIndex);
-    getTeamDataGrid(elements);
+    getDataGrid(elements);
     if (currentPage === pageCount) {
       document.getElementById("next").style.opacity = 0.5;
       document.getElementById("last").style.opacity = 0.5;
@@ -72,7 +74,7 @@ const lastPage1 = () => {
   let startIndex = (currentPage - 1) * pageLimit;
   let endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = teamDataGlobal.slice(startIndex, endIndex);
-  getTeamDataGrid(elements);
+  getDataGrid(elements);
   document.getElementById("first").style.opacity = 1;
   document.getElementById("previous").style.opacity = 1;
   document.getElementById("next").style.opacity = 0.5;

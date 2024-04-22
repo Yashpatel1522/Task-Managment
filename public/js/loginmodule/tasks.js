@@ -3,131 +3,133 @@ const getTaskData = async () => {
     let data = await (await fetch(`/admin/tasksData`)).json();
     todoTask = document.getElementById("todoTask");
     let todoData = ``;
-    data.todoData.forEach(e => {
+    data.todoData.forEach((e) => {
       todoData += `<div class="m-3 p-2 tasks" draggable="true" id="${e.id}">
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button><br>
+        <button class="btn btn-primary" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
-    </div>`
+    </div>`;
     });
     todoTask.innerHTML = todoData;
 
     let inprogressTask = document.getElementById("inprogressTask");
     let inprogressData = ``;
-    data.inprogress.forEach(e => {
+    data.inprogress.forEach((e) => {
       inprogressData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button><br>
+        <button class="btn btn-primary" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
-    </div>` 
+    </div>`;
     });
     inprogressTask.innerHTML = inprogressData;
 
     let completedTask = document.getElementById("completedTask");
     let completedData = ``;
-    data.complete.forEach(e => {
+    data.complete.forEach((e) => {
       completedData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button><br>
+        <button class="btn btn-primary" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
-    </div>`
+    </div>`;
     });
     completedTask.innerHTML = completedData;
   } catch (error) {
     // logger.error(error)
     console.log(error);
-  } 
-}
+  }
+};
 
 const searchTaskData = async (value) => {
   try {
     let data = await (await fetch(`/manager/searchTask/${value}`)).json();
     document.getElementById("todoTask").innerHTML = "";
     if (value === "") {
-      getTaskData()
+      getTaskData();
     }
     let todoTask = document.getElementById("todoTask");
-    let dataadd = ``
+    let dataadd = ``;
     if (data.todoTask.length != 0) {
-      data.todoTask.forEach(e => {
+      data.todoTask.forEach((e) => {
         dataadd += `<div class="card m-3 p-2">
         <div class="card-body">
           <p>${e.task_name}</p>
           <p>${e.task_description}</p>
            <input type="button" value="view" onclick="openpopup2(${e.id})">
         </div>
-      </div>`
+      </div>`;
       });
       todoTask.innerHTML = dataadd;
     } else {
-      document.getElementById("todoTask").innerText = "Not Data Found"
+      document.getElementById("todoTask").innerText = "Not Data Found";
     }
 
     document.getElementById("inprogressTask").innerHTML = "";
     if (value === "") {
-      getTaskData()
+      getTaskData();
     }
     let inprogressTask = document.getElementById("inprogressTask");
-    let dataadd1 = ``
+    let dataadd1 = ``;
     if (data.inprogressTask.length != 0) {
-      data.inprogressTask.forEach(e => {
+      data.inprogressTask.forEach((e) => {
         dataadd1 += `<div class="card m-3 p-2">
         <div class="card-body">
           <p>${e.task_name}</p>
           <p>${e.task_description}</p>
            <input type="button" value="view" onclick="openpopup2(${e.id})">
         </div>
-      </div>`
+      </div>`;
       });
       inprogressTask.innerHTML = dataadd1;
     } else {
-      document.getElementById("inprogressTask").innerText = "Not Data Found"
+      document.getElementById("inprogressTask").innerText = "Not Data Found";
     }
 
     document.getElementById("completedTask").innerHTML = "";
     if (value === "") {
-      getTaskData()
+      getTaskData();
     }
     let completedTask = document.getElementById("completedTask");
-    let dataadd2 = ``
+    let dataadd2 = ``;
     if (data.completedTask.length != 0) {
-      data.completedTask.forEach(e => {
+      data.completedTask.forEach((e) => {
         dataadd2 += `<div class="card m-3 p-2">
         <div class="card-body">
           <p>${e.task_name}</p>
           <p>${e.task_description}</p>
            <input type="button" value="view" onclick="openpopup2(${e.id})">
         </div>
-      </div>`
+      </div>`;
       });
       completedTask.innerHTML = dataadd2;
     } else {
-      document.getElementById("completedTask").innerText = "Not Data Found"
+      document.getElementById("completedTask").innerText = "Not Data Found";
     }
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-}
+};
 
 let taskPopup = document.getElementById("task-detailes");
 
 const closePopup2 = () => {
   try {
-    taskPopup.classList.remove("open-popup")
+    taskPopup.classList.remove("open-popup");
   } catch (error) {
     console.log(error);
   }
-}
-
+};
 
 const openpopup2 = async (id) => {
   try {
@@ -206,25 +208,28 @@ const openpopup2 = async (id) => {
               </select>
             </div>
           </div>
-        </div>` 
-          let employees = await (await fetch(`/login/employee/${id}`)).json();
-              employees.forEach((employee)=>{
-                document.getElementById("emp").innerHTML += `<option value="volvo">${employee.first_name+""+employee.last_name}</option>`})
-    }   
+        </div>`;
+      let employees = await (await fetch(`/login/employee/${id}`)).json();
+      employees.forEach((employee) => {
+        document.getElementById("emp").innerHTML += `<option value="volvo">${
+          employee.first_name + "" + employee.last_name
+        }</option>`;
+      });
+    }
   } catch (err) {
     console.log(err);
   }
-}
+};
 // setTimeout(()=>{
-  // const fun2=()=>{
-  //   alert("yes")
-  //   let draggable=document.getElementById('inprogressTask').children
-  //   console.log(draggable)  
-  //   draggable=Array.from(draggable)
-  //   console.log(draggable)
-  // } 
-const taskDetails=async()=>{
-  await getTaskData()
-  await dragEvent()
-  await getData()
-}
+// const fun2=()=>{
+//   alert("yes")
+//   let draggable=document.getElementById('inprogressTask').children
+//   console.log(draggable)
+//   draggable=Array.from(draggable)
+//   console.log(draggable)
+// }
+const taskDetails = async () => {
+  await getTaskData();
+  await dragEvent();
+  await getData();
+};

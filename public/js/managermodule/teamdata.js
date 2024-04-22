@@ -77,7 +77,7 @@ const showteamdata = () => {
   pagignation("/manager/teamapi");
 };
 
-const getTeamDataGrid = async (elements) => {
+const getDataGrid = async (elements) => {
   console.log(elements);
   let table = document.getElementById("team-table");
   let dataadd = `<thead>
@@ -102,11 +102,6 @@ const getTeamDataGrid = async (elements) => {
 
   table.innerHTML = dataadd;
 };
-
-// let pageLimit = 2;
-// let currentPage = 1;
-// let maxLength;
-// let pageCount;
 
 // const getTeamData = async () => {
 //   let data = await (await fetch(`/manager/teamapi`)).json();
@@ -188,9 +183,9 @@ const searchTeams = async (value) => {
       let startIndex = (currentPage - 1) * pageLimit;
       let endIndex = Math.min(startIndex + pageLimit, maxLength);
       let elements = filterArray.slice(startIndex, endIndex);
-      getTeamDataGrid(elements);
+      getDataGrid(elements);
     } else {
-      getTeamDataGrid(filterArray);
+      getDataGrid(filterArray);
     }
   } else {
     showteamdata();
