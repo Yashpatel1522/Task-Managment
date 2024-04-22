@@ -130,3 +130,26 @@
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-20T12:45:21.282Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-20T12:46:04.457Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-20T12:48:14.068Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from teams where created_by = '3' and is_active = 1;","sqlMessage":"Unknown column 'created_by' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-22T03:46:52.283Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from teams where created_by = '3' and is_active = 1;","sqlMessage":"Unknown column 'created_by' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-22T03:47:31.118Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from teams where created_by = '3' and is_active = 1;","sqlMessage":"Unknown column 'created_by' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-22T03:47:34.474Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-22T03:51:18.377Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-22T03:51:21.199Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from teams where created_by = '3' and is_active = 1;","sqlMessage":"Unknown column 'created_by' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-22T03:56:23.279Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from teams where created_by = '3' and is_active = 1;","sqlMessage":"Unknown column 'created_by' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-22T03:56:59.791Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:30:41.352Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:30:49.647Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:31:05.747Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:31:30.614Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:32:10.724Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:32:49.761Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:34:26.166Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:34:40.802Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:34:48.276Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:35:38.379Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:36:24.562Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:36:47.650Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-22T07:37:26.154Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-22T07:57:38.823Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-22T07:58:06.876Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-22T07:58:09.423Z"}

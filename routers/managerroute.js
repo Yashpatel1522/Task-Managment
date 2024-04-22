@@ -41,6 +41,7 @@ const {
   deleteTeam,
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
+const passport = require("passport");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -63,7 +64,7 @@ managerRouter.get("/Teams", (request, response) => {
 });
 
 // Dashboard
-managerRouter.get("/dashboard", dashboardView().getPage);
+managerRouter.get("/dashboard",dashboardView().getPage);
 
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
