@@ -16,16 +16,15 @@ body {
 .employee {
   display: flex;
   justify-content: space-between;
+  background-color: #DDD0C8;
 }
 
 .employee .sidebar {
   border-top-right-radius: 30px;
   background-color: #323232;
   width: 20%;
-  margin-left: -10px;
   color: white;
   height: auto;
-  margin-left: -10px;
 }
 
 .employee .sidebar .task-logo img {
@@ -38,6 +37,12 @@ body {
   display: flex;
   padding: 20px;
 } */
+.list:hover {
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  width: 300px;
+  color: black;
+}
 
 .list i {
   font-size: 20px;
@@ -90,6 +95,6 @@ body {
   margin: auto;
 }
 
-#form{
+#form {
   width: 100%;
 }
