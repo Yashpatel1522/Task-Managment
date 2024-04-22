@@ -16,12 +16,13 @@ const pagignation = async (url) => {
   startIndex = (currentPage - 1) * pageLimit;
   endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = arrayPagignation.slice(startIndex, endIndex);
-  getDataGrid(elements);
   document.getElementById("current_page").innerHTML = `${currentPage}`;
-  if (teamData.result.length != 0) {
+  if (teamData.result.length !== 0) {
+    document.getElementById("nodata").style.display = "none";
     getDataGrid(elements);
     document.getElementById("current_page").style.display = "block";
   } else {
+    document.getElementById("nodata").style.display = "block";
     document.getElementById("current_page").style.display = "none";
     document.getElementById("first").style.display = "none";
     document.getElementById("previous").style.display = "none";
@@ -29,7 +30,7 @@ const pagignation = async (url) => {
     document.getElementById("last").style.display = "none";
   }
 
-  if (currentPage === 1) {
+  if (currentPage == 1) {
     document.getElementById("first").style.display = "none";
     document.getElementById("previous").style.display = "none";
   }
