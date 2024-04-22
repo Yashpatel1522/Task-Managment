@@ -16,16 +16,15 @@ body {
 .employee {
   display: flex;
   justify-content: space-between;
+  background-color: #DDD0C8;
 }
 
 .employee .sidebar {
   border-top-right-radius: 30px;
   background-color: #323232;
   width: 20%;
-  margin-left: -10px;
   color: white;
   height: auto;
-  margin-left: -10px;
 }
 
 .employee .sidebar .task-logo img {
@@ -90,6 +89,6 @@ body {
   margin: auto;
 }
 
-#form{
+#form {
   width: 100%;
 }
