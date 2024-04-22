@@ -74,7 +74,7 @@ managerRouter.get("/teamapi", teamdetails);
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 
 //api to Update Manager Profile Details
-// managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
+managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
 
 //api to get Manager Profile Details
 managerRouter.get("/getManagerProfile", managerProfile);
