@@ -26,10 +26,12 @@ const isLogin = async () => {
         icon: "success",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = window.location.href.replace(
-            "/login/",
-            res.url
-          );
+          console.log(res);
+          window.location.href=res.url
+        //   window.location.href = window.location.href.replace(
+        //     "/login/",
+        //     res.url
+        //   );
         }
       });
     }

@@ -29,7 +29,7 @@ const uploadStorage = multer({ storage: userProfileStorage });
 require("../middleware/jwtpassport");
 const login = express.Router();
 
-login.get("/", loginGet);
+// login.get("/", loginGet);
 login.post("/", loginPost);
 
 login.post("/registration", uploadStorage.single("img"), registrationPost);
@@ -46,10 +46,10 @@ login.post("/updateKanban", updateTaskDetailsPost);
 
 login.get("/managertasks/:id", managerTasks);
 
-login.get(
-  "/dashboard",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/login/" }),
-  checkUserRole,
-  adminDashboard
-);
+// login.get(
+//   "/dashboard",
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/login/" }),
+//   checkUserRole,
+//   adminDashboard
+// );
 module.exports = login;
