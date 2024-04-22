@@ -8,9 +8,9 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button><br>
-        <button class="btn btn-primary" onclick="openViewComments(${e.id})">View Comments</button>
+        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary form-control mb-1" onclick="openPopup()">Edit</button>
+        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -23,9 +23,9 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button><br>
-        <button class="btn btn-primary" onclick="openViewComments(${e.id})">View Comments</button>
+        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary form-control mb-1" onclick="openPopup()">Edit</button><br>
+        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -38,9 +38,9 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button><br>
-        <button class="btn btn-primary" onclick="openViewComments(${e.id})">View Comments</button>
+        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary form-control mb-1" onclick="openPopup()">Edit</button><br>
+        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });

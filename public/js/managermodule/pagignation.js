@@ -3,18 +3,20 @@ let currentPage = 1;
 let maxLength;
 let pageCount;
 let teamDataGlobal = [];
+let arrayPagignation = [];
+let startIndex;
+let endIndex;
 
 const pagignation = async (url) => {
-  await console.log(url);
   let teamData = await (await fetch(url)).json();
   console.log(teamData);
   teamDataGlobal = [...teamData.result];
-  console.log(teamDataGlobal);
+  arrayPagignation = [...teamData.result];
   maxLength = teamData.result.length;
   pageCount = Math.ceil(maxLength / pageLimit);
-  let startIndex = (currentPage - 1) * pageLimit;
-  let endIndex = Math.min(startIndex + pageLimit, maxLength);
-  elements = teamDataGlobal.slice(startIndex, endIndex);
+  startIndex = (currentPage - 1) * pageLimit;
+  endIndex = Math.min(startIndex + pageLimit, maxLength);
+  elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
   document.getElementById("current_page").innerHTML = `${currentPage}`;
 };
@@ -22,9 +24,9 @@ const pagignation = async (url) => {
 const firstPage1 = () => {
   currentPage = 1;
   document.getElementById("current_page").innerHTML = `${currentPage}`;
-  let startIndex = (currentPage - 1) * pageLimit;
-  let endIndex = Math.min(startIndex + pageLimit, maxLength);
-  elements = teamDataGlobal.slice(startIndex, endIndex);
+  startIndex = (currentPage - 1) * pageLimit;
+  endIndex = Math.min(startIndex + pageLimit, maxLength);
+  elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
   document.getElementById("first").style.opacity = 0.5;
   document.getElementById("previous").style.opacity = 0.5;
@@ -36,9 +38,9 @@ const previous1 = () => {
   if (currentPage > 1) {
     currentPage--;
     document.getElementById("current_page").innerHTML = `${currentPage}`;
-    let startIndex = (currentPage - 1) * pageLimit;
-    let endIndex = Math.min(startIndex + pageLimit, maxLength);
-    elements = teamDataGlobal.slice(startIndex, endIndex);
+    startIndex = (currentPage - 1) * pageLimit;
+    endIndex = Math.min(startIndex + pageLimit, maxLength);
+    elements = arrayPagignation.slice(startIndex, endIndex);
     getDataGrid(elements);
     if (currentPage === 1) {
       document.getElementById("first").style.opacity = 0.5;
@@ -54,9 +56,9 @@ const next1 = () => {
   if (currentPage < pageCount) {
     currentPage++;
     document.getElementById("current_page").innerHTML = `${currentPage}`;
-    let startIndex = (currentPage - 1) * pageLimit;
-    let endIndex = Math.min(startIndex + pageLimit, maxLength);
-    elements = teamDataGlobal.slice(startIndex, endIndex);
+    startIndex = (currentPage - 1) * pageLimit;
+    endIndex = Math.min(startIndex + pageLimit, maxLength);
+    elements = arrayPagignation.slice(startIndex, endIndex);
     getDataGrid(elements);
     if (currentPage === pageCount) {
       document.getElementById("next").style.opacity = 0.5;
@@ -71,9 +73,9 @@ const next1 = () => {
 const lastPage1 = () => {
   currentPage = pageCount;
   document.getElementById("current_page").innerHTML = `${currentPage}`;
-  let startIndex = (currentPage - 1) * pageLimit;
-  let endIndex = Math.min(startIndex + pageLimit, maxLength);
-  elements = teamDataGlobal.slice(startIndex, endIndex);
+  startIndex = (currentPage - 1) * pageLimit;
+  endIndex = Math.min(startIndex + pageLimit, maxLength);
+  elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
   document.getElementById("first").style.opacity = 1;
   document.getElementById("previous").style.opacity = 1;

@@ -1,44 +1,4 @@
-async function fetchNotificationData() {
-  try {
-    await fetch(`${window.location.origin}/manager/notification`, {
-      method: "get", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (typeof data !== "undefined") {
-          showNotifications(data);
-        }
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-function showNotifications(data) {
-  let notificatiodata = "";
-  data.forEach((element) => {
-    notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`;
-  });
-  Swal.fire({
-    title: ` ${notificatiodata}`,
-    icon: "info",
-  });
-}
-
-async function getProfile() {
+const getProfile = async () => {
   let url = window.location.origin + "/manager/getManagerProfile";
   let response = await fetch(url);
   let data = await response.json();
@@ -60,9 +20,9 @@ async function getProfile() {
       "selectedImage"
     ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
   }
-}
+};
 
-function showOption() {
+const showOption = async () => {
   if (
     document.getElementById("profClk").style.display == "none" ||
     document.getElementById("profClk").style.display == ""
@@ -71,14 +31,13 @@ function showOption() {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
-}
+};
 
 const showteamdata = () => {
   pagignation("/manager/teamapi");
 };
 
 const getDataGrid = async (elements) => {
-  console.log(elements);
   let table = document.getElementById("team-table");
   let dataadd = `<thead>
                 <th>TeamId</th>
@@ -103,69 +62,6 @@ const getDataGrid = async (elements) => {
   table.innerHTML = dataadd;
 };
 
-// const getTeamData = async () => {
-//   let data = await (await fetch(`/manager/teamapi`)).json();
-//   maxLength = data.result.length;
-//   pageCount = Math.ceil(maxLength / pageLimit);
-//   let table = document.getElementById("team-table");
-//   let dataadd = `<thead>
-//               <th>TeamId</th>
-//               <th>TeamName</th>
-//               <th>View Details</th>
-//               <th>Edit Team</th>
-//               <th>Delete Team</th>
-//               </thead>`;
-//   if (data.result.length != 0) {
-//     let startIndex = (currentPage - 1) * pageLimit;
-//     let endIndex = Math.min(startIndex + pageLimit, maxLength);
-//     data.result.slice(startIndex, endIndex).forEach((element) => {
-//       dataadd += `<tr>
-//               <td>${element.id}</td>
-//               <td>${element.team_name}</td>
-//               <td>
-//               <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
-//               </td>
-//               <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="showTeamData(${element.id})"></td>
-//               <td>
-//               <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
-//               </td>`;
-//     });
-//     table.innerHTML = dataadd;
-//     document.getElementById(
-//       "team-pagignation"
-//     ).innerHTML = `<div class = "pagination">
-//           <input type="button" value="firstpage" class="page-link" onclick="firstPage1()">
-//           <input type="button" value="previous" class="page-link" onclick="previous1()">
-//           <span class="page-link" >${currentPage}</span>
-//           <input type="button" value="next" class="page-link" onclick="next1()">
-//           <input type="button" value="lastpage" class="page-link" onclick="lastPage1()"></div>`;
-//   }
-// };
-
-// const firstPage1 = () => {
-//   currentPage = 1;
-//   getTeamData();
-// };
-
-// const previous1 = () => {
-//   if (currentPage > 1) {
-//     currentPage--;
-//     getTeamData();
-//   }
-// };
-
-// const next1 = () => {
-//   if (currentPage < pageCount) {
-//     currentPage++;
-//     getTeamData();
-//   }
-// };
-
-// const lastPage1 = () => {
-//   currentPage = pageCount;
-//   getTeamData();
-// };
-
 const searchTeams = async (value) => {
   let filterArray = [];
   if (value != "") {
@@ -178,60 +74,27 @@ const searchTeams = async (value) => {
         }
       }
     });
-    console.log(filterArray);
-    if (filterArray.length > pageLimit) {
-      let startIndex = (currentPage - 1) * pageLimit;
-      let endIndex = Math.min(startIndex + pageLimit, maxLength);
-      let elements = filterArray.slice(startIndex, endIndex);
-      getDataGrid(elements);
+    if (filterArray.length > 0) {
+      searchPagignation(filterArray, 1);
     } else {
-      getDataGrid(filterArray);
+      showComments();
     }
-  } else {
-    showteamdata();
   }
 };
 
-// const searchTeams = async (value) => {
-//   try {
-//     let data = await (
-//       await fetch(`/manager/managerTeam/searchteam/${value}`)
-//     ).json();
-//     document.getElementById("team-table").innerHTML = "";
-//     if (value === "") {
-//       getTeamData();
-//     }
-//     let table = document.getElementById("team-table");
-//     let dataadd = `<thead>
-//     <th>TeamId</th>
-//     <th>TeamName</th>
-//     <th>View Details</th>
-//     <th>Edit Team</th>
-//     <th>Delete Team</th>
-//     </thead>`;
-//     if (data.searchData.length != 0) {
-//       data.searchData.forEach((element) => {
-//         dataadd += `<tr>
-//         <td>${element.id}</td>
-//         <td>${element.team_name}</td>
-//         <td>
-//         <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
-//         </td>
-//         <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="showTeamData(${element.id})"></td>
-//         <td>
-//         <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
-//         </td>`;
-//       });
-//       table.innerHTML = dataadd;
-//     } else {
-//       table.innerHTML = `<div class="alert alert-danger" role="alert">
-//       data not found
-//     </div>`;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const searchPagignation = async (filterArray, currPage) => {
+  arrayPagignation = [];
+  for (let element of filterArray) {
+    arrayPagignation.push(element);
+  }
+  maxLength = arrayPagignation.length;
+  currentPage = currPage;
+  startIndex = (currentPage - 1) * pageLimit;
+  endIndex = Math.min(startIndex + pageLimit, maxLength);
+  pageCount = Math.ceil(maxLength / pageLimit);
+  let array = arrayPagignation.slice(startIndex, endIndex);
+  getDataGrid(array);
+};
 
 const showTeamData = async (id) => {
   let popup = document.getElementById("popup");

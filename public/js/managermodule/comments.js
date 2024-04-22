@@ -8,7 +8,7 @@ const getDataGrid = async (elements) => {
   let table = document.getElementById("comment-table");
   let dataadd = `<thead>
                 <th>CommentId</th>
-                <th>employee_name</th>
+                <th>Employee</th>
                 <th>Task_Status</th>
                 <th>Comment</th>
                 <th>Attechments</th>
@@ -20,9 +20,19 @@ const getDataGrid = async (elements) => {
                 <td>${element.first_name}</td>
                 <td>${element.task_status}</td>
                 <td>${element.comment}</td>
-                <td><iframe src="../../public/assets/taskdetailfiles/${element.attechment}" title="W3Schools Free Online Web Tutorials">${element.attechment}</iframe></td>
-        <button class="btn btn-primary" onclick="updateTaskStatus(${element.task_id},'${element.task_status}', ${element.employee_id})">View Comments</button>
-                <td></td>
+                <td><a href="${
+                  window.location.origin +
+                  "/assets/taskdetailfiles/" +
+                  element.attechment
+                }" target="_blank" title="W3Schools Free Online Web Tutorials">${
+      element.attechment
+    }</a></td>
+        <td><button class="btn btn-primary" onclick="updateTaskStatus(${
+          element.task_id
+        },'${element.task_status}', ${
+      element.employee_id
+    })">Confirm Stutas</button>
+                </td>
             </tr>`;
   });
   table.innerHTML = dataadd;
@@ -40,18 +50,28 @@ const searchComments = async (value) => {
         }
       }
     });
-    console.log(filterArray);
-    if (filterArray.length > pageLimit) {
-      let startIndex = (currentPage - 1) * pageLimit;
-      let endIndex = Math.min(startIndex + pageLimit, maxLength);
-      let elements = filterArray.slice(startIndex, endIndex);
-      getDataGrid(elements);
+    if (filterArray.length > 0) {
+      document.getElementById("comment-table").innerHTML = "";
+      searchPagignation(filterArray, 1);
     } else {
-      getDataGrid(filterArray);
+      document.getElementById("comment-table").innerHTML = "";
+      showComments();
     }
-  } else {
-    showteamdata();
   }
+};
+
+const searchPagignation = (filterArray, currPage) => {
+  arrayPagignation = [];
+  for (let element of filterArray) {
+    arrayPagignation.push(element);
+  }
+  maxLength = arrayPagignation.length;
+  currentPage = currPage;
+  startIndex = (currentPage - 1) * pageLimit;
+  endIndex = Math.min(startIndex + pageLimit, maxLength);
+  pageCount = Math.ceil(maxLength / pageLimit);
+  let array = arrayPagignation.slice(startIndex, endIndex);
+  getDataGrid(array);
 };
 
 const updateTaskStatus = async (taskId, taskStatus, employeeId) => {
