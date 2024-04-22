@@ -1,7 +1,13 @@
-const database = require("../../helpers/database.helper")
+const database = require("../../helpers/database.helper");
 
-const workingEmployyeInTask=async(request,response)=>{
-  let db=new database()
-  response.json(await db.executeQuery(`select t.*,u.first_name,u.last_name from tasks_assigend_to as t left join users as u on t.emp_id = u.id where task_id = ?;`,[request.params.taskid]))
-}
-module.exports=workingEmployyeInTask
+const workingEmployyeInTask = async (request, response) => {
+  let db = new database();
+  console.log(request.body);
+  response.json(
+    await db.executeQuery(
+      `select t.*,u.first_name,u.last_name from tasks_assigend_to as t left join users as u on t.emp_id = u.id where task_id = ?;`,
+      [request.params.taskid]
+    )
+  );
+};
+module.exports = workingEmployyeInTask;

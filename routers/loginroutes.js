@@ -1,34 +1,55 @@
 const express = require("express");
-const { loginPost, loginGet } = require("../controller/loginmodule/login.controller");
+const {
+  loginPost,
+  loginGet,
+} = require("../controller/loginmodule/login.controller");
 const { adminDashboard } = require("../controller/adminmodule/dashboard");
-const passport = require('passport');
+const passport = require("passport");
 const checkUserRole = require("../middleware/userrole");
-const multer = require('multer');
-const { acticationGet, acticationPost } = require("../controller/loginmodule/activation.controller");
+const multer = require("multer");
+const {
+  acticationGet,
+  acticationPost,
+} = require("../controller/loginmodule/activation.controller");
 const { userProfileStorage } = require("../utility/multer");
-const { registrationPost } = require("../controller/loginmodule/registration.controller");
-const { forgetGet, forgetPost } = require("../controller/loginmodule/forget.controller");
+const {
+  registrationPost,
+} = require("../controller/loginmodule/registration.controller");
+const {
+  forgetGet,
+  forgetPost,
+} = require("../controller/loginmodule/forget.controller");
 const workingEmployyeInTask = require("../controller/loginmodule/workingemployee.controllers");
 const updateTaskDetailsPost = require("../controller/loginmodule/updatetask.controller");
-const uploadStorage = multer({ storage: userProfileStorage })
+const {
+  managerTasks,
+} = require("../controller/loginmodule/managertasks.controller");
+const uploadStorage = multer({ storage: userProfileStorage });
 // const jwtStrategy=require('passport-jwt').Strategy;
-require('../middleware/jwtpassport')
-const login = express.Router()
+require("../middleware/jwtpassport");
+const login = express.Router();
 
-login.get("/", loginGet);
-login.post("/", loginPost)
+// login.get("/", loginGet);
+login.post("/", loginPost);
 
-login.post("/registration", uploadStorage.single('img'), registrationPost)
+login.post("/registration", uploadStorage.single("img"), registrationPost);
 
-login.get("/newpassword/:activationcode", acticationGet)
-login.post("/newpassword/:activationcode", acticationPost)
+login.get("/newpassword/:activationcode", acticationGet);
+login.post("/newpassword/:activationcode", acticationPost);
 
-login.get("/forget",forgetGet)
-login.post("/forget",forgetPost)
+login.get("/forget", forgetGet);
+login.post("/forget", forgetPost);
 
-login.get("/employee/:taskid",workingEmployyeInTask)
+login.get("/employee/:taskid", workingEmployyeInTask);
 
-login.post("/updateKanban",updateTaskDetailsPost)
+login.post("/updateKanban", updateTaskDetailsPost);
 
-login.get("/dashboard",passport.authenticate("jwt",{session:false,failureRedirect:"/login/"}),checkUserRole,adminDashboard)
-module.exports=login;
+login.get("/managertasks/:id", managerTasks);
+
+// login.get(
+//   "/dashboard",
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   checkUserRole,
+//   adminDashboard
+// );
+module.exports = login;
