@@ -16,7 +16,7 @@
 </head>
 
 <body onload="getTeamShow()">
-  <div class="container">
+  <div class="container-div">
     <div class="admin">
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
@@ -38,11 +38,10 @@
 
               </table>
             </div>
-            <div id="team-pagination">
+            <div id="pagination" class="pagenation-data">
 
             </div>
-
-            <div class="addregistrationcontainer" id="show-detail-team">
+            <div class="addregistrationcontainer" id="show-detail">
               <div id="team-form"></div>
             </div>
         </div>
@@ -52,8 +51,15 @@
     <%- include("../adminmodule/adminteam")%>
   </div>
   </div>
+  <div class="text-center p-4" style="background-color: #323232; color:white">
+    © 2024 Copyright
+  </div>
+  <script src="/js/adminmodule/fetchdatatable.js"></script>
+  <script src="/js/adminmodule/viewdata.js"></script>
+  <script src="/js/adminmodule/searchdata.js"></script>
+  <script src="/js/adminmodule/deletedata.js"></script>
   <script src="/js/adminmodule/allvalidation.js"></script>
-  <script src="/js/adminmodule/adminteamdata.js"></script>
+  <script src="/js/adminmodule/team.js"></script>
   <script src="/js/loginmodule/popup.js"></script>
 
 </body>

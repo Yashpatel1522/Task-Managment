@@ -26,6 +26,9 @@
   overflow-x: hidden;
 }
 
+.tasks {
+  word-wrap: anywhere;
+}
 
 .taskhead {
 	display: flex;

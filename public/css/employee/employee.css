@@ -19,6 +19,7 @@ body {
 
 .field {
   display: flex;
+  margin-left: 3px;
 }
 
 .carddetails {
@@ -45,15 +46,19 @@ body {
 }
 
 .userprofile {
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   display: flex;
 
 }
 
+.profile{
+  margin-left: auto;
+}
+
 .sidebar {
   width: 20%;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   height: auto;
 }
 
@@ -68,6 +73,7 @@ body {
   border: 1px solid rgb(94, 89, 89);
   padding: 10px;
   margin-bottom: 1%;
+  max-width: 1045px;
 }
 
 .search-and-profile {
@@ -119,10 +125,11 @@ body {
 }
 
 .popup-task {
+  width: 50%;
   display: none;
   position: fixed;
   flex-direction: column;
-  left: 50%;
+  left: 40%;
   margin-left: -150px;
   margin-top: 71px;
   background: #FFF;
@@ -130,10 +137,11 @@ body {
   border-radius: 10px;
   overflow: hidden;
   padding: 41px;
+  top: 0;
 }
 
 .dropbtn {
-  background-color: #3498DB;
+  /* background-color: #3498DB; */
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -143,7 +151,7 @@ body {
 
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #2980B9;
+  /* background-color: #2980B9; */
 }
 
 .dropdown {
@@ -159,8 +167,8 @@ body {
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  top: 35px;
-  right: -45px;
+  top: 60px;
+  right: -36px;
 }
 
 .dropdown-content a {
@@ -219,6 +227,43 @@ body {
   display: none;
   position: fixed;
   flex-direction: column;
+  left: 40%;
+  margin-left: -150px;
+  margin-top: 71px;
+  background: #FFF;
+  z-index: 20;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 41px;
+  top: 0;
+}
+
+#team:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+#team:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
+.popup-team {
+  display: none;
+  position: fixed;
+  flex-direction: column;
   left: 50%;
   margin-left: -150px;
   margin-top: 71px;
@@ -228,7 +273,10 @@ body {
   overflow: hidden;
   padding: 41px;
 }
-
 .input-group {
-  margin-left: 70%;
+  margin-left: 67%;
+}
+
+.table-responsive {
+  max-height:200px;
 }

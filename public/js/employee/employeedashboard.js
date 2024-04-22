@@ -8,12 +8,12 @@ const assignBadge = (type) => {
       return 'text-primary';
     case 'low':
        return 'text-secondary';
-    case 'todo':
-        return 'badge text-bg-secondary m-2'
     case 'inprogress':
       return 'badge text-bg-primary m-2'
     case 'completed':
       return 'badge text-bg-success m-2'
+    case 'todo':
+      return 'badge text-bg-secondary m-2'
  
   }
 }
@@ -60,7 +60,7 @@ const renderData = (dashboardData) => {
         </div>
         </div>
         </div>`;
-    taskCountsElement.innerHTML += taskCountBox;
+        taskCountsElement !== null ? taskCountsElement.innerHTML += taskCountBox: '';
   });
   dashboardData.upCommingDeadlineData.length != 0
     ? createTable(dashboardData.upCommingDeadlineData, "deadline")
@@ -69,24 +69,11 @@ const renderData = (dashboardData) => {
     ? createTable(dashboardData.employeeInprogressTaskData, "inprogress")
     : showNoData("inprogress");
 };
-
-  keys.map((key)=> {
-
-    if(!(document.getElementById(`${key}`) == null)) {
-      document.getElementById(`${key}`).value = profileData[0][key]
-    }
-    else if(key=="employee_role"){
-      document.getElementById(`${key}`).value = profileData[0][key]
-    }
-    })
-    let profileImageName = profileData[0].img_url.split("/")
-    document.getElementById('selectedImage').src = `/assets/userprofiles/${profileData[0].id}/${profileImageName[3]}`
   
 getDashBoardData("/employee/getdashboardata").then((data) => {
-  dashboardData = data.result
-  renderData(dashboardData)
+  dashboardData = data.result;
+  renderData(dashboardData);
 });
-
 
 async function getDashBoardData(url) {
   const response = await fetch(url);

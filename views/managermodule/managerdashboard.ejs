@@ -28,7 +28,7 @@
 
 			<div class="row">
 				<div class="col-9">
-					<input type="text" placeholder="Search" style="border-radius: 10px;" onchange="searchTasks(this.value)">
+					<input type="text" placeholder="Search" style="border-radius: 10px;" oninput="searchTaskData(this.value)">
 				</div>
 				<div class="col-3">
 					<div class="row ps-5">
@@ -83,21 +83,21 @@
 			<div class="containere">
 				<div class="row lanes">
 					<div class="col-4">
-						<div id="todo" class="swim-lane">
+						<div id="todo" class="swim-lane" style="background-color: rgb(151, 151, 220);">
 							<h2>Todo</h2>
 							<div class="cards "id="todoTask">
 							</div>
 						</div>
 					</div>
-					<div class="col-4" >
-						<div class="swim-lane" id="inprogress">
+					<div class="col-4">
+						<div class="swim-lane" id="inprogress" style="background-color: rgb(230, 230, 118);">
 							<h2>Inprogress</h2>
 							<div class="cards " id="inprogressTask">
 							</div>
 						</div>
 					</div>
 					<div class="col-4">
-						<div class="swim-lane" id="completed">
+						<div class="swim-lane" id="completed" style="background-color: rgb(134, 166, 134);">
 							<h2>completed</h2>
 							<div class="cards"id="completedTask">
 							</div>
@@ -115,7 +115,7 @@
 		</div>
 	</div>
 	<div class="addregistrationcontainer" id="task-detailes">
-		<div id="task">
+		<div id="task" >
 
 		</div>
 	</div>

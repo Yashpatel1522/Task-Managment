@@ -25,7 +25,7 @@
 
 <body onload="getTaskData()">
 
-  <div class="container">
+  <div class="container-div">
     <div class="admin">
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
@@ -66,12 +66,12 @@
             </div>
         </div>
     </div>
-    <div class="text-center text-secondary p-2 " style="background-color: #323232; margin: 0 -10px;">
-      copyright@2024
-    </div>
   </div>
   <div class="addregistrationcontainer" id="popup">
     <%- include("addtask")%>
+  </div>
+  <div class="text-center p-4" style="background-color: #323232; color:white">
+    © 2024 Copyright
   </div>
   <script src="/js/loginmodule/login.js"></script>
   <script src="/js/adminmodule/tasks.js"></script>

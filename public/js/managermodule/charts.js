@@ -26,6 +26,7 @@ async function drawCharts() {
     let taskResponse = await fetch(window.location.origin+`/manager/getManagerUpcomingTasks?start_date=1999-10-01&end_date=2023-10-30&manager_id=3`);
     let taskData = await taskResponse.json();
     
+<<<<<<< HEAD
     console.log(taskData.result);
 
     if(taskData.result[0]) {
@@ -34,6 +35,24 @@ async function drawCharts() {
       });
     }
 
+=======
+    console.log(taskData.teamResult);
+
+    if(taskData.result[0]) {
+      taskData.result.forEach(element => {
+        document.getElementById('upcomingTasks').innerHTML += `<p style="text-align: center; color: black;">${element.task_name}</p>`;
+      });
+    }
+
+    if(taskData.teamResult[0]) {
+      taskData.teamResult.forEach(element => {
+        document.getElementById('teams').innerHTML += `<p style="text-align: center; color: black;">${element.team_name}</p>`
+      });
+    }
+
+    
+
+>>>>>>> dev
     let url = window.location.origin + `/manager/getManagerTaskCount`;
     let response = await fetch(url);
     let data = await response.json();

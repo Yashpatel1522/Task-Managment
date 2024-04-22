@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/employee/employee.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <script src="/js/employee/employeeteam.js"></script>
+    <link rel="stylesheet" href="/css/employee/menubar.css" />
+    <script src="/js/employee/employeedashboard.js"></script>
+    <script src="/js/employee/employeeprofile.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="employee">
+        <%- include('../partials/employeemenubar') %>
+        <div class="container mx-5">
+          <div class="d-flex justify-content-between position-relative mt-2">
+            <div
+              class="profile dropbtn"
+              class="dropbtn"
+              onclick="showDropdown()"
+            >
+              <img class="userprofile" src="/assets/employee/user.png" alt="" />
+              <div id="dropdown" class="dropdown-content">
+                <a
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="loadProfile()"
+                  >Profile</a
+                >
+                <a href="employee/changepassword">Change Password</a>
+                <a href="employee/logout">Logout</a>
+              </div>
+            </div>
+
+            <!-- user profile modal -->
+            <%- include('./profilemodal') %>
+          </div>
+          <h1>Teams</h1>
+          <div class="popup-team" id="team">
+            <div class="body">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                      Team Details
+                    </h5>
+                  </div>
+                  <div class="modal-body" id="teamdetails"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row my-5">
+            <div class="card">
+              <div class="card-header" style="text-align: center">
+                <h5 class="card-title">Team Details</h5>
+              </div>
+              <table class="table" style="text-align: center" id="details">
+                <tr>
+                  <th>Team Name</th>
+                  <th>Members Details</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

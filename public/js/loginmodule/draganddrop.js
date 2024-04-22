@@ -1,4 +1,3 @@
-
 const dragEvent =async() => {
   // let inprogressDraggables = document.getElementById('inprogressTask').children
   // inprogressDraggables = Array.from(inprogressDraggables)
