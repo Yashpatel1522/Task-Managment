@@ -67,10 +67,12 @@ const searchTeams = async (value) => {
   if (value != "") {
     teamDataGlobal.forEach((element) => {
       for (let key in element) {
-        let values = element[key].toString().toLowerCase();
-        let status = values.includes(value.toString().toLowerCase());
-        if (status) {
-          filterArray.push(element);
+        if (element[key] != null) {
+          let values = element[key].toString().toLowerCase();
+          let status = values.includes(value.toString().toLowerCase());
+          if (status) {
+            filterArray.push(element);
+          }
         }
       }
     });

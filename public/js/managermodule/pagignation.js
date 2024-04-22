@@ -1,4 +1,4 @@
-let pageLimit = 2;
+let pageLimit = 5;
 let currentPage = 1;
 let maxLength;
 let pageCount;
@@ -9,7 +9,6 @@ let endIndex;
 
 const pagignation = async (url) => {
   let teamData = await (await fetch(url)).json();
-  console.log(teamData);
   teamDataGlobal = [...teamData.result];
   arrayPagignation = [...teamData.result];
   maxLength = teamData.result.length;
@@ -19,19 +18,41 @@ const pagignation = async (url) => {
   elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
   document.getElementById("current_page").innerHTML = `${currentPage}`;
+  if (teamData.result.length != 0) {
+    getDataGrid(elements);
+    document.getElementById("current_page").style.display = "block";
+  } else {
+    document.getElementById("current_page").style.display = "none";
+    document.getElementById("first").style.display = "none";
+    document.getElementById("previous").style.display = "none";
+    document.getElementById("next").style.display = "none";
+    document.getElementById("last").style.display = "none";
+  }
+
+  if (currentPage === 1) {
+    document.getElementById("first").style.display = "none";
+    document.getElementById("previous").style.display = "none";
+  }
+  if (currentPage === pageCount) {
+    document.getElementById("first").style.display = "block";
+    document.getElementById("previous").style.display = "block";
+    document.getElementById("next").style.display = "none";
+    document.getElementById("last").style.display = "none";
+  }
 };
 
 const firstPage1 = () => {
   currentPage = 1;
+  document.getElementById("current_page").style.display = "block";
   document.getElementById("current_page").innerHTML = `${currentPage}`;
   startIndex = (currentPage - 1) * pageLimit;
   endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
-  document.getElementById("first").style.opacity = 0.5;
-  document.getElementById("previous").style.opacity = 0.5;
-  document.getElementById("next").style.opacity = 1;
-  document.getElementById("last").style.opacity = 1;
+  document.getElementById("first").style.display = "none";
+  document.getElementById("previous").style.display = "none";
+  document.getElementById("next").style.display = "block";
+  document.getElementById("last").style.display = "block";
 };
 
 const previous1 = () => {
@@ -43,11 +64,13 @@ const previous1 = () => {
     elements = arrayPagignation.slice(startIndex, endIndex);
     getDataGrid(elements);
     if (currentPage === 1) {
-      document.getElementById("first").style.opacity = 0.5;
-      document.getElementById("previous").style.opacity = 0.5;
+      document.getElementById("first").style.display = "none";
+      document.getElementById("previous").style.display = "none";
+      document.getElementById("next").style.display = "block";
+      document.getElementById("last").style.display = "block";
     } else {
-      document.getElementById("next").style.opacity = 1;
-      document.getElementById("last").style.opacity = 1;
+      document.getElementById("first").style.display = "block";
+      document.getElementById("previous").style.display = "block";
     }
   }
 };
@@ -61,11 +84,13 @@ const next1 = () => {
     elements = arrayPagignation.slice(startIndex, endIndex);
     getDataGrid(elements);
     if (currentPage === pageCount) {
-      document.getElementById("next").style.opacity = 0.5;
-      document.getElementById("last").style.opacity = 0.5;
+      document.getElementById("next").style.display = "none";
+      document.getElementById("last").style.display = "none";
+      document.getElementById("first").style.display = "block";
+      document.getElementById("previous").style.display = "block";
     } else {
-      document.getElementById("first").style.opacity = 1;
-      document.getElementById("previous").style.opacity = 1;
+      document.getElementById("next").style.display = "block";
+      document.getElementById("last").style.display = "block";
     }
   }
 };
@@ -77,8 +102,8 @@ const lastPage1 = () => {
   endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
-  document.getElementById("first").style.opacity = 1;
-  document.getElementById("previous").style.opacity = 1;
-  document.getElementById("next").style.opacity = 0.5;
-  document.getElementById("last").style.opacity = 0.5;
+  document.getElementById("first").style.display = "block";
+  document.getElementById("previous").style.display = "block";
+  document.getElementById("next").style.display = "none";
+  document.getElementById("last").style.display = "none";
 };

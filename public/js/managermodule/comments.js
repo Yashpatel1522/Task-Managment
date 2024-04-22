@@ -41,20 +41,21 @@ const getDataGrid = async (elements) => {
 const searchComments = async (value) => {
   let filterArray = [];
   if (value != "") {
-    teamDataGlobal.forEach((element) => {
-      for (let key in element) {
-        let values = element[key].toString().toLowerCase();
-        let status = values.includes(value.toString().toLowerCase());
-        if (status) {
-          filterArray.push(element);
+    console.log(teamDataGlobal);
+    teamDataGlobal.forEach((commentData) => {
+      for (let key in commentData) {
+        if (commentData[key] != null) {
+          let values = commentData[key].toString().toLowerCase();
+          let status = values.includes(value.toString().toLowerCase());
+          if (status) {
+            filterArray.push(commentData);
+          }
         }
       }
     });
     if (filterArray.length > 0) {
-      document.getElementById("comment-table").innerHTML = "";
       searchPagignation(filterArray, 1);
     } else {
-      document.getElementById("comment-table").innerHTML = "";
       showComments();
     }
   }
@@ -109,7 +110,7 @@ const updateTaskStatus = async (taskId, taskStatus, employeeId) => {
           });
           swalWithBootstrapButtons
             .fire({
-              title: "Deleted!",
+              title: "Updated!",
               text: "Your task has been updated.",
               icon: "success",
             })
