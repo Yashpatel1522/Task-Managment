@@ -42,6 +42,11 @@ const {
   deleteTeam,
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
+const {
+  viewComments,
+  getComments,
+  updateTaskStatus,
+} = require("../controller/managermodule/comments");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -76,6 +81,9 @@ managerRouter.get("/teamapi", teamdetails);
 
 //api to get upcoming manager tasks
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+
+//api to get upcoming manager tasks
+managerRouter.get('/getManagerUpcomingTasks', upcomingTasks);
 
 //api to Update Manager Profile Details
 managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
@@ -115,4 +123,7 @@ managerRouter.post("/updateteamdata", updateTeamData);
 managerRouter.get("/teamapi/:id", teamDetailsForView);
 managerRouter.delete("/deleteteamapi/:id", deleteTeam);
 
+managerRouter.get("/comments/:teamId", viewComments);
+managerRouter.get("/getcomments/:teamId", getComments);
+managerRouter.post("/updateTaskStatus", updateTaskStatus);
 module.exports = managerRouter;

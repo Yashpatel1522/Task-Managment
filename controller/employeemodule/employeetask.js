@@ -27,7 +27,7 @@ const EmployeeTaskList = async (req, res) => {
 
 const searchlist = async (req, res) => {
     try {
-        usersearch = req.body.search
+        usersearch = req.params.searchresult
         const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join priorities as p on p.id=t.prioritiy_id  inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ?;`
         let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%'])
         res.json(result)

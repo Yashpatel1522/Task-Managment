@@ -7,17 +7,20 @@
   </head>
   <body>
     <div class="pagination">
+      <div class="alert alert-info" id="nodata">
+        <strong>no data found</strong>
+      </div>
       <input
         type="button"
         value="firstpage"
-        class="page-link"
+        class="btn btn-secondary mx-1"
         id="first"
         onclick="firstPage1()"
       />
       <input
         type="button"
         value="previous"
-        class="page-link"
+        class="btn btn-secondary mx-1"
         id="previous"
         onclick="previous1()"
       />
@@ -26,13 +29,13 @@
         type="button"
         value="next"
         id="next"
-        class="page-link"
+        class="btn btn-secondary mx-1"
         onclick="next1()"
       />
       <input
         type="button"
         value="lastpage"
-        class="page-link"
+        class="btn btn-secondary mx-1"
         id="last"
         onclick="lastPage1()"
       />
