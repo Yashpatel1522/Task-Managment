@@ -12,7 +12,7 @@ exports.taskpage = (request, response) => {
 exports.adminTasks = async (request, response) => {
     try {
         let db = new database();
-        let query = `select t.*,u.first_name from tasks as t inner join users as u on t.manager_id = u.id where task_status=?`;
+        let query = `select t.*,u.first_name from tasks as t inner join users as u on t.manager_id = u.id where task_status=? and t.status = 1`;
         let todoData = await db.executeQuery(query, ["todo"]);
         let inprogressData = await db.executeQuery(query, ["inprogress"]);
         let completedData = await db.executeQuery(query, ["completed"]);

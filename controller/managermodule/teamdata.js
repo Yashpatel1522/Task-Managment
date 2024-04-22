@@ -22,7 +22,6 @@ exports.searchTeamData = async (request, response) => {
       `select * from teams where created_by = ? and (team_name like ?) and is_active = ?`,
       [1, search, 1]
     );
-    console.log(searchData);
     return response.json({ result });
   } catch (error) {
     logger.error("Not Search Data Found !");

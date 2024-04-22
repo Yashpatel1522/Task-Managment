@@ -4,7 +4,7 @@ var db = new database();
 
 exports.adminDashboard = async (request, response) => {
     try {
-        let query = `select r.role_name,count(*) as count from users as u inner join roles as r on u.role_id = r.id group by u.role_id having r.role_name = ?`;
+        let query = `select r.role_name,count(*) as count from users as u inner join roles as r on u.role_id = r.id where u.status = 1 group by u.role_id having r.role_name = ?`;
         let [count] = await db.executeQuery(query, ["Employee"]);
         let [count1] = await db.executeQuery(query, ["Manager"]);
 
@@ -22,18 +22,18 @@ exports.adminDashboard = async (request, response) => {
             teamCount = teamCount.count;
         }
 
-        let [count4] = await db.executeQuery(`select task_status,count(*) as count from tasks group by task_status having task_status = ?`, ["completed"]);
+        let [count4] = await db.executeQuery(`select task_status,count(*) as count from tasks where status = 1 group by task_status having task_status = ?`, ["completed"]);
         let completedCount = 0;
         if (count4 !== undefined) {
             completedCount = count4.count;
         }
 
-        let [category] = await db.executeQuery(`select count(*) as count from categories`);
+        let [category] = await db.executeQuery(`select count(*) as count from categories where status = 1`);
         if (category !== undefined) {
             category = category.count;
         }
 
-        let [totalTask] = await db.executeQuery(`select count(*) as count from tasks`);
+        let [totalTask] = await db.executeQuery(`select count(*) as count from tasks where status = 1`);
         if (totalTask !== undefined) {
             totalTask = totalTask.count;
         }

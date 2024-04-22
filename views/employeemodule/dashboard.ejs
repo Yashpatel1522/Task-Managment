@@ -1,88 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/employee/employee.css" />
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/css/employee/menubar.css"/>
-    <script src="/js/employee/employee.js"></script>
-    <script src="/js/employee/employeeprofile.js"></script>
-    <script src="/js/employee/employeedashboard.js"></script>
-    <script src="/js/employee/validation.js"></script>
-    <script src="/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
-    <script src="/sweetalert2/sweetalert2.min.js"></script>
-    <title>Document</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="employee">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/employee/employee.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/employee/menubar.css" />
+  <script src="/js/employee/employee.js"></script>
+  <script src="/js/employee/employeeprofile.js"></script>
+  <script src="/js/employee/employeedashboard.js"></script>
+  <script src="/js/employee/validation.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
+  <title>Document</title>
+</head>
 
-        <%- include('../partials/employeemenubar') %>
-        <div class="container mx-5">
-          <div class="d-flex justify-content-between position-relative mt-2">
-            <h1>Dashboard</h1>
-            <div class="profile dropbtn" onclick="showDropdown()">
-              <img class="userprofile" src="/assets/employee/user.png" alt="" />
-              <div id="dropdown" class="dropdown-content">
-             
-                <a
-                href="/"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="loadProfile()"
-                  >Profile</a
-                >
-                <a href="employee/changepassword">Change Password</a>
-                <a href="employee/logout">Logout</a>
-              </div>
-            </div>
-            <!-- user profile modal -->
-            <%- include('./profilemodal') %>
+<body>
+  <div class="employee">
+
+    <div class="sidebar" style="width: 20%;min-height: 1014px;">
+      <%- include('../partials/employeemenubar') %>
+    </div>
+    <div class="containerMain">
+      <div class="d-flex justify-content-between position-relative mt-2">
+        <h1>Dashboard</h1>
+        <div class="profile dropbtn" onclick="showDropdown()">
+          <img class="userprofile" src="/assets/employee/user.png" alt="" />
+          <div id="dropdown" class="dropdown-content">
+
+            <a href="/" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+              onclick="loadProfile()">Profile</a>
+            <a href="employee/changepassword">Change Password</a>
+            <a href="employee/logout">Logout</a>
           </div>
-          <div>
-          
-                <div class="row my-2" id="taskCountsElement"></div>
-          
-                <div class="row my-5">
-                  <div class="card">
-                    <div class="card-header">
-                      <h5 class="card-title">Upcoming deadlines</h5>
-                    </div>
-                    <div class="table-responsive">
+        </div>
+        <!-- user profile modal -->
+        <%- include('./profilemodal') %>
+      </div>
+      <div style="  padding: 50px;">
 
-                      <table class="table">
-                        <thead id="deadlineheading"></thead>
-                          <tbody id="deadlinebody"></tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mb-2" >
-              
-                  <div class="card">
-                    <div class="card-header">
-                      <h5 class="card-title">In Progress</h5>
-                    </div>
-                    <div class="table-responsive">
+        <div class="row my-2" id="taskCountsElement"></div>
 
-                      <table class="table">
-                        <thead id="inprogressheading" ></thead>
-                        
-                        <tbody style="display: absolute " id="inprogressbody"></tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="row my-5">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Upcoming deadlines</h5>
+            </div>
+            <div class="table-responsive">
+
+              <table class="table">
+                <thead id="deadlineheading"></thead>
+                <tbody id="deadlinebody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">In Progress</h5>
+            </div>
+            <div class="table-responsive">
+
+              <table class="table">
+                <thead id="inprogressheading"></thead>
+
+                <tbody style="display: absolute " id="inprogressbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
 
-  
-    </body>
+
+</body>
+
 </html>

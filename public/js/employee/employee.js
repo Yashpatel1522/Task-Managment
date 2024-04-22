@@ -13,7 +13,16 @@ function showDropdown() {
 let path = window.location.pathname.split("/");
 let id = path[path.length - 1];
 
-function reusablecard(data) {
+
+
+
+var employeedata;
+async function fetchData() {
+
+  response = await fetch(`/employee/employeetasklist/${id}`);
+  data = await response.json();
+  employeedata = data;
+
   function setCard(id, element) {
     document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
@@ -63,14 +72,6 @@ function reusablecard(data) {
     }
   });
 }
-
-var employeedata;
-async function fetchData() {
-  response = await fetch(`/employee/employeetasklist/${id}`);
-  data = await response.json();
-  employeedata = data;
-  reusablecard(data);
-}
 fetchData();
 
 var gtaskid;
@@ -89,16 +90,16 @@ const show = (id, taskid) => {
     
       <div class="row">
       
-      <div class="field fs-6 text p-3 col">
-      <i class="bi bi-record-circle me-2"></i>
-      <label>Status: &nbsp;</label>
-       <p>${element.task_status}</p>
-     </div>
+        <div class="field fs-6 text p-3 col">
+        <i class="bi bi-record-circle me-2"></i>
+        <label>Status: &nbsp;</label>
+        <p>${element.task_status}</p>
+        </div>
      <div class="field fs-6 text p-3 col">
      <i class="bi bi-info-circle me-2"></i>
-<label>Description:</label>
-<p>${element.task_description}</p>
-</div>
+    <label>Description:</label>
+    <p>${element.task_description}</p>
+    </div>
       </div>
       <div class="row">
       
@@ -172,25 +173,22 @@ const hideComment = (id) => {
 };
 
 //user search section
-async function seachresult() {
-  if (document.getElementById("searchinput").value != "") {
-    obj = {};
-    new FormData(document.getElementById("form")).forEach((value, key) => {
-      obj[key] = value;
-    });
-    console.log(obj, "obj is ");
-    const response = await fetch(`http://127.0.0.1:8000/employee/searchtask`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify(obj),
-    });
-    data = await response.json();
+const seachresultnew = async () => {
+  let svalue = document.getElementById('seachtaskresult').value
+  if (svalue === "") {
+    ides("todo").innerHTML = ""
+    ides("inprogress").innerHTML = ""
+    ides("completed").innerHTML = ""
 
-    ides("todo").style.display = "none";
-    ides("inprogress").style.display = "none";
-    ides("completed").style.display = "none";
+    fetchData()
+  }
+  let response = await fetch(`/employee/searchtask/${svalue}`)
+  let data = await response.json();
+  ides("todo").innerHTML = ""
+  ides("inprogress").innerHTML = ""
+  ides("completed").innerHTML = ""
+
+  if (data.length != 0) {
     function resetCard(id, element) {
       document.getElementById(`${id}`).innerHTML = "";
       document.getElementById(`${id}`).innerHTML += `
@@ -244,7 +242,14 @@ async function seachresult() {
           break;
       }
     });
-  } else {
+  }
+  else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Data Not Found"
+    });
+    ides("seachtaskresult").value = ""
     fetchData();
   }
 }
@@ -274,32 +279,32 @@ async function addcomment() {
 function updateUserProfile() {
   let form = document.getElementById('profileform')
   let formData = new FormData(form)
-  fetch( `/employee/updateprofile`,{
+  fetch(`/employee/updateprofile`, {
     method: 'POST',
-    body:formData
+    body: formData
   }).then(
-    (response)=> {
+    (response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       return response.json();
     }
   )
-  .then((data) => {
-    if (data.message == "updated") {
-      Swal.fire({
-        title: "Done",
-        text: "Profile Updated Succesfully",
-        icon: "success",
-      }).then(function(){
-        window.location.reload();
-      });
-    } else {
-      Swal.fire({
-        title: "Done",
-        text: "Profile is not Updated",
-        icon: "error",
-      })
-    }
-  })
+    .then((data) => {
+      if (data.message == "updated") {
+        Swal.fire({
+          title: "Done",
+          text: "Profile Updated Succesfully",
+          icon: "success",
+        }).then(function () {
+          window.location.reload();
+        });
+      } else {
+        Swal.fire({
+          title: "Done",
+          text: "Profile is not Updated",
+          icon: "error",
+        })
+      }
+    })
 }

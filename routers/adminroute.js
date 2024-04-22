@@ -26,20 +26,8 @@ const {
 } = require("../controller/adminmodule/tasks");
 const { adminCalender } = require("../controller/adminmodule/calender");
 const { profiledata } = require("../controller/adminmodule/adminprofile");
-const {
-  categoryPage,
-  adminCategory,
-  searchCategory,
-} = require("../controller/adminmodule/category");
-const {
-  adminTeam,
-  deleteTeam,
-  teamData,
-  teamDetails,
-  searchTeam,
-  addNewTeam,
-} = require("../controller/adminmodule/teamdata");
-const checkUserRole = require("../middleware/userrole");
+const { categoryPage, adminCategory, searchCategory, categoryDetail, addCategory,deleteCategory } = require("../controller/adminmodule/category");
+const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam } = require("../controller/adminmodule/teamdata");
 const passport = require("passport");
 
 const router = express.Router();
@@ -88,6 +76,11 @@ router.get("/managerTask", managerTask);
 // Category
 router.route("/categoryData").get(adminCategory);
 router.get("/categoryData/:searchdata", searchCategory);
+router.get("/categoryDetails/:id", categoryDetail);
+router.post("/category", addCategory);
+router.delete("/categoryData/:id", deleteCategory);
+
+
 
 // Calender
 router.route("/calender").get(adminCalender);

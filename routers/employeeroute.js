@@ -14,6 +14,7 @@ const {
   teamlist,
   teamdata,
   teamdetails,
+  teamsearchdetails,
 } = require("../controller/employeemodule/employeeteam");
 const {
   getdashboardata,
@@ -47,5 +48,6 @@ router.post(
 router.get("/teamdata/:id", teamlist);
 router.get("/teamdetailsdata/:id", teamdata);
 router.get("/teamdetails/:id", teamdetails);
+router.get("/teamsearchdetails/:searchteam", teamsearchdetails);
 
 module.exports = router;

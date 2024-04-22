@@ -13,7 +13,7 @@ const teamlist = async (req, res) => {
 const teamdata = async (req, res) => {
   try {
     id = req.params.id
-    const query = `select teams.id as teamid,teams.team_name,users.first_name as employee_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=team_details.member_id where users.id=?` 
+    const query = `select teams.id as teamid,teams.team_name,users.first_name as employee_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=team_details.member_id where users.id=?`
     let result = await db.executeQuery(query, id)
     res.json(result)
   }
@@ -41,4 +41,18 @@ const teamdetails = async (req, res) => {
   }
 }
 
-module.exports = { teamlist, teamdata, teamdetails }
+
+
+
+const teamsearchdetails = async (req, res) => {
+  console.log("****************************************");
+  try {
+    let search = "%" + req.params.searchteam + "%";
+    let searchTeam = await db.executeQuery(`select * from teams where team_name like ? `, [search]);
+    return res.json(searchTeam);
+  } catch (error) {
+    logger.error("Team data not found it!");
+  }
+}
+
+module.exports = { teamlist, teamdata, teamdetails, teamsearchdetails }

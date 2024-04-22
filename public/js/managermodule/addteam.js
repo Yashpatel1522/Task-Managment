@@ -1,10 +1,10 @@
-function onReset() {
+const onReset = () => {
   document.getElementById("teamForm").reset();
-}
+};
 
-async function addEmpList(){
+const addEmpList = async () => {
   try {
-  await fetch(`${window.location.origin}/manager/getempdata`, {
+    await fetch(`${window.location.origin}/manager/getempdata`, {
       method: "get", // *GET, POST, PUT, DELETE, etc.
       mode: "cors",
       headers: {
@@ -14,7 +14,7 @@ async function addEmpList(){
     })
       .then((response) => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         return response.json();
       })
@@ -28,45 +28,40 @@ async function addEmpList(){
   } catch (error) {
     console.log(error);
   }
-}
+};
 addEmpList();
 
-function employeeDynamicCombo(empdata){
+const employeeDynamicCombo = (empdata) => {
   let empcombo = document.getElementById("empselect");
-  empdata.forEach(data => {
+  empdata.forEach((data) => {
     let option = document.createElement("option");
     option.setAttribute("value", `${data.id}`);
     option.setAttribute("id", `${data.id}`);
     option.textContent = `${data.first_name}`;
     empcombo.appendChild(option);
   });
-}
+};
 
+const addTeamValidations = () => {
+  let err = true;
+  let team_Name = document.getElementById("team_name").value;
+  if (team_Name.trim().length === 0) {
+    document.getElementById("tnerr").innerHTML = "* required";
+    err = false;
+  }
+  let selectvalue = document.getElementById("empselect").value;
+  if (selectvalue == 0) {
+    document.getElementById("tmerr").innerHTML = "* required";
+    err = false;
+  }
+  return err;
+};
 
-
-function addTeamValidations(){ 
-      let err = true; 
-      let team_Name = document.getElementById("team_name").value;
-      if(team_Name.trim().length === 0)
-      {
-        document.getElementById("tnerr").innerHTML = "* required"
-        err = false;
-      }
-      let selectvalue = document.getElementById("empselect").value;
-      if(selectvalue == 0)
-      {
-        document.getElementById("tmerr").innerHTML = "* required";
-        err = false;
-      }
-      return err;
-}
-
-
-async function insertTaskData() {
+const insertTaskData = async () => {
   let err = addTeamValidations();
   if (err === true) {
-    let dataobj={};
-    let team_name = document.getElementById('team_name').value
+    let dataobj = {};
+    let team_name = document.getElementById("team_name").value;
     dataobj.team_name = team_name;
     let selectedArray = new Array();
     let count = 0;
@@ -84,22 +79,21 @@ async function insertTaskData() {
         method: "post", // *GET, POST, PUT, DELETE, etc.
         mode: "cors",
         headers: {
-            "Content-Type": "application/json",
-            'Access-Control-Allow-Origin': '*'
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
-        body: JSON.stringify(dataobj)
+        body: JSON.stringify(dataobj),
       })
         .then((response) => {
           if (!response.ok) {
-              throw new Error('Network response was not ok');
+            throw new Error("Network response was not ok");
           }
           return response.json();
         })
         .then((data) => {
           console.log("Data received:", data);
-          if(data.msg !== "undefined")
-          {
-            DataINsertedSuccessfully()
+          if (data.msg !== "undefined") {
+            DataINsertedSuccessfully();
           }
         })
         .catch((error) => {
@@ -108,25 +102,26 @@ async function insertTaskData() {
     } catch (error) {
       console.log(error);
     }
-  }}
-
+  }
+};
 
 // pop-up js of addtask.ejs
 let popup = document.getElementById("popup");
 
-function openPopup() {
+const openPopup = () => {
   popup.classList.add("open-popup");
-}
+};
 
-function closePopup() {
+const closePopup = () => {
   popup.classList.remove("open-popup");
-}
-  function DataINsertedSuccessfully() {
-    Swal.fire({
-      title: "Done",
-      text: "Task inserted Succesfully",
-      icon: "success",
-    }).then(function(){
-      window.location.href = '/manager/Teams'
-    })
-  }
+};
+
+const DataINsertedSuccessfully = () => {
+  Swal.fire({
+    title: "Done",
+    text: "Task inserted Succesfully",
+    icon: "success",
+  }).then(function () {
+    window.location.href = "/manager/Teams";
+  });
+};

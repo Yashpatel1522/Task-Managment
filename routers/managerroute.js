@@ -15,6 +15,7 @@ const managerProfile = require("../controller/managermodule/getManagerProfile");
 const dashboardView = require("../controller/managermodule/dashboard");
 const employeeView = require("../controller/managermodule/employeeView");
 const taskView = require("../controller/managermodule/taskView");
+const getAllTasks = require("../controller/managermodule/getalltasks")
 const upcomingTasks = require("../controller/managermodule/upcomingTasks");
 const {
   addtaskdata,
@@ -42,6 +43,11 @@ const {
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
 const passport = require("passport");
+const {
+  viewComments,
+  getComments,
+  updateTaskStatus,
+} = require("../controller/managermodule/comments");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -73,13 +79,19 @@ managerRouter.get("/dashboard", dashboardView().getPage);
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
 
+//API to get task details
+managerRouter.get("/getTaskDetails/:id", getAllTasks)
+
 managerRouter.get("/teamapi", teamdetails);
 
 //api to get upcoming manager tasks
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 
+//api to get upcoming manager tasks
+managerRouter.get('/getManagerUpcomingTasks', upcomingTasks);
+
 //api to Update Manager Profile Details
-// managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
+managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
 
 //api to get Manager Profile Details
 managerRouter.get("/getManagerProfile", managerProfile);
@@ -116,4 +128,7 @@ managerRouter.post("/updateteamdata", updateTeamData);
 managerRouter.get("/teamapi/:id", teamDetailsForView);
 managerRouter.delete("/deleteteamapi/:id", deleteTeam);
 
+managerRouter.get("/comments/:teamId", viewComments);
+managerRouter.get("/getcomments/:teamId", getComments);
+managerRouter.post("/updateTaskStatus", updateTaskStatus);
 module.exports = managerRouter;
