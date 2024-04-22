@@ -199,7 +199,15 @@ is_deleted boolean default 0,
 FOREIGN KEY(task_id) REFERENCES tasks(id) ON UPDATE CASCADE
 );
 
-
+create table teams (
+	id int auto_increment primary key,
+    team_name varchar(50),
+    created_by int,
+    is_active boolean default 1,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp on update current_timestamp,
+    foreign key (created_by) references users (id)
+);
 
 create table teams(
 	id int primary key auto_increment,
