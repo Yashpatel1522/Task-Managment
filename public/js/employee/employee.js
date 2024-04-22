@@ -89,16 +89,16 @@ const show = (id, taskid) => {
     
       <div class="row">
       
-      <div class="field fs-6 text p-3 col">
-      <i class="bi bi-record-circle me-2"></i>
-      <label>Status: &nbsp;</label>
-       <p>${element.task_status}</p>
-     </div>
+        <div class="field fs-6 text p-3 col">
+        <i class="bi bi-record-circle me-2"></i>
+        <label>Status: &nbsp;</label>
+        <p>${element.task_status}</p>
+        </div>
      <div class="field fs-6 text p-3 col">
      <i class="bi bi-info-circle me-2"></i>
-<label>Description:</label>
-<p>${element.task_description}</p>
-</div>
+    <label>Description:</label>
+    <p>${element.task_description}</p>
+    </div>
       </div>
       <div class="row">
       
@@ -179,7 +179,7 @@ async function seachresult() {
       obj[key] = value;
     });
     console.log(obj, "obj is ");
-    const response = await fetch(`http://127.0.0.1:8000/employee/searchtask`, {
+    const response = await fetch(`/employee/searchtask`, {
       method: "POST",
       headers: {
         "content-type": "application/json; charset=UTF-8",

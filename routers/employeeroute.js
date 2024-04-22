@@ -5,7 +5,7 @@ const { userProfileStorage } = require("../utility/multer");
 const uploadStorageprofile = multer({ storage: userProfileStorage })
 
 const { EmployeeTaskList, list, searchlist, addcomment } = require("../controller/employeemodule/employeetask")
-const { teamlist, teamdata, teamdetails } = require("../controller/employeemodule/employeeteam")
+const { teamlist, teamdata, teamdetails, teamsearchdetails } = require("../controller/employeemodule/employeeteam")
 const { getdashboardata, dashboard } = require("../controller/employeemodule/dashboard")
 const { getProfiledata, updateProfiledata } = require('../controller/employeemodule/employeeprofile');
 router.get("/getdashboardata", getdashboardata)
@@ -19,6 +19,7 @@ router.post('/addcomment/:id/:taskid', uploadStorageprofile.single('file'), addc
 router.get('/teamdata/:id', teamlist)
 router.get('/teamdetailsdata/:id', teamdata)
 router.get('/teamdetails/:id',teamdetails)
+router.get('/teamsearchdetails/:searchteam',teamsearchdetails)
 
 
 

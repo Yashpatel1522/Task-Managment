@@ -32,20 +32,30 @@ const show = async (id) => {
   data.result1.forEach(element => {
     console.log(element, "ele")
     document.getElementById('teamdetails').innerHTML =
-                          `<div class="field">
-                            <label class="ms-3">Team Name:</label>
-                            <p>${element.team_name}</p>
-                          </div>
-                          <div class="field">
-                            <label  class="ms-3">Task Assignee Name:</label>
-                            <p>${element.manager_name}</p>
-                          </div>
-                          <div class="field">
-                            <label  class="ms-3">Team Members  Name:</label>
-                            <div id="pflex" class="field flex-column" style="height: 60px;overflow: scroll;">
+      `
+                          <div class="row">
+                            <div class="field fs-6 text p-3 col">
+                              <label>Team Name :&nbsp;</label>
+                              <p>${element.team_name}</p>
                             </div>
                           </div>
-                          <button type = "button" class="btn btn-primary" style="margin: 26px 71px;" data-dismiss="modal"
+                          <div class="row">
+                            <div class="field fs-6 text p-3 col">
+                            <label>Task Assignee Name :&nbsp;</label>
+                            <p>${element.manager_name}</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="field fs-6 text p-3 col">
+                              <label>Team Members  Name :&nbsp;</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                           <div id="pflex" class="field flex-column" style="height: 60px;overflow: scroll;width: 90%;text-align: center;">
+                            </div>
+                          </div>
+
+                          <button type = "button" class="btn btn-primary" style="margin: 20px 75px;" data-dismiss="modal"
                           onclick = "hideteam('team')">Close</button>`
 
   });
@@ -57,5 +67,37 @@ const show = async (id) => {
 
 }
 viewteamdata()
-// style = "position: sticky;top: 0px;background-color: white;"
-// style = "height: 90px;overflow: scroll;"
+
+
+
+const seachresultteam = async () => {
+
+  let svalue = document.getElementById('searchteam').value
+  console.log(svalue);
+  if (svalue === "") {
+    document.getElementById("details").innerHTML = `<tr>
+    <th> Team Name</th>
+    <th>Members Details</th></tr>`;
+    viewteamdata()
+  }
+  let response = await (fetch(`/employee/teamsearchdetails/${svalue}`))
+  let data = await response.json();
+  console.log(data, "////")
+  document.getElementById("details").innerHTML = `<tr>
+    <th> Team Name</th>
+    <th>Members Details</th></tr>`;
+  if (data.length != 0) {
+    data.forEach(element => {
+      document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td>
+    <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`
+    });
+  }
+  else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Data Not Found"
+    });
+    viewteamdata();
+  }
+}
