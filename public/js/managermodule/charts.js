@@ -14,13 +14,21 @@ const getProfile = async () => {
   document.getElementById("email1").value = data.result[0].email;
   document.getElementById("phone_input").value = data.result[0].contact;
   document.getElementById("dob_input").value = data.result[0].date_of_birth;
-
   if (data.imageResult[0]) {
     document.getElementById(
       "selectedImage"
     ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
   }
 };
+    let taskResponse = await fetch(window.location.origin+`/manager/getManagerUpcomingTasks?start_date=1999-10-01&end_date=2023-10-30&manager_id=3`);
+    let taskData = await taskResponse.json();
+    if(taskData.result[0]) {
+      taskData.result.forEach(element => {
+        document.getElementById('upcomingTasks').innerHTML += `<p style="text-align: center; color: grey;">${element.task_name}</p>`;
+      });
+    }
+
+    console.log(taskData.teamResult);
 
 const drawCharts = async () => {
   let taskResponse = await fetch(
@@ -28,9 +36,6 @@ const drawCharts = async () => {
       `/manager/getManagerUpcomingTasks?start_date=1999-10-01&end_date=2023-10-30&manager_id=3`
   );
   let taskData = await taskResponse.json();
-
-  console.log(taskData.teamResult);
-
   if (taskData.result[0]) {
     taskData.result.forEach((element) => {
       document.getElementById(
@@ -46,7 +51,6 @@ const drawCharts = async () => {
       ).innerHTML += `<p style="text-align: center; color: black;">${element.team_name}</p>`;
     });
   }
-
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();

@@ -7,14 +7,21 @@ const getProfile = async () => {
     spanEle[element].innerText = ``;
   });
   document.getElementById("imgMsg").innerText = ``;
-
   document.getElementById("id").value = data.result[0].id;
   document.getElementById("firstname").value = data.result[0].first_name;
   document.getElementById("lastname").value = data.result[0].last_name;
   document.getElementById("email1").value = data.result[0].email;
   document.getElementById("phone_input").value = data.result[0].contact;
   document.getElementById("dob_input").value = data.result[0].date_of_birth;
+  if (data.imageResult[0]) {
+    document.getElementById(
+      "selectedImage"
+    ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
+  }
+};
 
+const getTeamData = async () => {
+  let data = await (await fetch(`/manager/teamapi`)).json();
   if (data.imageResult[0]) {
     document.getElementById(
       "selectedImage"
