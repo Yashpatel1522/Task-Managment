@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <form id="taskForm" name="taskform" enctype="multipart/form-data">
+  <form id="taskForm" name="taskform" action="/manager/editTaskDetails" method="post">
     <div class="cont">
       <div class="row mb-2">
         <div class="col-md-11">
@@ -33,7 +33,7 @@
       <div id="taskContainer"></div>
       <div class="row mb-2">
         <div class="col-md-6 p-2">
-          <input type="button" class="btn btn-primary form-control" id="savebtn" value="Save" onclick="insertTaskData()">
+          <input type="submit" class="btn btn-primary form-control" id="savebtn" value="Save">
         </div>
         <div class="col-md-6 p-2">
           <input type="button" class="btn btn-danger form-control" id="resetbtn" value="Reset" onclick="onReset()">

@@ -11,7 +11,8 @@ const getData = async () => {
 };
 
 const getProfile = async () => {
-  let url = window.location.origin + "/manager/getManagerProfile";
+  let url = window.location.origin + `/manager/getManagerProfile/2`;
+  console.log("URl IS : "+url);
   let response = await fetch(url);
   let data = await response.json();
 
@@ -75,7 +76,7 @@ async function editTaskPopup(id) {
   console.log(id);
   let data = await (await fetch(`/manager/getTaskDetails/${id}`)).json();
   let employeeData = await getEmployee();
-  employeeData = JSON.parse(employeeData)
+  employeeData = JSON.parse(employeeData);
   console.log("in Below"+employeeData.result);
 
   let commonStr = ``;
@@ -96,6 +97,7 @@ async function editTaskPopup(id) {
   <div class="row mb-3">
   <div class="col-md-6">
     <label class="text-primary">Task Name :</label>
+    <input type="hidden" name="id" value="${id}">
     <input type="text" class="form-control" tabindex="2" id="task_name" name="task_name"
           value="${data.result[0].task_name}">
   </div>
@@ -146,7 +148,7 @@ async function editTaskPopup(id) {
   <div class="col-md-6">
     <label class="text-primary">Manager :</label>
     <input type="text" class="form-control" tabindex="2" id="manager" name="manager"
-          value="${data.managerName}">
+          value="${data.managerName}" disabled>
   </div>
   <div class="col-md-6">
     <label class="text-primary">employees :</label>

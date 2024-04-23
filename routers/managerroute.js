@@ -17,6 +17,7 @@ const employeeView = require("../controller/managermodule/employeeView");
 const taskView = require("../controller/managermodule/taskView");
 const getAllTasks = require("../controller/managermodule/getalltasks")
 const upcomingTasks = require("../controller/managermodule/upcomingTasks");
+const editTask = require('../controller/managermodule/edittask')
 const {
   addtaskdata,
   inserttaskdata,
@@ -79,6 +80,9 @@ managerRouter.get("/dashboard", dashboardView().getPage);
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
 
+//API to edit task Details
+managerRouter.post("/editTaskDetails", editTask);
+
 //API to get task details
 managerRouter.get("/getTaskDetails/:id", getAllTasks)
 
@@ -94,7 +98,7 @@ managerRouter.get('/getManagerUpcomingTasks', upcomingTasks);
 managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
 
 //api to get Manager Profile Details
-managerRouter.get("/getManagerProfile", managerProfile);
+managerRouter.get("/getManagerProfile/:id", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
