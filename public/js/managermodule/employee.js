@@ -101,13 +101,13 @@ const searchEmployee = async (value) => {
                     <div class="col-4">
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
-                            <div class="card-body bg-light" style="border-radius: 10px;">
-                                <h5 class="card-title" style="font-size: 25px;">${data.searchData[count].first_name} ${data.searchData[count].last_name}</h5>
+                            <div class="card-body bg-light cardview" style="border-radius: 10px;">
+                                <h5 class="card-title textview" style="font-size: 25px;">${data.searchData[count].first_name} ${data.searchData[count].last_name}</h5>
                                 <br>
-                                <p class="card-text"><b>Email - </b>${data.searchData[count].email}</p>
-                                <p class="card-text"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
-                                  <button class="btn btn-primary" onclick="showEmployeeDetails(${data.searchData[count].id}, '${data.searchData[count].first_name}', '${data.searchData[count].last_name}', '${data.searchData[count].email}', '${data.searchData[count].contact}', '${data.searchData[count].date_of_birth}', '${data.searchData[count].create_at}', '${data.searchData[count].img_url}')">View More</button>
-                                <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.searchData[count].id})">
+                                <p class="card-text textview"><b>Email - </b>${data.searchData[count].email}</p>
+                                <p class="card-text textview"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
+                                  <button class="btn btn-primary btnview" onclick="showEmployeeDetails(${data.searchData[count].id}, '${data.searchData[count].first_name}', '${data.searchData[count].last_name}', '${data.searchData[count].email}', '${data.searchData[count].contact}', '${data.searchData[count].date_of_birth}', '${data.searchData[count].create_at}', '${data.searchData[count].img_url}')">View More</button>
+                                <input type="button" value="Remove" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.searchData[count].id})">
                             </div>
                         </div>
                     </div>
