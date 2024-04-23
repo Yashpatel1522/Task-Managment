@@ -16,7 +16,7 @@ exports.addNewTeam = async (request, response) => {
     try {
         let { team_name, member_id } = request.body;
         console.log(request.body);
-        let teamadd = await db.insertData({ team_name: team_name, created_by: 5 }, "teams");
+        let teamadd = await db.insertData({ team_name: team_name, created_by: 2 }, "teams");
         let lastid = teamadd.insertId;
         member_id.split(",").forEach(async (element) => {
             await db.insertData({ team_id: lastid, emp_id: element }, "team_members");
@@ -45,7 +45,7 @@ exports.teamDetails = async (request, response) => {
 
         let memberDetails = await db.executeQuery(`select t.id ,t.team_id , u.id as emp_id ,concat(u.first_name ,' ', u.last_name) as employees from team_members as t left join teams on t.team_id = teams.id left join users as u on t.emp_id = u.id where t.team_id = ?`, [teamId]);
 
-        let teamTask = await db.executeQuery(`select h.id,h.team_id,t.task_name from team_has_tasks as h left join tasks as t on h.task_id = t.id where h.team_id = ?`, [teamId]);
+        let teamTask = await db.executeQuery(`select h.team_id,t.task_name from team_has_tasks as h left join tasks as t on h.task_id = t.id where h.team_id = ?`, [teamId]);
 
         return response.json({ teamCreate: teamCreate, memberDetails: memberDetails, teamTask: teamTask })
     } catch (error) {

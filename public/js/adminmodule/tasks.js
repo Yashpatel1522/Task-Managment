@@ -118,7 +118,7 @@ const searchTaskData = async (value) => {
   }
 };
 
-let taskPopup = document.getElementById("task-detailes");
+let taskPopup = document.getElementById("task-detail");
 
 const closePopup2 = () => {
   try {

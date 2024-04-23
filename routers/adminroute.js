@@ -24,9 +24,9 @@ const {
   taskpage,
   taskDetail,
 } = require("../controller/adminmodule/tasks");
-const { adminCalender } = require("../controller/adminmodule/calender");
+const { adminCalender, calenderMonth, dueDateTask } = require("../controller/adminmodule/calender");
 const { profiledata } = require("../controller/adminmodule/adminprofile");
-const { categoryPage, adminCategory, searchCategory, categoryDetail, addCategory,deleteCategory } = require("../controller/adminmodule/category");
+const { categoryPage, adminCategory, searchCategory, categoryDetail, addCategory, deleteCategory } = require("../controller/adminmodule/category");
 const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam } = require("../controller/adminmodule/teamdata");
 const passport = require("passport");
 
@@ -84,5 +84,8 @@ router.delete("/categoryData/:id", deleteCategory);
 
 // Calender
 router.route("/calender").get(adminCalender);
+router.get("/calenderData/:month",calenderMonth);
+router.get("/dueDateOfTask", dueDateTask);
+
 
 module.exports = router;

@@ -7,6 +7,7 @@ const chartShow = async () => {
     label.push(e.label);
     data.push(e.data);
   });
+  console.log(data);
   const Pieadmin = {
     series: data,
     chart: {
@@ -14,7 +15,7 @@ const chartShow = async () => {
       width: 400,
       type: 'pie',
     },
-    labels: ['Todo', 'Completed', 'In Progress'],
+    labels: ['Todo', 'In Progress', 'Completed'],
     responsive: [{
       breakpoint: 480,
       options: {

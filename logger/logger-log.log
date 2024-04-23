@@ -229,3 +229,24 @@
 {"level":"error","message":"Team details not found!","timestamp":"2024-04-22T07:55:27.262Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '2105' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-22T13:54:14.477Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '2105' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-22T13:54:21.229Z"}
+{"level":"error","timestamp":"2024-04-23T04:46:05.470Z"}
+{"level":"error","timestamp":"2024-04-23T04:46:06.579Z"}
+{"level":"error","timestamp":"2024-04-23T04:46:06.987Z"}
+{"level":"error","timestamp":"2024-04-23T04:46:07.170Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:22.377Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:29.851Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:30.278Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:30.478Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:30.644Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:30.821Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:31.008Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:31.159Z"}
+{"level":"error","timestamp":"2024-04-23T04:51:31.298Z"}
+{"level":"error","message":"New team is not added !","timestamp":"2024-04-23T04:51:50.541Z"}
+{"level":"error","message":"New team is not added !","timestamp":"2024-04-23T04:51:51.709Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-23T04:52:57.198Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '1' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-23T05:14:48.747Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '1' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-23T05:14:49.783Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-23T05:16:18.655Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T05:17:04.016Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T05:17:12.282Z"}
