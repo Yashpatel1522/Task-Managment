@@ -17297,6 +17297,22 @@ CREATE TABLE `attechments` (
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `user_comments`;
 CREATE TABLE `user_comments` (
+<<<<<<< HEAD
+`id` int NOT NULL AUTO_INCREMENT,
+`employee_id` int DEFAULT NULL,
+`task_id` int DEFAULT NULL,
+`task_status` varchar(15) DEFAULT NULL,
+`comment` varchar(255) DEFAULT NULL,
+`oldfile_name` varchar(255),
+`attechment` varchar(255) DEFAULT NULL,
+`create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`update_at` timestamp default current_timestamp on update current_timestamp,
+PRIMARY KEY (`id`),
+KEY `employee_id` (`employee_id`),
+KEY `task_id` (`task_id`),
+CONSTRAINT `user_comments_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `user_comments_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON UPDATE CASCADE
+=======
   `id` int NOT NULL AUTO_INCREMENT,
   `employee_id` int DEFAULT NULL,
   `task_id` int DEFAULT NULL,
@@ -17310,4 +17326,5 @@ CREATE TABLE `user_comments` (
   KEY `task_id` (`task_id`),
   CONSTRAINT `user_comments_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `user_comments_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON UPDATE CASCADE
+>>>>>>> dev
 );
