@@ -73,7 +73,8 @@ async function showEmployeeDetails(
 }
 
 const getProfile = async () => {
-  let url = window.location.origin + "/manager/getManagerProfile";
+  let url = window.location.origin + `/manager/getManagerProfile/2`;
+  console.log(url);
   let response = await fetch(url);
   let data = await response.json();
 
