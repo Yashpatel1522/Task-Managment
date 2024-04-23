@@ -61,3 +61,21 @@
 .tasklft > h2 {
 	font-size: 35px;
 }
+.card:hover {
+	position: relative;
+	top: -20px;
+	transition: 1s;
+	background-color: black;
+}
+.card:hover .cardview{
+	background-color: black !important;
+}
+.card:hover .textview{
+	color: aliceblue;
+}
+.card:hover .btnview{
+	background-color: rgb(201, 205, 12);
+	color: #323232;
+	border-right: 5px solid white;
+	border-bottom: 5px solid white;
+}

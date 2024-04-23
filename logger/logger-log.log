@@ -233,3 +233,12 @@
 {"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('1','1','4','task-employe management system','UI/UX TASK','2022-02-03','2022-02-29','inprogress')","sqlMessage":"Incorrect date value: '2022-02-29' for column 'task_end_date' at row 1","sqlState":"22007","timestamp":"2024-04-23T05:54:58.997Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '7' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-23T06:16:11.993Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '7' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-23T06:31:26.840Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T09:55:02.411Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T09:55:03.057Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T09:55:03.368Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T09:55:03.560Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T09:55:03.752Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T09:55:03.928Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-23T09:56:30.301Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T09:57:23.984Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-23T10:16:48.327Z"}
