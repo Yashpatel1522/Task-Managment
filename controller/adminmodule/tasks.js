@@ -28,17 +28,17 @@ exports.searchTasks = async (request, response) => {
         search = "%" + search + "%";
         let db = new database();
         let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?)`;
-        let todoTask = await db.executeQuery(query, ["todo",search,search]);
+        let todoTask = await db.executeQuery(query, ["todo", search, search]);
         let inprogressTask = await db.executeQuery(query, ["inprogress", search, search]);
         let completedTask = await db.executeQuery(query, ["completed", search, search]);
-        return response.json({todoTask,inprogressTask,completedTask});
+        return response.json({ todoTask, inprogressTask, completedTask });
     } catch (err) {
         logger.error("Not task found it!");
     }
 }
 
-exports.taskDetail = async(request, response)=>{
-    try{
+exports.taskDetail = async (request, response) => {
+    try {
         let taskId = request.params.id;
         let db = new database();
         let query = `select t.id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,c.category,p.id as priority_id,users.first_name as manager from tasks as t left join categories as c on t.category_id = c.id left join priorities as p on t.prioritiy_id = p.id left join users on t.manager_id = users.id where t.id = ?`
@@ -50,8 +50,8 @@ exports.taskDetail = async(request, response)=>{
         let employeeQuery = `select t.*,u.first_name from tasks_assigend_to as t left join users as u on t.emp_id = u.id where task_id = ?`;
         let employees = await db.executeQuery(employeeQuery, [taskId]);
         // console.log(employees);
-        return response.json({ taskDetail: taskDetail, priorities: priorities,employees:employees}) 
-    }catch(err){
+        return response.json({ taskDetail: taskDetail, priorities: priorities, employees: employees })
+    } catch (err) {
         console.log(err);
         // logger.error(err);
     }

@@ -20,9 +20,9 @@ const searchAllData = async (api, id, apifetch) => {
                 <td>
                 <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
                 </td>
-                <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="alert('Edit')"></td>
+                <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="editTeam(${element.id})"></td>
                 <td>
-                <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
+                <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="teamDelete(${element.id})">
                 </td > `)
         });
         document.getElementById(`${id}`).innerHTML = dataadd;

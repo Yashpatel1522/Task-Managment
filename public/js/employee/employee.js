@@ -279,6 +279,7 @@ async function addcomment() {
 function updateUserProfile() {
   let form = document.getElementById('profileform')
   let formData = new FormData(form)
+  console.log(formData);
   fetch(`/employee/updateprofile`, {
     method: 'POST',
     body: formData

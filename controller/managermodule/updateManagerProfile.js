@@ -12,11 +12,11 @@ const updateManager = async (request, response) => {
       request.body.email,
       request.body.contact,
       request.body.date_of_birth,
-      8,
+      2,
     ]);
 
     const countQuery = `select count(*) as count from user_profiles where user_id = ?`;
-    const countRes = await db.executeQuery(countQuery, [8]);
+    const countRes = await db.executeQuery(countQuery, [2]);
 
     if (countRes[0].count == 0) {
       if (request.file) {
@@ -27,7 +27,7 @@ const updateManager = async (request, response) => {
         console.log(oldName);
         console.log(request.file.filename);
         const updatedRes = await db.executeQuery(updateImageQuery, [
-          8,
+          2,
           oldName,
           request.file.filename,
         ]);
@@ -40,7 +40,7 @@ const updateManager = async (request, response) => {
       const updatedRes = await db.executeQuery(updateImageQuery, [
         oldName,
         request.file.filename,
-        8,
+        2,
       ]);
     }
 
