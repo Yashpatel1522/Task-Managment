@@ -186,6 +186,7 @@ body {
 
 .show {
   display: block;
+  margin-right: 3%;
 }
 
 .modal-footer-user {
