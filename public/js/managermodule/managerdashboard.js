@@ -10,31 +10,6 @@ const getData = async () => {
     data.compleatedResult[0].count;
 };
 
-const getProfile = async () => {
-  let url = window.location.origin + "/manager/getManagerProfile";
-  let response = await fetch(url);
-  let data = await response.json();
-
-  let spanEle = document.getElementsByClassName("msg");
-  Object.keys(spanEle).forEach((element) => {
-    spanEle[element].innerText = ``;
-  });
-  document.getElementById("imgMsg").innerText = ``;
-
-  document.getElementById("id").value = data.result[0].id;
-  document.getElementById("firstname").value = data.result[0].first_name;
-  document.getElementById("lastname").value = data.result[0].last_name;
-  document.getElementById("email1").value = data.result[0].email;
-  document.getElementById("phone_input").value = data.result[0].contact;
-  document.getElementById("dob_input").value = data.result[0].date_of_birth;
-
-  if (data.imageResult[0]) {
-    document.getElementById(
-      "selectedImage"
-    ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
-  }
-};
-
 const profOption = () => {
   document.getElementById("profClk").style.display = "block";
 };
@@ -63,39 +38,40 @@ const openPopup = () => {
 
 const closePopup = () => {
   popup.classList.remove("open-popup");
-}
+};
 
 async function getEmployee() {
   let data = await (await fetch(`/manager/getEmployees`)).json();
-  data = JSON.stringify(data)
+  data = JSON.stringify(data);
   return data;
-} 
+}
 
 async function editTaskPopup(id) {
   console.log(id);
   let data = await (await fetch(`/manager/getTaskDetails/${id}`)).json();
   let employeeData = await getEmployee();
-  employeeData = JSON.parse(employeeData)
-  console.log("in Below"+employeeData.result);
+  employeeData = JSON.parse(employeeData);
+  console.log("in Below" + employeeData.result);
 
   let commonStr = ``;
-  employeeData.result.forEach(element => {
-    commonStr+=`<option value='${element.id}'>${element.first_name}</option>`;
+  employeeData.result.forEach((element) => {
+    commonStr += `<option value='${element.id}'>${element.first_name}</option>`;
   });
 
   console.log(data.result[0]);
-  document.getElementById('editTaskPopup').classList.add("open-popup");
+  document.getElementById("editTaskPopup").classList.add("open-popup");
   let str = ``;
   console.log(data.employeeResult[0]);
-  data.employeeResult.forEach(element => {
+  data.employeeResult.forEach((element) => {
     console.log(element);
-    str+=`<option value='${element.id}' selected>${element.first_name}</option>`
+    str += `<option value='${element.id}' selected>${element.first_name}</option>`;
   });
   console.log(str);
-  document.getElementById('taskContainer').innerHTML = `
+  document.getElementById("taskContainer").innerHTML = `
   <div class="row mb-3">
   <div class="col-md-6">
     <label class="text-primary">Task Name :</label>
+    <input type="hidden" name="id" value="${id}">
     <input type="text" class="form-control" tabindex="2" id="task_name" name="task_name"
           value="${data.result[0].task_name}">
   </div>
@@ -146,7 +122,7 @@ async function editTaskPopup(id) {
   <div class="col-md-6">
     <label class="text-primary">Manager :</label>
     <input type="text" class="form-control" tabindex="2" id="manager" name="manager"
-          value="${data.managerName}">
+          value="${data.managerName}" disabled>
   </div>
   <div class="col-md-6">
     <label class="text-primary">employees :</label>
@@ -161,9 +137,8 @@ async function editTaskPopup(id) {
 }
 
 function closeEditTask() {
-  document.getElementById('editTaskPopup').classList.remove("open-popup");
+  document.getElementById("editTaskPopup").classList.remove("open-popup");
 }
-
 
 // function for serach task
 const openViewComments = (teamId) => {

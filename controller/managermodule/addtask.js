@@ -6,8 +6,8 @@ let db = new database();
 const addtaskdata = async (request, response) => {
   try {
     let dataobj = {};
-    const query = `select id,first_name from users where role_id = 1`;
-    const teamDataQuery = `select id,team_name from teams where is_active = 1`;
+    const query = `select id,first_name from users where role_id = 3`;
+    const teamDataQuery = `select id,team_name from teams where is_active = 0`;
     const categoryDataQuery = `select * from categories`;
     const urgencyDataQuery = "select * from urgency";
     const importancyDataQuery = "select * from importants";
@@ -37,7 +37,7 @@ const inserttaskdata = async (request, response) => {
     );
     let res = await db.insertData(
       {
-        manager_id: 1,
+        manager_id: 2,
         category_id: taskdata.task_category,
         prioritiy_id: priorityData[0].id,
         task_name: taskdata.task_name,
@@ -59,10 +59,12 @@ const inserttaskdata = async (request, response) => {
     });
     let Assin_task_to_team = taskdata.Assin_task_to_team.split(",");
     await Assin_task_to_team.forEach((team) => {
-      db.insertData(
-        { task_id: lastInserted_id, team_id: team },
-        "team_has_tasks"
-      );
+      if (team != 0) {
+        db.insertData(
+          { task_id: lastInserted_id, team_id: team },
+          "team_has_tasks"
+        );
+      }
     });
 
     await request.files.forEach((file) => {

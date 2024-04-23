@@ -236,6 +236,6 @@ const DataINsertedSuccessfully = () => {
     text: "Task inserted Succesfully",
     icon: "success",
   }).then(function () {
-    window.location.href = "/manager/";
+    window.location.reload();
   });
 };

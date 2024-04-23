@@ -138,7 +138,7 @@ const openpopup2 = async (id) => {
         <div class="containere bg-white width:fit-content p-4" style="border-radius:10px;">
           <div class="row mb-3">
             <div class="col-md-11">
-              <h2 class="text-primary text-center">Employee Detalis</h2> 
+              <h2 class="text-primary text-center">Task Detalis</h2> 
             </div>
             <div class="col-md-1">
               <i class='bx bxs-x-circle text-danger fs-2'onclick="closePopup2()"></i>
@@ -195,7 +195,7 @@ const openpopup2 = async (id) => {
           </div>
           <div class="row mb-3">
             <div class="col-md-6">
-              <label class="text-primary">Manager :</label>
+              <label class="text-primary">Admin :</label>
               <input type="text" class="form-control" tabindex="2" id="manager" name="manager"
                     value="${data.taskDetail[0].manager}" disabled>
             </div>
@@ -208,9 +208,8 @@ const openpopup2 = async (id) => {
         </div>`;
       let employees = await (await fetch(`/login/employee/${id}`)).json();
       employees.forEach((employee) => {
-        document.getElementById("emp").innerHTML += `<option value="volvo">${
-          employee.first_name + "" + employee.last_name
-        }</option>`;
+        document.getElementById("emp").innerHTML += `<option value="volvo">${employee.first_name + "" + employee.last_name
+          }</option>`;
       });
     }
   } catch (err) {
