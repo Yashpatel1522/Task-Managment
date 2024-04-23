@@ -131,7 +131,7 @@ const searchEmployee = async (value) => {
                                 <br>
                                 <p class="card-text"><b>Email - </b>${data.searchData[count].email}</p>
                                 <p class="card-text"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
-                                <a href="#" class="btn btn-primary">View More</a>
+                                  <button class="btn btn-primary" onclick="showEmployeeDetails(${data.searchData[count].id}, '${data.searchData[count].first_name}', '${data.searchData[count].last_name}', '${data.searchData[count].email}', '${data.searchData[count].contact}', '${data.searchData[count].date_of_birth}', '${data.searchData[count].create_at}', '${data.searchData[count].img_url}')">View More</button>
                                 <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.searchData[count].id})">
                             </div>
                         </div>
@@ -144,12 +144,11 @@ const searchEmployee = async (value) => {
       }
       document.getElementsByClassName("employeeList")[0].innerHTML = str;
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Not Found Data",
-      });
-      setData();
+      document.getElementsByClassName(
+        "employeeList"
+      )[0].innerHTML = `<div class="alert alert-info">
+  <strong>data not found!</strong> 
+</div>`;
     }
   } catch (error) {
     console.log(error);

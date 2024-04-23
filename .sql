@@ -1,6 +1,6 @@
-create database db3;
+create database task;
 
-use db;
+use task;
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
