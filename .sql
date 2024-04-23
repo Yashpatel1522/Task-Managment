@@ -1,6 +1,6 @@
-create database db3;
+create database task_db;
 
-use db;
+use task_db;
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
@@ -311,6 +311,7 @@ CREATE TABLE `user_comments` (
 `task_id` int DEFAULT NULL,
 `task_status` varchar(15) DEFAULT NULL,
 `comment` varchar(255) DEFAULT NULL,
+`oldfile_name` varchar(255),
 `attechment` varchar(255) DEFAULT NULL,
 `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 `update_at` timestamp default current_timestamp on update current_timestamp,

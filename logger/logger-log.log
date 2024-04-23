@@ -229,3 +229,26 @@
 {"level":"error","message":"Team details not found!","timestamp":"2024-04-22T07:55:27.262Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '2105' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-22T13:54:14.477Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from urgency where id in (select urgency_id from priorities where id in (select priority_id from tasks where id = '2105' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-22T13:54:21.229Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T04:25:31.103Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-23T04:34:03.620Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-23T04:34:05.142Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-23T04:34:05.557Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-23T04:34:05.733Z"}
+{"level":"error","message":"Team details is not found it!","timestamp":"2024-04-23T04:34:05.892Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T06:31:31.736Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-23T06:31:37.345Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-23T06:31:38.214Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-23T06:31:38.504Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-23T06:31:38.687Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T06:34:00.900Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T06:35:21.903Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T06:35:29.187Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T08:46:26.717Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T08:46:35.272Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-23T09:18:57.532Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-23T11:33:57.703Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T11:47:50.071Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T11:48:00.933Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-23T11:48:36.841Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T11:56:07.922Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-23T12:25:47.158Z"}
