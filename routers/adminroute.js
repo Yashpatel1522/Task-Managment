@@ -67,4 +67,12 @@ router.get("/categoryData/:searchdata", searchCategory);
 router.get("/categoryDetails/:id", categoryDetail);
 router.delete("/categoryData/:id", deleteCategory);
 
+
+
+// Calender
+router.route("/calender").get(adminCalender);
+router.get("/calenderData/:month",calenderMonth);
+router.get("/dueDateOfTask", dueDateTask);
+
+
 module.exports = router;
