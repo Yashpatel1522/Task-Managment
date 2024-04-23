@@ -19,7 +19,7 @@ const searchEmpData = async (request, response) => {
     let search = "%" + request.params.searchdata + "%";
     let searchData = await db.executeQuery(
       `select * from users left join roles on users.role_id = roles.id where role_name = ? and (first_name like ? or last_name like ?) and users.status = ?`,
-      ["Employee", search, search, 0]
+      ["Employee", search, search, 1]
     );
     return response.json({ searchData });
   } catch (error) {

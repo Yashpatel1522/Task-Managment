@@ -20,13 +20,16 @@ const getDataGrid = async (elements) => {
                 <td>${element.first_name}</td>
                 <td>${element.task_status}</td>
                 <td>${element.comment}</td>
-                <td><a href="${
-                  window.location.origin +
-                  "/assets/taskdetailfiles/" +
-                  element.attechment
-                }" target="_blank" title="W3Schools Free Online Web Tutorials">${
-      element.attechment
-    }</a></td>
+                ${
+                  element.attechment == "null"
+                    ? "<td> - </td>"
+                    : ` <td><a href="
+                  ${window.location.origin} +
+                  /assets/taskdetailfiles/ 
+                  ${element.attechment}
+                " target="_blank">${element.attechment}</a></td>`
+                }
+              
         <td><button class="btn btn-primary" onclick="updateTaskStatus(${
           element.task_id
         },'${element.task_status}', ${

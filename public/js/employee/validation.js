@@ -1,4 +1,4 @@
-const isRequiredString = (obj) => {
+const isString = (obj) => {
   keys = Object.keys(obj);
   let error = {};
   keys.forEach((key) => {
@@ -9,17 +9,17 @@ const isRequiredString = (obj) => {
   return error;
 };
 
-const printErrorMessage = (id, msg) => {
+const printErrorMes = (id, msg) => {
   let node = document.getElementById(id).parentNode;
   node.innerHTML += `<small class='text-danger'>${msg}</small>`;
 };
 
-const removeErrorMessage = () => {
+const removeMessage = () => {
   const errors = document.querySelectorAll("small.text-danger");
   errors.forEach((error) => error.remove());
 };
 
-const isNumberString = (obj) => {
+const isNumberWithString = (obj) => {
   let keys = Object.keys(obj);
   let error = {};
   keys.forEach((item) => {
@@ -30,7 +30,7 @@ const isNumberString = (obj) => {
   return error;
 };
 
-const regularExp = (type, id) => {
+const regularExp2 = (type, id) => {
   let EMAIL =
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/;
   let CONTACT = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
@@ -50,9 +50,10 @@ const regularExp = (type, id) => {
   return false;
 };
 
+
 const isValidProfilDetails = () => {
-  removeErrorMessage();
-  let errors = isRequiredString({
+  removeMessage();
+  let errors = isString({
     first_name: "First name",
     last_name: "Last name",
     email: "Email ID",
@@ -60,7 +61,7 @@ const isValidProfilDetails = () => {
     date_of_birth: "Birthdate",
     employee_role: "Department",
   });
-  let res = isNumberString({
+  let res = isNumberWithString({
     first_name: "First name",
     last_name: "Last name",
   });
@@ -72,13 +73,13 @@ const isValidProfilDetails = () => {
   });
 
   keys = Object.keys(errors);
-  if (regularExp("email", "email") == false && keys.indexOf("email") < 0)
+  if (regularExp2("email", "email") == false && keys.indexOf("email") < 0)
     errors["email"] = "Email ID";
 
-  if (regularExp("mobile", "contact") == false && keys.indexOf("phoneno") < 0)
+  if (regularExp2("mobile", "contact") == false && keys.indexOf("phoneno") < 0)
     errors["contact"] = "Phone number";
 
-  if (regularExp("date", "date_of_birth") == false && keys.indexOf("date") < 0)
+  if (regularExp2("date", "date_of_birth") == false && keys.indexOf("date") < 0)
     errors["date_of_birth"] = "Birthdate";
 
   // if(isValidProfile("img")==false && keys.indexOf('img')<0)
@@ -87,7 +88,7 @@ const isValidProfilDetails = () => {
   // }
   let flag = true;
   Object.keys(errors).forEach((error) => {
-    printErrorMessage(error, `${errors[error]} is invalid...`);
+    printErrorMes(error, `${errors[error]} is invalid...`);
     flag = false;
   });
   return flag;

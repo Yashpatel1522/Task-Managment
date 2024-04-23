@@ -56,31 +56,36 @@ const openpopup3 = async (id) => {
     categoryPopup.classList.add("open-popup");
     let categoryDetail = await (await fetch(`/admin/categoryDetails/${id}`)).json();
     // console.log(categoryDetail);
-    document.getElementById("viewCategory").innerHTML = "";
+    let categoryData = "";
     if (categoryDetail.viewCategory.length != 0) {
-      document.getElementById("viewCategory").innerHTML = `
-        <div class="container width:fit-content p-4 rounded" style="background-color: white;">
+      categoryData += `
+      <div class="container width:fit-content p-4 rounded" style="background-color: white;">
           <div class="row mb-3">
-            <div class="col-md-11">
+            <div class="col-md-10">
               <h2 class="text-primary text-center">Category Details</h2>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-2">
               <i class='bx bxs-x-circle text-danger fs-2'onclick="closePopup3()"></i>
             </div>
           </div>
           <div class="row mb-3">
+            <div class="col-md-12">
               <label class="text-primary">Category Name :</label>
               <input type="text" class="form-control" tabindex="2" id="category-name" name="category-name"
                     value="${categoryDetail.viewCategory[0].category}" disabled>
+            </div>
           </div>
-            <div class="col-md-6">
+          <div class="row mb-3">
+          <div class="col-md-12">
               <label class="text-primary">Tasks :</label>`
       categoryDetail.viewCategory.forEach(e => {
-        document.getElementById("viewCategory").innerHTML += `
+        categoryData += `
          <input type="text" class="form-control" tabindex="2" id="task_name" name="task_name"
                     value="${e.task_name}" disabled>`
-      })
-      document.getElementById("viewCategory").innerHTML += `</div></div>`
+      });
+      categoryData += `</div></div></div>`
+      document.getElementById("viewCategory").innerHTML = categoryData
+
     } else {
       Swal.fire({
         icon: "error",

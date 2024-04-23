@@ -7,45 +7,42 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body ">
-        <form action="/admin" method="post">
+        <form action="/profile" method="post" onchange="return isValidProfilDetails()" id="adminprofileform">
           <div class="d-flex p-2 justify-content-around">
             <div class="d-flex p-2 flex-column">
-              <img src="/assets/employee/user.png" alt="profile image" id="selectedImage" width="200" height="200"
-                class="rounded-circle">
-              <label for="change" class="text-center mt-4">Change</label>
-              <input type="file" name="profileimg" id="change" style="display: none;">
+              <img src="" alt="profile image" id="selectedImage" width="200" height="200" class="rounded-circle mb-3">
+              <input type="file" class="form-control" name="profileimg" id="change" class="m-5" />
             </div>
             <div>
               <div class="mb-3">
-                <label for="firstname" class="form-label">First Name: </label>
-                <input type="text" class="form-control" id="firstname" aria-describedby="textHelp" value="">
+                <label for="first_name" class="form-label">First Name: </label>
+                <input type="text" class="form-control" id="first_name" aria-describedby="textHelp" name="first_name">
               </div>
               <div class="mb-3">
-                <label for="lastname" class="form-label">Last Name: </label>
-                <input type="text" class="form-control" id="lastname" aria-describedby="textHelp">
+                <label for="last_name" class="form-label">Last Name: </label>
+                <input type="text" class="form-control" id="last_name" aria-describedby="textHelp" name="last_name">
               </div>
               <div class="mb-3">
-                <label for="email1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email1" aria-describedby="emailHelp">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
               </div>
               <div class="mb-3">
-                <label for="phone_input" class="form-label">Phone</label>
-                <input type="tel" required maxlength="50" class="form-control" id="phone_input" name="Phone"
+                <label for="contact" class="form-label">Phone</label>
+                <input type="tel" required maxlength="50" class="form-control" id="contact" name="contact"
                   placeholder="Phone">
               </div>
 
               <div class="mb-3">
-                <label for="dob_input" class="form-label">Date Of Birth</label>
-                <input type="text" required style="width: 213px;" class="form-control" id="dob_input" name="dob"
-                  class="datepicker">
+                <label for="date_of_birth" class="form-label">Date Of Birth</label>
+                <input type="text" required style="width: 213px;" class="form-control" id="date_of_birth"
+                  name="date_of_birth" class="datepicker">
               </div>
 
               <div class="mb-3">
                 <label for="role_name" class="form-label">Role</label>
-                <input type="text" value="Admin" name="role_name" id="role_name" class="form-control" class="datepicker"
-                  disabled>
+                <input type="text" name="role_name" id="role_name" class="form-control" class="datepicker" disabled>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary" onclick="adminProfile()">Submit</button>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
@@ -55,19 +52,3 @@
     </div>
   </div>
 </div>
-
-<!-- <script>
-  const imageInput = document.getElementById("change");
-  const selectedImage = document.getElementById("selectedImage");
-
-  imageInput.addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function (event) {
-      selectedImage.src = event.target.result;
-    };
-
-    reader.readAsDataURL(file);
-  });
-</script> -->

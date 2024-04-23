@@ -15,8 +15,9 @@ const managerProfile = require("../controller/managermodule/getManagerProfile");
 const dashboardView = require("../controller/managermodule/dashboard");
 const employeeView = require("../controller/managermodule/employeeView");
 const taskView = require("../controller/managermodule/taskView");
-const getAllTasks = require("../controller/managermodule/getalltasks")
+const getAllTasks = require("../controller/managermodule/getalltasks");
 const upcomingTasks = require("../controller/managermodule/upcomingTasks");
+const editTask = require('../controller/managermodule/edittask')
 const {
   addtaskdata,
   inserttaskdata,
@@ -59,12 +60,12 @@ const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 
-// Displaying Tasks of manager
-managerRouter.get(
-  "/",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  taskView().getPage
-);
+// // Displaying Tasks of manager
+// managerRouter.get(
+//   "/",
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   dashboardView().getPage
+// );
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView().getPage);
@@ -73,14 +74,19 @@ managerRouter.get("/Teams", (request, response) => {
   response.render("./managermodule/teams");
 });
 
+managerRouter.get("/tasks", taskView().getPage);
+
 // Dashboard
 managerRouter.get("/dashboard", dashboardView().getPage);
 
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
 
+//API to edit task Details
+managerRouter.post("/editTaskDetails", editTask);
+
 //API to get task details
-managerRouter.get("/getTaskDetails/:id", getAllTasks)
+managerRouter.get("/getTaskDetails/:id", getAllTasks);
 
 managerRouter.get("/teamapi", teamdetails);
 
@@ -88,13 +94,17 @@ managerRouter.get("/teamapi", teamdetails);
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 
 //api to get upcoming manager tasks
-managerRouter.get('/getManagerUpcomingTasks', upcomingTasks);
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 
 //api to Update Manager Profile Details
-managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
+managerRouter.post(
+  "/updateManager",
+  uploadImage.single("profileimg"),
+  updateManager
+);
 
 //api to get Manager Profile Details
-managerRouter.get("/getManagerProfile", managerProfile);
+managerRouter.get("/getManagerProfile/:id", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);

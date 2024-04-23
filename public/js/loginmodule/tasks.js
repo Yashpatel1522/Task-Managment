@@ -66,7 +66,9 @@ const searchTaskData = async (value) => {
         <div class="card-body">
           <p>${e.task_name}</p>
           <p>${e.task_description}</p>
-           <input type="button" value="view" onclick="openpopup2(${e.id})">
+        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
+        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
         </div>
       </div>`;
       });
@@ -87,7 +89,9 @@ const searchTaskData = async (value) => {
         <div class="card-body">
           <p>${e.task_name}</p>
           <p>${e.task_description}</p>
-           <input type="button" value="view" onclick="openpopup2(${e.id})">
+          <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
+        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
         </div>
       </div>`;
       });
@@ -108,7 +112,9 @@ const searchTaskData = async (value) => {
         <div class="card-body">
           <p>${e.task_name}</p>
           <p>${e.task_description}</p>
-           <input type="button" value="view" onclick="openpopup2(${e.id})">
+        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
+        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
         </div>
       </div>`;
       });

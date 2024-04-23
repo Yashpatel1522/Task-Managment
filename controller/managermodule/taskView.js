@@ -2,7 +2,8 @@ const taskView = () => {
   return {
     getPage(request, response) {
       try {
-        response.render("../views/managermodule/managerdashboard");
+        console.log(request.user.id)
+        response.render("../views/managermodule/managerdashboard", {id: request.user.id});
       } catch (error) {
         logger.log(error);
         response.send({ error: error });

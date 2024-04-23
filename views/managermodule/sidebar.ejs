@@ -11,9 +11,9 @@
 <body>
         <div class="sidebarcontain">
           <div class="logo">
-            <img src="/assets/adminmodule/logo.png" alt="" width="10%">
+            <center><img src="/assets/managerassets/task.png" alt="" width="25%"></center>
           </div>
-          <ul>
+          <ul style="word-wrap: anywhere;">
             <div class="list" onclick="showDashboard()">
               <i class="bi bi-house-door sidebaricon"></i>
               <li>dashboard</li>
@@ -45,7 +45,7 @@
         window.location.href = window.location.origin + `/manager/employeeDetails`
       }
       function showTask() {
-        window.location.href = window.location.origin + `/manager/`
+        window.location.href = window.location.origin + `/manager/tasks`
       }
       function showTeams(){
         window.location.href = window.location.origin + `/manager/Teams`

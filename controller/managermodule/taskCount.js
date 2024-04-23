@@ -4,9 +4,9 @@ let db = new database();
 
 const taskCount = async (request, response) => {
   try {
-    let todoQ = `select count(*) as count from tasks where manager_id = 3 and task_status = 'todo';`;
-    let progressQ = `select count(*) as count from tasks where manager_id = 3 and task_status = 'in progress';`;
-    let compleatedQ = `select count(*) as count from tasks where manager_id = 3 and task_status = 'compleated';`;
+    let todoQ = `select count(*) as count from tasks where manager_id = 1 and task_status = 'todo';`;
+    let progressQ = `select count(*) as count from tasks where manager_id = 1 and task_status = 'inprogress';`;
+    let compleatedQ = `select count(*) as count from tasks where manager_id = 1 and task_status = 'completed';`;
     let todoRes = await db.executeQuery(todoQ);
     let progressRes = await db.executeQuery(progressQ);
     let compleatedRes = await db.executeQuery(compleatedQ);
