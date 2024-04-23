@@ -29,17 +29,16 @@ const chartShow = async () => {
   };
 
   var Piechart = new ApexCharts(document.getElementById("chart"), Pieadmin);
-  console.log(Piechart);
   Piechart.render();
   managerAssignTask()
 }
 
 const managerAssignTask = async () => {
-  let task = await(await fetch(`/admin/managerTask`)).json();
+  let task = await (await fetch(`/admin/managerTask`)).json();
   let TaskActivity = document.getElementById("recentActivity");
   let logs = ""
   task.managerAssignTask.forEach(e => {
     logs += `<p><span class="text-secondary"> ${e.first_name} created </span> <span class = "text-success"> ${e.task_name} </span> </p>`
-  }); 
+  });
   TaskActivity.innerHTML = logs;
 }

@@ -1,4 +1,4 @@
-var comboEmployees = async () => {
+var comboTeamEmployees = async () => {
   try {
     let data = await (await fetch(`/admin/employeesapi`)).json();
     let empcombo = document.getElementById("emp_select");
@@ -9,12 +9,11 @@ var comboEmployees = async () => {
       option.textContent = `${data.first_name} ${data.last_name}`;
       empcombo.appendChild(option);
     });
-
   } catch (error) {
     console.log(error);
   }
 }
-comboEmployees();
+comboTeamEmployees();
 
 var isTeamForm = () => {
   try {

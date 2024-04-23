@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const { userProfileStorage } = require("../utility/multer");
+const { userProfileStorage ,upload} = require("../utility/multer");
 const uploadStorageprofile = multer({ storage: userProfileStorage });
 
 const {
@@ -28,7 +28,7 @@ const passport = require("passport");
 router.get("/getdashboardata", getdashboardata);
 router.get(
   "/dashboard",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   dashboard
 );
 router.get("/getprofiledata", getProfiledata);
@@ -39,10 +39,10 @@ router.post(
 );
 router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist/:id", EmployeeTaskList);
-router.post("/searchtask", searchlist);
+router.get("/searchtask/:searchresult", searchlist);
 router.post(
   "/addcomment/:id/:taskid",
-  uploadStorageprofile.single("file"),
+  upload.single("file"),
   addcomment
 );
 router.get("/teamdata/:id", teamlist);

@@ -63,7 +63,7 @@ var editTeam = async (id) => {
             <label class="text-primary">Employee List :-</label>
             <select tabindex="2" class="form-control" id="emp_select" name="emp_select[]" multiple>
             <option value="0">select</option>`
-      editdata += comboEmployees();
+      editdata += comboTeamEmployees();
       editdata += `</select>
       <span id="toptionerr"></span>
           </div>
