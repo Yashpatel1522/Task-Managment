@@ -12,16 +12,16 @@ const setData = async () => {
         if (data.result[count]) {
           console.log(data.result[count].last_name);
           str += `
-                    <div class="col-4">
+                    <div class="col-4 ">
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
-                            <div class="card-body bg-light" style="border-radius: 10px;">
-                                <h5 class="card-title" style="font-size: 25px;">${data.result[count].first_name} ${data.result[count].last_name}</h5>
+                            <div class="card-body bg-light cardview" style="border-radius: 10px;">
+                                <h5 class="card-title textview" style="font-size: 25px;">${data.result[count].first_name} ${data.result[count].last_name}</h5>
                                 <br>
-                                <p class="card-text"><b>Email - </b>${data.result[count].email}</p>
-                                <p class="card-text"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
-                                <button class="btn btn-primary" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
-                                <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.result[count].id})">
+                                <p class="card-text textview"><b>Email - </b>${data.result[count].email}</p>
+                                <p class="card-text textview"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
+                                <button class="btn btn-primary btnview" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
+                                <input type="button" value="Remove" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>
                     </div>
@@ -72,32 +72,6 @@ async function showEmployeeDetails(
   });
 }
 
-const getProfile = async () => {
-  let url = window.location.origin + `/manager/getManagerProfile/2`;
-  console.log(url);
-  let response = await fetch(url);
-  let data = await response.json();
-
-  let spanEle = document.getElementsByClassName("msg");
-  Object.keys(spanEle).forEach((element) => {
-    spanEle[element].innerText = ``;
-  });
-  document.getElementById("imgMsg").innerText = ``;
-
-  document.getElementById("id").value = data.result[0].id;
-  document.getElementById("firstname").value = data.result[0].first_name;
-  document.getElementById("lastname").value = data.result[0].last_name;
-  document.getElementById("email1").value = data.result[0].email;
-  document.getElementById("phone_input").value = data.result[0].contact;
-  document.getElementById("dob_input").value = data.result[0].date_of_birth;
-
-  if (data.imageResult[0]) {
-    document.getElementById(
-      "selectedImage"
-    ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
-  }
-};
-
 const showOption = () => {
   if (
     document.getElementById("profClk").style.display == "none" ||
@@ -127,13 +101,13 @@ const searchEmployee = async (value) => {
                     <div class="col-4">
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
-                            <div class="card-body bg-light" style="border-radius: 10px;">
-                                <h5 class="card-title" style="font-size: 25px;">${data.searchData[count].first_name} ${data.searchData[count].last_name}</h5>
+                            <div class="card-body bg-light cardview" style="border-radius: 10px;">
+                                <h5 class="card-title textview" style="font-size: 25px;">${data.searchData[count].first_name} ${data.searchData[count].last_name}</h5>
                                 <br>
-                                <p class="card-text"><b>Email - </b>${data.searchData[count].email}</p>
-                                <p class="card-text"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
-                                <a href="#" class="btn btn-primary">View More</a>
-                                <input type="button" value="Remove" class="btn btn-secondary px-3" onclick="removeEmployee(${data.searchData[count].id})">
+                                <p class="card-text textview"><b>Email - </b>${data.searchData[count].email}</p>
+                                <p class="card-text textview"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
+                                  <button class="btn btn-primary btnview" onclick="showEmployeeDetails(${data.searchData[count].id}, '${data.searchData[count].first_name}', '${data.searchData[count].last_name}', '${data.searchData[count].email}', '${data.searchData[count].contact}', '${data.searchData[count].date_of_birth}', '${data.searchData[count].create_at}', '${data.searchData[count].img_url}')">View More</button>
+                                <input type="button" value="Remove" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.searchData[count].id})">
                             </div>
                         </div>
                     </div>
@@ -145,12 +119,11 @@ const searchEmployee = async (value) => {
       }
       document.getElementsByClassName("employeeList")[0].innerHTML = str;
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Not Found Data",
-      });
-      setData();
+      document.getElementsByClassName(
+        "employeeList"
+      )[0].innerHTML = `<div class="alert alert-info">
+  <strong>data not found!</strong> 
+</div>`;
     }
   } catch (error) {
     console.log(error);
