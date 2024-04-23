@@ -42,6 +42,7 @@ const {
   deleteTeam,
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
+const passport = require("passport");
 const {
   viewComments,
   getComments,
@@ -59,7 +60,11 @@ const uploadImage = multer({ storage: userProfileStorage });
 const managerRouter = express.Router();
 
 // Displaying Tasks of manager
-managerRouter.get("/", taskView().getPage);
+managerRouter.get(
+  "/",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  taskView().getPage
+);
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView().getPage);

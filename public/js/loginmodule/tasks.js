@@ -1,6 +1,6 @@
 const getTaskData = async () => {
   try {
-    let data = await (await fetch(`/admin/tasksData`)).json();
+    let data = await (await fetch(`/login/managertasks/1`)).json();
     todoTask = document.getElementById("todoTask");
     let todoData = ``;
     data.todoData.forEach((e) => {
