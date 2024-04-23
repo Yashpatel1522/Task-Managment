@@ -150,11 +150,11 @@ body {
   border: none;
   cursor: pointer;
 }
-
+/* 
 .dropbtn:hover,
 .dropbtn:focus {
-  /* background-color: #2980B9; */
-}
+  background-color: #2980B9;
+} */
 
 .dropdown {
   position: relative;

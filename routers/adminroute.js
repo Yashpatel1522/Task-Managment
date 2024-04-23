@@ -12,14 +12,15 @@ const { categoryPage, adminCategory, searchCategory, categoryDetail, addCategory
 const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam } = require("../controller/adminmodule/teamdata");
 const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
+// const passport = require("passport");
+const checkUserRole = require("../middleware/userrole");
 
+router.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
 // Page Render
-router
-  .route("/dashboard")
-  .get(
-    passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-    adminDashboard
-  );
+router.route("/dashboard").get(adminDashboard);
 router.route("/managers").get(managerpage);
 router.route("/employees").get(employeepage);
 router.route("/tasks").get(taskpage);

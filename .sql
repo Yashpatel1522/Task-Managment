@@ -1,5 +1,7 @@
-create database task_db;
-use task_db;
+create database task_managment;
+
+use task_managment;
+
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -16,34 +18,16 @@ VALUES (1, 'admin', '2024-04-11 05:12:13', NULL, 1),
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE `permissions` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `permission` varchar(50) DEFAULT NULL,
-  `api` varchar(255) DEFAULT NULL,
-  `type` varchar(45) DEFAULT NULL,
-  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp default current_timestamp on update current_timestamp,
-  `status` tinyint(1) DEFAULT '1',
-  PRIMARY KEY (`id`)
-);
-INSERT INTO `permissions`
-VALUES (
-    1,
-    'dashboard',
-    '/login/dashboard',
-    'get',
-    '2024-04-15 05:44:26',
-    NULL,
-    1
-  ),
-(
-    2,
-    'dashboard',
-    '/login/dashboard',
-    'post',
-    '2024-04-15 05:45:16',
-    NULL,
-    1
-  );
+`id` int NOT NULL AUTO_INCREMENT,
+`permission` varchar(50) DEFAULT NULL,
+`api` varchar(255) DEFAULT NULL,
+`type` varchar(45) DEFAULT NULL,
+`create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`update_at` timestamp default current_timestamp on update current_timestamp,
+`status` tinyint(1) DEFAULT '1',
+PRIMARY KEY (`id`)
+); 
+INSERT INTO `permissions` VALUES (1,'dashboard','/login/dashboard','get','2024-04-15 00:14:26',NULL,1),(2,'dashboard','/login/dashboard','post','2024-04-15 00:15:16',NULL,1),(3,'admin dashboard','/admin/dashboard','get','2024-04-23 06:26:45','2024-04-23 06:26:45',1),(4,'admin/managers','/admin/managers','get','2024-04-23 06:38:31','2024-04-23 08:23:56',1),(5,'admin employee page','/admin/employees','get','2024-04-23 08:20:00','2024-04-23 09:10:17',1),(6,'admin tasks','/admin/tasks','get','2024-04-23 09:11:57','2024-04-23 09:11:57',1),(7,'admin teams','/admin/team','get','2024-04-23 09:15:42','2024-04-23 09:17:16',1),(8,'admin category','/admin/category','get','2024-04-23 09:19:08','2024-04-23 09:19:08',1),(9,'admin manager api','/admin/managersapi','get','2024-04-23 11:18:11','2024-04-23 11:23:21',1),(10,'admin managersapi search','/admin/managersapi/search/','get','2024-04-23 11:42:55','2024-04-23 11:43:47',1),(11,'admin managersapi','/admin/managersapi','delete','2024-04-23 11:47:37','2024-04-23 11:48:05',1),(12,'admin employeeapi','/admin/employeesapi','get','2024-04-23 11:54:16','2024-04-23 11:54:16',1),(13,'admin employee delete','/admin/employeesapi','delete','2024-04-23 11:57:24','2024-04-23 11:57:24',1),(14,'admin employee search','/admin/employeesapi/search','get','2024-04-23 11:59:32','2024-04-23 11:59:32',1),(15,'admin team api','/admin/teamapi','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(16,'admin newteam api','/admin/newteam','post','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(17,'admin team api delete','/admin/teamapi','delete','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(18,'admin team search','/admin/teamapi/search','get','2024-04-23 12:22:19','2024-04-23 12:32:05',1),(19,'admin tasksdata','/admin/tasksData','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(20,'admin tasksdetails','/admin/tasksDetails','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(21,'admin profiledata','/admin/profiledata','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(22,'admin chartsData','/admin/chartsData','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(23,'admin managerTask','/admin/managerTask','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(24,'admin categoryData','/admin/categoryData','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(25,'admin categoryData delete','/admin/categoryData','delete','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(26,'admin categoryDetails','/admin/categoryDetails','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(27,'admin category','/admin/category','post','2024-04-23 12:22:19','2024-04-23 12:22:19',1),(28,'admin calender','/admin/calender','get','2024-04-23 12:22:19','2024-04-23 12:22:19',1);
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `role_has_permissions`;
 CREATE TABLE `role_has_permissions` (
@@ -58,6 +42,7 @@ CREATE TABLE `role_has_permissions` (
   CONSTRAINT `role_has_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON UPDATE CASCADE,
   unique key(`role_id`, `permission_id`)
 );
+INSERT INTO `role_has_permissions` VALUES (1,3,'2024-04-23 06:27:31',0,1),(1,4,'2024-04-23 06:38:46',0,2),(1,5,'2024-04-23 08:20:52',0,3),(1,6,'2024-04-23 09:14:50',0,4),(1,7,'2024-04-23 09:16:26',0,5),(1,8,'2024-04-23 09:33:55',0,6),(1,9,'2024-04-23 11:18:51',0,7),(1,10,'2024-04-23 11:44:39',0,8),(1,11,'2024-04-23 11:55:22',0,9),(1,12,'2024-04-23 11:55:22',0,10),(1,13,'2024-04-23 11:57:53',0,11),(1,14,'2024-04-23 12:00:05',0,12),(1,15,'2024-04-23 12:24:10',0,13),(1,16,'2024-04-23 12:24:10',0,14),(1,17,'2024-04-23 12:24:10',0,15),(1,18,'2024-04-23 12:24:10',0,16),(1,19,'2024-04-23 12:24:10',0,17),(1,20,'2024-04-23 12:24:10',0,18),(1,21,'2024-04-23 12:26:19',0,19),(1,22,'2024-04-23 12:26:19',0,20),(1,23,'2024-04-23 12:26:19',0,21),(1,24,'2024-04-23 12:26:19',0,22),(1,25,'2024-04-23 12:26:19',0,23),(1,26,'2024-04-23 12:26:19',0,24),(1,27,'2024-04-23 12:27:16',0,25),(1,28,'2024-04-23 12:27:16',0,26);
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
