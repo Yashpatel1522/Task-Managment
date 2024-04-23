@@ -45,7 +45,7 @@ async function showEmployeeDetails(
   join,
   img_url
 ) {
-  let url = window.location.origin + `/manager/getManagerProfile`;
+  let url = window.location.origin + `/manager/getManagerProfile/${id}`;
   let response = await fetch(url);
   let data = await response.json();
   let path = ``;
@@ -73,7 +73,8 @@ async function showEmployeeDetails(
 }
 
 const getProfile = async () => {
-  let url = window.location.origin + "/manager/getManagerProfile";
+  let url = window.location.origin + `/manager/getManagerProfile/2`;
+  console.log(url);
   let response = await fetch(url);
   let data = await response.json();
 
