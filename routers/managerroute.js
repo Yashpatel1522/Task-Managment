@@ -94,7 +94,7 @@ managerRouter.get('/getManagerUpcomingTasks', upcomingTasks);
 managerRouter.post("/updateManager", uploadImage.single('profileimg'), updateManager);
 
 //api to get Manager Profile Details
-managerRouter.get("/getManagerProfile", managerProfile);
+managerRouter.get("/getManagerProfile/:id", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);

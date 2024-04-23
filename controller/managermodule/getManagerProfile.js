@@ -7,7 +7,7 @@ const managerProfile = async (request, response) => {
     let db = new database();
     let res = await db.executeQuery(q);
     const imageQuery = `select newimage_name from user_profiles where user_id = ?;`;
-    const imageRes = await db.executeQuery(imageQuery, [8]);
+    const imageRes = await db.executeQuery(imageQuery, [request.params.id]);
     return response.json({ result: res, imageResult: imageRes });
   } catch (error) {
     logger.log(error);
