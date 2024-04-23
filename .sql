@@ -1,6 +1,6 @@
-create database task;
+create database task_db;
 
-use task;
+use task_db;
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
