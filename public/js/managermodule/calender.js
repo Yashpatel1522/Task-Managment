@@ -102,6 +102,7 @@ const getCalender = async (month) => {
   console.log(data);
   let calenderData = document.getElementById("calender");
   let tr1 = document.createElement("tr");
+  tr1.setAttribute("class", "headercss");
   data.days.forEach((e) => {
     let th = document.createElement("th");
     th.innerText = `${e}`;
@@ -113,7 +114,9 @@ const getCalender = async (month) => {
     let tr = document.createElement("tr");
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
-      td.innerText += `${data.yearCalendar[i][j]}`;
+      td.innerText += `${
+        data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
+      }`;
       dueDate.result.forEach((ele) => {
         if (new Date(ele.end_date).getMonth() + 1 === month) {
           if (new Date(ele.end_date).getDate() === data.yearCalendar[i][j]) {

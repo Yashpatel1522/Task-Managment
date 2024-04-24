@@ -1,7 +1,7 @@
 :root {
 	--white: white;
 	--backgroundcolor: #E9F1FA;
-	--sidebarcolor: #323232;
+	--sidebarcolor: #0A1828;
 	--profClkbackgroundcolor: #f9f9f9;
 	--lightgray: lightgray;
 }
@@ -49,4 +49,12 @@
 
 #profClk > p:hover {
 	background-color: var(--lightgray);
+}
+.upcomingtask{
+		background-color:var(--sidebarcolor);
+		border-radius: 15px
+}
+.upcomingtask h2,P{
+	color: var(--backgroundcolor);
+	text-align: center;
 }

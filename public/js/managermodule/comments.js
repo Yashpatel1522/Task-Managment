@@ -43,7 +43,11 @@ const getDataGrid = async (elements) => {
 
 const searchComments = async (value) => {
   let filterArray = [];
-  if (value != "") {
+  if (value.trim() === "") {
+    filterArray = teamDataGlobal;
+    searchPagignation(filterArray, 1);
+    console.log(filterArray);
+  } else if (value.trim()) {
     console.log(teamDataGlobal);
     teamDataGlobal.forEach((commentData) => {
       for (let key in commentData) {

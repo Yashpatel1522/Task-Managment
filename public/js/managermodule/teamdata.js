@@ -49,7 +49,11 @@ const getDataGrid = async (elements) => {
 
 const searchTeams = async (value) => {
   let filterArray = [];
-  if (value != "") {
+  if (value.trim() === "") {
+    filterArray = teamDataGlobal;
+    searchPagignation(filterArray, 1);
+    console.log(filterArray);
+  } else if (value.trim()) {
     teamDataGlobal.forEach((element) => {
       for (let key in element) {
         if (element[key] != null) {
@@ -76,6 +80,7 @@ const searchPagignation = async (filterArray, currPage) => {
   }
   maxLength = arrayPagignation.length;
   currentPage = currPage;
+  document.getElementById("current_page").innerHTML = `${currentPage}`;
   startIndex = (currentPage - 1) * pageLimit;
   endIndex = Math.min(startIndex + pageLimit, maxLength);
   pageCount = Math.ceil(maxLength / pageLimit);

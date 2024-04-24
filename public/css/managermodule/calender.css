@@ -1,6 +1,6 @@
 :root {
   --backgroundcolor:#E9F1FA;
-  --sidebarcolor: #323232;
+  --sidebarcolor: #0A1828;
   --tableheader: #006DCC;
   --profClkbackgroundcolor: #f9f9f9;
   --white: white;
@@ -58,6 +58,10 @@
       border-collapse: collapse;
       margin: auto;
     }
+  .headercss{
+    background-color: var(--sidebarcolor);
+    color: white;
+  }
   
     th,td {
       padding: 10px 20px;
@@ -72,5 +76,5 @@
     }
   
     td:hover {
-      background-color: var(--tdhover);
+      background-color: var(--backgroundcolor);
     }
