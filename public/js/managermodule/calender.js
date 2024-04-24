@@ -119,7 +119,7 @@ const getCalender = async (month) => {
           if (new Date(ele.end_date).getDate() === data.yearCalendar[i][j]) {
             let div = document.createElement("div");
             div.innerText = `${ele.task_name}`;
-            div.style.backgroundColor = "red";
+            div.style.backgroundColor = "green";
             div.style.color = "white";
             div.style.margin = "10px";
             div.style.padding = "5px 10px";

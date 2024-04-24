@@ -1,8 +1,12 @@
 :root {
-  --backgroundcolor: #DDD0C8;
+  --backgroundcolor:#E9F1FA;
   --sidebarcolor: #323232;
   --tableheader: #006DCC;
+  --profClkbackgroundcolor: #f9f9f9;
   --white: white;
+  --black: black;
+  --lightgray: lightgray;
+  --tdhover : rgb(199, 227, 199);
 }
 
 .managerMain {
@@ -24,14 +28,14 @@
   display: none;
   position: absolute;
   margin-left: -4%;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: var(--profClkbackgroundcolor);
+  box-shadow: 0px 8px 16px 0px var(--black);
   z-index: 1;
 }
 
 #profClk>p {
   float: none;
-  color: black;
+  color: var(--black);
   padding: 8px 0;
   display: block;
   padding: 14px 16px;
@@ -41,7 +45,7 @@
 }
 
 #profClk>p:hover {
-  background-color: lightgray;
+  background-color: var(--lightgray);
 }
 .teamcontent {
   width: 80%;
@@ -50,7 +54,7 @@
 }
 
     table {
-      border: 2px solid black;
+      border: 2px solid var(--black);
       border-collapse: collapse;
       margin: auto;
     }
@@ -58,15 +62,15 @@
     th,td {
       padding: 10px 20px;
       text-align: center;
-      border: 2px solid black;
+      border: 2px solid var(--black);
     }
   
     td {
       height: 130px;
       width: 130px;
-      background-color: white;
+      background-color: var(--white);
     }
   
     td:hover {
-      background-color: rgb(199, 227, 199);
+      background-color: var(--tdhover);
     }

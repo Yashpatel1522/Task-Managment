@@ -1,13 +1,15 @@
-.section {
-	max-width: 1170px;
-	margin: 0 auto;
+:root {
+	--white: white;
+	--backgroundcolor: #E9F1FA;
+	--sidebarcolor: #323232;
+	--profClkbackgroundcolor: #f9f9f9;
+	--lightgray: lightgray;
 }
-
 .managerMain {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #DDD0C8;
+	background-color:var(--backgroundcolor);
 }
 
 .managerSidebar {
@@ -15,7 +17,7 @@
 	height: 1000px;
 	padding: 15px;
 	border-top-right-radius: 30px;
-	background-color: #323232;
+	background-color: var(--sidebarcolor);
 }
 
 .chartContent {
@@ -29,7 +31,7 @@
 	display: none;
 	position: absolute;
 	margin-left: -4%;
-	background-color: #f9f9f9;
+	background-color: var(--profClkbackgroundcolor);
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 }
@@ -46,5 +48,5 @@
 }
 
 #profClk > p:hover {
-	background-color: lightgray;
+	background-color: var(--lightgray);
 }

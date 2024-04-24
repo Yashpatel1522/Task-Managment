@@ -1,5 +1,5 @@
 :root{
-  --backgroundcolor : #DDD0C8;
+  --backgroundcolor : #E9F1FA;
   --sidebarcolor : #323232;
   --tableheader : #006DCC;
   --white : white;
@@ -55,9 +55,9 @@
   background-color: var(--tableheader);
   color:var(--white);
 }
-.allform{
+/* .allform{
   background-color: var(--white);
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   margin: auto;
-}
+} */
