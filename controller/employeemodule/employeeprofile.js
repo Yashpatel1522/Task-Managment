@@ -5,7 +5,8 @@ const db = new database();
 const getProfiledata = async (request, response) => {
   try {
     let profledata = {};
-    let id = request.user.id
+    // let id = request.user.id
+    let id = 4
     profledata.imagename = await db.executeQuery(
       `select newimage_name from user_profiles where user_id = ? and is_deleted = 0`,[id]
     );
@@ -19,13 +20,17 @@ const getProfiledata = async (request, response) => {
 };
 const updateProfiledata = async (request, response) => {
   try {
-    let { originalname, filename } = request.file;
-    await db.updateAnd({is_deleted:1},'user_profiles',{user_id:1,is_deleted:0})
-    await db.insertData(
-      { user_id: 1, oldimage_name: originalname, newimage_name: filename},
-      "user_profiles"
-    );
-    await db.updateAnd(request.body, "users", { id: 4});
+    // let userid = request.user.id
+    let userid = 4
+    if(request.file){
+      let { originalname, filename } = request.file;
+      await db.updateAnd({is_deleted:1},'user_profiles',{user_id:userid,is_deleted:0})
+      await db.insertData(
+        { user_id:userid , oldimage_name: originalname, newimage_name: filename},
+        "user_profiles"
+      );
+    }
+    await db.updateAnd(request.body, "users", { id: userid});
     return response.status(200).json({
       'message':'updated'
     });

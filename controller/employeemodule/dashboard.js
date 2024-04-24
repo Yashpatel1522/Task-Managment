@@ -7,8 +7,8 @@ const db = new database();
 
 const getdashboardata = async (request, response) => {
   try {
-    console.log(request.user.id)
-    let id = request.user.id;
+    // let id = request.user.id;
+    let id = 4
     let res = {};
     let employeeTaskStatusCountsQuery = `select count(task_id) as Assigned, count(case when task_status = 'todo' then 1 end) as "To Do",count(case when task_status = 'inprogress' then 1 end) as "In Progress", count(case when task_status = 'completed' then 1 end) as Completed from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id where emp_id = ?;`;
 
@@ -20,11 +20,6 @@ const getdashboardata = async (request, response) => {
     res.upCommingDeadlineData = await db.executeQuery(employeeUpCommingDeadlineQuery,[id,currentDate]);
     res.employeeInprogressTaskData = await db.executeQuery(employeeInprogressTaskQuery,[id]);
 
-    res.imagename = await db.executeQuery(
-      `select newimage_name from user_profiles where user_id = ? and is_deleted = 0`,[id]
-    );
-
-
     return response.json({ result: res });
   } catch (error) {
     logger.error("Dash data is not found !");
@@ -34,4 +29,5 @@ const dashboard = (request, response) => {
   response.render("employeemodule/dashboard");
 };
 
-module.exports = { getdashboardata, dashboard };
+
+module.exports = { getdashboardata, dashboard};
