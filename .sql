@@ -293,6 +293,9 @@ CREATE TABLE `role_has_permissions` (
   unique key(`role_id`, `permission_id`)
 );
 <<<<<<< HEAD
+INSERT INTO `role_has_permissions` VALUES (1,3,'2024-04-23 06:27:31',0),(1,4,'2024-04-23 06:38:46',0),(1,5,'2024-04-23 08:20:52',0),(1,6,'2024-04-23 09:14:50',0),(1,7,'2024-04-23 09:16:26',0),(1,8,'2024-04-23 09:33:55',0),(1,9,'2024-04-23 11:18:51',0),(1,10,'2024-04-23 11:44:39',0),(1,11,'2024-04-23 11:55:22',0),(1,12,'2024-04-23 11:55:22',0),(1,13,'2024-04-23 11:57:53',0),(1,14,'2024-04-23 12:00:05',0),(1,15,'2024-04-23 12:24:10',0),(1,16,'2024-04-23 12:24:10',0),(1,17,'2024-04-23 12:24:10',0),(1,18,'2024-04-23 12:24:10',0),(1,19,'2024-04-23 12:24:10',0),(1,20,'2024-04-23 12:24:10',0),(1,21,'2024-04-23 12:26:19',0),(1,22,'2024-04-23 12:26:19',0),(1,23,'2024-04-23 12:26:19',0),(1,24,'2024-04-23 12:26:19',0),(1,25,'2024-04-23 12:26:19',0),(1,26,'2024-04-23 12:26:19',0),(1,27,'2024-04-23 12:27:16',0),(1,28,'2024-04-23 12:27:16',0);
+=======
+<<<<<<< HEAD
 INSERT INTO `role_has_permissions`
 VALUES (1, 3, '2024-04-23 06:27:31', 0),
 (1, 4, '2024-04-23 06:38:46', 0),
@@ -346,6 +349,7 @@ INSERT INTO `role_has_permissions` VALUES (1,3,'2024-04-23 06:27:31',0),(1,4,'20
 (1,26,'2024-04-23 12:26:19',0),
 (1,27,'2024-04-23 12:27:16',0),
 (1,28,'2024-04-23 12:27:16',0);
+>>>>>>> dev
 >>>>>>> dev
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `users`;
@@ -17586,6 +17590,22 @@ CREATE TABLE `attechments` (
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `user_comments`;
 CREATE TABLE `user_comments` (
+<<<<<<< HEAD
+`id` int NOT NULL AUTO_INCREMENT,
+`employee_id` int DEFAULT NULL,
+`task_id` int DEFAULT NULL,
+`task_status` varchar(15) DEFAULT NULL,
+`comment` varchar(255) DEFAULT NULL,
+`oldfile_name` varchar(255),
+`attechment` varchar(255) DEFAULT NULL,
+`create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`update_at` timestamp default current_timestamp on update current_timestamp,
+PRIMARY KEY (`id`),
+KEY `employee_id` (`employee_id`),
+KEY `task_id` (`task_id`),
+CONSTRAINT `user_comments_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `user_comments_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON UPDATE CASCADE
+=======
   `id` int NOT NULL AUTO_INCREMENT,
   `employee_id` int DEFAULT NULL,
   `task_id` int DEFAULT NULL,
@@ -17599,4 +17619,5 @@ CREATE TABLE `user_comments` (
   KEY `task_id` (`task_id`),
   CONSTRAINT `user_comments_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `user_comments_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON UPDATE CASCADE
+>>>>>>> dev
 );

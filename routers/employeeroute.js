@@ -25,20 +25,29 @@ const {
   updateProfiledata,
 } = require("../controller/employeemodule/employeeprofile");
 const passport = require("passport");
-router.get("/getdashboardata",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }), 
-  getdashboardata);
+const { getnavigationdata } = require("../controller/employeemodule/navigation");
+router.get(
+  "/getdashboardata",
+  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  getdashboardata
+);
 router.get(
   "/dashboard",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   dashboard
 );
-router.get("/getprofiledata", getProfiledata);
+router.get(
+  "/getprofiledata",
+  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  getProfiledata
+);
 router.post(
   "/updateprofile",
   uploadStorageprofile.single("profileimg"),
+  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfiledata
 );
+router.get("/getnavigationdata",getnavigationdata)
 router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist/:id", EmployeeTaskList);
 router.get("/searchtask/:searchresult", searchlist);
