@@ -86,14 +86,11 @@ const getDeadline = async () => {
   return data;
 }
 
+var m = new Date().getMonth();
+var monthName = new Date().toLocaleString('default', { month: 'long' });
+
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
-  let date = [];
-  // dueDate.result.forEach(e => {
-  //   date.push(new Date(e.end_date).getDate())
-  // })
-  // console.log(date);
-
   let data = await (await fetch(`/admin/calenderData/${month}`)).json();
   let calenderData = document.getElementById("calender");
   let tr1 = document.createElement("tr");
@@ -109,7 +106,7 @@ const getCalender = async (month) => {
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
       td.innerText += `${data.yearCalendar[i][j]}`
-      dueDate.result.forEach(ele => {
+      dueDate.taskDate.forEach(ele => {
         if (new Date(ele.end_date).getMonth() + 1 === month) {
           if (new Date(ele.end_date).getDate() === data.yearCalendar[i][j]) {
             let div = document.createElement("div");
@@ -129,11 +126,10 @@ const getCalender = async (month) => {
 
   }
   // calenderData.innerHTML = result;
+
 }
 
-m = new Date().getMonth();
-body = document.getElementsByTagName("body")
-body.onload = getCalender(m + 1);
+getCalender(m + 1);
 
 
 

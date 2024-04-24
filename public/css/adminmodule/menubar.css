@@ -1,3 +1,9 @@
+:root {
+  --lightblue: #E5EDF1;
+  --sidebar: #0A1828;
+  --hover:rgb(234, 234, 234)
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +14,11 @@ body {
 }
 
 .container-div {
+  background-color: var(--lightblue);
   max-width: 1400px;
-  background-color: #ddd0c8;
   margin: 0 auto;
   padding-right: 20px;
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .admin {
@@ -23,25 +28,21 @@ body {
 
 .admin .sidebar {
   border-top-right-radius: 30px;
-  background-color: #323232;
+  background-color: var(--sidebar);
   width: 20%;
   margin-left: -10px;
   color: white;
-  height: auto;
+  height: 100vh;
   margin-left: -10px;
   overflow: hidden;
+  position: fixed;
 }
 
 .admin .sidebar .task-logo img {
   width: 70px;
-  padding: 20px 40px;
+  height: 70px;
+  margin: 30px 0 10px 90px;
 }
-
-/* 
-.list {
-  display: flex;
-  padding: 20px;
-} */
 
 .list i {
   font-size: 20px;
@@ -58,29 +59,27 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  left:20%;
 }
-
 .rightbar .profilename .bell {
   font-size: 25px;
   margin: 24px 15px;
-  color: #323232;
-}
-
-.rightbar .profilename .bell {
-  font-size: 25px;
-  margin: 24px 15px;
-  color: #323232;
+  color: var(--sidebar);
 }
 
 .rightbar .profilename p {
   margin-top: 27px;
   padding-right: 20px;
-  color: #323232;
+  color: var(--sidebar);
+}
+.rightbar .profile{
+  background-color: #0A1828;
+  cursor: pointer;
 }
 
 .rightbar .profile i {
   margin: 15px 10px;
-  background-color: #323232;
+  background-color:var(--sidebar);
   color: white;
   padding: 15px;
   border-radius: 50%;
@@ -114,3 +113,21 @@ ul div:hover {
 .pagenation-data span {
   font-size: large;
 }
+
+ .card {
+   width: calc(80%/3);
+   box-shadow: 3px 3px grey;
+ }
+
+ .card:hover {
+   background-color: var(--hover);
+ }
+
+ #recentActivity {
+   background-color: white;
+   border-radius: 10px;
+   height: 200px;
+   overflow: scroll;
+   box-shadow: 3px 3px grey;
+ }
+ 
