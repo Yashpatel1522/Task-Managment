@@ -257,7 +257,7 @@ const validation = () => {
 };
 
 const getProfile = async () => {
-  let url = window.location.origin + "/manager/getManagerProfile";
+  let url = window.location.origin + "/manager/getManagerProfile/2";
   let response = await fetch(url);
   let data = await response.json();
 
@@ -275,8 +275,6 @@ const getProfile = async () => {
   document.getElementById("dob_input").value = data.result[0].date_of_birth;
 
   if (data.imageResult[0]) {
-    document.getElementById(
-      "selectedImage"
-    ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
+    document.getElementById("selectedImage").src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
   }
 };
