@@ -380,3 +380,41 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from importants where id in (select id from priorities where id in (select priority_id from tasks where id = '2100' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-23T06:51:22.459Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,first_name from users where id in (select emp_id from tasks_assigned_to where task_id = '2100' and role_id = 3);","sqlMessage":"Table 'task_managment_db.tasks_assigned_to' doesn't exist","sqlState":"42S02","timestamp":"2024-04-23T06:53:10.226Z"}
 {"code":"ER_NO_REFERENCED_ROW_2","errno":1452,"index":0,"level":"error","sql":"insert into user_profiles (user_id, oldimage_name, newimage_name) values (8, 'profile.jpeg', '1713867033790-profile.jpeg')","sqlMessage":"Cannot add or update a child row: a foreign key constraint fails (`task_managment_db`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE)","sqlState":"23000","timestamp":"2024-04-23T10:10:33.810Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:18:00.373Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:20:40.796Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:20:44.111Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:04.432Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:05.836Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:06.010Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:06.131Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:06.275Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:06.404Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:06.521Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T04:22:06.661Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:01:01.275Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:01:03.968Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:01:13.499Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:04:20.731Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:06:56.455Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:07:09.940Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:10:49.040Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:11:20.683Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:11:39.531Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:11:47.274Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:16:28.658Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:19:23.874Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:19:28.015Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T05:24:25.744Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:50.429Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T06:00:58.457Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T06:01:47.920Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T06:01:48.786Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T06:37:01.998Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T06:44:41.128Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T07:21:49.862Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T07:21:51.119Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T07:21:51.292Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T07:21:51.439Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T07:21:51.593Z"}
+{"level":"error","message":"Data is not found !","timestamp":"2024-04-24T07:27:23.722Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T07:27:54.214Z"}

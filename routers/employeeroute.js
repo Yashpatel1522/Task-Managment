@@ -25,6 +25,8 @@ const {
   updateProfiledata,
 } = require("../controller/employeemodule/employeeprofile");
 const passport = require("passport");
+const { employeeCalender, empdueDateTask, empcalenderMonth } = require("../controller/employeemodule/canlender");
+const { calenderMonth, dueDateTask } = require("../controller/adminmodule/calender");
 router.get("/getdashboardata",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), getdashboardata);
 router.get(
   "/dashboard",
@@ -49,5 +51,9 @@ router.get("/teamdata/:id", teamlist);
 router.get("/teamdetailsdata/:id", teamdata);
 router.get("/teamdetails/:id", teamdetails);
 router.get("/teamsearchdetails/:searchteam", teamsearchdetails);
+
+router.get("/calender",employeeCalender)
+router.get("/calenderData/:month", empcalenderMonth);
+router.get("/dueDateOfTask",passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,empdueDateTask);
 
 module.exports = router;

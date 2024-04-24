@@ -1,3 +1,5 @@
+const logger = require("../../logger/logger");
+
 const taskView = () => {
   return {
     getPage(request, response) {
