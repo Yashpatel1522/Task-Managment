@@ -17,7 +17,7 @@ const employeeView = require("../controller/managermodule/employeeView");
 const taskView = require("../controller/managermodule/taskView");
 const getAllTasks = require("../controller/managermodule/getalltasks");
 const upcomingTasks = require("../controller/managermodule/upcomingTasks");
-const editTask = require('../controller/managermodule/edittask')
+const editTask = require("../controller/managermodule/edittask");
 const {
   addtaskdata,
   inserttaskdata,
@@ -49,6 +49,7 @@ const {
   getComments,
   updateTaskStatus,
 } = require("../controller/managermodule/comments");
+const checkUserRole = require("../middleware/userrole");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -66,6 +67,10 @@ const managerRouter = express.Router();
 //   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
 //   dashboardView().getPage
 // );
+// managerRouter.use(
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   checkUserRole
+// );
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView().getPage);
@@ -77,7 +82,7 @@ managerRouter.get("/Teams", (request, response) => {
 managerRouter.get("/tasks", taskView().getPage);
 
 // Dashboard
-managerRouter.get("/dashboard", dashboardView().getPage);
+managerRouter.get("/dashboard", dashboardView);
 
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
