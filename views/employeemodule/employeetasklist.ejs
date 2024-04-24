@@ -132,6 +132,7 @@
               <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',0)" />
             </div>
           </div>
+          <div class="carddetails" id="todo"></div>
         </div>
         <div class="carddetails" id="todo"></div>
       </div>
@@ -144,6 +145,7 @@
             <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',1)" />
             <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',1)" />
           </div>
+          <div class="carddetails" id="inprogress"></div>
         </div>
         <div class="carddetails" id="inprogress"></div>
       </div>
@@ -156,14 +158,12 @@
             <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',2)" />
             <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',2)" />
           </div>
+          <div class="carddetails" id="completed"></div>
         </div>
-        <div class="carddetails" id="completed"></div>
+        <!-- user profile modal -->
+        <%- include('./profilemodal') %>
       </div>
-      <!-- user profile modal -->
-      <%- include('./profilemodal') %>
     </div>
-  </div>
-  <!-- </div> -->
-</body>
-
+    <!-- </div> -->
+  </body>
 </html>

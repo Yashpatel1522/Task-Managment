@@ -50,6 +50,7 @@ const {
   getComments,
   updateTaskStatus,
 } = require("../controller/managermodule/comments");
+const checkUserRole = require("../middleware/userrole");
 const {
   calenderView,
   dueDateTask1,
@@ -65,6 +66,17 @@ const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 
+// // Displaying Tasks of manager
+// managerRouter.get(
+//   "/",
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   dashboardView().getPage
+// );
+// managerRouter.use(
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   checkUserRole
+// );
+
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView().getPage);
 
@@ -75,7 +87,7 @@ managerRouter.get("/Teams", (request, response) => {
 managerRouter.get("/tasks", taskView().getPage);
 
 // Dashboard
-managerRouter.get("/dashboard",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), dashboardView().getPage);
+managerRouter.get("/dashboard", dashboardView);
 
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
