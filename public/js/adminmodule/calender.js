@@ -85,6 +85,9 @@ const getDeadline = async () => {
   return data;
 };
 
+var m = new Date().getMonth();
+var monthName = new Date().toLocaleString("default", { month: "long" });
+
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/admin/calenderData/${month}`)).json();

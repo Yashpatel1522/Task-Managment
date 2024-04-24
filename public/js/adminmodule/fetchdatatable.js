@@ -24,11 +24,11 @@ const fetchData = async (api, id) => {
                 <td>${element.id}</td>
                 <td>${element.team_name}</td>
                 <td>
-                <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
+                <input type="button" value="View" class="btn btn-success px-3" onclick="viewTeam(${element.id})">
                 </td>
                 <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="editTeam(${element.id})"></td>
                 <td>
-                <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="teamDelete(${element.id})">
+                <input type="button" value="Delete" class="btn btn-danger px-3" onclick="teamDelete(${element.id})">
                 </td > `)
         });
 
@@ -52,10 +52,10 @@ const fetchData = async (api, id) => {
                   <td>${element.email}</td>
                   <td>${element.contact}</td>
                   <td>
-                  <input type="button" value="view" class="btn btn-secondary px-3" onclick="viewusers(${element.id})">
+                  <input type="button" value="view" class="btn btn-success px-3" onclick="viewusers(${element.id})">
                   </td>
                   <td>
-                  <input type="button" value="delete" class="btn btn-secondary px-3" onclick="usersDeleteData(${element.id})">
+                  <input type="button" value="delete" class="btn btn-danger px-3" onclick="usersDeleteData(${element.id})">
                   </td>`)
         });
       }
