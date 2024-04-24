@@ -70,8 +70,7 @@ router.delete("/categoryData/:id", deleteCategory);
 
 
 // Calender
-router.route("/calender").get(adminCalender);
-router.get("/calenderData/:month",calenderMonth);
+router.get("/calenderData/:month", calenderMonth);
 router.get("/dueDateOfTask", dueDateTask);
 
 

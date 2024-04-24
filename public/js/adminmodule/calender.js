@@ -129,7 +129,12 @@ const getCalender = async (month) => {
 
 }
 
-getCalender(m + 1);
+m = new Date().getMonth();
+body = document.getElementsByTagName("body")
+body.onload = getCalender(m + 1);
+let arr = ["January", "February", "March", "April", "May", "June", "July", "August", "Saptember", "October", "November", "December"];
+let monthName = arr[m];
+document.getElementById("heading").innerText = monthName;
 
 
 
