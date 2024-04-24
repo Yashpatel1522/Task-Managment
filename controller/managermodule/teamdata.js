@@ -7,24 +7,11 @@ exports.teamdetails = async (request, response) => {
   try {
     let teamData = await db.executeQuery(
       `select * from teams where is_active = ?`,
-      ["0"]
+      ["1"]
     );
     return response.json({ result: teamData });
   } catch (error) {
     logger.error("Team details not found!");
-  }
-};
-
-exports.searchTeamData = async (request, response) => {
-  try {
-    let search = "%" + request.params.searchdata + "%";
-    let result = await db.executeQuery(
-      `select * from teams where created_by = ? and (team_name like ?) and is_active = ?`,
-      [1, search, 1]
-    );
-    return response.json({ result });
-  } catch (error) {
-    logger.error("Not Search Data Found !");
   }
 };
 

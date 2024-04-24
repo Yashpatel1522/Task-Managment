@@ -1,3 +1,14 @@
+const showOption = async () => {
+  if (
+    document.getElementById("profClk").style.display == "none" ||
+    document.getElementById("profClk").style.display == ""
+  ) {
+    document.getElementById("profClk").style.display = "block";
+  } else {
+    document.getElementById("profClk").style.display = "none";
+  }
+};
+
 const monthplus = () => {
   month = document.getElementById("heading").innerText;
   switch (month) {
@@ -81,18 +92,17 @@ const monthplus = () => {
 };
 
 const getDeadline = async () => {
-  let data = await (await fetch("/admin/dueDateOfTask")).json();
+  let data = await (await fetch("/manager/dueDateOfTask")).json();
   return data;
 };
-
-var m = new Date().getMonth();
-var monthName = new Date().toLocaleString("default", { month: "long" });
 
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/admin/calenderData/${month}`)).json();
+  console.log(data);
   let calenderData = document.getElementById("calender");
   let tr1 = document.createElement("tr");
+  tr1.setAttribute("class", "headercss");
   data.days.forEach((e) => {
     let th = document.createElement("th");
     th.innerText = `${e}`;
@@ -104,13 +114,15 @@ const getCalender = async (month) => {
     let tr = document.createElement("tr");
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
-      td.innerText += `${data.yearCalendar[i][j]}`;
+      td.innerText += `${
+        data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
+      }`;
       dueDate.result.forEach((ele) => {
         if (new Date(ele.end_date).getMonth() + 1 === month) {
           if (new Date(ele.end_date).getDate() === data.yearCalendar[i][j]) {
             let div = document.createElement("div");
             div.innerText = `${ele.task_name}`;
-            div.style.backgroundColor = "red";
+            div.style.backgroundColor = "green";
             div.style.color = "white";
             div.style.margin = "10px";
             div.style.padding = "5px 10px";
@@ -123,7 +135,6 @@ const getCalender = async (month) => {
     }
     calenderData.appendChild(tr);
   }
-  // calenderData.innerHTML = result;
 };
 
 m = new Date().getMonth();

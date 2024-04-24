@@ -37,7 +37,7 @@ const inserttaskdata = async (request, response) => {
     );
     let res = await db.insertData(
       {
-        manager_id: 2,
+        manager_id: 1,
         category_id: taskdata.task_category,
         prioritiy_id: priorityData[0].id,
         task_name: taskdata.task_name,
