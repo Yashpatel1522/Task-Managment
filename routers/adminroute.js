@@ -56,15 +56,15 @@ const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
 // const passport = require("passport");
 const checkUserRole = require("../middleware/userrole");
-
+router.route("/dashboard").get(adminDashboard);
+router.route("/managers").get(managerpage);
+router.route("/employees").get(employeepage);
 // router.use(
 //   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
 //   checkUserRole
 // );
 // Page Render
-router.route("/dashboard").get(adminDashboard);
-router.route("/managers").get(managerpage);
-router.route("/employees").get(employeepage);
+
 router.route("/tasks").get(taskpage);
 router.route("/team").get(adminTeam);
 router.route("/category").get(categoryPage);
