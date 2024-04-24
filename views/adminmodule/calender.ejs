@@ -17,13 +17,14 @@
   <script src="/js/loginmodule/popup.js"></script>
   <style>
     table {
-      border: 2px solid black;
-      border-collapse: collapse;
+      border: 2px solid grey;
       margin: auto;
+      border-radius: 10px;
     }
 
     th,
     td {
+      border-collapse: collapse;
       padding: 10px 20px;
       text-align: center;
       border: 2px solid black;
@@ -32,8 +33,14 @@
     td {
       height: 130px;
       width: 130px;
-      background-color: white;
+      border: 2px solid grey;
     }
+
+    th {
+      background-color: #0A1828;
+      color: white;
+    }
+
 
     td:hover {
       background-color: rgb(199, 227, 199);
@@ -47,22 +54,21 @@
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-            <div>
-              <div class="d-flex my-2 position-relative">
-                <h3 id="heading" class="" style="margin-left: 350px; margin-top: 38px;">April</h3>
-                <input type="button" value=">" class="px-3 position-absolute top-50 start-50 btn btn-secondary"
-                  onclick="monthplus()">
-              </div>
+            <div class="my-2">
               <div>
-                <table id="calender" style="margin-bottom: 50px;">
-                </table>
+                <div class="d-flex my-2 position-relative">
+                  <h3 id="heading" class="" style="margin-left: 350px; margin-top: 38px;"></h3>
+                  <input type="button" value=">" class="px-3 position-absolute top-50 start-50 btn btn-dark"
+                    onclick="monthplus()">
+                </div>
+                <div>
+                  <table id="calender" style="margin-bottom: 50px;">
+                  </table>
+                </div>
               </div>
             </div>
         </div>
     </div>
-  </div>
-  <div class="text-center p-4 copyright-class">
-    © 2024 Copyright
   </div>
   <script src="/js/adminmodule/calender.js"></script>
 </body>

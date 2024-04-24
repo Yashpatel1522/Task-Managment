@@ -15,17 +15,6 @@
   <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
   <script src="/sweetalert2/sweetalert2.min.js"></script>
   <script src="/js/loginmodule/popup.js"></script>
-
-  <style>
-    .cards {
-
-      flex-wrap: wrap;
-    }
-
-    .card {
-      width: calc(80%/3);
-    }
-  </style>
 </head>
 
 <body onload="getCategoryData()">
@@ -42,7 +31,7 @@
                     oninput="searchCategoryData(this.value)">
                 </div>
                 <div class="addtasks">
-                  <input type="button" value="+  Add Category" class="btn btn-secondary float-end mx-2 my-2 px-3"
+                  <input type="button" value="+  Add Category" class="btn btn-dark float-end mx-2 my-2 px-3"
                     tabindex="2" onclick="openPopup4()">
                 </div>
               </div>
@@ -94,9 +83,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="text-center p-4 copyright-class">
-    © 2024 Copyright
   </div>
   <script src="/js/adminmodule/category.js"></script>
   <script src="/js/adminmodule/deletedata.js"></script>

@@ -6,7 +6,7 @@ const getCategoryData = async () => {
     categoryData += `<div class="card m-3 p-2">
       <div class="card-body">
         <p class="h4 p-2">${e.category}</p>
-        <input type="button" value="view" class="m-2 px-3 py-2" onclick="openpopup3(${e.id})">
+        <input type="button" value="view" class="m-2 px-3 py-2 btn btn-success" onclick="openpopup3(${e.id})">
         <input type="button" value="Delete" class="m-2 px-3 py-2 btn btn-danger" onclick="categoryDelete(${e.id})" >
       </div>
     </div>`
@@ -26,7 +26,7 @@ const searchCategoryData = async (value) => {
       document.getElementById("category").innerHTML += `<div class="card m-3 p-2">
       <div class="card-body">
         <p class="h4 p-2">${e.category}</p>
-        <input type="button" value="view" class="m-2 px-3 py-2" onclick="openpopup3(${e.id})" >
+        <input type="button" value="view" class="m-2 px-3 py-2 btn btn-success" onclick="openpopup3(${e.id})" >
         <input type="button" value="Delete" class="m-2 px-3 py-2 btn btn-danger" onclick="categoryDelete(${e.id})" >
       </div>
     </div>`

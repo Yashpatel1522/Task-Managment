@@ -14,18 +14,6 @@
   <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
 
   <script src="/js/bootstrap.js"></script>
-  <style>
-    .card {
-      width: calc(90%/3);
-    }
-
-    #recentActivity {
-      background-color: white;
-      border-radius: 10px;
-      height: 200px;
-      overflow: scroll;
-    }
-  </style>
 </head>
 
 <body onload="chartShow()">
@@ -34,11 +22,10 @@
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-            <div class="bodypage mt-5">
+            <div class="bodypage mt-3">
               <div class="row1">
-                <h4 class="m-3"></h4>
-                <div class="cards d-flex">
-                  <div class="card text-center mx-3">
+                <div class="cards d-flex my-5"> 
+                  <div class="card text-center mx-4">
                     <a href="/admin/managers" class="list-group-item list-group-item-action">
                       <div class="card-body my-3 text-dark">
                         <p class="card-text h1">
@@ -48,7 +35,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card text-center mx-3 ">
+                  <div class="card text-center mx-4 ">
                     <a href="/admin/employees" class="list-group-item list-group-item-action">
                       <div class="card-body my-3 text-dark">
                         <p class="card-text h1">
@@ -58,7 +45,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card text-center mx-3 ">
+                  <div class="card text-center mx-4 ">
                     <a href="/admin/team" class="list-group-item list-group-item-action">
                       <div class="card-body my-3 mx-5 text-dark">
                         <p class="card-text h1">
@@ -73,7 +60,7 @@
               <div class="row1 my-5">
                 <h4 class="m-3"></h4>
                 <div class="cards d-flex">
-                  <div class="card text-center mx-3 text-dark">
+                  <div class="card text-center mx-4 text-dark">
                     <a href="/admin/tasks" class="list-group-item list-group-item-action">
                       <div class="card-body my-3">
                         <p class="card-text h1">
@@ -83,7 +70,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card text-center mx-3 text-dark">
+                  <div class="card text-center mx-4 text-dark">
                     <a href="/admin/category" class="list-group-item list-group-item-action">
                       <div class="card-body my-3">
                         <p class="card-text h1">
@@ -93,7 +80,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card text-center mx-3 text-dark">
+                  <div class="card text-center mx-4 text-dark">
                     <div class="card-body my-3">
                       <p class="card-text h1">
                         <%=completedCount%>
@@ -104,19 +91,19 @@
                 </div>
               </div>
               <div class="row1 mx-5 my-5 d-flex">
-                <div class="col1">
+                <div class="col1 my-4">
                   <h4 class="mx-4">chart</h4>
                   <div class=" p-2">
                     <div id="chart"></div>
                   </div>
                 </div>
-                <div class="col2" style="width: 45%;">
+                <div class="col2 my-4" style="width: 45%;">
                   <div>
                     <div class="position-relative">
                       <div>
                         <h4 class="mx-4">Task Logs</h4>
                       </div>
-                      <div class="position-absolute top-0 end-0 mx-4 h4 rounded bg-secondary text-white">
+                      <div class="position-absolute top-0 end-0 mx-4 h4 rounded text-white" style="background-color: #0A1828;">
                         <i class='bx bx-refresh p-1' onclick="managerAssignTask()" style="cursor: pointer;"></i>
                       </div>
                     </div>
@@ -129,11 +116,8 @@
               </div>
             </div>
         </div>
+      </div>
     </div>
-  </div>
-  <div class="text-center p-4 copyright-class">
-    © 2024 Copyright
-  </div>
   <script src="/charts/apexcharts.min.js"></script>
   <script src="/js/adminmodule/chart.js"></script>
 
