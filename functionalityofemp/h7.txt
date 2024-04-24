@@ -4,3 +4,42 @@ status: create database tables and design ,employee task design and research on 
 
 Date : 10-04-2024
 status : Design employee tasklist panel and research on how to design employee dashboard panel.
+
+
+
+=================================Dumping data for table `tasks`=========================================================
+
+INSERT INTO `task_managment_db`.`tasks` (`id`, `manager_id`, `category_id`, `prioritiy_id`, `task_name`, `task_description`, `task_start_date`, `task_end_date`, `task_status`) VALUES
+('1', '2', '1', '1', 'login functionality', 'user can login with email and password', '2024-04-11', '2024-04-12', 'todo'),
+('2', '2', '2', '4', 'register functionality', 'user fill details of like firstname lastname etc', '2024-05-11', '2024-05-12', 'inprogress'),
+('3', '2', '1', '8', 'profile creta', 'shoe yheroi profile of user ', '2024-04-11', '2024-04-11', 'completed'),
+('5', '2', '2', '15', 'create dynamic card ', 'when user add task it is show dynamically', '2024-04-12', '2024-04-13', 'todo'),
+('6', '2', '1', '4', 'token', 'create token for authentication', '2024-04-12', '2024-04-13', 'todo');
+
+
+=================================Dumping data for table `tasks_assigend_to`=========================================================
+
+INSERT INTO `task_managment_db`.`tasks_assigend_to` (`id`, `task_id`, `emp_id`) VALUES ('1', '1', '1'),('2', '2', '1'),('3', '3', '1'),('4', '5', '1'),('5', '6', '4');
+
+=================================Dumping data for table `priorities`=========================================================
+
+INSERT INTO `task_managment_db`.`priorities` (`id`, `urgency_id`, `important_id`) VALUES ('1', '1', '1'),('2', '1', '2'),('3', '1', '3'),('4', '2', '1'),('5', '2', '2'),('6', '2', '3'),('7', '3', '1'),('8', '3', '2'),('9', '3', '3'),('14', '4', '1'),('15', '4', '2'),('16', '4', '3');
+
+
+=================================Dumping data for table `team_details`=========================================================
+
+INSERT INTO `task_managment_db`.`team_details` (`id`, `team_id`, `member_id`) VALUES ('1', '1', '1'),('2', '1', '4'),('3', '2', '1');
+
+=================================Dumping data for table `team_has_tasks`=========================================================
+
+INSERT INTO `task_managment_db`.`team_has_tasks` (`id`, `team_id`, `task_id`) VALUES ('1', '1', '1');
+
+
+=================================Dumping data for table `teams`=========================================================
+
+INSERT INTO `task_managment_db`.`teams` (`id`, `team_name`, `created_by`, `is_active`) VALUES ('1', 'warrior', '2', '1'),('2', 'coder', '2', '1'),('3', 'hackers', '1', '1');
+
+
+=================================Dumping data for table `users`=========================================================
+
+INSERT INTO `task_managment_db`.`users` (`id`, `role_id`, `first_name`, `last_name`, `email`, `contact`, `date_of_birth`, `employee_role`, `activation_code`) VALUES ('1', '3', 'jay', 'dave', 'j@gmialo.com', '7401254978', '2001-11-19', 'aa', 'aaaaaaaaaaaaaaa'),('2', '2', 'kishan', 'patel', 'k@gmail.com', '9979563215', '2001-02-17', 'sfa', 'bbbbbbbbbbbb'),('3', '1', 'vishvas', 'biral', 'v@gmail.cin', '6865622317', '2001-01-14', 'ss', 'vbzxbbxczbvcmxvbzx'),('4', '3', 'hardik', 'erda', 'h@gmail.com', '9979456210', '2001-01-15', 'ss', 'qqqqqqqqqqqqqqqqqqqqqqq');

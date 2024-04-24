@@ -4,8 +4,7 @@ let id = path[path.length - 1];
 console.log(id, "id is ");
 var gdata;
 async function viewteamdata() {
-
-
+  
   response = await fetch(`/employee/teamdetailsdata/${id}`)
   data = await response.json();
   gdata = data

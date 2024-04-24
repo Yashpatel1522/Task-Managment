@@ -30,4 +30,4 @@ const dashboard = (request, response) => {
 };
 
 
-module.exports = { getdashboardata, dashboard};
+module.exports = { getdashboardata, dashboard };
