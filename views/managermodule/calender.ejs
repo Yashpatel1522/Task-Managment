@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teams</title>
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/bootstrape/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+    <!-- <link rel="stylesheet" href="/css/managermodule/managerdashboard.css" /> -->
+    <link rel="stylesheet" href="/css/managermodule/calender.css" />
+    <link rel="stylesheet" href="/css/loginmodule/popup.css" />
+  </head>
+  <body>
+    <div class="managerMain">
+      <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
+      <div class="teamcontent pt-4">
+        <div class="row">
+          <div class="col-9">
+            <!-- <input
+              type="text"
+              placeholder="Search"
+              style="border-radius: 10px"
+              oninput="searchTeams(this.value)"
+            /> -->
+          </div>
+          <div class="col-3">
+            <div class="row ps-5">
+              <i
+                class="bi bi-bell fa-2x col"
+                onclick="fetchNotificationData()"
+              ></i>
+              <i
+                class="bi bi-person-circle fa-2x col"
+                id="profImg"
+                onclick="showOption()"
+              >
+                <div id="profClk">
+                  <p
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="getProfile()"
+                    style="font-size: 14px"
+                  >
+                    Show Profile
+                  </p>
+                  <p style="font-size: 14px">
+                    Log out <i class="bi bi-box-arrow-right ps-2"></i>
+                  </p>
+                </div>
+              </i>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex my-2 position-relative">
+          <h3
+            id="heading"
+            class=""
+            style="margin-left: 350px; margin-top: 38px"
+          >
+            April
+          </h3>
+          <input
+            type="button"
+            value=">"
+            class="px-3 position-absolute top-50 start-50 btn btn-secondary"
+            style = "background-color:#0A1828"
+            onclick="monthplus()"
+          />
+          </div>
+          <div>
+            <table id="calender" style="margin-bottom: 50px"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <script src="/bootstrape/js/bootstrap.min.js"></script>
+    <script src="/js/managermodule/notification.js"></script>
+    <script src="/js/managermodule/calender.js"></script>
+    <div class="managerProfile" id="managerProfile">
+      <%- include("managerprofile")%>
+    </div>
+  </body>
+</html>

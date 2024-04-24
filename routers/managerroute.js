@@ -43,6 +43,7 @@ const {
   deleteTeam,
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
+const getEditDetails = require("../controller/managermodule/getEditTadkDetails");
 const passport = require("passport");
 const {
   viewComments,
@@ -50,6 +51,10 @@ const {
   updateTaskStatus,
 } = require("../controller/managermodule/comments");
 const checkUserRole = require("../middleware/userrole");
+const {
+  calenderView,
+  dueDateTask1,
+} = require("../controller/managermodule/calender");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -90,13 +95,13 @@ managerRouter.get("/getTeams", getTeams);
 //API to edit task Details
 managerRouter.post("/editTaskDetails", editTask);
 
+//Api to get details to edit tasks
+managerRouter.get("/getEditTadkDetails", getEditDetails)
+
 //API to get task details
 managerRouter.get("/getTaskDetails/:id", getAllTasks);
 
 managerRouter.get("/teamapi", teamdetails);
-
-//api to get upcoming manager tasks
-managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 
 //api to get upcoming manager tasks
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
@@ -137,7 +142,6 @@ managerRouter.get("/notification", notifications);
 managerRouter.get("/getempdata", getempdata);
 
 managerRouter.post("/addteamdata", addteam);
-managerRouter.get("/managerTeam/searchteam/:searchdata", searchTeamData);
 managerRouter.get("/managerTeam/showteamdata/:id", showTeamDataForUpdate);
 managerRouter.post("/updateteamdata", updateTeamData);
 managerRouter.get("/teamapi/:id", teamDetailsForView);
@@ -146,4 +150,7 @@ managerRouter.delete("/deleteteamapi/:id", deleteTeam);
 managerRouter.get("/comments/:teamId", viewComments);
 managerRouter.get("/getcomments/:teamId", getComments);
 managerRouter.post("/updateTaskStatus", updateTaskStatus);
+
+managerRouter.get("/calender", calenderView().getPage);
+managerRouter.get("/dueDateOfTask", dueDateTask1);
 module.exports = managerRouter;

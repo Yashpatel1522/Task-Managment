@@ -10,7 +10,8 @@ const list = async (req, res) => {
 
 const EmployeeTaskList = async (req, res) => {
     try {
-        id = req.params.id
+        // id = req.params.id
+        id = 4
         const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
         inner join categories as c on c.id=t.category_id 
         inner join users as u on u.role_id=t.manager_id 
@@ -28,8 +29,8 @@ const EmployeeTaskList = async (req, res) => {
 const searchlist = async (req, res) => {
     try {
         usersearch = req.params.searchresult
-        const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join priorities as p on p.id=t.prioritiy_id  inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ?;`
-        let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%'])
+        const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join priorities as p on p.id=t.prioritiy_id  inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ? or t.task_description like ?;`
+        let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%', '%' + usersearch + '%'])
         res.json(result)
 
     }
@@ -46,14 +47,13 @@ const addcomment = async (req, res) => {
             task_id: req.params.taskid,
             task_status: req.body.taskstatus,
             comment: req.body.taskcomment,
-            attechment: file.filename
-
+            attechment: file.filename.EmployeeTaskList,
+            oldfile_name: file.originalname
         }
         let result = await db.insertData(addcomment, "user_comments")
         let userfileedata = {
             "task_id": req.params.taskid,
             "attechment_url": file.filename,
-            "oldfile_name": file.originalname
         }
         resultprofile = await db.insertData(userfileedata, "attechments")
         res.status(200).json({ 'data': resultprofile, 'msg': 'done' })

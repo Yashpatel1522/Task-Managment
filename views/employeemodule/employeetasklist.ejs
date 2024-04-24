@@ -1,216 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/employee/employee.css">
-    <script src="/js/employee/employee.js"></script>
-    <script src="/js/employee/employeeprofile.js"></script>
-    <!-- <script src="/js/employee/employeedashboard.js"></script> -->
-    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/employee/menubar.css" />
-    <script src="/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
-    <script src="/sweetalert2/sweetalert2.min.js"></script>
-  </head>
 
-  <body>
-    <!-- <div class="container"> -->
-    <div class="employee">
-      <div class="sidebar" style="width: 20%; min-height: 1014px">
-        <%- include('../partials/employeemenubar') %>
-      </div>
-      <div class="containerMain">
-        <div
-          class="d-flex position-relative mt-4 mb-4"
-          style="align-items: center"
-        >
-          <div class="search float-start" style="margin-left: 66%">
-            <input
-              type="text"
-              placeholder="Search Category.."
-              class="rounded py-2 px-3"
-              id="seachtaskresult"
-              tabindex="1"
-            />
-            <button
-              type="button"
-              class="btn btn-primary"
-              onclick="seachresultnew()"
-            >
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-          <div class="profile dropbtn" onclick="showDropdown()">
-            <img class="userprofile" src="/assets/employee/user.png" alt="" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/employee/employee.css" />
+  <script src="/js/employee/employee.js"></script>
+  <script src="/js/employee/employeeprofile.js"></script>
+  <!-- <script src="/js/employee/employeedashboard.js"></script> -->
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/employee/menubar.css" />
+  <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
+  <script src="/js/employee/employeenavigation.js"></script>
+</head>
+
+<body>
+  <!-- <div class="container"> -->
+  <div class="employee">
+    <div class="sidebar" style="width: 20%; min-height: 1014px">
+      <%- include('../partials/employeemenubar') %>
+    </div>
+    <div class="containerMain">
+      <div class="d-flex position-relative mt-4 mb-4" style="align-items: center">
+        <div class="search float-start" style="margin-left: 72%">
+          <input type="text" placeholder="Search Category.." class="rounded py-2 px-3" id="seachtaskresult"
+            tabindex="1" />
+          <button type="button" class="btn btn-primary" onclick="seachresultnew()">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div>
+          <div class="profile d-flex m-2 border rounded-pill align-items-center" style="cursor: pointer"
+            onclick="showDropdown()">
+            <div class="m-2 h-50">
+              <img class="userprofile img-thumbnail rounded-circle border border-dark" style="width: 50px; height: 50px"
+                id="profile" src="/assets/employee/user.png" alt="" />
+            </div>
+            <p id="user_name" style="font-size: 18px; margin-top: 12px" class="pe-3">
+              <strong>dgsfdhsdhshfs</strong>
+            </p>
             <div id="dropdown" class="dropdown-content">
-              <a
-                href="/"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-                onclick="loadProfile()"
-                >Profile</a
-              >
+              <a href="/" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                onclick="loadProfile()">Profile</a>
               <a href="employee/changepassword">Change Password</a>
               <a href="employee/logout">Logout</a>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Modal -->
-        <div class="popup-task" id="popup">
-          <div class="body">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header"></div>
-                &nbsp;
-                <div class="modal-body" id="taskdetails"></div>
+      <!-- Modal -->
+      <div class="popup-task" id="popup">
+        <div class="body">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header"></div>
+              &nbsp;
+              <div class="modal-body" id="taskdetails"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--closed  -->
+      <!-- comment modal -->
+      <div class="popup-comment" id="popup-comment">
+        <div class="body">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title fs-3 text" id="exampleModalLongTitle">
+                  Comments
+                </h5>
+              </div>
+              &nbsp;
+              <div class="modal-body" id="taskcommentdetails">
+                <table class="table">
+                  <tr>
+                    <td>Task Status :</td>
+                    <td>
+                      <select name="taskstatus" id="taskstatus" name="taskstatus">
+                        <option value="todo">ToDo</option>
+                        <option value="inprogress">Inprogress</option>
+                        <option value="completed">Completed</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Comment :</td>
+                    <td>
+                      <textarea id="taskcomment" name="taskcomment" class="taskcomment" rows="4" cols="50"></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="myfile">Select a file:</label>
+                    </td>
+                    <td>
+                      <input type="file" id="file" name="file" />
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="modal-footer-user" id="commentpopup">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                  onclick="hideComment('popup-comment')">
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="addcomment()">
+                  Submit
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <!--closed  -->
-        <!-- comment modal -->
-        <div class="popup-comment" id="popup-comment">
-          <div class="body">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title fs-3 text" id="exampleModalLongTitle">
-                    Comments
-                  </h5>
-                </div>
-                &nbsp;
-                <div class="modal-body" id="taskcommentdetails">
-                  <table class="table">
-                    <tr>
-                      <td>Task Status :</td>
-                      <td>
-                        <select
-                          name="taskstatus"
-                          id="taskstatus"
-                          name="taskstatus"
-                        >
-                          <option value="todo">ToDo</option>
-                          <option value="inprogress">Inprogress</option>
-                          <option value="completed">Completed</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Comment :</td>
-                      <td>
-                        <textarea
-                          id="taskcomment"
-                          name="taskcomment"
-                          class="taskcomment"
-                          rows="4"
-                          cols="50"
-                        ></textarea>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label for="myfile">Select a file:</label>
-                      </td>
-                      <td>
-                        <input type="file" id="file" name="file" />
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="modal-footer-user" id="commentpopup">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                    onclick="hideComment('popup-comment')"
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    onclick="addcomment()"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </div>
+      </div>
+      <!-- end -->
+      <div class="progress-task">
+        <div class="name">
+          <div class="prostatus">
+            <h2>TO DO</h2>
           </div>
-        </div>
-        <!-- end -->
-        <div class="progress-task">
-          <div class="name">
-            <div class="prostatus">
-              <h2>TO DO</h2>
+          <div class="arrow">
+            <div class="arrow1">
+              <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',0)" />
             </div>
-            <div class="arrow">
-              <div class="arrow1">
-                <img
-                  class="userprofile"
-                  src="/assets/employee/arrow.png"
-                  alt=""
-                  onclick="sc('previous',0)"
-                />
-              </div>
-              <div class="arrow2">
-                <img
-                  class="userprofile"
-                  src="/assets/employee/right-arrow.png"
-                  alt=""
-                  onclick="sc('next',0)"
-                />
-              </div>
+            <div class="arrow2">
+              <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',0)" />
             </div>
           </div>
           <div class="carddetails" id="todo"></div>
         </div>
-        <div class="progress-task">
-          <div class="name">
-            <div class="prostatus">
-              <h2>INPROGRESS</h2>
-            </div>
-            <div class="arrow">
-              <img
-                class="userprofile"
-                src="/assets/employee/arrow.png"
-                alt=""
-                onclick="sc('previous',1)"
-              />
-              <img
-                class="userprofile"
-                src="/assets/employee/right-arrow.png"
-                alt=""
-                onclick="sc('next',1)"
-              />
-            </div>
+        <div class="carddetails" id="todo"></div>
+      </div>
+      <div class="progress-task">
+        <div class="name">
+          <div class="prostatus">
+            <h2>INPROGRESS</h2>
+          </div>
+          <div class="arrow">
+            <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',1)" />
+            <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',1)" />
           </div>
           <div class="carddetails" id="inprogress"></div>
         </div>
-        <div class="progress-task">
-          <div class="name">
-            <div class="prostatus">
-              <h2>COMPLETED</h2>
-            </div>
-            <div class="arrow">
-              <img
-                class="userprofile"
-                src="/assets/employee/arrow.png"
-                alt=""
-                onclick="sc('previous',2)"
-              />
-              <img
-                class="userprofile"
-                src="/assets/employee/right-arrow.png"
-                alt=""
-                onclick="sc('next',2)"
-              />
-            </div>
+        <div class="carddetails" id="inprogress"></div>
+      </div>
+      <div class="progress-task">
+        <div class="name">
+          <div class="prostatus">
+            <h2>COMPLETED</h2>
+          </div>
+          <div class="arrow">
+            <img class="userprofile" src="/assets/employee/arrow.png" alt="" onclick="sc('previous',2)" />
+            <img class="userprofile" src="/assets/employee/right-arrow.png" alt="" onclick="sc('next',2)" />
           </div>
           <div class="carddetails" id="completed"></div>
         </div>

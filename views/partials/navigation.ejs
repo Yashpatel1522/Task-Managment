@@ -9,7 +9,7 @@
   <body>
     <div class="profilename position-relative">
       <div class="float-start">
-        <h2 class="text-center m-3"></h2>
+        <h2 class="text-center m-3">Admin</h2>
       </div>
       <div class="d-flex position-absolute end-0">
         <div class="bell">
@@ -18,7 +18,6 @@
         <div>
           <div
             class="profile d-flex m-2 border rounded-pill align-items-center"
-            style="cursor: pointer"
             onclick="showDropdown()"
           >
             <div class="m-2 h-50">
@@ -30,8 +29,13 @@
                 id="admin_dashboard_img"
               />
             </div>
-            <p id="user_name" style="font-size: 18px; margin-top: 12px"></p>
+            <p
+              id="user_name"
+              class="text-white"
+              style="font-size: 18px; margin-top: 12px"
+            ></p>
           </div>
+
           <div id="dropdown" class="dropdown-content me-5">
             <a
               type="button"
@@ -47,6 +51,6 @@
         <%- include('../adminmodule/profile.ejs') %>
       </div>
     </div>
-    <!-- <script src="/js/adminmodule/adminprofile.js"></script> -->
+    <script src="/js/adminmodule/adminprofile.js"></script>
   </body>
 </html>

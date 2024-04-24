@@ -31,8 +31,8 @@ async function fetchData() {
                   <span class="ms-3" id='urgent-${element.task_id}'><span>
                 </div>
                 <div class="field">
-                  <label>Description :&nbsp;</label>
-                  <p>${element.task_description}</p>
+                  <label>Category :&nbsp;</label>
+                  <p>${element.category}</p>
                 </div>
                 <div class="field">
                   <label>due date :&nbsp;</label>
@@ -87,19 +87,15 @@ const show = (id, taskid) => {
       <div class="field">
         <p class="fs-1 text fw-bold">${element.task_name}</p>
       </div>
-    
+    <div class="basicdetailstask">
       <div class="row">
       
         <div class="field fs-6 text p-3 col">
-        <i class="bi bi-record-circle me-2"></i>
-        <label>Status: &nbsp;</label>
-        <p>${element.task_status}</p>
+          <i class="bi bi-record-circle me-2"></i>
+          <label>Status: &nbsp;</label>
+          <p>${element.task_status}</p>
         </div>
-     <div class="field fs-6 text p-3 col">
-     <i class="bi bi-info-circle me-2"></i>
-    <label>Description:</label>
-    <p>${element.task_description}</p>
-    </div>
+        
       </div>
       <div class="row">
       
@@ -131,18 +127,27 @@ const show = (id, taskid) => {
 
       <div class="row">
       
-      <div class="field fs-6 text p-3 col">
-      <i class="bi bi-columns-gap me-2"></i>
-      <label>Category name :&nbsp;</label>
-       <p>${element.category}</p>
-     </div>
-      <div class="field fs-6 text p-3 col">
-      <i class="bi bi-person-circle me-2"></i>
-      <label>Manager name :&nbsp;</label>
-       <p>${element.first_name}</p>
-     </div>
+        <div class="field fs-6 text p-3 col">
+          <i class="bi bi-columns-gap me-2"></i>
+          <label>Category name :&nbsp;</label>
+          <p>${element.category}</p>
+        </div>
+        <div class="field fs-6 text p-3 col">
+          <i class="bi bi-person-circle me-2"></i>
+          <label>Manager name :&nbsp;</label>
+          <p>${element.first_name}</p>
+        </div>
       </div>
-        <div class="modal-footer-user" id="commentpopup">
+      <div class="descriptiontask" style="min-height:200px;background-color:lightgrey;margin-bottom: 20px;">
+        <div class="row">
+          <div class="field fs-6 text p-3 col">
+            <i class="bi bi-info-circle me-2"></i>
+            <label>Description :&nbsp;</label>
+            <p>${element.task_description}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-user" id="commentpopup">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"
           onclick="showComment('popup-comment',${element.task_id})">Comment</button>
         <button type="button" onclick="hide('popup')" class="btn btn-primary">Close</button>
