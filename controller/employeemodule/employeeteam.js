@@ -11,11 +11,13 @@ const teamlist = async (req, res) => {
 
 const teamdata = async (req, res) => {
   try {
-    id = req.params.id;
-    const query = `select teams.id as teamid,teams.team_name,users.first_name as employee_name from team_members inner join teams on teams.id=team_members.team_id inner join users on users.id=team_members.emp_id where users.id=?`;
-    let result = await db.executeQuery(query, id);
-    res.json(result);
-  } catch (error) {
+    id = req.params.id
+    const query = `select teams.id as teamid,teams.team_name,users.first_name as employee_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=team_details.member_id where users.id=?`
+    let result = await db.executeQuery(query, [req.user.id])
+    console.log(result);
+    res.json(result)
+  }
+  catch (error) {
     logger.error("Employee Task data is not found !");
   }
 };
