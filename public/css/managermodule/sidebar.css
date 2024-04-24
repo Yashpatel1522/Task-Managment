@@ -1,7 +1,7 @@
 :root{
   --sidebarcolor : #0A1828;
   --white : white;
-  --cornflowerblue : cornflowerblue;
+  --cornflowerblue : rgb(172, 197, 244);
 }
 *{
   margin: 0;

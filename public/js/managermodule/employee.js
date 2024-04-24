@@ -20,8 +20,8 @@ const setData = async () => {
                                 <br>
                                 <p class="card-text textview"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text textview"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
-                                <button class="btn btn-primary btnview" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
-                                <input type="button" value="Remove" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.result[count].id})">
+                                <button class="btn btn-primary btnview" style = "background-color:#0A1828" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
+                                <input type="button" value="Remove"  style = "background-color:#0A1828" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>
                     </div>
@@ -106,8 +106,8 @@ const searchEmployee = async (value) => {
                                 <br>
                                 <p class="card-text textview"><b>Email - </b>${data.searchData[count].email}</p>
                                 <p class="card-text textview"><b>Birth Date - </b>${data.searchData[count].date_of_birth}</p>
-                                  <button class="btn btn-primary btnview" onclick="showEmployeeDetails(${data.searchData[count].id}, '${data.searchData[count].first_name}', '${data.searchData[count].last_name}', '${data.searchData[count].email}', '${data.searchData[count].contact}', '${data.searchData[count].date_of_birth}', '${data.searchData[count].create_at}', '${data.searchData[count].img_url}')">View More</button>
-                                <input type="button" value="Remove" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.searchData[count].id})">
+                                  <button class="btn btn-primary btnview" style = "background-color:#0A1828" onclick="showEmployeeDetails(${data.searchData[count].id}, '${data.searchData[count].first_name}', '${data.searchData[count].last_name}', '${data.searchData[count].email}', '${data.searchData[count].contact}', '${data.searchData[count].date_of_birth}', '${data.searchData[count].create_at}', '${data.searchData[count].img_url}')">View More</button>
+                                <input type="button" value="Remove" class="btn btn-secondary px-3 btnview" style = "background-color:#0A1828" onclick="removeEmployee(${data.searchData[count].id})">
                             </div>
                         </div>
                     </div>

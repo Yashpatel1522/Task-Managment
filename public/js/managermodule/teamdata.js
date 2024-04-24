@@ -36,11 +36,11 @@ const getDataGrid = async (elements) => {
               <td>${element.id}</td>
               <td>${element.team_name}</td>
               <td>
-              <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
+              <input type="button" value="View" class="btn btn-secondary px-3" style = "background-color:#0A1828" onclick="viewTeam(${element.id})">
               </td>
-              <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="showTeamData(${element.id})"></td>
+              <td><input type="button" value="Edit" class="btn btn-secondary px-3" style = "background-color:#0A1828" onclick="showTeamData(${element.id})"></td>
               <td>
-              <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="deleteTeam(${element.id})">
+              <input type="button" value="Delete" class="btn btn-secondary px-3" style = "background-color:#0A1828" onclick="deleteTeam(${element.id})">
               </td>`;
   });
 
@@ -52,7 +52,6 @@ const searchTeams = async (value) => {
   if (value.trim() === "") {
     filterArray = teamDataGlobal;
     searchPagignation(filterArray, 1);
-    console.log(filterArray);
   } else if (value.trim()) {
     teamDataGlobal.forEach((element) => {
       for (let key in element) {

@@ -136,7 +136,6 @@ managerRouter.get("/notification", notifications);
 managerRouter.get("/getempdata", getempdata);
 
 managerRouter.post("/addteamdata", addteam);
-managerRouter.get("/managerTeam/searchteam/:searchdata", searchTeamData);
 managerRouter.get("/managerTeam/showteamdata/:id", showTeamDataForUpdate);
 managerRouter.post("/updateteamdata", updateTeamData);
 managerRouter.get("/teamapi/:id", teamDetailsForView);

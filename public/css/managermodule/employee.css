@@ -4,7 +4,7 @@
 	--lightblue: lightblue;
 	--aliceblue:aliceblue;
 	--backgroundcolor: #E9F1FA;
-	--sidebarcolor: #323232;
+	--sidebarcolor: #0A1828;
 	--profClkbackgroundcolor: #f9f9f9;
 	--lightgray: lightgray;
 	--black: black;
@@ -41,7 +41,7 @@
 
 #profClk > p {
 	float: none;
-	color: black;
+	color: var(--black);
 	padding: 8px 0;
 	display: block;
     padding: 14px 16px;
@@ -69,19 +69,19 @@
 }
 .card:hover {
 	position: relative;
-	top: -20px;
+	top: -10px;
 	transition: 1s;
 	background-color: var(--black);
 }
 .card:hover .cardview{
-	background-color: var(--black) !important;
+	background-color: var(--sidebarcolor) !important;
 }
 .card:hover .textview{
 	color: var(--aliceblue);
 }
 .card:hover .btnview{
-	background-color: var(--button-color);
-	color: var(--black);
-	border-right: 5px solid var(--white);
-	border-bottom: 5px solid var(--white);
+	background-color: var(--white) !important;
+	color: var(--black) !important;
+	border-right: 5px solid var(--backgroundcolor);
+	border-bottom: 5px solid var(--backgroundcolor);
 }
