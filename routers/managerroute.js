@@ -17,7 +17,7 @@ const employeeView = require("../controller/managermodule/employeeView");
 const taskView = require("../controller/managermodule/taskView");
 const getAllTasks = require("../controller/managermodule/getalltasks");
 const upcomingTasks = require("../controller/managermodule/upcomingTasks");
-const editTask = require('../controller/managermodule/edittask')
+const editTask = require("../controller/managermodule/edittask");
 const {
   addtaskdata,
   inserttaskdata,
@@ -49,6 +49,10 @@ const {
   getComments,
   updateTaskStatus,
 } = require("../controller/managermodule/comments");
+const {
+  calenderView,
+  dueDateTask1,
+} = require("../controller/managermodule/calender");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -141,4 +145,7 @@ managerRouter.delete("/deleteteamapi/:id", deleteTeam);
 managerRouter.get("/comments/:teamId", viewComments);
 managerRouter.get("/getcomments/:teamId", getComments);
 managerRouter.post("/updateTaskStatus", updateTaskStatus);
+
+managerRouter.get("/calender", calenderView().getPage);
+managerRouter.get("/dueDateOfTask", dueDateTask1);
 module.exports = managerRouter;

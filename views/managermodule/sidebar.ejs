@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manager modulesidebar</title>
-  <link rel="stylesheet" href="/css/managermodule/sidebar.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
-  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
-</head>
-<body>
-        <div class="sidebarcontain">
-          <div class="logo">
-            <center><img src="/assets/managerassets/task.png" alt="" width="25%"></center>
-          </div>
-          <ul style="word-wrap: anywhere;">
-            <div class="list" onclick="showDashboard()">
-              <i class="bi bi-house-door sidebaricon"></i>
-              <li>dashboard</li>
-            </div>
-          <div class="list" onclick="showTask()">
-            <i class="bi bi-list-task sidebaricon"></i>
-            <li>Tasks</li>
-          </div>
-          <div class="list" onclick="showEmployee()">
-            <i class="bi bi-people-fill sidebaricon"></i>
-            <li>Employee</li>
-          </div>
-          <div class="list" onclick="showTeams()">
-            <i class="bi bi-people-fill sidebaricon"></i>
-            <li>Teams</li>
-          </div>
-          <div class="list">
-            <img src="/assets/managerassets/logout.svg"></i>
-            <li>Logout</li>
-          </div>
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager modulesidebar</title>
+    <link rel="stylesheet" href="/css/managermodule/sidebar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+  </head>
+  <body>
+    <div class="sidebarcontain">
+      <div class="logo">
+        <center>
+          <img src="/assets/managerassets/task.png" alt="" width="25%" />
+        </center>
+      </div>
+      <ul style="word-wrap: anywhere">
+        <div class="list" onclick="showDashboard()">
+          <i class="bi bi-house-door sidebaricon"></i>
+          <li>dashboard</li>
+        </div>
+        <div class="list" onclick="showTask()">
+          <i class="bi bi-list-task sidebaricon"></i>
+          <li>Tasks</li>
+        </div>
+        <div class="list" onclick="showEmployee()">
+          <i class="bi bi-people-fill sidebaricon"></i>
+          <li>Employee</li>
+        </div>
+        <div class="list" onclick="showTeams()">
+          <i class="bi bi-people-fill sidebaricon"></i>
+          <li>Teams</li>
+        </div>
+        <div class="list" onclick="showCalender()">
+          <i class="bi bi-calendar-event-fill sidebaricon"></i>
+          <li>Calender</li>
+        </div>
+        <div class="list">
+          <img src="/assets/managerassets/logout.svg" />
+          <li>Logout</li>
+        </div>
+      </ul>
     </div>
 
     <script>
@@ -42,14 +51,18 @@
         window.location.href = window.location.origin + `/manager/dashboard`;
       }
       function showEmployee() {
-        window.location.href = window.location.origin + `/manager/employeeDetails`
+        window.location.href =
+          window.location.origin + `/manager/employeeDetails`;
       }
       function showTask() {
-        window.location.href = window.location.origin + `/manager/tasks`
+        window.location.href = window.location.origin + `/manager/tasks`;
       }
-      function showTeams(){
-        window.location.href = window.location.origin + `/manager/Teams`
+      function showTeams() {
+        window.location.href = window.location.origin + `/manager/Teams`;
+      }
+      function showCalender() {
+        window.location.href = window.location.origin + `/manager/calender`;
       }
     </script>
-</body>
+  </body>
 </html>

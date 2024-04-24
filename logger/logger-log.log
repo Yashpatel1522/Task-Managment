@@ -380,3 +380,74 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from importants where id in (select id from priorities where id in (select priority_id from tasks where id = '2100' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-23T06:51:22.459Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,first_name from users where id in (select emp_id from tasks_assigned_to where task_id = '2100' and role_id = 3);","sqlMessage":"Table 'task_managment_db.tasks_assigned_to' doesn't exist","sqlState":"42S02","timestamp":"2024-04-23T06:53:10.226Z"}
 {"code":"ER_NO_REFERENCED_ROW_2","errno":1452,"index":0,"level":"error","sql":"insert into user_profiles (user_id, oldimage_name, newimage_name) values (8, 'profile.jpeg', '1713867033790-profile.jpeg')","sqlMessage":"Cannot add or update a child row: a foreign key constraint fails (`task_managment_db`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE)","sqlState":"23000","timestamp":"2024-04-23T10:10:33.810Z"}
+{"level":"error","timestamp":"2024-04-24T03:49:03.577Z"}
+{"level":"error","timestamp":"2024-04-24T03:49:14.921Z"}
+{"level":"error","timestamp":"2024-04-24T03:49:15.797Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:47.242Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:48.936Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:49.138Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:49.521Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:49.701Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:49.888Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:50.431Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:50.815Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:51.280Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:51.535Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:55.826Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:57.033Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:57.313Z"}
+{"level":"error","timestamp":"2024-04-24T03:50:57.505Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,first_name from users where id in (select emp_id from tasks_assigned_to where task_id = '7' and role_id = 3);","sqlMessage":"Table 'task.tasks_assigned_to' doesn't exist","sqlState":"42S02","timestamp":"2024-04-24T05:09:06.802Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:35:27.906Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:35:38.390Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:36:37.048Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:37:00.816Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:37:49.662Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:23.970Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:35.784Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:36.335Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:42.424Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:43.038Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:43.369Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:43.575Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:43.696Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:38:43.852Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:40:21.951Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:41:24.223Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:41:34.242Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:41:36.149Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:41:47.857Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:42:05.352Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:42:40.233Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:42:59.604Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:44:02.886Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:44:07.692Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:44:50.809Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:44:52.778Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:45:17.936Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:45:35.128Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:45:57.329Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:46:04.686Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:46:18.467Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:46:37.510Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:47:04.575Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:47:05.144Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:47:08.737Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:47:32.118Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:48:21.121Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:48:31.156Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:48:34.611Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:48:37.224Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:48:45.573Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:48:46.645Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:48:51.921Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:49:50.148Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:50:13.479Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:52:18.832Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:52:41.032Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:56:15.221Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:57:05.334Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:58:30.214Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:58:36.193Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T05:59:49.369Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T06:00:06.750Z"}

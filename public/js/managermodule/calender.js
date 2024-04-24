@@ -1,3 +1,14 @@
+const showOption = async () => {
+  if (
+    document.getElementById("profClk").style.display == "none" ||
+    document.getElementById("profClk").style.display == ""
+  ) {
+    document.getElementById("profClk").style.display = "block";
+  } else {
+    document.getElementById("profClk").style.display = "none";
+  }
+};
+
 const monthplus = () => {
   month = document.getElementById("heading").innerText;
   switch (month) {
@@ -81,13 +92,14 @@ const monthplus = () => {
 };
 
 const getDeadline = async () => {
-  let data = await (await fetch("/admin/dueDateOfTask")).json();
+  let data = await (await fetch("/manager/dueDateOfTask")).json();
   return data;
 };
 
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/admin/calenderData/${month}`)).json();
+  console.log(data);
   let calenderData = document.getElementById("calender");
   let tr1 = document.createElement("tr");
   data.days.forEach((e) => {
@@ -120,7 +132,6 @@ const getCalender = async (month) => {
     }
     calenderData.appendChild(tr);
   }
-  // calenderData.innerHTML = result;
 };
 
 m = new Date().getMonth();
