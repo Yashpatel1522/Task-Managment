@@ -7,14 +7,14 @@ const assignBadge = (type) => {
     case 'mid':
       return 'text-primary';
     case 'low':
-       return 'text-secondary';
+      return 'text-secondary';
     case 'inprogress':
       return 'badge text-bg-primary m-2'
     case 'completed':
       return 'badge text-bg-success m-2'
     case 'todo':
       return 'badge text-bg-secondary m-2'
- 
+
   }
 }
 //dynamic table creation function
@@ -52,9 +52,9 @@ const renderData = (dashboardData) => {
   document.get
   Object.keys(dashboardData.taskStatusCounts[0]).forEach((key) => {
     const value = dashboardData.taskStatusCounts[0][key];
-    console.log(dashboardData.imagename[0].newimage_name);
+    // console.log(dashboardData.imagename[0].newimage_name);
     document.getElementById("profileImage").src = `/assets/userprofiles/${dashboardData.imagename[0].newimage_name}`
-    console.log(document.getElementById("selectedImage"));
+    // console.log(document.getElementById("selectedImage"));
     let taskCountBox = `<div class="col-sm-3 ps-0" id="taskCountBox">
     <div class="card">
       <div class="card-body">
@@ -63,7 +63,7 @@ const renderData = (dashboardData) => {
         </div>
         </div>
         </div>`;
-        taskCountsElement !== null ? taskCountsElement.innerHTML += taskCountBox: '';
+    taskCountsElement !== null ? taskCountsElement.innerHTML += taskCountBox : '';
   });
   dashboardData.upCommingDeadlineData.length != 0
     ? createTable(dashboardData.upCommingDeadlineData, "deadline")
@@ -72,7 +72,7 @@ const renderData = (dashboardData) => {
     ? createTable(dashboardData.employeeInprogressTaskData, "inprogress")
     : showNoData("inprogress");
 };
-  
+
 getDashBoardData("/employee/getdashboardata").then((data) => {
   dashboardData = data.result;
   renderData(dashboardData);

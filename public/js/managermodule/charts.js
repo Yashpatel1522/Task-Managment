@@ -8,7 +8,7 @@ const drawCharts = async () => {
     taskData.result.forEach((element) => {
       document.getElementById(
         "upcomingTasks"
-      ).innerHTML += `<p style="text-align: center; color: black;">${element.task_name}</p>`;
+      ).innerHTML += `<p>${element.task_name}</p>`;
     });
   }
 
@@ -16,7 +16,7 @@ const drawCharts = async () => {
     taskData.teamResult.forEach((element) => {
       document.getElementById(
         "teams"
-      ).innerHTML += `<p style="text-align: center; color: black;">${element.team_name}</p>`;
+      ).innerHTML += `<p>${element.team_name}</p>`;
     });
   }
   let url = window.location.origin + `/manager/getManagerTaskCount`;

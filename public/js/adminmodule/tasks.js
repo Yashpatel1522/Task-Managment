@@ -8,7 +8,7 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary" onclick="openPopup(${e.id})">Edit</button>
       </div>
     </div>`;
@@ -22,7 +22,7 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary" onclick="openPopup(${e.id})">Edit</button>
       </div>
     </div>`;
@@ -36,7 +36,7 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
       </div>
     </div>`;
@@ -50,7 +50,7 @@ const getTaskData = async () => {
 
 const searchTaskData = async (value) => {
   try {
-    let data = await (await fetch(`/manager/searchTask/${value}`)).json();
+    let data = await (await fetch(`/admin/tasksData/${value}`)).json();
     document.getElementById("todoTask").innerHTML = "";
     if (value === "") {
       getTaskData();
@@ -59,13 +59,14 @@ const searchTaskData = async (value) => {
     let dataadd = ``;
     if (data.todoTask.length != 0) {
       data.todoTask.forEach((e) => {
-        dataadd += `<div class="card m-3 p-2">
-        <div class="card-body">
-          <p>${e.task_name}</p>
-          <p>${e.task_description}</p>
-           <input type="button" value="view" onclick="openpopup2(${e.id})">
-        </div>
-      </div>`;
+        dataadd += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+        <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+      </div>
+    </div>`;
       });
       todoTask.innerHTML = dataadd;
     } else {
@@ -80,13 +81,14 @@ const searchTaskData = async (value) => {
     let dataadd1 = ``;
     if (data.inprogressTask.length != 0) {
       data.inprogressTask.forEach((e) => {
-        dataadd1 += `<div class="card m-3 p-2">
-        <div class="card-body">
-          <p>${e.task_name}</p>
-          <p>${e.task_description}</p>
-           <input type="button" value="view" onclick="openpopup2(${e.id})">
-        </div>
-      </div>`;
+        dataadd1 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+        <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary" onclick="openPopup(${e.id})">Edit</button>
+      </div>
+    </div>`;
       });
       inprogressTask.innerHTML = dataadd1;
     } else {
@@ -101,13 +103,14 @@ const searchTaskData = async (value) => {
     let dataadd2 = ``;
     if (data.completedTask.length != 0) {
       data.completedTask.forEach((e) => {
-        dataadd2 += `<div class="card m-3 p-2">
-        <div class="card-body">
-          <p>${e.task_name}</p>
-          <p>${e.task_description}</p>
-           <input type="button" value="view" onclick="openpopup2(${e.id})">
-        </div>
-      </div>`;
+        dataadd2 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+        <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
+      </div>
+    </div>`;
       });
       completedTask.innerHTML = dataadd2;
     } else {

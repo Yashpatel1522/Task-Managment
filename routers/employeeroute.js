@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const { userProfileStorage ,upload} = require("../utility/multer");
+const { userProfileStorage, upload } = require("../utility/multer");
 const uploadStorageprofile = multer({ storage: userProfileStorage });
 
 const {
@@ -25,13 +25,15 @@ const {
   updateProfiledata,
 } = require("../controller/employeemodule/employeeprofile");
 const passport = require("passport");
-router.get("/getdashboardata",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), getdashboardata);
+router.get("/getdashboardata",
+  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }), 
+  getdashboardata);
 router.get(
   "/dashboard",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   dashboard
 );
-router.get("/getprofiledata",getProfiledata);
+router.get("/getprofiledata", getProfiledata);
 router.post(
   "/updateprofile",
   uploadStorageprofile.single("profileimg"),

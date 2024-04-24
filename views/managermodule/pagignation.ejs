@@ -6,39 +6,27 @@
     <title>pagignation</title>
   </head>
   <body>
-    <div class="pagination">
-      <div class="alert alert-info" id="nodata">
-        <strong>no data found</strong>
-      </div>
-      <input
-        type="button"
-        value="firstpage"
-        class="btn btn-secondary mx-1"
-        id="first"
-        onclick="firstPage1()"
-      />
-      <input
-        type="button"
-        value="previous"
-        class="btn btn-secondary mx-1"
-        id="previous"
-        onclick="previous1()"
-      />
-      <span class="page-link" id="current_page"></span>
-      <input
-        type="button"
-        value="next"
-        id="next"
-        class="btn btn-secondary mx-1"
-        onclick="next1()"
-      />
-      <input
-        type="button"
-        value="lastpage"
-        class="btn btn-secondary mx-1"
-        id="last"
-        onclick="lastPage1()"
-      />
-    </div>
+    <nav aria-label="...">
+      <ul class="pagination">
+        <div class="alert alert-info" id="nodata">
+          <strong>no data found</strong>
+        </div>
+        <li class="page-item">
+          <p class="page-link" id="first" onclick="firstPage1()">First</p>
+        </li>
+        <li class="page-item">
+          <p class="page-link" id="previous" onclick="previous1()">&lt;</p>
+        </li>
+        <li class="page-item active">
+          <span class="page-link" id="current_page"></span>
+        </li>
+        <li class="page-item">
+          <p class="page-link" id="next" onclick="next1()">&gt;</p>
+        </li>
+        <li class="page-item">
+          <p class="page-link" id="last" onclick="lastPage1()">Last</p>
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>
