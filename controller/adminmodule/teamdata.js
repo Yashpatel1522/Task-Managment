@@ -13,14 +13,18 @@ exports.adminTeam = (request, response) => {
 exports.addNewTeam = async (request, response) => {
     try {
         let { team_name, member_id } = request.body;
-        console.log(request.body);
-        let teamadd = await db.insertData({ team_name: team_name, created_by: 1 }, "teams");
-        let lastid = teamadd.insertId;
-        member_id.split(",").forEach(async (element) => {
-            await db.insertData({ team_id: lastid, emp_id: element }, "team_members");
-        });
+        let team_is_exit = await db.executeQuery("select * from teams where team_name = ? and is_active = ?", [team_name, 1]);
+        if (team_is_exit.length === 0) {
+            let teamadd = await db.insertData({ team_name: team_name, created_by: 1 }, "teams");
+            let lastid = teamadd.insertId;
+            member_id.split(",").forEach(async (element) => {
+                await db.insertData({ team_id: lastid, emp_id: element }, "team_members");
+            });
 
-        return response.json({ status: 500, msg: "New Team Insert Succefully" })
+            return response.json({ status: 500, msg: "New Team Insert Succefully" })
+        } else {
+            return response.json({ status: 200, msg: "Team Name Is Already Exists" })
+        }
 
     } catch (error) {
         logger.error("New team is not added !")

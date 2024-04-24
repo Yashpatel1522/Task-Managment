@@ -1,14 +1,14 @@
 const drawCharts = async () => {
   let taskResponse = await fetch(
     window.location.origin +
-      `/manager/getManagerUpcomingTasks?start_date=1999-10-01&end_date=2023-10-30&manager_id=3`
+      `/manager/getManagerUpcomingTasks?start_date=2024-04-17&end_date=2024-10-30&manager_id=1`
   );
   let taskData = await taskResponse.json();
   if (taskData.result[0]) {
     taskData.result.forEach((element) => {
       document.getElementById(
         "upcomingTasks"
-      ).innerHTML += `<p style="text-align: center; color: black;">${element.task_name}</p>`;
+      ).innerHTML += `<p>${element.task_name}</p>`;
     });
   }
 
@@ -16,7 +16,7 @@ const drawCharts = async () => {
     taskData.teamResult.forEach((element) => {
       document.getElementById(
         "teams"
-      ).innerHTML += `<p style="text-align: center; color: black;">${element.team_name}</p>`;
+      ).innerHTML += `<p>${element.team_name}</p>`;
     });
   }
   let url = window.location.origin + `/manager/getManagerTaskCount`;

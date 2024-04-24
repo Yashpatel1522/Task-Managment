@@ -7,7 +7,6 @@ const chartShow = async () => {
     label.push(e.label);
     data.push(e.data);
   });
-  console.log(data);
   const Pieadmin = {
     series: data,
     chart: {
