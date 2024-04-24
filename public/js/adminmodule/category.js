@@ -121,15 +121,36 @@ const addNewCategory = async () => {
   let formdata = document.getElementById("categoryForm");
   let data = new FormData(formdata)
   const params = new URLSearchParams(data);
-  const jobdata = await new Response(params).text();
+  const categorydata = await new Response(params).text();
 
   let data2 = await fetch("http://localhost:8000/admin/category", {
     method: "POST",
     headers: {
       'Content-type': 'application/x-www-form-urlencoded'
     },
-    body: jobdata
+    body: categorydata
   })
   result = await data2.json()
-  window.location.assign("http://localhost:8000/admin/category")
+  if (result.status === 500) {
+    Swal.fire({
+      icon: "success",
+      title: "Category Added!",
+      text: result.msg
+    }).then(async (result2) => {
+      if (result2.isConfirmed) {
+        window.location.reload();
+      }
+    });
+  } else {
+    Swal.fire({
+      title: "Error",
+      text: result.msg,
+      icon: "error"
+    }).then(errorres => {
+      if (errorres.isConfirmed) {
+        window.location.reload();
+      }
+    });
+  }
 }
+

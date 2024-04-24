@@ -1,3 +1,8 @@
+:root {
+  --lightblue: #E5EDF1;
+  --sidebar: #0A1828;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +14,7 @@ body {
 
 .container-div {
   max-width: 1400px;
-  background-color: #ddd0c8;
+  background-color: var(--lightblue);
   margin: 0 auto;
   padding-right: 20px;
   width: 100%;
@@ -23,13 +28,14 @@ body {
 
 .admin .sidebar {
   border-top-right-radius: 30px;
-  background-color: #323232;
-  width: 20%;
+  background-color: var(--sidebar);
+  width: 200px;
   margin-left: -10px;
   color: white;
-  height: auto;
+  height: 100vh;
   margin-left: -10px;
   overflow: hidden;
+
 }
 
 .admin .sidebar .task-logo img {
@@ -113,4 +119,9 @@ ul div:hover {
 
 .pagenation-data span {
   font-size: large;
+}
+
+.copyright-class {
+  background-color: var(--sidebar);
+  color: white;
 }

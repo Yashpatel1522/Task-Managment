@@ -134,6 +134,9 @@ const getCalender = async (month) => {
 m = new Date().getMonth();
 body = document.getElementsByTagName("body")
 body.onload = getCalender(m + 1);
+let arr = ["January", "February", "March", "April", "May", "June", "July", "August", "Saptember", "October", "November", "December"];
+let monthName = arr[m];
+document.getElementById("monthName").innerText = monthName;
 
 
 

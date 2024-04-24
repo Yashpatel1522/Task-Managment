@@ -380,3 +380,31 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select type from importants where id in (select id from priorities where id in (select priority_id from tasks where id = '2100' and status = 1));","sqlMessage":"Unknown column 'priority_id' in 'field list'","sqlState":"42S22","timestamp":"2024-04-23T06:51:22.459Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select id,first_name from users where id in (select emp_id from tasks_assigned_to where task_id = '2100' and role_id = 3);","sqlMessage":"Table 'task_managment_db.tasks_assigned_to' doesn't exist","sqlState":"42S02","timestamp":"2024-04-23T06:53:10.226Z"}
 {"code":"ER_NO_REFERENCED_ROW_2","errno":1452,"index":0,"level":"error","sql":"insert into user_profiles (user_id, oldimage_name, newimage_name) values (8, 'profile.jpeg', '1713867033790-profile.jpeg')","sqlMessage":"Cannot add or update a child row: a foreign key constraint fails (`task_managment_db`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE)","sqlState":"23000","timestamp":"2024-04-23T10:10:33.810Z"}
+{"level":"error","message":"Data is not found !","timestamp":"2024-04-24T05:52:15.008Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:08:36.210Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:14:40.429Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:14:42.396Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:15:06.248Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:16:10.223Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:18:39.487Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:22:14.014Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:22:15.142Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:22:22.306Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:22:23.246Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-24T06:22:23.453Z"}
+{"level":"error","timestamp":"2024-04-24T09:42:07.035Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:30:44.761Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:33:11.952Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:34:09.558Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:34:14.164Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-24T11:34:16.462Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-24T11:36:25.656Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:36:27.242Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:39:02.451Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:39:58.635Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:40:56.974Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:41:25.721Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:41:27.366Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:41:35.092Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:41:36.910Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T11:43:32.984Z"}

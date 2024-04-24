@@ -43,7 +43,6 @@ const regularExp2 = (type, id) => {
       if (CONTACT.test(document.getElementById(id).value.trim())) return true;
       break;
     case "date":
-      console.log(document.getElementById(id).value.trim());
       if (DATE.test(document.getElementById(id).value.trim())) return true;
       break;
   }
@@ -54,16 +53,16 @@ const regularExp2 = (type, id) => {
 const isValidProfilDetails = () => {
   removeMessage();
   let errors = isString({
-    first_name: "First name",
-    last_name: "Last name",
-    email: "Email ID",
-    contact: "Phone number",
-    date_of_birth: "Birthdate",
-    employee_role: "Department",
+    profile_first_name: "First name",
+    profile_last_name: "Last name",
+    profile_email: "Email ID",
+    profile_contact: "Phone number",
+    profile_date_of_birth: "Birthdate",
+    profile_employee_role: "Department",
   });
   let res = isNumberWithString({
-    first_name: "First name",
-    last_name: "Last name",
+    profile_first_name: "First name",
+    profile_last_name: "Last name",
   });
 
   //set validation errors to those fields which are filled but is NaN
@@ -73,19 +72,14 @@ const isValidProfilDetails = () => {
   });
 
   keys = Object.keys(errors);
-  if (regularExp2("email", "email") == false && keys.indexOf("email") < 0)
-    errors["email"] = "Email ID";
+  if (regularExp2("email", "profile_email") == false && keys.indexOf("email") < 0)
+    errors["profile_email"] = "Email ID";
 
-  if (regularExp2("mobile", "contact") == false && keys.indexOf("phoneno") < 0)
-    errors["contact"] = "Phone number";
+  if (regularExp2("mobile", "profile_contact") == false && keys.indexOf("phoneno") < 0)
+    errors["profile_contact"] = "Phone number";
 
-  if (regularExp2("date", "date_of_birth") == false && keys.indexOf("date") < 0)
-    errors["date_of_birth"] = "Birthdate";
-
-  // if(isValidProfile("img")==false && keys.indexOf('img')<0)
-  // {
-  //   errors['img']= "Profile"
-  // }
+  if (regularExp2("date", "profile_date_of_birth") == false && keys.indexOf("date") < 0)
+    errors["profile_date_of_birth"] = "Birthdate";
   let flag = true;
   Object.keys(errors).forEach((error) => {
     printErrorMes(error, `${errors[error]} is invalid...`);

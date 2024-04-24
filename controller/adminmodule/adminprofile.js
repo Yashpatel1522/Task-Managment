@@ -14,13 +14,16 @@ exports.profiledata = async (request, response) => {
 
 exports.updateAdminProfile = async (request, response) => {
     try {
-        let { originalname, filename } = request.file;
-        await db.updateAnd({ is_deleted: 1 }, 'user_profiles', { user_id: 1, is_deleted: 0 })
-        await db.insertData(
-            { user_id: 1, oldimage_name: originalname, newimage_name: filename },
-            "user_profiles"
-        );
-        await db.updateAnd(request.body, "users", { id: 1 });
+        let user_id = request.body.id
+        if (request.file) {
+            let { originalname, filename } = request.file;
+            await db.updateAnd({ is_deleted: 1 }, 'user_profiles', { user_id: user_id, is_deleted: 0 })
+            await db.insertData(
+                { user_id: user_id, oldimage_name: originalname, newimage_name: filename },
+                "user_profiles"
+            );
+        }
+        await db.updateAnd(request.body, "users", { id: user_id });
 
         return response.status(200).json({ message: 'updated' });
     } catch (error) {

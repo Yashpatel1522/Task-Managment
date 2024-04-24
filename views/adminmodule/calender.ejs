@@ -6,32 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management System</title>
   <link rel="stylesheet" href="/css/adminmodule/menubar.css">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <script src="/js/bootstrap.js"></script>
   <link rel="stylesheet" href="/css/loginmodule/popup.css">
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
   <script src="/boxicon/dist/boxicons.js"></script>
+  <script src="/js/bootstrap.js"></script>
   <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
-  <script src="/js/adminmodule/calender.js"></script>
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
+  <script src="/js/loginmodule/popup.js"></script>
   <style>
     table {
       border: 2px solid black;
       border-collapse: collapse;
       margin: auto;
     }
-    
+
     th,
     td {
       padding: 10px 20px;
-      text-align: center; 
+      text-align: center;
       border: 2px solid black;
     }
-    td{
+
+    td {
       height: 130px;
       width: 130px;
       background-color: white;
     }
-    td:hover{
+
+    td:hover {
       background-color: rgb(199, 227, 199);
     }
   </style>
@@ -43,11 +47,11 @@
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-
             <div>
               <div class="d-flex my-2 position-relative">
                 <h3 id="heading" class="" style="margin-left: 350px; margin-top: 38px;">April</h3>
-                <input type="button" value=">" class="px-3 position-absolute top-50 start-50 btn btn-secondary" onclick="monthplus()">
+                <input type="button" value=">" class="px-3 position-absolute top-50 start-50 btn btn-secondary"
+                  onclick="monthplus()">
               </div>
               <div>
                 <table id="calender" style="margin-bottom: 50px;">
@@ -57,9 +61,10 @@
         </div>
     </div>
   </div>
-  <div class="text-center p-4" style="background-color: #323232; color:white;">
+  <div class="text-center p-4 copyright-class">
     © 2024 Copyright
   </div>
+  <script src="/js/adminmodule/calender.js"></script>
 </body>
 
 </html>
