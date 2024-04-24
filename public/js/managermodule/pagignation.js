@@ -29,17 +29,6 @@ const pagignation = async (url) => {
     document.getElementById("next").style.display = "none";
     document.getElementById("last").style.display = "none";
   }
-
-  if (currentPage == 1) {
-    document.getElementById("first").style.display = "none";
-    document.getElementById("previous").style.display = "none";
-  }
-  if (currentPage === pageCount) {
-    document.getElementById("first").style.display = "block";
-    document.getElementById("previous").style.display = "block";
-    document.getElementById("next").style.display = "none";
-    document.getElementById("last").style.display = "none";
-  }
 };
 
 const firstPage1 = () => {

@@ -16,25 +16,44 @@
     <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
 
-        <div class="employeeContent pt-4">
-            <div class="row">
-                <div class="col-9">
-                    <input type="text" placeholder="Search" name="searchdata" style="border-radius: 10px;" oninput = "searchEmployee(this.value)">
-                </div>
-                <div class="col-3">
-                    <div class="row ps-5">
-                        <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
-                        <i class="bi bi-person-circle fa-2x col" id="profImg" onclick="showOption()">
-                            <div id="profClk">
-                                <p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
-                                <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
-                            </div>
-                        </i>
-                    </div>
+      <div class="employeeContent pt-4">
+        <div class="row">
+          <div class="col-9">
+            <input
+              type="text"
+              placeholder="Search"
+              name="searchdata"
+              style="border-radius: 10px"
+              oninput="searchEmployee(this.value)"
+            />
+          </div>
+          <div class="col-3">
+            <div class="row ps-5">
+              <i
+                class="bi bi-bell fa-2x col"
+                onclick="fetchNotificationData()"
+              ></i>
+              <i
+                class="bi bi-person-circle fa-2x col"
+                id="profImg"
+                onclick="showOption()"
+              >
+                <div id="profClk">
+                  <p
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="getProfile()"
+                    style="font-size: 14px"
+                  >
+                    Show Profile
+                  </p>
+                  <p style="font-size: 14px">
+                    Log out <i class="bi bi-box-arrow-right ps-2"></i>
+                  </p>
                 </div>
               </i>
             </div>
-
+            
             <div class="showEmployees">
               <div class="employeeHead p-5">
                 <div class="tasklft">
@@ -55,6 +74,25 @@
             </div>
           </div>
         </div>
+
+        <!-- <div class="showEmployees">
+          <div class="employeeHead p-5">
+            <div class="tasklft">
+              <h2>Employees</h2>
+            </div>
+            <div>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="openPopup()"
+              >
+                Add Employee
+              </button>
+            </div>
+          </div>
+
+          <div class="employeeList"></div>
+        </div> -->
       </div>
 
       <div class="managerProfile"><%- include("managerprofile") %></div>

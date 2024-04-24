@@ -6,7 +6,7 @@ let db = new database();
 const managerTasks = async (request, response) => {
   try {
     let managerTaskDashoardQuery = `select * from tasks where manager_id = ? and status = 1;`;
-    let res = await db.executeQuery(managerTaskDashoardQuery, [3]);
+    let res = await db.executeQuery(managerTaskDashoardQuery, [1]);
     return response.json({ result: res });
   } catch (error) {
     logger.log(error);
@@ -18,17 +18,19 @@ const searchTask = async (request, response) => {
   try {
     let search = request.params.searchdata;
     search = "%" + search + "%";
-    let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?)`;
-    let todoTask = await db.executeQuery(query, ["todo", search, search]);
+    let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?) and manager_id = ?`;
+    let todoTask = await db.executeQuery(query, ["todo", search, search, 1]);
     let inprogressTask = await db.executeQuery(query, [
       "inprogress",
       search,
       search,
+      1,
     ]);
     let completedTask = await db.executeQuery(query, [
       "completed",
       search,
       search,
+      1,
     ]);
     return response.json({ todoTask, inprogressTask, completedTask });
   } catch (err) {

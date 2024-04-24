@@ -150,11 +150,11 @@ body {
   border: none;
   cursor: pointer;
 }
-
+/* 
 .dropbtn:hover,
 .dropbtn:focus {
-  /* background-color: #2980B9; */
-}
+  background-color: #2980B9;
+} */
 
 .dropdown {
   position: relative;
@@ -170,7 +170,7 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   top: 60px;
-  right: -36px;
+  right: 0px;
 }
 
 .dropdown-content a {
@@ -186,6 +186,7 @@ body {
 
 .show {
   display: block;
+  margin-right: 3%;
 }
 
 .modal-footer-user {
@@ -283,3 +284,4 @@ body {
 .table-responsive {
   max-height: 200px;
 }
+
