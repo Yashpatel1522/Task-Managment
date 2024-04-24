@@ -3,7 +3,7 @@ const renderProfileData = (profileData) => {
   keys.map((key) => {
     if (!(document.getElementById(`${key}`) == null)) {
       document.getElementById(`${key}`).value = profileData.userdata[0][key];
-    } 
+    }
   });
   let profileImageName = profileData.imagename[0].newimage_name;
   document.getElementById('selectedImage').src = `/assets/userprofiles/${profileImageName}`

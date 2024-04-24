@@ -24,7 +24,8 @@ const teamdata = async (req, res) => {
 
 const teamdetails = async (req, res) => {
   try {
-    id = req.params.id;
+    // id = req.params.id;
+    id = 1
     const query1 = `select distinct(teams.team_name),users.first_name as manager_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=teams.created_by where teams.id=?;`;
     let result1 = await db.executeQuery(query1, id);
     const query2 = `select teams.team_name,users.first_name as employee_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=team_details.member_id where teams.id=?;`;

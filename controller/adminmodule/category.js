@@ -34,7 +34,7 @@ exports.categoryDetail = async (request, response) => {
   try {
     let categoryId = request.params.id;
     let viewCategory = await db.executeQuery(`select * from categories as c left join tasks as t on c.id = t.category_id where (t.category_id = ? and  c.status = 1 and t.status = 1);`, [categoryId]);
-    return response.json({ viewCategory});
+    return response.json({ viewCategory });
   } catch (err) {
     logger.error("task not found it!");
   }
@@ -49,10 +49,16 @@ exports.deleteCategory = async (request, response) => {
   }
 }
 
-exports.addCategory = async (request,response) =>{
-  try { 
-    let categoryAdd = db.insertData({ category: request.body.category_name},"categories")
-    return response.json({ categoryAdd });
+exports.addCategory = async (request, response) => {
+  try {
+    let { category_name } = request.body;
+    let categories_is_exists = await db.executeQuery("select * from categories where category = ? and status = ?", [category_name, 1]);
+    if (categories_is_exists.length === 0) {
+      await db.insertData({ category: category_name }, "categories");
+      return response.json({ status: 500, msg: "New Category Insert Succefully" })
+    } else {
+      return response.json({ status: 200, msg: "Category Is Already Exists" })
+    }
   } catch (error) {
     logger.error("Category Data Can't deleted !");
   }

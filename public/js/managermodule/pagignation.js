@@ -61,6 +61,8 @@ const previous1 = () => {
     } else {
       document.getElementById("first").style.display = "block";
       document.getElementById("previous").style.display = "block";
+      document.getElementById("next").style.display = "block";
+      document.getElementById("last").style.display = "block";
     }
   }
 };
@@ -79,6 +81,8 @@ const next1 = () => {
       document.getElementById("first").style.display = "block";
       document.getElementById("previous").style.display = "block";
     } else {
+      document.getElementById("next").style.display = "block";
+      document.getElementById("last").style.display = "block";
       document.getElementById("next").style.display = "block";
       document.getElementById("last").style.display = "block";
     }

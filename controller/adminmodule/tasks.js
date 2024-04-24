@@ -12,10 +12,10 @@ exports.taskpage = (request, response) => {
 exports.adminTasks = async (request, response) => {
     try {
         let db = new database();
-        let query = `select t.*,u.first_name from tasks as t inner join users as u on t.manager_id = u.id where task_status=? and t.status = 1`;
-        let todoData = await db.executeQuery(query, ["todo"]);
-        let inprogressData = await db.executeQuery(query, ["inprogress"]);
-        let completedData = await db.executeQuery(query, ["completed"]);
+        let query = `select t.*,u.first_name from tasks as t inner join users as u on t.manager_id = u.id where task_status=? and t.status = ?`;
+        let todoData = await db.executeQuery(query, ["todo", 1]);
+        let inprogressData = await db.executeQuery(query, ["inprogress", 1]);
+        let completedData = await db.executeQuery(query, ["completed", 1]);
         return response.json({ todoData: todoData, inprogress: inprogressData, complete: completedData });
     } catch (err) {
         logger.error("Task data is not found !");

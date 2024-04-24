@@ -78,9 +78,13 @@ var isTeamSubmit = async () => {
         });
       } else {
         Swal.fire({
-          title: "Cancelled",
-          text: "Your date is safe :)",
+          title: "Error",
+          text: result.msg,
           icon: "error"
+        }).then(errorres => {
+          if (errorres.isConfirmed) {
+            window.location.reload();
+          }
         });
       }
     }

@@ -14,7 +14,6 @@ async function viewteamdata() {
   });
   console.log(data, "data is")
 
-
 }
 let ides_team = (id) => document.getElementById(id);
 
