@@ -43,6 +43,7 @@ const {
   deleteTeam,
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
+const getEditDetails = require("../controller/managermodule/getEditTadkDetails");
 const passport = require("passport");
 const {
   viewComments,
@@ -84,6 +85,9 @@ managerRouter.get("/getTeams", getTeams);
 
 //API to edit task Details
 managerRouter.post("/editTaskDetails", editTask);
+
+//Api to get details to edit tasks
+managerRouter.get("/getEditTadkDetails", getEditDetails)
 
 //API to get task details
 managerRouter.get("/getTaskDetails/:id", getAllTasks);
