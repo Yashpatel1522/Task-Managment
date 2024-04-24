@@ -5,7 +5,8 @@ const db = new database();
 const getProfiledata = async (request, response) => {
   try {
     let profledata = {};
-    let id = request.user.id
+    // let id = request.user.id
+    let id = 1
     profledata.imagename = await db.executeQuery(
       `select newimage_name from user_profiles where user_id = ? and is_deleted = 0`,[id]
     );

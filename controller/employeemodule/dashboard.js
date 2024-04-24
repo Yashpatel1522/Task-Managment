@@ -7,8 +7,9 @@ const db = new database();
 
 const getdashboardata = async (request, response) => {
   try {
-    console.log(request.user.id)
-    let id = request.user.id;
+    // console.log(request.user.id)
+    // let id = request.user.id;
+    let id = 1
     let res = {};
     let employeeTaskStatusCountsQuery = `select count(task_id) as Assigned, count(case when task_status = 'todo' then 1 end) as "To Do",count(case when task_status = 'inprogress' then 1 end) as "In Progress", count(case when task_status = 'completed' then 1 end) as Completed from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id where emp_id = ?;`;
 

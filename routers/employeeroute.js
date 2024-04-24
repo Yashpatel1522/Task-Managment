@@ -25,7 +25,7 @@ const {
   updateProfiledata,
 } = require("../controller/employeemodule/employeeprofile");
 const passport = require("passport");
-router.get("/getdashboardata",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), getdashboardata);
+router.get("/getdashboardata", getdashboardata);
 router.get(
   "/dashboard",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
