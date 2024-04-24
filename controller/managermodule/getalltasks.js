@@ -19,8 +19,11 @@ const getAllTasks = async (request, response) => {
     let managerQ = `select first_name, last_name from users where id in (select manager_id from tasks where id = ? and status = 1)`;
     let managerRes = await db.executeQuery(managerQ, [request.params.id]);
 
-    let employeeQ = `select id,first_name from users where id in (select emp_id from tasks_assigend_to where task_id = ? and role_id = 3);`;
+    let employeeQ = `select id,first_name from users where id in (select emp_id from tasks_assigend_to where task_id = ? and role_id = 3 and status = 1);`;
     let employeeRes = await db.executeQuery(employeeQ, [request.params.id]);
+
+    let extraEmployeeQ = `select id,first_name from users where id not in (select emp_id from tasks_assigend_to where task_id = ? and role_id = 3) and role_id = 3 and status = 1;`;
+    let extraEmployeeRes = await db.executeQuery(extraEmployeeQ, [request.params.id]);
 
     return response.json({
       result: res,
@@ -29,6 +32,7 @@ const getAllTasks = async (request, response) => {
       importanceResult: importanceRes,
       managerName: `${managerRes[0].first_name} ${managerRes[0].last_name}`,
       employeeResult: employeeRes,
+      extraEmployeeResult: extraEmployeeRes
     });
   } catch (error) {
     logger.error(error);

@@ -60,11 +60,6 @@ async function editTaskPopup(id) {
   getEditDetails = JSON.parse(getEditDetails)
   employeeData = JSON.parse(employeeData);
 
-  let commonStr = ``;
-  employeeData.result.forEach((element) => {
-    commonStr += `<option value='${element.id}'>${element.first_name}</option>`;
-  });
-
   document.getElementById("editTaskPopup").classList.add("open-popup");
   let str = ``;
   console.log(data.employeeResult[0]);
@@ -72,6 +67,14 @@ async function editTaskPopup(id) {
     console.log(element);
     str += `<option value='${element.id}' selected>${element.first_name}</option>`;
   });
+
+  if(data.extraEmployeeResult) {
+    data.extraEmployeeResult.forEach(element => {
+      str += `<option value='${element.id}'>${element.first_name}</option>`;
+    });
+  }
+
+  console.log(str);
 
   let ctaegoryStr = ``;
   getEditDetails.categoryRes.forEach(element => {
@@ -154,7 +157,6 @@ async function editTaskPopup(id) {
   <div class="col-md-6">
     <label class="text-primary">employees :</label>
     <select name="emp" id="emp" multiple>
-    ${commonStr}
       ${str}
     </select>
   </div>
