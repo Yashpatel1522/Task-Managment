@@ -67,18 +67,14 @@ const uploadImage = multer({ storage: userProfileStorage });
 const managerRouter = express.Router();
 
 // // Displaying Tasks of manager
-// managerRouter.get(
-//   "/",
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   dashboardView().getPage
-// );
-// managerRouter.use(
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   checkUserRole
-// );
+
+managerRouter.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
 
 // Displaying Employee details
-managerRouter.get("/employeeDetails", employeeView().getPage);
+managerRouter.get("/employeeDetails", employeeView);
 
 managerRouter.get("/Teams", (request, response) => {
   response.render("./managermodule/teams");

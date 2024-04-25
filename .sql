@@ -17580,9 +17580,9 @@ DROP TABLE IF EXISTS `attechments`;
 CREATE TABLE `attechments` (
   `id` int NOT NULL AUTO_INCREMENT,
   `task_id` int DEFAULT NULL,
-  `attechment_url` varchar(255) DEFAULT NULL,
-  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp default current_timestamp on update current_timestamp,
+  `oldfile_name` varchar(255) DEFAULT NULL,
+  `newfile_name` varchar(255) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `task_id` (`task_id`),
   CONSTRAINT `attechments_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`)
