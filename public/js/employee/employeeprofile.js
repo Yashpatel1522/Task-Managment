@@ -44,6 +44,7 @@ const renderProfileData = (profileData) => {
     }
   });
   let profileImageName = profileData.imagename[0].newimage_name;
+  console.log(profileImageName);
   document.getElementById('selectedImage').src = `/assets/userprofiles/${profileImageName}`
   document.getElementById('employee_dashboard_img').src = `/assets/userprofiles/${profileImageName}`
   document.getElementById('employee_name').innerHTML = `<strong>${profileData.userdata[0]["first_name"] + " " + profileData.userdata[0]["last_name"]}</strong>`
@@ -65,3 +66,36 @@ async function loadProfile() {
 
 loadProfile();
 
+function updateUserProfile() {
+  let form = document.getElementById('profileform')
+  let formData = new FormData(form)
+  console.log(formData);
+  fetch(`/employee/updateprofile`, {
+    method: 'POST',
+    body: formData
+  }).then(
+    (response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    }
+  )
+    .then((data) => {
+      if (data.message == "updated") {
+        Swal.fire({
+          title: "Done",
+          text: "Profile Updated Succesfully",
+          icon: "success",
+        }).then(function () {
+          window.location.reload();
+        });
+      } else {
+        Swal.fire({
+          title: "Done",
+          text: "Profile is not Updated",
+          icon: "error",
+        })
+      }
+    })
+}

@@ -57,6 +57,19 @@ const renderData = (dashboardData) => {
   dashboardData.employeeInprogressTaskData.length != 0
     ? createTable(dashboardData.employeeInprogressTaskData, "inprogress")
     : showNoData("inprogress");
+
+    let TaskActivity = document.getElementById("recentactivitybody");
+    let logs = ""
+    dashboardData.employeeRecentActivityData.forEach(e => {
+      if(e.task_name){
+        logs += `<p class="mx-3"><span class="text-secondary"> ${e.first_name} assigned you</span> <span class = "text-success"> ${e.task_name}  task</span> <small class="fs-6">${e.create_date.split(' ')[1]}</small> </p>`
+      }
+      else{
+
+        logs += `<p class="mx-3"><span class="text-secondary"> ${e.first_name} added you </span> <span class = "text-success"> ${e.team_name} team</span> <small class="fs-6">${e.create_date.split(' ')[1]}</small></p>`
+      }
+    });
+    TaskActivity.innerHTML = logs;
 };
 
 getDashBoardData("/employee/getdashboardata").then((data) => {

@@ -281,36 +281,3 @@ async function addcomment() {
   }
 }
 
-function updateUserProfile() {
-  let form = document.getElementById('profileform')
-  let formData = new FormData(form)
-  console.log(formData);
-  fetch(`/employee/updateprofile`, {
-    method: 'POST',
-    body: formData
-  }).then(
-    (response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    }
-  )
-    .then((data) => {
-      if (data.message == "updated") {
-        Swal.fire({
-          title: "Done",
-          text: "Profile Updated Succesfully",
-          icon: "success",
-        }).then(function () {
-          window.location.reload();
-        });
-      } else {
-        Swal.fire({
-          title: "Done",
-          text: "Profile is not Updated",
-          icon: "error",
-        })
-      }
-    })
-}
