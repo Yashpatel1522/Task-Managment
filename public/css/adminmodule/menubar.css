@@ -1,7 +1,7 @@
 :root {
   --lightblue: #E5EDF1;
   --sidebar: #0A1828;
-  --hover:rgb(234, 234, 234)
+  --hover: rgb(234, 234, 234)
 }
 
 * {
@@ -62,8 +62,9 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  left:20%;
+  left: 20%;
 }
+
 .rightbar .profilename .bell {
   font-size: 25px;
   margin: 24px 15px;
@@ -75,14 +76,15 @@ body {
   padding-right: 20px;
   color: var(--sidebar);
 }
-.rightbar .profile{
+
+.rightbar .profile {
   background-color: #0A1828;
   cursor: pointer;
 }
 
 .rightbar .profile i {
   margin: 15px 10px;
-  background-color:var(--sidebar);
+  background-color: var(--sidebar);
   color: white;
   padding: 15px;
   border-radius: 50%;
@@ -111,26 +113,26 @@ ul div:hover {
   margin: 5px;
   padding: 5px;
   width: 100px;
+  background-color: var(--sidebar);
 }
 
 .pagenation-data span {
   font-size: large;
 }
 
- .card {
-   width: calc(80%/3);
-   box-shadow: 3px 3px grey;
- }
+.card {
+  width: calc(80%/3);
+  box-shadow: 3px 3px grey;
+}
 
- .card:hover {
-   background-color: var(--hover);
- }
+.card:hover {
+  background-color: var(--hover);
+}
 
- #recentActivity {
-   background-color: white;
-   border-radius: 10px;
-   height: 200px;
-   overflow: scroll;
-   box-shadow: 3px 3px grey;
- }
- 
+#recentActivity {
+  background-color: white;
+  border-radius: 10px;
+  height: 200px;
+  overflow: scroll;
+  box-shadow: 3px 3px grey;
+}

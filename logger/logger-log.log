@@ -720,6 +720,9 @@
 {"level":"error","timestamp":"2024-04-24T09:51:39.035Z"}
 {"level":"error","timestamp":"2024-04-24T09:54:49.586Z"}
 {"level":"error","timestamp":"2024-04-24T10:05:21.323Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T12:43:49.533Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T12:43:52.836Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T12:59:34.241Z"}
 {"level":"error","timestamp":"2024-04-24T13:50:22.461Z"}
 {"level":"error","timestamp":"2024-04-24T13:50:29.674Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:51:52.567Z"}
@@ -740,6 +743,20 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:58:48.385Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:58:54.210Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:58:55.357Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T14:25:50.724Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-24T14:25:50.728Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-25T04:27:26.914Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-25T04:31:46.005Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-25T04:32:07.523Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-25T06:19:46.441Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T07:17:41.241Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-25T09:54:52.190Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-25T09:54:56.583Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-25T10:16:39.485Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-25T10:24:55.206Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-25T10:25:29.978Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-25T10:25:48.775Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T11:38:50.174Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-24T14:03:14.813Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-24T14:03:14.818Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T14:04:37.139Z"}

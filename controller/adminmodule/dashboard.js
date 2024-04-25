@@ -37,7 +37,6 @@ exports.adminDashboard = async (request, response) => {
         if (totalTask !== undefined) {
             totalTask = totalTask.count;
         }
-        
         response.render("adminmodule/dashboard", { employeeCount, managerCount, teamCount, completedCount, category, totalTask })
     } catch (err) {
         logger.error("Admin dashboard data error !")
