@@ -79,9 +79,7 @@ async function editTaskPopup(id) {
 
   document.getElementById("editTaskPopup").classList.add("open-popup");
   let str = ``;
-  console.log(data.employeeResult[0]);
   data.employeeResult.forEach((element) => {
-    console.log(element);
     str += `<option value='${element.id}' selected>${element.first_name}</option>`;
   });
 
@@ -90,8 +88,6 @@ async function editTaskPopup(id) {
       str += `<option value='${element.id}'>${element.first_name}</option>`;
     });
   }
-
-  console.log(str);
 
   let ctaegoryStr = ``;
   getEditDetails.categoryRes.forEach(element => {
@@ -132,7 +128,7 @@ async function editTaskPopup(id) {
   <div class="col-md-6">
     <label class="text-primary">status :</label>
     <select class="form-control" tabindex="3" id="status" name="status">
-    <option value='todo'>Todo</option><option value='inprogress'>In Progress</option><option value='inprogress'>Compleated</option>
+    <option value='todo'>Todo</option><option value='inprogress'>In Progress</option><option value='completed'>Compleated</option>
     </select>
   </div>
 </div>
@@ -179,7 +175,10 @@ async function editTaskPopup(id) {
   </div>
 </div>
   `;
-  console.log(data.employeeResult);
+  document.getElementById('status').value = data.result[0].task_status;
+  document.getElementById('category').value = data.result[0].category_id;
+  document.getElementById('Urgency').value = data.urgencyResult[0].id;
+  document.getElementById('importance').value = data.importanceResult[0].id; 
 }
 
 function closeEditTask() {

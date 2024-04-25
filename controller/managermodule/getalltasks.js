@@ -10,10 +10,10 @@ const getAllTasks = async (request, response) => {
     let categoryQ = `select category from categories where id in (select category_id from tasks where id = ? and status = 1);`;
     let categoryRes = await db.executeQuery(categoryQ, [request.params.id]);
     
-    let urgencyQ = `select type from urgency where id in (select urgency_id from priorities where id in (select prioritiy_id from tasks where id = ? and status = 1));`;
+    let urgencyQ = `select id, type from urgency where id in (select urgency_id from priorities where id in (select prioritiy_id from tasks where id = ? and status = 1));`;
     let urgencyRes = await db.executeQuery(urgencyQ, [request.params.id]);
     
-    let importanceQ = `select type from importants where id in (select important_id from priorities where id in (select prioritiy_id from tasks where id = ? and status = 1));`;
+    let importanceQ = `select id, type from importants where id in (select important_id from priorities where id in (select prioritiy_id from tasks where id = ? and status = 1));`;
     let importanceRes = await db.executeQuery(importanceQ, [request.params.id]);
     
     let managerQ = `select first_name, last_name from users where id in (select manager_id from tasks where id = ? and status = 1)`;
