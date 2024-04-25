@@ -1,0 +1,155 @@
+managerRouter.get("/tasks", taskView().getPage);
+
+// Dashboard
+managerRouter.get("/dashboard", dashboardView().getPage);
+
+// API to get team details of the particular manager
+managerRouter.get("/getTeams", getTeams);
+
+//API to edit task Details
+managerRouter.post("/editTaskDetails", editTask);
+
+//API to get task details
+managerRouter.get("/getTaskDetails/:id", getAllTasks);
+
+managerRouter.get("/teamapi", teamdetails);
+
+//api to get upcoming manager tasks
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+
+
+
+
+//api to get upcoming manager tasks
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+
+
+
+
+//api to Update Manager Profile Details
+managerRouter.post(
+  "/updateManager",
+  uploadImage.single("profileimg"),
+  updateManager
+);
+
+
+
+//api to get Manager Profile Details
+managerRouter.get("/getManagerProfile/:id", managerProfile);
+
+
+
+
+//api to get employee details
+managerRouter.get("/getEmployees", employeeData);
+
+
+
+
+
+managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
+
+
+
+
+managerRouter.delete("/removeemployeapi/:id", removeEmployee);
+
+
+
+
+// api to get manager tasks
+managerRouter.get("/getManagerTasks", managerTasks);
+
+
+
+
+
+//api for Manager task Count
+managerRouter.get("/getManagerTaskCount", taskCount);
+managerRouter.get("/searchTask/:searchdata", searchTask);
+
+
+// // api for get user,category from database
+managerRouter.get("/getdataapi", addtaskdata);
+
+// insert task data
+managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
+
+
+
+
+
+
+
+
+
+// serach task api
+managerRouter.post("/searchtask", searchTask);
+
+managerRouter.get("/notification", notifications);
+
+// api to get only employe data for create team
+managerRouter.get("/getempdata", getempdata);
+
+
+
+
+
+
+
+managerRouter.post("/addteamdata", addteam);
+managerRouter.get("/managerTeam/searchteam/:searchdata", searchTeamData);
+
+
+
+
+
+
+managerRouter.get("/managerTeam/showteamdata/:id", showTeamDataForUpdate);
+managerRouter.post("/updateteamdata", updateTeamData);
+
+
+
+
+
+
+
+
+managerRouter.get("/teamapi/:id", teamDetailsForView);
+managerRouter.delete("/deleteteamapi/:id", deleteTeam);
+
+
+
+managerRouter.get("/comments/:teamId", viewComments);
+managerRouter.get("/getcomments/:teamId", getComments);
+managerRouter.post("/updateTaskStatus", updateTaskStatus);
+
+
+INSERT INTO `permissions`(permission,api,type) VALUES ('manager dashboard','/manager/dashboard',"get"),
+('manager permissions','/manager/getTeams','get'),
+('manager editTaskDetails','/manager/editTaskDetails','post'),
+('manager getTaskDetails','/manager/getTaskDetails','get'),
+('manager teamapi','/manager/teamapi','get'),
+('manager getManagerUpcomingTasks','/manager/getManagerUpcomingTasks','get'),
+('manager updateManager','/manager/updateManager','post'),
+('manager getManagerProfile','/manager/getManagerProfile','get'),
+('manager getEmployees','/manager/getEmployees','get'),
+('manager searchEmploye','/manager/searchEmploye','get'),
+('manager removeemployeapi','/manager/removeemployeapi','delete'),
+('manager managerTasks','/manager/managerTasks','get'),
+('manager getManagerTaskCount','/manager/getManagerTaskCount','get'),
+('manager searchTask','/manager/searchTask','get'),
+('manager searchTask','/manager/searchTask','post'),
+('manager getdataapi','/manager/getdataapi','get'),
+('manager inserttask','/manager/inserttask','post'),
+('manager notification','/manager/notification','get'),
+('manager getempdata','/manager/getempdata','get'),
+('manager getempdata','/manager/addteamdata','post'),
+('manager getempdata managerTeam searchteam','/manager/managerTeam/searchteam','get'),
+('manager getempdata managerTeam showteamdata','/manager/managerTeam/showteamdata','get'),
+('manager updateteamdata','/manager/updateteamdata','post'),
+('manager deleteteamapi','/manager/deleteteamapi','delete'),
+('manager comments','/manager/comments','get'),
+('manager getcomments','/manager/getcomments','get'),
+('manager updateTaskStatus','/manager/updateTaskStatus','post');

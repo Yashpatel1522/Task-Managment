@@ -43,7 +43,7 @@ const regularExp = (type, id) => {
       if (CONTACT.test(document.getElementById(id).value.trim())) return true;
       break;
     case "date":
-      console.log(document.getElementById(id).value.trim());
+      // console.log(document.getElementById(id).value.trim());
       if (DATE.test(document.getElementById(id).value.trim())) return true;
       break;
   }
@@ -57,7 +57,7 @@ const isValidProfile = (id) => {
     return false;
   }
   var arr = file.type.split("image/");
-  console.log(arr);
+  // console.log(arr);
   if (arr.length == 1) {
     return false;
   }
@@ -105,6 +105,7 @@ function isValidLogin() {
 }
 
 const isValidRegistration = () => {
+  // alert("a");
   removeErrorMessage();
   let errors = isRequiredString({
     first_name: "First name",
@@ -163,7 +164,7 @@ const isPasswordMatch = (password, newpassword) => {
 const isValidPassword = () => {
   removeErrorMessage();
   let errors = isPasswordMatch("new_password", "re_password");
-  console.log(errors);
+  // console.log(errors);
   let flag = true;
   Object.keys(errors).forEach((error) => {
     printErrorMessage(error, `${errors[error]} is Not Match...`);

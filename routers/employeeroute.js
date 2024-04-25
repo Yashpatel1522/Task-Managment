@@ -25,7 +25,14 @@ const {
   updateProfiledata,
 } = require("../controller/employeemodule/employeeprofile");
 const passport = require("passport");
-const { getnavigationdata } = require("../controller/employeemodule/navigation");
+const {
+  employeeCalender,
+  empdueDateTask,
+  empcalenderMonth,
+} = require("../controller/employeemodule/canlender");
+const {
+  getnavigationdata,
+} = require("../controller/employeemodule/navigation");
 router.get(
   "/getdashboardata",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -47,18 +54,22 @@ router.post(
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfiledata
 );
-router.get("/getnavigationdata",getnavigationdata)
+router.get("/getnavigationdata", getnavigationdata);
 router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist/:id", EmployeeTaskList);
 router.get("/searchtask/:searchresult", searchlist);
-router.post(
-  "/addcomment/:id/:taskid",
-  upload.single("file"),
-  addcomment
-);
+router.post("/addcomment/:id/:taskid", upload.single("file"), addcomment);
 router.get("/teamdata/:id", teamlist);
 router.get("/teamdetailsdata/:id", teamdata);
 router.get("/teamdetails/:id", teamdetails);
 router.get("/teamsearchdetails/:searchteam", teamsearchdetails);
+
+router.get("/calender", employeeCalender);
+router.get("/calenderData/:month", empcalenderMonth);
+router.get(
+  "/dueDateOfTask",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  empdueDateTask
+);
 
 module.exports = router;

@@ -5,14 +5,15 @@ const logger = require("../../logger/logger");
 
 const addUser = async (user, userprofile) => {
   try {
+    console.log(user);
     let db = new database();
     let userexists = await db.executeQuery(
       "select * from users where email=?",
       [user.email]
     );
-    // console.log(userexists)
+    console.log(userexists);
     if (userexists.length == 0) {
-      let activationkey = randomNumberGenrater(8);
+      let activationkey = randomNumberGenrater(process.env.ACTIVATION_KEY_SIZE);
       let registrationdata = {
         role_id: user.role_id,
         first_name: user.first_name,
