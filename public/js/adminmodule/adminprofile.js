@@ -7,6 +7,19 @@ const showNotification = () => {
   });
 }
 
+document.getElementById("change").addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    document.getElementById("selectedImage").src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
+
+
+
 const logoutPopup = () => {
   try {
     Swal.fire({
@@ -71,35 +84,27 @@ const adminProfile = async () => {
   if (isValidProfilDetails()) {
     let adminForm = document.getElementById('adminprofileform');
     let adminFormData = new FormData(adminForm);
-    fetch(`/admin/profile`, {
+    let res = await fetch(`/admin/profile`, {
       method: 'POST',
       body: adminFormData
-    }).then(
-      (response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+    })
+    let result = await res.json();
+    if (result.status === 200) {
+      Swal.fire({
+        icon: "success",
+        title: "Profile Updated",
+        text: result.message
+      }).then(async (result2) => {
+        if (result2.isConfirmed) {
+          window.location.reload();
         }
-        return response.json();
-      }
-    )
-      .then((data) => {
-        if (data.message == "updated") {
-          Swal.fire({
-            title: "Done",
-            text: "Profile Updated Succesfully",
-            icon: "success",
-          }).then(function () {
-            window.location.reload();
-          });
-        } else {
-          Swal.fire({
-            title: "Done",
-            text: "Profile is not Updated",
-            icon: "error",
-          })
-        }
+      });
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: result.message,
+        icon: "error"
       })
+    }
   }
 }
-
-

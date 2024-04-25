@@ -18,7 +18,17 @@ const showOption = async () => {
   }
 };
 
-const showteamdata = () => {
+const showteamdata = async() => {
+  let profData = await (await fetch('/manager/getManagerProfile/2')).json();
+  if(profData.imageResult) {
+    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+  else {
+    document.getElementById('profImg').src = `/assets/employee/user.png`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+
   pagignation("/manager/teamapi");
 };
 
@@ -67,7 +77,9 @@ const searchTeams = async (value) => {
     if (filterArray.length > 0) {
       searchPagignation(filterArray, 1);
     } else {
-      showComments();
+      document.getElementById("team-table").innerHTML = " ";
+      document.getElementById("team-table").innerHTML +=
+        '<div class="alert alert-info"><strong>Team not found</strong></div>';
     }
   }
 };
@@ -265,7 +277,7 @@ const deleteTeam = async (id) => {
             })
             .then(async (result2) => {
               if (result2.isConfirmed) {
-                getTeamData();
+                window.location.href = "/manager/Teams";
               }
             });
         } else if (

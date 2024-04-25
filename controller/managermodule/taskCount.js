@@ -4,12 +4,19 @@ let db = new database();
 
 const taskCount = async (request, response) => {
   try {
-    let todoQ = `select count(*) as count from tasks where manager_id = 1 and task_status = 'todo';`;
-    let progressQ = `select count(*) as count from tasks where manager_id = 1 and task_status = 'inprogress';`;
-    let compleatedQ = `select count(*) as count from tasks where manager_id = 1 and task_status = 'completed';`;
-    let todoRes = await db.executeQuery(todoQ);
-    let progressRes = await db.executeQuery(progressQ);
-    let compleatedRes = await db.executeQuery(compleatedQ);
+    let managerId = request.user.id;
+    let todoQ = `select count(*) as count from tasks where manager_id = ? and task_status = ?`;
+    let progressQ = `select count(*) as count from tasks where manager_id = ? and task_status = ?`;
+    let compleatedQ = `select count(*) as count from tasks where manager_id = ? and task_status = ?`;
+    let todoRes = await db.executeQuery(todoQ, [managerId, "todo"]);
+    let progressRes = await db.executeQuery(progressQ, [
+      managerId,
+      "inprogress",
+    ]);
+    let compleatedRes = await db.executeQuery(compleatedQ, [
+      managerId,
+      "completed",
+    ]);
     return response.json({
       todoResult: todoRes,
       progressResult: progressRes,

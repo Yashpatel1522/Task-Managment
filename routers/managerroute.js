@@ -53,6 +53,7 @@ const {
 const checkUserRole = require("../middleware/userrole");
 const {
   calenderView,
+  calenderMonth,
   dueDateTask1,
 } = require("../controller/managermodule/calender");
 
@@ -67,18 +68,18 @@ const uploadImage = multer({ storage: userProfileStorage });
 const managerRouter = express.Router();
 
 // // Displaying Tasks of manager
-// managerRouter.get(
-//   "/",
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   dashboardView().getPage
-// );
-// managerRouter.use(
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   checkUserRole
-// );
+
+managerRouter.get("/calenderData/:month", calenderMonth);
+managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
+managerRouter.get("/searchTask/:searchdata", searchTask);
+
+managerRouter.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
 
 // Displaying Employee details
-managerRouter.get("/employeeDetails", employeeView().getPage);
+managerRouter.get("/employeeDetails", employeeView);
 
 managerRouter.get("/Teams", (request, response) => {
   response.render("./managermodule/teams");
@@ -96,7 +97,7 @@ managerRouter.get("/getTeams", getTeams);
 managerRouter.post("/editTaskDetails", editTask);
 
 //Api to get details to edit tasks
-managerRouter.get("/getEditTadkDetails", getEditDetails)
+managerRouter.get("/getEditTadkDetails", getEditDetails);
 
 //API to get task details
 managerRouter.get("/getTaskDetails/:id", getAllTasks);
@@ -118,14 +119,13 @@ managerRouter.get("/getManagerProfile/:id", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
-managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
+
 managerRouter.delete("/removeemployeapi/:id", removeEmployee);
 // api to get manager tasks
 managerRouter.get("/getManagerTasks", managerTasks);
 
 //api for Manager task Count
 managerRouter.get("/getManagerTaskCount", taskCount);
-managerRouter.get("/searchTask/:searchdata", searchTask);
 
 // // api for get user,category from database
 managerRouter.get("/getdataapi", addtaskdata);
@@ -151,6 +151,6 @@ managerRouter.get("/comments/:teamId", viewComments);
 managerRouter.get("/getcomments/:teamId", getComments);
 managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
-managerRouter.get("/calender", calenderView().getPage);
+managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
 module.exports = managerRouter;

@@ -1,7 +1,5 @@
 const database = require("../helpers/database.helper");
 const checkUserRole = async (request, response, next) => {
-  console.log("inside");
-
   if (!isNaN(request.originalUrl.split("/").pop())) {
     let ans = request.originalUrl.split("/");
     ans.pop();
@@ -14,17 +12,20 @@ const checkUserRole = async (request, response, next) => {
       "select * from role_has_permissions as table1 left join permissions as table2 on table1.permission_id=table2.id where table1.role_id=? and table1.is_deleted=? and api = ? and type=?",
       [user.role_id, 0, request.originalUrl, request.method.toLowerCase()]
     );
-    // console.log(res[0].api);
-    if (res.length > 0) {
-      console.log("inside2");
+    console.log(request.user);
 
+    console.log(request.originalUrl);
+    if (res.length > 0) {
       if (request.originalUrl == res[0].api) {
-        console.log("inside3");
         next();
       } else {
-        response.redirect(
-          request.headers.referer.split(process.env.PORT).pop()
-        );
+        if (request.headers.referer != undefined) {
+          response.redirect(
+            request.headers.referer.split(process.env.PORT).pop()
+          );
+        } else {
+          response.redirect("/");
+        }
       }
     } else {
       if (request.headers.referer != undefined) {

@@ -3,6 +3,7 @@ const logger = require("../../logger/logger");
 
 const updateManager = async (request, response) => {
   try {
+    let managerId = request.user.id;
     const data = request.body;
     let db = new database();
     const updateQuery = `update users set first_name = ?, last_name = ?, email = ?, contact = ?, date_of_birth = ? where id = ?;`;
@@ -12,11 +13,11 @@ const updateManager = async (request, response) => {
       request.body.email,
       request.body.contact,
       request.body.date_of_birth,
-      2,
+      managerId,
     ]);
 
     const countQuery = `select count(*) as count from user_profiles where user_id = ?`;
-    const countRes = await db.executeQuery(countQuery, [2]);
+    const countRes = await db.executeQuery(countQuery, managerId);
 
     if (countRes[0].count == 0) {
       if (request.file) {
@@ -27,7 +28,7 @@ const updateManager = async (request, response) => {
         console.log(oldName);
         console.log(request.file.filename);
         const updatedRes = await db.executeQuery(updateImageQuery, [
-          2,
+          managerId,
           oldName,
           request.file.filename,
         ]);
@@ -40,11 +41,11 @@ const updateManager = async (request, response) => {
       const updatedRes = await db.executeQuery(updateImageQuery, [
         oldName,
         request.file.filename,
-        2,
+        managerId,
       ]);
     }
 
-    return response.send(data);
+    return response.redirect('/manager/dashboard');
   } catch (error) {
     logger.error(error);
     return response.send({ error: error });
