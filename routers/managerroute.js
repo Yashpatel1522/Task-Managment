@@ -43,12 +43,14 @@ const {
   deleteTeam,
 } = require("../controller/managermodule/teamdata");
 const getTeams = require("../controller/managermodule/getTeams");
+const getEditDetails = require("../controller/managermodule/getEditTadkDetails");
 const passport = require("passport");
 const {
   viewComments,
   getComments,
   updateTaskStatus,
 } = require("../controller/managermodule/comments");
+const checkUserRole = require("../middleware/userrole");
 const {
   calenderView,
   dueDateTask1,
@@ -70,6 +72,10 @@ const managerRouter = express.Router();
 //   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
 //   dashboardView().getPage
 // );
+// managerRouter.use(
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   checkUserRole
+// );
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView().getPage);
@@ -81,13 +87,16 @@ managerRouter.get("/Teams", (request, response) => {
 managerRouter.get("/tasks", taskView().getPage);
 
 // Dashboard
-managerRouter.get("/dashboard", dashboardView().getPage);
+managerRouter.get("/dashboard", dashboardView);
 
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
 
 //API to edit task Details
 managerRouter.post("/editTaskDetails", editTask);
+
+//Api to get details to edit tasks
+managerRouter.get("/getEditTadkDetails", getEditDetails);
 
 //API to get task details
 managerRouter.get("/getTaskDetails/:id", getAllTasks);
@@ -96,10 +105,7 @@ managerRouter.get("/teamapi", teamdetails);
 
 //api to get upcoming manager tasks
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
-
-//api to get upcoming manager tasks
-managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
-
+q;
 //api to Update Manager Profile Details
 managerRouter.post(
   "/updateManager",
