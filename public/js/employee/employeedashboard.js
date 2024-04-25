@@ -2,6 +2,8 @@ let dashboardData;
 let profileData;
 const assignBadge = (type) => {
   switch (type) {
+    case 'urgent':
+      return 'text-danger'
     case 'high':
       return 'text-danger';
     case 'mid':
@@ -51,7 +53,7 @@ const renderData = (dashboardData) => {
   const taskCountsElement = document.getElementById("taskCountsElement");
   Object.keys(dashboardData.taskStatusCounts[0]).forEach((key) => {
     const value = dashboardData.taskStatusCounts[0][key];
-    document.getElementById("profileImage").src = `/assets/userprofiles/${dashboardData.imagename[0].newimage_name}`
+    // document.getElementById("profile").src = `/assets/userprofiles/${dashboardData.imagename.length>0?dashboardData.imagename[0].newimage_name:''}`
     let taskCountBox = `<div class="col-sm-3 ps-0" id="taskCountBox">
     <div class="card">
     <div class="card-body">
