@@ -21,18 +21,23 @@ const searchTask = async (request, response) => {
     let search = request.params.searchdata;
     search = "%" + search + "%";
     let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?) and manager_id = ${managerId}`;
-    let todoTask = await db.executeQuery(query, ["todo", search, search, 1]);
+    let todoTask = await db.executeQuery(query, [
+      "todo",
+      search,
+      search,
+      request.user.id,
+    ]);
     let inprogressTask = await db.executeQuery(query, [
       "inprogress",
       search,
       search,
-      1,
+      request.user.id,
     ]);
     let completedTask = await db.executeQuery(query, [
       "completed",
       search,
       search,
-      1,
+      request.user.id,
     ]);
     return response.json({ todoTask, inprogressTask, completedTask });
   } catch (err) {

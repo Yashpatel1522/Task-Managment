@@ -290,12 +290,12 @@ const logout = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Logout!",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "logout!",
+          text: "You are logout",
           icon: "success",
         }).then((result2) => {
           if (result2.isConfirmed) {

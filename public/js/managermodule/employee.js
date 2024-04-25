@@ -109,7 +109,7 @@ const searchEmployee = async (value) => {
                                   <button class="btn btn-primary btnview" style = "background-color:#0A1828" onclick="showEmployeeDetails(${data.searchData[count].id}, '${data.searchData[count].first_name}', '${data.searchData[count].last_name}', '${data.searchData[count].email}', '${data.searchData[count].contact}', '${data.searchData[count].date_of_birth}', '${data.searchData[count].create_at}', '${data.searchData[count].img_url}')">View More</button>
                                 <input type="button" value="Remove" class="btn btn-secondary px-3 btnview" style = "background-color:#0A1828" onclick="removeEmployee(${data.searchData[count].id})">
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     `;
             count++;
