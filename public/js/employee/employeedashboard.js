@@ -42,26 +42,12 @@ function createTable(tableData, section) {
 }
 
 const showNoData = (section) => {
-  let temp = '<h3 class="text-center mt-4">No Data</h3>'
-  document.getElementById(`${section}body`).innerHTML = temp
+  console.log(`${section}body`);
+  document.getElementById(`${section}body`).innerHTML = `<h3 class="text-center mt-4">No Data</h3>`;
 }
 
 // function for rendering dashboardData dynamically
 const renderData = (dashboardData) => {
-  const taskCountsElement = document.getElementById("taskCountsElement");
-  Object.keys(dashboardData.taskStatusCounts[0]).forEach((key) => {
-    const value = dashboardData.taskStatusCounts[0][key];
-    document.getElementById("profileImage").src = `/assets/userprofiles/${dashboardData.imagename[0].newimage_name}`
-    let taskCountBox = `<div class="col-sm-3 ps-0" id="taskCountBox">
-    <div class="card">
-    <div class="card-body">
-    <h5 class="card-title">${key}</h5>
-    <p class="card-text">${value}</p>
-    </div>
-    </div>
-    </div>`;
-    taskCountsElement !== null ? taskCountsElement.innerHTML += taskCountBox: '';
-  });
 
   dashboardData.upCommingDeadlineData.length != 0
     ? createTable(dashboardData.upCommingDeadlineData, "deadline")

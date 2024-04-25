@@ -29,7 +29,8 @@ const addtaskdata = async (request, response) => {
 
 const inserttaskdata = async (request, response) => {
   try {
-    taskdata = request.body;
+    let taskdata = request.body;
+    let managerId = request.user.id;
     let lastInserted_id;
     let priorityData = await db.executeQuery(
       `select id from priorities where urgency_id = ? and important_id = ?`,
@@ -37,7 +38,7 @@ const inserttaskdata = async (request, response) => {
     );
     let res = await db.insertData(
       {
-        manager_id: 1,
+        manager_id: managerId,
         category_id: taskdata.task_category,
         prioritiy_id: priorityData[0].id,
         task_name: taskdata.task_name,

@@ -67,7 +67,9 @@ const searchTeams = async (value) => {
     if (filterArray.length > 0) {
       searchPagignation(filterArray, 1);
     } else {
-      showComments();
+      document.getElementById("team-table").innerHTML = " ";
+      document.getElementById("team-table").innerHTML +=
+        '<div class="alert alert-info"><strong>Team not found</strong></div>';
     }
   }
 };

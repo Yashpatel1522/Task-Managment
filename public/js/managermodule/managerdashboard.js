@@ -2,6 +2,7 @@ const getData = async () => {
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();
+  console.log("task count", data);
   document.getElementsByClassName("count")[0].innerText =
     data.todoResult[0].count;
   document.getElementsByClassName("count")[1].innerText =
@@ -9,7 +10,7 @@ const getData = async () => {
   document.getElementsByClassName("count")[2].innerText =
     data.compleatedResult[0].count;
 };
-
+getData();
 const profOption = () => {
   document.getElementById("profClk").style.display = "block";
 };
@@ -57,7 +58,7 @@ async function editTaskPopup(id) {
   let data = await (await fetch(`/manager/getTaskDetails/${id}`)).json();
   let employeeData = await getEmployee();
   let getEditDetails = await getDetails();
-  getEditDetails = JSON.parse(getEditDetails)
+  getEditDetails = JSON.parse(getEditDetails);
   employeeData = JSON.parse(employeeData);
 
   document.getElementById("editTaskPopup").classList.add("open-popup");
@@ -68,8 +69,8 @@ async function editTaskPopup(id) {
     str += `<option value='${element.id}' selected>${element.first_name}</option>`;
   });
 
-  if(data.extraEmployeeResult) {
-    data.extraEmployeeResult.forEach(element => {
+  if (data.extraEmployeeResult) {
+    data.extraEmployeeResult.forEach((element) => {
       str += `<option value='${element.id}'>${element.first_name}</option>`;
     });
   }
@@ -77,18 +78,18 @@ async function editTaskPopup(id) {
   console.log(str);
 
   let ctaegoryStr = ``;
-  getEditDetails.categoryRes.forEach(element => {
-    ctaegoryStr += `<option value='${element.id}'>${element.category}</option>`; 
+  getEditDetails.categoryRes.forEach((element) => {
+    ctaegoryStr += `<option value='${element.id}'>${element.category}</option>`;
   });
 
   let urgencyStr = ``;
-  getEditDetails.urgencyRes.forEach(element => {
-    urgencyStr += `<option value='${element.id}'>${element.type}</option>`; 
+  getEditDetails.urgencyRes.forEach((element) => {
+    urgencyStr += `<option value='${element.id}'>${element.type}</option>`;
   });
 
   let importanceStr = ``;
-  getEditDetails.importanceRes.forEach(element => {
-    importanceStr += `<option value='${element.id}'>${element.type}</option>`; 
+  getEditDetails.importanceRes.forEach((element) => {
+    importanceStr += `<option value='${element.id}'>${element.type}</option>`;
   });
 
   document.getElementById("taskContainer").innerHTML = `

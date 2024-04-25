@@ -5,8 +5,9 @@ let db = new database();
 
 const managerTasks = async (request, response) => {
   try {
-    let managerTaskDashoardQuery = `select * from tasks where manager_id = ? and status = 1;`;
-    let res = await db.executeQuery(managerTaskDashoardQuery, [1]);
+    let managerId = request.user.id;
+    let managerTaskDashoardQuery = `select * from tasks where manager_id = ? and status = ?;`;
+    let res = await db.executeQuery(managerTaskDashoardQuery, [managerId, 1]);
     return response.json({ result: res });
   } catch (error) {
     logger.log(error);
@@ -16,9 +17,10 @@ const managerTasks = async (request, response) => {
 
 const searchTask = async (request, response) => {
   try {
+    let managerId = request.user.id;
     let search = request.params.searchdata;
     search = "%" + search + "%";
-    let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?) and manager_id = ?`;
+    let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?) and manager_id = ${managerId}`;
     let todoTask = await db.executeQuery(query, ["todo", search, search, 1]);
     let inprogressTask = await db.executeQuery(query, [
       "inprogress",
@@ -40,9 +42,10 @@ const searchTask = async (request, response) => {
 
 const notifications = async (request, response) => {
   try {
+    let managerId = request.user.id;
     let notificationQuery = `SELECT task_name , DATE_FORMAT(tasks.task_end_date, '%Y-%m-%d') as due_date
         FROM tasks 
-        WHERE tasks.task_end_date = CURDATE() and manager_id = 1`;
+        WHERE tasks.task_end_date = CURDATE() and manager_id = ${managerId}`;
     let res = await db.executeQuery(notificationQuery);
     return response.json(res);
   } catch (error) {

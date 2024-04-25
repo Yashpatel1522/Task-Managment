@@ -53,6 +53,7 @@ const {
 const checkUserRole = require("../middleware/userrole");
 const {
   calenderView,
+  calenderMonth,
   dueDateTask1,
 } = require("../controller/managermodule/calender");
 
@@ -67,18 +68,16 @@ const uploadImage = multer({ storage: userProfileStorage });
 const managerRouter = express.Router();
 
 // // Displaying Tasks of manager
-// managerRouter.get(
-//   "/",
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   dashboardView().getPage
-// );
-// managerRouter.use(
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   checkUserRole
-// );
+
+managerRouter.get("/calenderData/:month", calenderMonth);
+
+managerRouter.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
 
 // Displaying Employee details
-managerRouter.get("/employeeDetails", employeeView().getPage);
+managerRouter.get("/employeeDetails", employeeView);
 
 managerRouter.get("/Teams", (request, response) => {
   response.render("./managermodule/teams");

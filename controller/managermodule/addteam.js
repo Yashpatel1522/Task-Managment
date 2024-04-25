@@ -14,9 +14,10 @@ const getempdata = async (request, response) => {
 const addteam = async (request, response) => {
   try {
     let teamdata = request.body;
+    let createdBy = request.user.id;
     let lastInserted_id;
     let res = await db.insertData(
-      { created_by: 1, team_name: teamdata.team_name },
+      { created_by: createdBy, team_name: teamdata.team_name },
       "teams"
     );
     lastInserted_id = res.insertId;
