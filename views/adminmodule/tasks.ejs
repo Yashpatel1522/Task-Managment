@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Management System</title>
-  <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
-  <link rel="stylesheet" href="/css/loginmodule/popup.css" />
-  <link rel="stylesheet" href="/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
-  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="/css/loginmodule/draganddrop.css" />
-  <script src="/js/bootstrap.js"></script>
-  <style>
-    /* .cards {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
+    <link rel="stylesheet" href="/css/loginmodule/popup.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/css/loginmodule/draganddrop.css" />
+    <script src="/js/bootstrap.js"></script>
+    <style>
+      /* .cards {
         display: flex;
         flex-wrap: wrap;
       }
@@ -21,13 +20,13 @@
       .card {
         width: calc(80% / 3);
       } */
-  </style>
-</head>
+    </style>
+  </head>
 
-<body onload="taskDetails()">
-  <div class="container-div">
-    <div class="admin">
-      <%- include('../partials/adminmenubar') %>
+  <body onload="taskDetails()">
+    <div class="container-div">
+      <div class="admin">
+        <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
             <div style="margin-top: 110px;">
@@ -42,53 +41,72 @@
                 </div>
               </div>
             </div>
-            <div class="containere" style="overflow-y: scroll">
-              <div class="row lanes">
-                <div class="col-4">
-                  <div id="todo" class="swim-lane" style="background-color: rgb(151, 151, 220)">
-                    <h2>Todo</h2>
-                    <div class="cards" id="todoTask"></div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="swim-lane" id="inprogress" style="background-color: rgb(230, 230, 118)">
-                    <h2>Inprogress</h2>
-                    <div class="cards" id="inprogressTask"></div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="swim-lane" id="completed" style="background-color: rgb(134, 166, 134)">
-                    <h2>completed</h2>
-                    <div class="cards" id="completedTask"></div>
-                  </div>
+          </div>
+          <div class="containere" style="overflow-y: scroll">
+            <div class="row lanes">
+              <div class="col-4">
+                <div
+                  id="todo"
+                  class="swim-lane"
+                  style="background-color: rgb(151, 151, 220)"
+                >
+                  <h2>Todo</h2>
+                  <div class="cards" id="todoTask"></div>
                 </div>
               </div>
+              <div class="col-4">
+                <div
+                  class="swim-lane"
+                  id="inprogress"
+                  style="background-color: rgb(230, 230, 118)"
+                >
+                  <h2>Inprogress</h2>
+                  <div class="cards" id="inprogressTask"></div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="swim-lane"
+                  id="completed"
+                  style="background-color: rgb(134, 166, 134)"
+                >
+                  <h2>completed</h2>
+                  <div class="cards" id="completedTask"></div>
+                </div>
+              </div>
+<<<<<<< HEAD
               <div class="addregistrationcontainer" id="task-detail">
                 <div id="task"></div>
               </div>
             </div>
+=======
+            </div>
+          </div>
+          <div class="addregistrationcontainer" id="task-detail">
+            <div id="task"></div>
+          </div>
+>>>>>>> dev
         </div>
+      </div>
     </div>
-  </div>
-  <div class="addregistrationcontainer" id="popup">
-    <%- include("../managermodule/addtask")%>
-  </div>
-  <script src="/js/loginmodule/draganddrop.js"></script>
-  <script src="/js/loginmodule/login.js"></script>
-  <script src="/js/adminmodule/tasks.js"></script>
-  <script src="/js/loginmodule/tasks2.js"></script>
-  <script>
-    let popup = document.getElementById("popup");
+    <div class="addregistrationcontainer" id="popup">
+      <%- include("../managermodule/addtask")%>
+    </div>
+    <script src="/js/loginmodule/draganddrop.js"></script>
+    <!-- <script src="/js/loginmodule/login.js"></script> -->
+    <script src="/js/adminmodule/tasks.js"></script>
+    <!-- <script src="/js/loginmodule/tasks2.js"></script> -->
+    <script>
+      let popup = document.getElementById("popup");
 
-    function openPopup() {
-      popup.classList.add("open-popup");
-    }
+      function openPopup() {
+        popup.classList.add("open-popup");
+      }
 
-    function closePopup() {
-      popup.classList.remove("open-popup");
-    }
-  </script>
-  <!-- <script src="/js/managermodule/managerdashboard.js" defer></script> -->
-</body>
-
+      function closePopup() {
+        popup.classList.remove("open-popup");
+      }
+    </script>
+    <!-- <script src="/js/managermodule/managerdashboard.js" defer></script> -->
+  </body>
 </html>

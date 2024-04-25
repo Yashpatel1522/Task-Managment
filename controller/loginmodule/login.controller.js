@@ -58,7 +58,7 @@ const loginPost = async (request, response) => {
                   url = "/admin/dashboard";
                   break;
                 case "manager":
-                  url = "/manager/";
+                  url = "/manager/dashboard";
                   break;
                 default:
                   url = null;
