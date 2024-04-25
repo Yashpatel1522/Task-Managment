@@ -265,7 +265,7 @@ const deleteTeam = async (id) => {
             })
             .then(async (result2) => {
               if (result2.isConfirmed) {
-                getTeamData();
+                window.location.href = "/manager/Teams";
               }
             });
         } else if (

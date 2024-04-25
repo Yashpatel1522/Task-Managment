@@ -21,15 +21,16 @@
           <div class="col-9">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search Employee..."
               name="searchdata"
-              style="border-radius: 10px"
+              style="border-radius: 10px; height: 40px"
               oninput="searchEmployee(this.value)"
             />
           </div>
           <div class="col-3">
             <div class="row ps-5">
               <i
+                id="nficon"
                 class="bi bi-bell fa-2x col"
                 onclick="fetchNotificationData()"
               ></i>

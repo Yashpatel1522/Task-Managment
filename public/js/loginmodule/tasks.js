@@ -8,9 +8,9 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -23,9 +23,9 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828"  onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -38,9 +38,9 @@ const getTaskData = async () => {
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -62,15 +62,15 @@ const searchTaskData = async (value) => {
     let dataadd = ``;
     if (data.todoTask.length != 0) {
       data.todoTask.forEach((e) => {
-        dataadd += `<div class="card m-3 p-2">
-        <div class="card-body">
-          <p>${e.task_name}</p>
-          <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        dataadd += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
-        </div>
-      </div>`;
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
+      </div>
+    </div>`;
       });
       todoTask.innerHTML = dataadd;
     } else {
@@ -85,15 +85,15 @@ const searchTaskData = async (value) => {
     let dataadd1 = ``;
     if (data.inprogressTask.length != 0) {
       data.inprogressTask.forEach((e) => {
-        dataadd1 += `<div class="card m-3 p-2">
-        <div class="card-body">
-          <p>${e.task_name}</p>
-          <p>${e.task_description}</p>
-          <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        dataadd1 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
-        </div>
-      </div>`;
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
+      </div>
+    </div>`;
       });
       inprogressTask.innerHTML = dataadd1;
     } else {
@@ -108,15 +108,15 @@ const searchTaskData = async (value) => {
     let dataadd2 = ``;
     if (data.completedTask.length != 0) {
       data.completedTask.forEach((e) => {
-        dataadd2 += `<div class="card m-3 p-2">
-        <div class="card-body">
-          <p>${e.task_name}</p>
-          <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" onclick="openpopup2(${e.id})">View</button>
+        dataadd2 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
+      <div class="card-body">
+        <p>${e.task_name}</p>
+        <p>${e.task_description}</p>
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
         <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" onclick="openViewComments(${e.id})">View Comments</button>
-        </div>
-      </div>`;
+        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
+      </div>
+    </div>`;
       });
       completedTask.innerHTML = dataadd2;
     } else {

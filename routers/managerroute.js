@@ -105,7 +105,7 @@ managerRouter.get("/teamapi", teamdetails);
 
 //api to get upcoming manager tasks
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
-q;
+
 //api to Update Manager Profile Details
 managerRouter.post(
   "/updateManager",
