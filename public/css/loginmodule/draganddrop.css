@@ -4,9 +4,9 @@
 }
 .lanes{
   display: flex;
-  align-items: flex-start;
-  justify-content: start;
-  padding: 24px 32px;
+  align-items: start;
+  justify-content:space-between;
+  /* padding: 24px 32px; */
   overflow: scroll;
   height: 100%;
 }

@@ -53,6 +53,7 @@ const {
 const checkUserRole = require("../middleware/userrole");
 const {
   calenderView,
+  calenderMonth,
   dueDateTask1,
 } = require("../controller/managermodule/calender");
 const { reportGet } = require("../controller/employeemodule/reports");
@@ -68,6 +69,10 @@ const uploadImage = multer({ storage: userProfileStorage });
 const managerRouter = express.Router();
 
 // // Displaying Tasks of manager
+
+managerRouter.get("/calenderData/:month", calenderMonth);
+managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
+managerRouter.get("/searchTask/:searchdata", searchTask);
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -115,14 +120,13 @@ managerRouter.get("/getManagerProfile/:id", managerProfile);
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
-managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
+
 managerRouter.delete("/removeemployeapi/:id", removeEmployee);
 // api to get manager tasks
 managerRouter.get("/getManagerTasks", managerTasks);
 
 //api for Manager task Count
 managerRouter.get("/getManagerTaskCount", taskCount);
-managerRouter.get("/searchTask/:searchdata", searchTask);
 
 // // api for get user,category from database
 managerRouter.get("/getdataapi", addtaskdata);
@@ -148,7 +152,7 @@ managerRouter.get("/comments/:teamId", viewComments);
 managerRouter.get("/getcomments/:teamId", getComments);
 managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
-managerRouter.get("/calender", calenderView().getPage);
+managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
 
 module.exports = managerRouter;

@@ -21,41 +21,41 @@
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-            <div class="my-5">
-              <div class="row1 my-4">
-                <div class="search float-start mx-3 ">
-                  <input type="text" placeholder="Search Team.." class="rounded py-2 px-3 " tabindex="1"
-                    oninput="searchTeam(this.value)">
+            <div class="bodypage">
+              <div class="my-5">
+                <div class="row1 my-4">
+                  <div class="search float-start mx-3 ">
+                    <input type="text" placeholder="Search Team.." class="rounded py-2 px-3 " tabindex="1"
+                      oninput="searchTeam(this.value)">
+                  </div>
+                  <div class="addemployee">
+                    <input type="button" value="+  Add Team" class="btn btn-dark float-end mx-2 my-2 px-3" tabindex="2"
+                      onclick="openPopup()">
+                  </div>
                 </div>
-                <div class="addemployee">
-                  <input type="button" value="+  Add Team" class="btn btn-dark float-end mx-2 my-2 px-3"
-                    tabindex="2" onclick="openPopup()">
+                <div style="margin-top: 130px;">
+                  <table class="table mx-2 text-center" id="team-table">
+
+                  </table>
+                </div>
+                <div id="pagination" class="pagenation-data">
+
+                </div>
+                <div class="addregistrationcontainer" id="show-detail">
+                  <div id="team-form"></div>
                 </div>
               </div>
             </div>
-            <div class="my-2">
-              <table class="table mx-2 text-center" id="team-table">
-
-              </table>
-            </div>
-            <div id="pagination" class="pagenation-data">
-
-            </div>
-            <div class="addregistrationcontainer" id="show-detail">
-              <div id="team-form"></div>
-            </div>
         </div>
     </div>
-  </div>
-  <div class="addregistrationcontainer" id="open-registration">
-    <%- include("../adminmodule/adminteam")%>
-  </div>
+    <div class="addregistrationcontainer" id="open-registration">
+      <%- include("../adminmodule/adminteam")%>
+    </div>
   </div>
   <script src="/js/adminmodule/fetchdatatable.js"></script>
   <script src="/js/adminmodule/viewdata.js"></script>
   <script src="/js/adminmodule/searchdata.js"></script>
   <script src="/js/adminmodule/deletedata.js"></script>
-  <script src="/js/adminmodule/allvalidation.js"></script>
   <script src="/js/adminmodule/team.js"></script>
   <script src="/js/loginmodule/popup.js"></script>
 

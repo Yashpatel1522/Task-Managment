@@ -35,7 +35,7 @@ const {
 } = require("../controller/employeemodule/navigation");
 const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
 router.get(
-  "/getdashboardata",
+  "/getdashboardata/:id?",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   getdashboardata
 );

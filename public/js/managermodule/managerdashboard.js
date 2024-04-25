@@ -1,7 +1,20 @@
 const getData = async () => {
+  let profData = await getProf();
+
+  if(profData.imageResult) {
+    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+  else {
+    document.getElementById('profImg').src = `/assets/employee/user.png`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+
+
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();
+  console.log("task count", data);
   document.getElementsByClassName("count")[0].innerText =
     data.todoResult[0].count;
   document.getElementsByClassName("count")[1].innerText =
@@ -10,6 +23,12 @@ const getData = async () => {
     data.compleatedResult[0].count;
 };
 
+async function getProf() {
+  let data = await (await fetch('/manager/getManagerProfile/2')).json();
+  return data;
+}
+
+getData();
 const profOption = () => {
   document.getElementById("profClk").style.display = "block";
 };
@@ -57,38 +76,34 @@ async function editTaskPopup(id) {
   let data = await (await fetch(`/manager/getTaskDetails/${id}`)).json();
   let employeeData = await getEmployee();
   let getEditDetails = await getDetails();
-  getEditDetails = JSON.parse(getEditDetails)
+  getEditDetails = JSON.parse(getEditDetails);
   employeeData = JSON.parse(employeeData);
 
   document.getElementById("editTaskPopup").classList.add("open-popup");
   let str = ``;
-  console.log(data.employeeResult[0]);
   data.employeeResult.forEach((element) => {
-    console.log(element);
     str += `<option value='${element.id}' selected>${element.first_name}</option>`;
   });
 
-  if(data.extraEmployeeResult) {
-    data.extraEmployeeResult.forEach(element => {
+  if (data.extraEmployeeResult) {
+    data.extraEmployeeResult.forEach((element) => {
       str += `<option value='${element.id}'>${element.first_name}</option>`;
     });
   }
 
-  console.log(str);
-
   let ctaegoryStr = ``;
-  getEditDetails.categoryRes.forEach(element => {
-    ctaegoryStr += `<option value='${element.id}'>${element.category}</option>`; 
+  getEditDetails.categoryRes.forEach((element) => {
+    ctaegoryStr += `<option value='${element.id}'>${element.category}</option>`;
   });
 
   let urgencyStr = ``;
-  getEditDetails.urgencyRes.forEach(element => {
-    urgencyStr += `<option value='${element.id}'>${element.type}</option>`; 
+  getEditDetails.urgencyRes.forEach((element) => {
+    urgencyStr += `<option value='${element.id}'>${element.type}</option>`;
   });
 
   let importanceStr = ``;
-  getEditDetails.importanceRes.forEach(element => {
-    importanceStr += `<option value='${element.id}'>${element.type}</option>`; 
+  getEditDetails.importanceRes.forEach((element) => {
+    importanceStr += `<option value='${element.id}'>${element.type}</option>`;
   });
 
   document.getElementById("taskContainer").innerHTML = `
@@ -115,7 +130,7 @@ async function editTaskPopup(id) {
   <div class="col-md-6">
     <label class="text-primary">status :</label>
     <select class="form-control" tabindex="3" id="status" name="status">
-    <option value='todo'>Todo</option><option value='inprogress'>In Progress</option><option value='inprogress'>Compleated</option>
+    <option value='todo'>Todo</option><option value='inprogress'>In Progress</option><option value='completed'>Compleated</option>
     </select>
   </div>
 </div>
@@ -162,7 +177,10 @@ async function editTaskPopup(id) {
   </div>
 </div>
   `;
-  console.log(data.employeeResult);
+  document.getElementById('status').value = data.result[0].task_status;
+  document.getElementById('category').value = data.result[0].category_id;
+  document.getElementById('Urgency').value = data.urgencyResult[0].id;
+  document.getElementById('importance').value = data.importanceResult[0].id; 
 }
 
 function closeEditTask() {

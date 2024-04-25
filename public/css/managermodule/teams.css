@@ -20,13 +20,6 @@
 	background-color:var(--sidebarcolor);
 }
 
-.section{
-  max-width: 1170px;
-  margin: 0 auto;
-}
-
-
-
 .teamcontent{
 	width: 80%;
 	height: 1000px;
