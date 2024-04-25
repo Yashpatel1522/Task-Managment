@@ -19,9 +19,13 @@ const checkUserRole = async (request, response, next) => {
       if (request.originalUrl == res[0].api) {
         next();
       } else {
-        response.redirect(
-          request.headers.referer.split(process.env.PORT).pop()
-        );
+        if (request.headers.referer != undefined) {
+          response.redirect(
+            request.headers.referer.split(process.env.PORT).pop()
+          );
+        } else {
+          response.redirect("/");
+        }
       }
     } else {
       if (request.headers.referer != undefined) {
