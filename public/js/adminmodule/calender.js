@@ -85,6 +85,7 @@ const getDeadline = async () => {
   return data;
 };
 
+let todayDate = new Date().getDate();
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/admin/calenderData/${month}`)).json();
@@ -101,7 +102,10 @@ const getCalender = async (month) => {
     let tr = document.createElement("tr");
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
-      td.innerText += `${data.yearCalendar[i][j]}`;
+      td.innerText += `${data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]}`;
+      if (data.yearCalendar[i][j] === todayDate) {
+        td.style.backgroundColor = "rgb(90, 150, 90)";
+      }
       dueDate.result.forEach((ele) => {
         if (new Date(ele.end_date).getMonth() + 1 === month) {
           if (new Date(ele.end_date).getDate() === data.yearCalendar[i][j]) {
@@ -126,3 +130,4 @@ const getCalender = async (month) => {
 m = new Date().getMonth();
 body = document.getElementsByTagName("body");
 body.onload = getCalender(m + 1);
+

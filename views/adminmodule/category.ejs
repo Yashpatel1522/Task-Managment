@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
   <script src="/sweetalert2/sweetalert2.min.js"></script>
   <script src="/js/loginmodule/popup.js"></script>
+  <style>
+    .cards{
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body onload="getCategoryData()">
@@ -23,8 +29,7 @@
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-
-            <div class="my-5">
+            <div style="margin-top: 110px;">
               <div class="row1 my-4">
                 <div class="search float-start mx-3 ">
                   <input type="text" placeholder="Search Category.." class="rounded py-2 px-3 " tabindex="1"

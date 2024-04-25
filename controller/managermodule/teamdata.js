@@ -6,8 +6,8 @@ var db = new database();
 exports.teamdetails = async (request, response) => {
   try {
     let teamData = await db.executeQuery(
-      `select * from teams where is_active = ?`,
-      ["1"]
+      `select * from teams where created_by = ? and is_active = ?`,
+      [request.user.id, "1"]
     );
     return response.json({ result: teamData });
   } catch (error) {

@@ -6,7 +6,7 @@ let db = new database();
 const addtaskdata = async (request, response) => {
   try {
     let dataobj = {};
-    const query = `select id,first_name from users where role_id = 3`;
+    const query = `select id,first_name from users where role_id = 3 and status = 1`;
     const teamDataQuery = `select id,team_name from teams where is_active = 1`;
     const categoryDataQuery = `select * from categories`;
     const urgencyDataQuery = "select * from urgency";
@@ -29,7 +29,8 @@ const addtaskdata = async (request, response) => {
 
 const inserttaskdata = async (request, response) => {
   try {
-    taskdata = request.body;
+    let taskdata = request.body;
+    let managerId = request.user.id;
     let lastInserted_id;
     let priorityData = await db.executeQuery(
       `select id from priorities where urgency_id = ? and important_id = ?`,
@@ -37,7 +38,7 @@ const inserttaskdata = async (request, response) => {
     );
     let res = await db.insertData(
       {
-        manager_id: 1,
+        manager_id: request.user.id,
         category_id: taskdata.task_category,
         prioritiy_id: priorityData[0].id,
         task_name: taskdata.task_name,

@@ -1,3 +1,13 @@
+async function loadProf() {
+  let profData = await (await fetch('/manager/getManagerProfile/2')).json();
+
+  if(profData.imageResult && profData.result) {
+    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+}
+
+
 const showOption = async () => {
   if (
     document.getElementById("profClk").style.display == "none" ||
@@ -98,7 +108,7 @@ const getDeadline = async () => {
 
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
-  let data = await (await fetch(`/admin/calenderData/${month}`)).json();
+  let data = await (await fetch(`/manager/calenderData/${month}`)).json();
   console.log(data);
   let calenderData = document.getElementById("calender");
   let tr1 = document.createElement("tr");
