@@ -1,16 +1,21 @@
 const setData = async () => {
+
+  let profData = await getProf();
+  if(profData.imageResult && profData.result) {
+    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+
   let url = window.location.origin + `/manager/getEmployees`;
   let response = await fetch(url);
   let data = await response.json();
   let str = ``;
-  console.log(data.result);
   if (data.result) {
     let count = 0;
     for (let i = 0; i < Math.ceil(data.result.length / 3); i++) {
       str += `<div class="row pb-3">`;
       for (let j = 0; j < 3; j++) {
         if (data.result[count]) {
-          console.log(data.result[count].last_name);
           str += `
                     <div class="col-4 ">
                         <div class="card" style="width: 100%;">
@@ -34,6 +39,11 @@ const setData = async () => {
   }
   document.getElementsByClassName("employeeList")[0].innerHTML = str;
 };
+
+async function getProf() {
+  let data = await (await fetch('/manager/getManagerProfile/2')).json();
+  return data;
+}
 
 async function showEmployeeDetails(
   id,
@@ -96,7 +106,6 @@ const searchEmployee = async (value) => {
         str += `<div class="row pb-3">`;
         for (let j = 0; j < 3; j++) {
           if (data.searchData[count]) {
-            console.log(data.searchData[count].last_name);
             str += `
                     <div class="col-4">
                         <div class="card" style="width: 100%;">

@@ -44,7 +44,7 @@ const updateManager = async (request, response) => {
       ]);
     }
 
-    return response.send(data);
+    return response.redirect('/manager/dashboard');
   } catch (error) {
     logger.error(error);
     return response.send({ error: error });

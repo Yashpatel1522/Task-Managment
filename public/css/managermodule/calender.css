@@ -27,8 +27,8 @@
 #profClk {
   display: none;
   position: absolute;
-  margin-left: -4%;
-  background-color: var(--profClkbackgroundcolor);
+  margin-left: 7.5%;
+  background-color: white;
   box-shadow: 0px 8px 16px 0px var(--black);
   z-index: 1;
 }

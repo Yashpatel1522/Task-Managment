@@ -1,4 +1,12 @@
 const getData = async () => {
+  let profData = await getProf();
+
+  if(profData.imageResult && profData.result) {
+    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+
+
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();
@@ -9,6 +17,11 @@ const getData = async () => {
   document.getElementsByClassName("count")[2].innerText =
     data.compleatedResult[0].count;
 };
+
+async function getProf() {
+  let data = await (await fetch('/manager/getManagerProfile/2')).json();
+  return data;
+}
 
 const profOption = () => {
   document.getElementById("profClk").style.display = "block";

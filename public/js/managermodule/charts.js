@@ -1,4 +1,12 @@
 const drawCharts = async () => {
+
+  let profData = await getProf();
+
+  if(profData.imageResult && profData.result) {
+    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+
   let taskResponse = await fetch(
     window.location.origin +
       `/manager/getManagerUpcomingTasks?start_date=2024-04-17&end_date=2024-10-30&manager_id=1`
@@ -98,6 +106,11 @@ const drawCharts = async () => {
   );
   Piechart.render();
 };
+
+async function getProf() {
+  let data = await (await fetch('/manager/getManagerProfile/2')).json();
+  return data;
+}
 
 const remOption = () => {
   document.getElementById("profClk").style.display = "none";
