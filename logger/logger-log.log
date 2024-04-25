@@ -720,9 +720,13 @@
 {"level":"error","timestamp":"2024-04-24T09:51:39.035Z"}
 {"level":"error","timestamp":"2024-04-24T09:54:49.586Z"}
 {"level":"error","timestamp":"2024-04-24T10:05:21.323Z"}
+<<<<<<< HEAD
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-24T13:18:22.452Z"}
+=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T12:43:49.533Z"}
 {"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T12:43:52.836Z"}
 {"level":"error","message":"profile data is not found !","timestamp":"2024-04-24T12:59:34.241Z"}
+>>>>>>> dev
 {"level":"error","timestamp":"2024-04-24T13:50:22.461Z"}
 {"level":"error","timestamp":"2024-04-24T13:50:29.674Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:51:52.567Z"}
@@ -743,6 +747,8 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:58:48.385Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:58:54.210Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-24T13:58:55.357Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T04:08:10.339Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T04:08:10.344Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T03:23:08.043Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T03:23:08.050Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T03:28:45.702Z"}
@@ -819,6 +825,33 @@
 {"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T05:23:14.746Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T05:23:14.749Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T06:11:23.558Z"}
+<<<<<<< HEAD
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T06:35:11.762Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T08:51:34.608Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T08:51:34.610Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T09:08:08.400Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T09:08:08.410Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T09:31:55.004Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T09:37:01.406Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T09:39:01.077Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T09:40:29.469Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T09:45:47.081Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:23:06.122Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:31:39.100Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:32:38.191Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T10:32:38.195Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:33:58.248Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T10:33:58.252Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:38:44.269Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T10:38:44.270Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:40:34.047Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:42:04.324Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:43:13.986Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:43:29.711Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:48:46.596Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T11:37:25.116Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T11:37:25.125Z"}
+=======
 <<<<<<< HEAD
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T06:39:20.989Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T06:39:28.299Z"}
@@ -948,5 +981,6 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:46:40.221Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:46:59.238Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:47:06.429Z"}
+>>>>>>> dev
 >>>>>>> dev
 >>>>>>> dev
