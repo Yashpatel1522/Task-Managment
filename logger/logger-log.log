@@ -927,8 +927,26 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T06:54:27.192Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T06:54:47.990Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T06:54:49.340Z"}
+<<<<<<< HEAD
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T09:31:37.973Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T09:46:10.246Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T09:46:13.454Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:03:14.437Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T10:03:14.442Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:04:24.437Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T10:04:24.440Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T10:10:40.031Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:11:50.450Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T10:11:50.453Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T10:16:16.467Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T10:20:00.723Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T10:20:00.726Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-25T11:10:34.912Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-25T11:10:34.914Z"}
+=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T11:58:53.369Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:46:40.221Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:46:59.238Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:47:06.429Z"}
+>>>>>>> dev
 >>>>>>> dev

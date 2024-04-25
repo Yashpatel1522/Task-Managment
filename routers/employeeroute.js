@@ -33,6 +33,7 @@ const {
 const {
   getnavigationdata,
 } = require("../controller/employeemodule/navigation");
+const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
 router.get(
   "/getdashboardata/:id?",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -71,5 +72,7 @@ router.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   empdueDateTask
 );
+router.get("/report", reportGet);
+router.get("/comeletedTasks",completedTasks)
 
 module.exports = router;

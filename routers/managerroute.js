@@ -56,6 +56,7 @@ const {
   calenderMonth,
   dueDateTask1,
 } = require("../controller/managermodule/calender");
+const { reportGet } = require("../controller/employeemodule/reports");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -153,4 +154,5 @@ managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
 managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
+
 module.exports = managerRouter;
