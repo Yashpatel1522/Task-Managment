@@ -11,13 +11,36 @@ const drawCharts = async () => {
     });
   }
 
-  if (taskData.teamResult[0]) {
-    taskData.teamResult.forEach((element) => {
-      document.getElementById(
-        "teams"
-      ).innerHTML += `<p>${element.team_name}</p>`;
-    });
+  let profData = await getProf();
+
+  if(profData.imageResult) {
+    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
   }
+  else {
+    document.getElementById('profImg').src = `/assets/employee/user.png`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  }
+
+  // let taskResponse = await fetch(`/manager/getManagerUpcomingTasks?start_date=2024-04-17&end_date=2024-10-30&manager_id=1`);
+  // let taskData = await taskResponse.json();
+
+  // if (taskData.result[0]) {
+  //   taskData.result.forEach((element) => {
+  //     document.getElementById(
+  //       "upcomingTasks"
+  //     ).innerHTML += `<p>${element.task_name}</p>`;
+  //   });
+  // }
+
+  // if (taskData.teamResult[0]) {
+  //   taskData.teamResult.forEach((element) => {
+  //     document.getElementById(
+  //       "teams"
+  //     ).innerHTML += `<p>${element.team_name}</p>`;
+  //   });
+  // }
+  
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();
@@ -97,6 +120,11 @@ const drawCharts = async () => {
   );
   Piechart.render();
 };
+
+async function getProf() {
+  let data = await (await fetch('/manager/getManagerProfile/2')).json();
+  return data;
+}
 
 const remOption = () => {
   document.getElementById("profClk").style.display = "none";
