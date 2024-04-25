@@ -51,6 +51,7 @@ const {
   teamDetails,
   searchTeam,
   addNewTeam,
+  updateTeamData,
 } = require("../controller/adminmodule/teamdata");
 const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
@@ -96,6 +97,7 @@ router.delete("/employeesapi/:id", empDataDelete);
 // Team
 router.get("/teamapi", teamData);
 router.get("/teamapi/:id", teamDetails);
+router.post("/teamapi/:id", updateTeamData)
 router.get("/teamapi/search/:searchdata", searchTeam);
 router.delete("/teamapi/:id", deleteTeam);
 

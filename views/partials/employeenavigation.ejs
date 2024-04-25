@@ -8,31 +8,33 @@
 </head>
 
 <body>
-  <div class="profilename position-relative">
-    <div class="float-start">
-      <h2 class="text-center m-3">Employee</h2>
-    </div>
-    <div class="d-flex position-absolute end-0">
-      <div class="bell">
-        <i class="bi bi-bell" onclick="showNotification()"></i>
+  <div
+    style="position: fixed; background-color: white; z-index: 1; margin-left:-35px; margin-right: -50px; box-shadow: 5px 8px 10px 5px rgb(192, 191, 191);">
+    <div class="profilename">
+      <div class="float-start">
+        <h2 class="text-center m-3 ms-5">Employee</h2>
       </div>
-      <div>
-        <div class="profile d-flex m-2 border rounded-pill align-items-center" onclick="showDropdown()">
-          <div class="m-2 h-50">
-            <img src="" alt="" class="img-thumbnail rounded-circle border border-dark"
-              style="width: 50px; height: 50px" id="employee_dashboard_img" />
+      <div class="d-flex float-end" style="margin-left: 600px;">
+        <div class="bell">
+          <i class="bi bi-bell" onclick="showNotification()"></i>
+        </div>
+        <div>
+          <div class="profile d-flex m-2 border rounded-pill align-items-center" onclick="showDropdown()">
+            <div class="m-2 h-50">
+              <img src="" alt="" class="img-thumbnail rounded-circle border border-dark"
+                style="width: 50px; height: 50px" id="employee_dashboard_img" />
+            </div>
+            <p id="employee_name" class="text-white" style="font-size: 18px; margin-top: 12px"></p>
           </div>
-          <p id="employee_name" class="text-white" style="font-size: 18px; margin-top: 12px"></p>
-        </div>
 
-        <div id="dropdown" class="dropdown-content me-5">
-          <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-            onclick="loadProfile()">Profile</a>
-          <a href="/employee/changepassword">Change Password</a>
-          <a onclick="logoutPopup()">Logout</a>
+          <div id="dropdown" class="dropdown-content me-5">
+            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="loadProfile()">Profile</a>
+            <a href="/employee/changepassword">Change Password</a>
+            <a onclick="logoutPopup()">Logout</a>
+          </div>
         </div>
+        <%- include('../employeemodule/profilemodal.ejs') %>
       </div>
-      <%- include('../employeemodule/profilemodal.ejs') %>
     </div>
   </div>
   <script src="/js/employee/employeeprofile.js"></script>

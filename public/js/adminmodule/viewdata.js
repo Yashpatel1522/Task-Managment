@@ -50,8 +50,9 @@ const viewFetchData = async (api, id) => {
         document.getElementById("team-form").innerHTML = dataadd;
       }
     } else {
+      let userdata = "";
       if (data.result.length != 0) {
-        document.getElementById(`${id}`).innerHTML =
+        userdata +=
           `<div class="allform width:fit-content p-4" >
             <div class="row mb-3">
               <div class="col-md-11">
@@ -90,9 +91,19 @@ const viewFetchData = async (api, id) => {
                   <lable class="text-primary">Department</lable>
                   <input type="text" class="form-control" tabindex="7" id="employee_role" name="employee_role" placeholder="Enter Department" value="${data.result[0].employee_role}" disabled>
               </div>
-            </div>
-         </div>`
+            </div>`
       }
+      if (id === "manager-form" && data.result2.length != 0) {
+        userdata +=
+          `<div class="row mb-3">
+              <div class="col-md-12">
+                <lable class="text-primary">Task List</lable>
+                <input type="text" class="form-control" id="task_list" name="date_of_birth" value="${data.result2[0].task_name}" disabled>
+              </div>
+            </div>`
+      }
+      userdata += `</div>`
+      document.getElementById(`${id}`).innerHTML = userdata;
     }
   } catch (error) {
     console.log(error);
