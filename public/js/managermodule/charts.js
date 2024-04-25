@@ -11,26 +11,25 @@ const drawCharts = async () => {
     document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
   }
 
-  let taskResponse = await fetch(
-    window.location.origin +
-      `/manager/getManagerUpcomingTasks?start_date=2024-04-17&end_date=2024-10-30&manager_id=1`
-  );
-  let taskData = await taskResponse.json();
-  if (taskData.result[0]) {
-    taskData.result.forEach((element) => {
-      document.getElementById(
-        "upcomingTasks"
-      ).innerHTML += `<p>${element.task_name}</p>`;
-    });
-  }
+  // let taskResponse = await fetch(`/manager/getManagerUpcomingTasks?start_date=2024-04-17&end_date=2024-10-30&manager_id=1`);
+  // let taskData = await taskResponse.json();
 
-  if (taskData.teamResult[0]) {
-    taskData.teamResult.forEach((element) => {
-      document.getElementById(
-        "teams"
-      ).innerHTML += `<p>${element.team_name}</p>`;
-    });
-  }
+  // if (taskData.result[0]) {
+  //   taskData.result.forEach((element) => {
+  //     document.getElementById(
+  //       "upcomingTasks"
+  //     ).innerHTML += `<p>${element.task_name}</p>`;
+  //   });
+  // }
+
+  // if (taskData.teamResult[0]) {
+  //   taskData.teamResult.forEach((element) => {
+  //     document.getElementById(
+  //       "teams"
+  //     ).innerHTML += `<p>${element.team_name}</p>`;
+  //   });
+  // }
+  
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();
