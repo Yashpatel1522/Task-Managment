@@ -44,7 +44,7 @@ login.get("/employee/:taskid", workingEmployyeInTask);
 
 login.post("/updateKanban", updateTaskDetailsPost);
 
-login.get("/managertasks/:id", managerTasks);
+login.get("/managertasks/", managerTasks);
 
 // login.get(
 //   "/dashboard",

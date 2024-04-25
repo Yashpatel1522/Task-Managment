@@ -7,6 +7,7 @@
   --profClkbackgroundcolor : #f9f9f9;
   --lightgray : lightgray;
   --red : red;
+  --btnhover : #eec137;
 }
 
 .section {
@@ -44,12 +45,10 @@
 .taskhead {
 	display: flex;
 	align-items: center;
+  justify-content:space-between ;
 	padding: 25px 0;
 }
 
-.tasklft {
-	width: 80%;
-}
 
 .tasklft > h2 {
 	font-size: 35px;    
@@ -176,4 +175,12 @@ input,select{
 }
 span{
   color:var(--red);
+}
+
+.btnstyle:hover{
+  position: relative;
+  top:-10px;
+  transition: 1s;
+  background-color: var(--btnhover) !important;
+  color: var(--sidebarcolor);
 }

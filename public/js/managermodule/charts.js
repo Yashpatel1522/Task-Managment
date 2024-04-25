@@ -1,4 +1,15 @@
 const drawCharts = async () => {
+  let taskResponse = await fetch(
+    window.location.origin + `/manager/getManagerUpcomingTasks`
+  );
+  let taskData = await taskResponse.json();
+  if (taskData.result[0]) {
+    taskData.result.forEach((element) => {
+      document.getElementById(
+        "upcomingTasks"
+      ).innerHTML += `<p>${element.task_name}</p>`;
+    });
+  }
 
   let profData = await getProf();
 
