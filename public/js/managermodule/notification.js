@@ -29,9 +29,14 @@ const fetchNotificationData = async () => {
 
 const showNotifications = (data) => {
   let notificatiodata = "";
-  data.forEach((element) => {
-    notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`;
-  });
+  if (data.length != 0) {
+    data.forEach((element) => {
+      notificatiodata += `<h3>Today is due date of <b>${element.task_name}</b> task<h3>`;
+    });
+  } else {
+    notificatiodata += "<h3>There is no due date of any task today</h3>";
+  }
+
   Swal.fire({
     title: ` ${notificatiodata}`,
     icon: "info",

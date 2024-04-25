@@ -1,7 +1,6 @@
 const drawCharts = async () => {
   let taskResponse = await fetch(
-    window.location.origin +
-      `/manager/getManagerUpcomingTasks?start_date=2024-04-17&end_date=2024-10-30&manager_id=1`
+    window.location.origin + `/manager/getManagerUpcomingTasks`
   );
   let taskData = await taskResponse.json();
   if (taskData.result[0]) {

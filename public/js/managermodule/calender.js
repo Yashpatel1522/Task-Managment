@@ -98,7 +98,7 @@ const getDeadline = async () => {
 
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
-  let data = await (await fetch(`/admin/calenderData/${month}`)).json();
+  let data = await (await fetch(`/manager/calenderData/${month}`)).json();
   console.log(data);
   let calenderData = document.getElementById("calender");
   let tr1 = document.createElement("tr");

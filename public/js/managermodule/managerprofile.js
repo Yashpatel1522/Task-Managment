@@ -275,6 +275,36 @@ const getProfile = async () => {
   document.getElementById("dob_input").value = data.result[0].date_of_birth;
 
   if (data.imageResult[0]) {
-    document.getElementById("selectedImage").src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
+    document.getElementById(
+      "selectedImage"
+    ).src = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
+  }
+};
+
+const logout = () => {
+  try {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Logout this page !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "logout!",
+          text: "You are logout",
+          icon: "success",
+        }).then((result2) => {
+          if (result2.isConfirmed) {
+            window.location.href = "/";
+          }
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error);
   }
 };

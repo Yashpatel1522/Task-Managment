@@ -3,8 +3,8 @@ const logger = require("../../logger/logger");
 let db = new database();
 const getempdata = async (request, response) => {
   try {
-    const query = `select id,first_name from users where role_id = ?`;
-    let empdata = await db.executeQuery(query, [3]);
+    const query = `select id,first_name from users where role_id = ? and status = ?`;
+    let empdata = await db.executeQuery(query, [3, 1]);
     return response.json(empdata);
   } catch (error) {
     logger.error(error);
@@ -14,9 +14,10 @@ const getempdata = async (request, response) => {
 const addteam = async (request, response) => {
   try {
     let teamdata = request.body;
+    let createdBy = request.user.id;
     let lastInserted_id;
     let res = await db.insertData(
-      { created_by: 1, team_name: teamdata.team_name },
+      { created_by: createdBy, team_name: teamdata.team_name },
       "teams"
     );
     lastInserted_id = res.insertId;
