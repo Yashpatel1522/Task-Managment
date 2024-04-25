@@ -20,11 +20,6 @@ const getdashboardata = async (request, response) => {
     res.upCommingDeadlineData = await db.executeQuery(employeeUpCommingDeadlineQuery, [id, currentDate]);
     res.employeeInprogressTaskData = await db.executeQuery(employeeInprogressTaskQuery, [id]);
 
-    res.imagename = await db.executeQuery(
-      `select newimage_name from user_profiles where user_id = ? and is_deleted = 0`, [id]
-    );
-
-
     return response.json({ result: res });
   } catch (error) {
     logger.error("Dash data is not found !");
@@ -33,5 +28,6 @@ const getdashboardata = async (request, response) => {
 const dashboard = (request, response) => {
   response.render("employeemodule/dashboard");
 };
+
 
 module.exports = { getdashboardata, dashboard };

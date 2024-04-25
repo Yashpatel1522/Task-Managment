@@ -18,11 +18,11 @@ const searchAllData = async (api, id, apifetch) => {
                 <td>${element.id}</td>
                 <td>${element.team_name}</td>
                 <td>
-                <input type="button" value="View" class="btn btn-secondary px-3" onclick="viewTeam(${element.id})">
+                <input type="button" value="View" class="btn btn-success px-3" onclick="viewTeam(${element.id})">
                 </td>
                 <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="editTeam(${element.id})"></td>
                 <td>
-                <input type="button" value="Delete" class="btn btn-secondary px-3" onclick="teamDelete(${element.id})">
+                <input type="button" value="Delete" class="btn btn-danger px-3" onclick="teamDelete(${element.id})">
                 </td > `)
         });
         document.getElementById(`${id}`).innerHTML = dataadd;
@@ -50,12 +50,12 @@ const searchAllData = async (api, id, apifetch) => {
                 <td>${element.first_name}</td>
                 <td>${element.last_name}</td>
                 <td>${element.email}</td>
-                <td>${element.contact}</td>
+                <td>${element.contact}</td> 
                 <td>
-                <input type="button" value="view" class="btn btn-secondary px-3" onclick="viewusers(${element.id})">
+                <input type="button" value="view" class="btn btn-success px-3" onclick="viewusers(${element.id})">
                 </td>
                 <td>
-                <input type="button" value="delete" class="btn btn-secondary px-3" onclick="deleteManData(${element.id})">
+                <input type="button" value="delete" class="btn btn-danger px-3" onclick="usersDeleteData(${element.id})">
                 </td>`)
         });
         table.innerHTML = dataadd;
