@@ -55,6 +55,7 @@ const {
   calenderView,
   dueDateTask1,
 } = require("../controller/managermodule/calender");
+const { reportGet } = require("../controller/employeemodule/reports");
 
 // const uploadImage = multer({ storage: userProfileStorage });
 // const addtaskdatamiddleware = require('../middleware/addtask');
@@ -92,7 +93,7 @@ managerRouter.get("/getTeams", getTeams);
 managerRouter.post("/editTaskDetails", editTask);
 
 //Api to get details to edit tasks
-managerRouter.get("/getEditTadkDetails", getEditDetails)
+managerRouter.get("/getEditTadkDetails", getEditDetails);
 
 //API to get task details
 managerRouter.get("/getTaskDetails/:id", getAllTasks);
@@ -149,4 +150,5 @@ managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
 managerRouter.get("/calender", calenderView().getPage);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
+
 module.exports = managerRouter;
