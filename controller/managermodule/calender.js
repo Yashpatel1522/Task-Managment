@@ -1,19 +1,15 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 let db = new database();
-const calenderView = () => {
-  return {
-    getPage(request, response) {
-      try {
-        // console.log(request.user.id);
-        response.render("../views/managermodule/calender", {
-          // id: request.user.id,
-        });
-      } catch (error) {
-        logger.error(error);
-      }
-    },
-  };
+const calenderView = (request, response) => {
+  try {
+    // console.log(request.user.id);
+    response.render("../views/managermodule/calender", {
+      // id: request.user.id,
+    });
+  } catch (error) {
+    logger.error(error);
+  }
 };
 
 const dueDateTask1 = async (request, response) => {

@@ -145,6 +145,6 @@ managerRouter.get("/comments/:teamId", viewComments);
 managerRouter.get("/getcomments/:teamId", getComments);
 managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
-managerRouter.get("/calender", calenderView().getPage);
+managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
 module.exports = managerRouter;
