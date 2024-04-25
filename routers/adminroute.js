@@ -56,11 +56,13 @@ const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
 // const passport = require("passport");
 const checkUserRole = require("../middleware/userrole");
+router.get("/employeesapi/search/:searchdata", searchEmpData);
+router.get("/managersapi/search/:searchdata", searchManData);
 
-// router.use(
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   checkUserRole
-// );
+router.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
 // Page Render
 router.route("/dashboard").get(adminDashboard);
 router.route("/managers").get(managerpage);
@@ -83,13 +85,11 @@ router.post("/category", addCategory);
 // Manager Api
 router.get("/managersapi", adminManagers);
 router.get("/managersapi/:id", managerDetails);
-router.get("/managersapi/search/:searchdata", searchManData);
 router.delete("/managersapi/:id", dataDelete);
 
 // Employee Api
 router.get("/employeesapi", adminEmployees);
 router.get("/employeesapi/:id", employeeDetails);
-router.get("/employeesapi/search/:searchdata", searchEmpData);
 router.delete("/employeesapi/:id", empDataDelete);
 
 // Team
