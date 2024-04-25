@@ -29,14 +29,18 @@ body {
 .admin .sidebar {
   border-top-right-radius: 30px;
   background-color: var(--sidebar);
+  width: 20%;
   margin-left: -10px;
   color: white;
   height: 100vh;
   margin-left: -10px;
   overflow: hidden;
   position: fixed;
+  z-index: 2;
 }
-
+.bodypage{
+  margin-top: 90px;
+}
 .admin .sidebar .task-logo img {
   width: 70px;
   height: 70px;

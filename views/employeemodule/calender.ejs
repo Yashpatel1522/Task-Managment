@@ -1,101 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Management System</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <script src="/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="/css/loginmodule/popup.css" />
-    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
-    <script src="/boxicon/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
-    <link rel="stylesheet" href="/css/employee/employee.css" />
-    <link rel="stylesheet" href="/css/employee/menubar.css" />
-    <script src="/js/employee/calender.js"></script>
-    <style>
-      table {
-        border: 2px solid black;
-        border-collapse: collapse;
-        margin: auto;
-      }
 
-      th,
-      td {
-        padding: 10px 20px;
-        text-align: center;
-        border: 2px solid black;
-      }
-      td {
-        height: 130px;
-        width: 130px;
-        background-color: white;
-      }
-      td:hover {
-        background-color: rgb(199, 227, 199);
-      }
-      .container-div {
-        max-width: 1400px;
-        background-color: #ddd0c8;
-        margin: 0 auto;
-        padding-right: 20px;
-        width: 100%;
-        height: 100%;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Management System</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/css/loginmodule/popup.css" />
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+  <script src="/boxicon/dist/boxicons.js"></script>
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+  <link rel="stylesheet" href="/css/employee/employee.css" />
+  <script src="/js/employee/calender.js"></script>
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
+  <style>
+    table {
+      border: 2px solid black;
+      border-collapse: collapse;
+      margin: auto;
+    }
 
-      .admin .sidebar {
-        border-top-right-radius: 30px;
-        background-color: #323232;
-        width: 20%;
-        margin-left: -10px;
-        color: white;
-        height: auto;
-        margin-left: -10px;
-        overflow: hidden;
-      }
-      .admin {
-        display: flex;
-        justify-content: space-between;
-      }
-      .admin .sidebar .task-logo img {
-        width: 70px;
-        padding: 20px 40px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container-div">
-      <div class="admin">
-        <%- include('../partials/employeemenubar') %>
+    th,
+    td {
+      padding: 10px 20px;
+      text-align: center;
+      border: 2px solid black;
+    }
+
+    td {
+      height: 130px;
+      width: 130px;
+      background-color: white;
+    }
+
+    td:hover {
+      background-color: rgb(199, 227, 199);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-div">
+    <div class="admin">
+      <%- include('../partials/employeemenubar') %>
         <div class="rightbar">
-          <div>
-            <div class="d-flex my-2 position-relative">
-              <h3
-                id="heading"
-                class=""
-                style="margin-left: 350px; margin-top: 38px"
-              >
-                April
-              </h3>
-              <input
-                type="button"
-                value=">"
-                class="px-3 position-absolute top-50 start-50 btn btn-secondary"
-                onclick="monthplus()"
-              />
+          <%- include('../partials/employeenavigation') %>
+            <div class="bodypage">
+              <div class="my-2">
+                <div>
+                  <div class="d-flex my-2 position-relative">
+                    <h3 id="heading" class="" style="margin-left: 350px; margin-top: 38px">
+                      April
+                    </h3>
+                    <input type="button" value=">" class="px-3 position-absolute top-50 start-50 btn btn-secondary"
+                      onclick="monthplus()" />
+                  </div>
+                  <div>
+                    <table id="calender" style="margin-bottom: 50px"></table>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <table id="calender" style="margin-bottom: 50px"></table>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    <div
-      class="text-center p-4"
-      style="background-color: #323232; color: white"
-    >
-      © 2024 Copyright
-    </div>
-  </body>
+  </div>
+  </div>
+  <script src="/js/adminmodule/calender.js"></script>
+
+</body>
+
 </html>
