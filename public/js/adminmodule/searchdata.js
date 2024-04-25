@@ -1,4 +1,3 @@
-
 const searchAllData = async (api, id, apifetch) => {
   try {
     let data = await (await fetch(`${api}`)).json();
@@ -11,10 +10,10 @@ const searchAllData = async (api, id, apifetch) => {
                 <th>View Details</th>
                 <th>Edit Team</th>
                 <th>Delete Team</th>
-                </thead>`
+                </thead>`;
       if (data.result.length != 0) {
-        data.result.forEach(element => {
-          dataadd += (`<tr>
+        data.result.forEach((element) => {
+          dataadd += `<tr>
                 <td>${element.id}</td>
                 <td>${element.team_name}</td>
                 <td>
@@ -23,14 +22,14 @@ const searchAllData = async (api, id, apifetch) => {
                 <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="editTeam(${element.id})"></td>
                 <td>
                 <input type="button" value="Delete" class="btn btn-danger px-3" onclick="teamDelete(${element.id})">
-                </td > `)
+                </td > `
         });
         document.getElementById(`${id}`).innerHTML = dataadd;
       } else {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Not Found Data"
+          text: "Not Found Data",
         });
         fetchData(`${apifetch}`, `${id}`);
       }
@@ -43,10 +42,10 @@ const searchAllData = async (api, id, apifetch) => {
                 <th>Contact No</th>
                 <th>View Details</th>
                 <th>Delete</th>
-                </thead>`
+                </thead>`;
       if (data.result.length != 0) {
-        data.result.forEach(element => {
-          dataadd += (`<tr>
+        data.result.forEach((element) => {
+          dataadd += `<tr>
                 <td>${element.first_name}</td>
                 <td>${element.last_name}</td>
                 <td>${element.email}</td>
@@ -56,14 +55,14 @@ const searchAllData = async (api, id, apifetch) => {
                 </td>
                 <td>
                 <input type="button" value="delete" class="btn btn-danger px-3" onclick="usersDeleteData(${element.id})">
-                </td>`)
+                </td>`
         });
         table.innerHTML = dataadd;
       } else {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Not Found Data"
+          text: "Not Found Data",
         });
         fetchData(`${apifetch}`, `${id}`);
       }
@@ -71,4 +70,4 @@ const searchAllData = async (api, id, apifetch) => {
   } catch (error) {
     console.log(error);
   }
-}
+};

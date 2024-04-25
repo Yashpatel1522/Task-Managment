@@ -1,6 +1,7 @@
 const getTaskData = async () => {
   try {
     let data = await (await fetch(`/admin/tasksdata`)).json();
+    console.log(data);
     todoTask = document.getElementById("todoTask");
     let todoData = ``;
     data.todoData.forEach((e) => {
@@ -211,8 +212,9 @@ const openpopup2 = async (id) => {
         </div>`;
       let employees = await (await fetch(`/login/employee/${id}`)).json();
       employees.forEach((employee) => {
-        document.getElementById("emp").innerHTML += `<option value="volvo">${employee.first_name + "" + employee.last_name
-          }</option>`;
+        document.getElementById("emp").innerHTML += `<option value="volvo">${
+          employee.first_name + "" + employee.last_name
+        }</option>`;
       });
     }
   } catch (err) {
@@ -228,18 +230,21 @@ const openpopup2 = async (id) => {
 //   console.log(draggable)
 // }
 const taskDetails = async () => {
+  console.log("1");
   await getTaskData();
+  console.log("2");
   await dragEvent();
-  await async function getData() {
-    let url = window.location.origin + `/manager/getManagerTaskCount`;
-    let response = await fetch(url);
-    let data = await response.json();
-    console.log(data);
-    document.getElementsByClassName("count")[0].innerText =
-      data.todoResult[0].count;
-    document.getElementsByClassName("count")[1].innerText =
-      data.progressResult[0].count;
-    document.getElementsByClassName("count")[2].innerText =
-      data.compleatedResult[0].count;
-  };
+  console.log("3");
+  // async function getData() {
+  //   let url = window.location.origin + `/manager/getManagerTaskCount`;
+  //   let response = await fetch(url);
+  //   let data = await response.json();
+  //   console.log(data);
+  //   document.getElementsByClassName("count")[0].innerText =
+  //     data.todoResult[0].count;
+  //   document.getElementsByClassName("count")[1].innerText =
+  //     data.progressResult[0].count;
+  //   document.getElementsByClassName("count")[2].innerText =
+  //     data.compleatedResult[0].count;
+  // };
 };
