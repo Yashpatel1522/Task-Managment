@@ -4,8 +4,7 @@ let id = path[path.length - 1];
 console.log(id, "id is ");
 var gdata;
 async function viewteamdata() {
-
-
+  
   response = await fetch(`/employee/teamdetailsdata/${id}`)
   data = await response.json();
   gdata = data
@@ -14,7 +13,6 @@ async function viewteamdata() {
     <td><button class="btn btn-primary" onclick="show(${element.teamid})">view</button></td></tr>`
   });
   console.log(data, "data is")
-
 
 }
 let ides_team = (id) => document.getElementById(id);

@@ -1,0 +1,80 @@
+:root {
+  --backgroundcolor:#E9F1FA;
+  --sidebarcolor: #0A1828;
+  --tableheader: #006DCC;
+  --profClkbackgroundcolor: #f9f9f9;
+  --white: white;
+  --black: black;
+  --lightgray: lightgray;
+  --tdhover : rgb(199, 227, 199);
+}
+
+.managerMain {
+  max-width: 100%;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  background-color: var(--backgroundcolor);
+}
+
+.managerSidebar {
+  width: 20%;
+  height: 1000px;
+  padding: 15px;
+  border-top-right-radius: 30px;
+  background-color: var(--sidebarcolor);
+}
+#profClk {
+  display: none;
+  position: absolute;
+  margin-left: -4%;
+  background-color: var(--profClkbackgroundcolor);
+  box-shadow: 0px 8px 16px 0px var(--black);
+  z-index: 1;
+}
+
+#profClk>p {
+  float: none;
+  color: var(--black);
+  padding: 8px 0;
+  display: block;
+  padding: 14px 16px;
+  font-size: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+
+#profClk>p:hover {
+  background-color: var(--lightgray);
+}
+.teamcontent {
+  width: 80%;
+  height: 1000px;
+  padding: 15px;
+}
+
+    table {
+      border: 2px solid var(--black);
+      border-collapse: collapse;
+      margin: auto;
+    }
+  .headercss{
+    background-color: var(--sidebarcolor);
+    color: white;
+  }
+  
+    th,td {
+      padding: 10px 20px;
+      text-align: center;
+      border: 2px solid var(--black);
+    }
+  
+    td {
+      height: 130px;
+      width: 130px;
+      background-color: var(--white);
+    }
+  
+    td:hover {
+      background-color: var(--backgroundcolor);
+    }

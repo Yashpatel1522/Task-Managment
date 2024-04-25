@@ -23,8 +23,11 @@ const logoutPopup = () => {
           title: "Deleted!",
           text: "Your file has been deleted.",
           icon: "success"
+        }).then((result2) => {
+          if (result2.isConfirmed) {
+            window.location.href = '/'
+          }
         });
-        window.location.href = '/login'
       }
     });
   } catch (error) {
@@ -39,10 +42,11 @@ const showDropdown = () => {
 const renderAdminProfile = (profileimg, profilevalue) => {
   let keys = Object.keys(profilevalue[0]);
   keys.map((key) => {
-    if (!(document.getElementById(`${key}`) == null)) {
-      document.getElementById(`${key}`).value = profilevalue[0][key];
+    if (!(document.getElementById(`profile_${key}`) == null)) {
+      document.getElementById(`profile_${key}`).value = profilevalue[0][key];
     }
   });
+
   document.getElementById('selectedImage').src = `/assets/userprofiles/${profileimg[0].newimage_name}`
   document.getElementById('admin_dashboard_img').src = `/assets/userprofiles/${profileimg[0].newimage_name}`
   document.getElementById("user_name").innerHTML = `<strong>${profilevalue[0]["first_name"] + " " + profilevalue[0]["last_name"]}</strong>`

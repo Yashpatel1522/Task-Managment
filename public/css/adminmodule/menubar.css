@@ -29,7 +29,6 @@ body {
 .admin .sidebar {
   border-top-right-radius: 30px;
   background-color: var(--sidebar);
-  width: 20%;
   margin-left: -10px;
   color: white;
   height: 100vh;
