@@ -99,10 +99,12 @@ const showOption = () => {
 
 const searchEmployee = async (value) => {
   try {
-    let data = await (await fetch(`/manager/searchEmploye/${value}`)).json();
-    if (value === "") {
+    value = value.trim();
+    if(!value) {
       setData();
+      return;
     }
+    let data = await (await fetch(`/manager/searchEmploye/${value}`)).json();
     let str = ``;
     if (data.searchData.length != 0) {
       let count = 0;
