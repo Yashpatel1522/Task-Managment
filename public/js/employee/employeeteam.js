@@ -4,7 +4,7 @@ let id = path[path.length - 1];
 console.log(id, "id is ");
 var gdata;
 async function viewteamdata() {
-  
+
   response = await fetch(`/employee/teamdetailsdata/${id}`)
   data = await response.json();
   gdata = data
@@ -24,8 +24,6 @@ const show = async (id) => {
   document.getElementById('team').style.display = "block"
   response = await fetch(`/employee/teamdetails/${id}`)
   data = await response.json();
-
-  console.log(data, "{}{}")
 
   data.result1.forEach(element => {
     console.log(element, "ele")
@@ -49,18 +47,31 @@ const show = async (id) => {
                             </div>
                           </div>
                           <div class="row">
-                           <div id="pflex" class="field flex-column" style="height: 60px;overflow: scroll;width: 90%;text-align: center;">
+                           <div id="pflex" class="field flex-column" style="height: 60px;overflow: scroll;width: 90%;text-align:center;overflow-x: hidden;">
                             </div>
                           </div>
-
-                          <button type = "button" class="btn btn-primary" style="margin: 20px 75px;" data-dismiss="modal"
+                          <div class="row">
+                          <div class="field fs-6 text p-3 col">
+                            <label>Tasks :&nbsp;</label>
+                          </div>
+                          </div>
+                          <div class="row">
+                           <div id="taskflex" class="field flex-column" style="height: 60px;overflow: scroll;width: 90%;text-align: center;overflow-x: hidden;">
+                            </div>
+                          </div>
+                          <button type = "button" class="btn btn-primary" style="position: relative;left: 41%;top: 15px;margin-top: 8%;" data-dismiss="modal"
                           onclick = "hideteam('team')">Close</button>`
-
   });
+  let unique = []
   data.result2.forEach(element => {
-
-    document.getElementById('pflex').innerHTML +=
-      `<p>${element.employee_name}</p>`
+    if (!unique.includes(element.task_name) && !unique.includes(element.employee_name)) {
+      unique.push(element.task_name)
+      unique.push(element.employee_name)
+      document.getElementById('taskflex').innerHTML +=
+        `<p>${element.task_name}</p>`
+      document.getElementById('pflex').innerHTML +=
+        `<p>${element.employee_name}</p>`
+    }
   })
 
 }

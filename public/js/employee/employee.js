@@ -138,7 +138,7 @@ const show = (id, taskid) => {
           <p>${element.first_name}</p>
         </div>
       </div>
-      <div class="descriptiontask" style="min-height:200px;background-color:lightgrey;margin-bottom: 20px;">
+      <div class="descriptiontask" style="height: 200px;overflow-x: hidden;min-height:200px;background-color:lightgrey;margin-bottom: 20px;">
         <div class="row">
           <div class="field fs-6 text p-3 col">
             <i class="bi bi-info-circle me-2"></i>
@@ -260,6 +260,7 @@ const seachresultnew = async () => {
 }
 
 async function addcomment() {
+  new Date();
   const formData = new FormData();
   const fields = ["taskcomment", "taskstatus"];
   formData.append("file", document.getElementById("file"));

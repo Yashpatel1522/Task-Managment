@@ -44,6 +44,7 @@ login.get("/employee/:taskid", workingEmployyeInTask);
 
 login.post("/updateKanban", updateTaskDetailsPost);
 
+login.get("/managertasks/:id", passport.authenticate("jwt", { session: false, failureRedirect: "/" }),managerTasks);
 login.get("/managertasks/", managerTasks);
 
 // login.get(
