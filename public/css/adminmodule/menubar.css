@@ -56,7 +56,7 @@ body {
 }
 
 .rightbar {
-  width: 80%;
+  width: 1145px;
   position: relative;
   display: flex;
   flex-direction: column;
