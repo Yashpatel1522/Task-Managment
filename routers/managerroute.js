@@ -72,7 +72,11 @@ const managerRouter = express.Router();
 
 managerRouter.get("/calenderData/:month", calenderMonth);
 managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
-managerRouter.get("/searchTask/:searchdata", searchTask);
+managerRouter.get(
+  "/searchTask/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchTask
+);
 managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 
 managerRouter.use(

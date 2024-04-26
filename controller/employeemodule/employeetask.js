@@ -13,7 +13,7 @@ const EmployeeTaskList = async (req, res) => {
     // id = 4
     const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
         inner join categories as c on c.id=t.category_id 
-        inner join users as u on u.role_id=t.manager_id 
+        inner join users as u on u.id=t.manager_id 
         inner join priorities as p on p.id=t.prioritiy_id 
         inner join urgency on urgency.id=p.urgency_id
         inner join importants as imp on imp.id=p.important_id  where a.emp_id=? order by p.urgency_id;`;

@@ -3,11 +3,11 @@
   --button-color: blue;
   --lightblue: lightblue;
   --backgroundcolor: #E9F1FA;
-  --sidebarcolor : #323232;
-  --profClkbackgroundcolor : #f9f9f9;
-  --lightgray : lightgray;
-  --red : red;
-  --btnhover : #eec137;
+  --sidebarcolor: #323232;
+  --profClkbackgroundcolor: #f9f9f9;
+  --lightgray: lightgray;
+  --red: red;
+  --btnhover: #eec137;
 }
 
 .section {
@@ -16,24 +16,24 @@
 }
 
 .managerMain {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color:var(--backgroundcolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--backgroundcolor);
 }
 
 .managerSidebar {
-	width: 20%;
-	height: 1000px;
-	padding: 15px;
-	border-top-right-radius: 30px;
-	background-color: var(--sidebarcolor);
+  width: 20%;
+  height: 1000px;
+  padding: 15px;
+  border-top-right-radius: 30px;
+  background-color: var(--sidebarcolor);
 }
 
 .managerContent {
-	width: 80%;
-	height: 1000px;
-	padding: 15px;
+  width: 80%;
+  height: 1000px;
+  padding: 15px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -43,84 +43,88 @@
 }
 
 .taskhead {
-	display: flex;
-	align-items: center;
-  justify-content:space-between ;
-	padding: 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0;
 }
 
 
-.tasklft > h2 {
-	font-size: 35px;    
+.tasklft>h2 {
+  font-size: 35px;
 }
 
 #profClk {
-	display: none;
-	position: absolute;
+  display: none;
+  position: absolute;
   margin-left: 36.30%;
-	background-color: white;
-	box-shadow: 0px 8px 16px 0px black;
-	z-index: 1;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px black;
+  z-index: 1;
 }
 
-#profClk > p {
-	float: none;
-	color: black;
-	padding: 8px 0;
-	display: block;
+#profClk>p {
+  float: none;
+  color: black;
+  padding: 8px 0;
+  display: block;
   padding: 14px 16px;
   font-size: 20px;
-	text-align: left;
-	cursor: pointer;
+  text-align: left;
+  cursor: pointer;
 }
 
-#profClk > p:hover {
-	background-color: var(--lightgray);
+#profClk>p:hover {
+  background-color: var(--lightgray);
 }
 
-.addtaskcontainer, .editTaskContainer{
+.addtaskcontainer,
+.editTaskContainer {
   position: fixed;
-  top : 0;
+  top: 0;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.1);
   z-index: 10;
   display: none;
-  transition: transform 0.4s,top 0.4s;
+  transition: transform 0.4s, top 0.4s;
 }
 
-.open-popup{
+.open-popup {
   display: block;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
 
 
-.addtaskcontainer, .editTaskContainer{
+.addtaskcontainer,
+.editTaskContainer {
   position: fixed;
-  top : 0;
+  top: 0;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.1);
   z-index: 10;
   visibility: hidden;
-  transition: transform 0.4s,top 0.4s;
+  transition: transform 0.4s, top 0.4s;
 }
 
-.open-popup{
+.open-popup {
   visibility: visible;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
 
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
-body{
+
+body {
   position: relative;
   /* background-color: black; */
 }
-.addtask{
+
+.addtask {
   padding: 5px;
   margin: 0 auto;
   background-color: var(--white);
@@ -128,6 +132,7 @@ body{
   border-radius: 10px;
   width: 500px;
 }
+
 /* 
 .addtask{
   border-radius: 5px;
@@ -135,35 +140,43 @@ body{
   background-color: var(--white);
   width: 500px;
 } */
-.addtask{
+.addtask {
   padding: 5px;
 }
-.taskrow{
-  
+
+.taskrow {
+
   padding: 5px;
 
 }
-.taskcol{
+
+.taskcol {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.subcol{
+
+.subcol {
   display: flex;
   flex-direction: column;
 }
-input,select{
+
+input,
+select {
   padding: 8px;
 }
-.select{
+
+.select {
   width: 200px;
 }
+
 /* pop up btn */
-.btn{
+.btn {
   outline: none;
   cursor: pointer;
 }
-.button{
+
+.button {
   background-color: var(--button-color);
   border: none;
   border-radius: 5px;
@@ -173,14 +186,97 @@ input,select{
   margin: 4px 2px;
   cursor: pointer;
 }
-span{
-  color:var(--red);
+
+span {
+  color: var(--red);
 }
 
-.btnstyle:hover{
+.btnstyle:hover {
   position: relative;
-  top:-10px;
+  top: -10px;
   transition: 1s;
   background-color: var(--btnhover) !important;
   color: var(--sidebarcolor);
+}
+
+
+.showLeft {
+  background-color: white !important;
+  border: 1px solid white !important;
+  text-shadow: white !important;
+  color: black !important;
+  padding: 10px;
+}
+
+.icons li {
+  background: none repeat scroll 0 0 black;
+  height: 6px;
+  width: 6px;
+  line-height: 0;
+  list-style: none outside none;
+  margin-right: 15px;
+  margin-top: 3px;
+  vertical-align: top;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.btn-left {
+  left: 0.4em;
+}
+
+.btn-right {
+  right: 0.4em;
+}
+
+.btn-left,
+.btn-right {
+  position: absolute;
+  top: 0.24em;
+}
+
+.dropbtn {
+  background-color: #4caf50;
+  position: fixed;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  right: 0.4em;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  margin-top: 60px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown div:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
 }
