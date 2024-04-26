@@ -21,7 +21,7 @@
       <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-            <div class="bodypage">
+            <div style="margin-top: 100px;">
               <div class="my-5">
                 <div class="row1 my-4">
                   <div class="search float-start mx-3 ">
@@ -33,24 +33,25 @@
                       onclick="openPopup()">
                   </div>
                 </div>
-                <div style="margin-top: 130px;">
-                  <table class="table mx-2 text-center" id="team-table">
+              </div>
+              <div style="margin-top: 130px;">
+                <table class="table mx-2 text-center" id="team-table">
 
-                  </table>
-                </div>
-                <div id="pagination" class="pagenation-data">
+                </table>
+              </div>
+              <div id="pagination" class="pagenation-data">
 
-                </div>
-                <div class="addregistrationcontainer" id="show-detail">
-                  <div id="team-form"></div>
-                </div>
+              </div>
+              <div class="addregistrationcontainer" id="show-detail">
+                <div id="team-form"></div>
               </div>
             </div>
         </div>
     </div>
-    <div class="addregistrationcontainer" id="open-registration">
-      <%- include("../adminmodule/adminteam")%>
-    </div>
+  </div>
+  <div class="addregistrationcontainer" id="open-registration">
+    <%- include("../adminmodule/adminteam")%>
+  </div>
   </div>
   <script src="/js/adminmodule/fetchdatatable.js"></script>
   <script src="/js/adminmodule/viewdata.js"></script>
