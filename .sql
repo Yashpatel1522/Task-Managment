@@ -35,7 +35,7 @@ VALUES (
     NULL,
     1
   ),
-(
+  (
     2,
     'dashboard',
     '/login/dashboard',
@@ -44,7 +44,7 @@ VALUES (
     NULL,
     1
   ),
-(
+  (
     3,
     'admin dashboard',
     '/admin/dashboard',
@@ -53,7 +53,7 @@ VALUES (
     '2024-04-23 06:26:45',
     1
   ),
-(
+  (
     4,
     'admin/managers',
     '/admin/managers',
@@ -62,7 +62,7 @@ VALUES (
     '2024-04-23 08:23:56',
     1
   ),
-(
+  (
     5,
     'admin employee page',
     '/admin/employees',
@@ -71,7 +71,7 @@ VALUES (
     '2024-04-23 09:10:17',
     1
   ),
-(
+  (
     6,
     'admin tasks',
     '/admin/tasks',
@@ -80,7 +80,7 @@ VALUES (
     '2024-04-23 09:11:57',
     1
   ),
-(
+  (
     7,
     'admin teams',
     '/admin/team',
@@ -89,7 +89,7 @@ VALUES (
     '2024-04-23 09:17:16',
     1
   ),
-(
+  (
     8,
     'admin category',
     '/admin/category',
@@ -98,7 +98,7 @@ VALUES (
     '2024-04-23 09:19:08',
     1
   ),
-(
+  (
     9,
     'admin manager api',
     '/admin/managersapi',
@@ -107,7 +107,7 @@ VALUES (
     '2024-04-23 11:23:21',
     1
   ),
-(
+  (
     10,
     'admin managersapi search',
     '/admin/managersapi/search/',
@@ -116,7 +116,7 @@ VALUES (
     '2024-04-23 11:43:47',
     1
   ),
-(
+  (
     11,
     'admin managersapi',
     '/admin/managersapi',
@@ -125,7 +125,7 @@ VALUES (
     '2024-04-23 11:48:05',
     1
   ),
-(
+  (
     12,
     'admin employeeapi',
     '/admin/employeesapi',
@@ -134,7 +134,7 @@ VALUES (
     '2024-04-23 11:54:16',
     1
   ),
-(
+  (
     13,
     'admin employee delete',
     '/admin/employeesapi',
@@ -143,7 +143,7 @@ VALUES (
     '2024-04-23 11:57:24',
     1
   ),
-(
+  (
     14,
     'admin employee search',
     '/admin/employeesapi/search',
@@ -152,7 +152,7 @@ VALUES (
     '2024-04-23 11:59:32',
     1
   ),
-(
+  (
     15,
     'admin team api',
     '/admin/teamapi',
@@ -161,7 +161,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     16,
     'admin newteam api',
     '/admin/newteam',
@@ -170,7 +170,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     17,
     'admin team api delete',
     '/admin/teamapi',
@@ -179,7 +179,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     18,
     'admin team search',
     '/admin/teamapi/search',
@@ -188,7 +188,7 @@ VALUES (
     '2024-04-23 12:32:05',
     1
   ),
-(
+  (
     19,
     'admin tasksdata',
     '/admin/tasksData',
@@ -197,7 +197,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     20,
     'admin tasksdetails',
     '/admin/tasksDetails',
@@ -206,7 +206,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     21,
     'admin profiledata',
     '/admin/profiledata',
@@ -215,7 +215,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     22,
     'admin chartsData',
     '/admin/chartsData',
@@ -224,7 +224,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     23,
     'admin managerTask',
     '/admin/managerTask',
@@ -233,7 +233,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     24,
     'admin categoryData',
     '/admin/categoryData',
@@ -242,7 +242,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     25,
     'admin categoryData delete',
     '/admin/categoryData',
@@ -251,7 +251,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     26,
     'admin categoryDetails',
     '/admin/categoryDetails',
@@ -260,7 +260,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     27,
     'admin category',
     '/admin/category',
@@ -269,7 +269,7 @@ VALUES (
     '2024-04-23 12:22:19',
     1
   ),
-(
+  (
     28,
     'admin calender',
     '/admin/calender',
@@ -292,10 +292,7 @@ CREATE TABLE `role_has_permissions` (
   CONSTRAINT `role_has_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON UPDATE CASCADE,
   unique key(`role_id`, `permission_id`)
 );
-<<<<<<< HEAD
-INSERT INTO `role_has_permissions` VALUES (1,3,'2024-04-23 06:27:31',0),(1,4,'2024-04-23 06:38:46',0),(1,5,'2024-04-23 08:20:52',0),(1,6,'2024-04-23 09:14:50',0),(1,7,'2024-04-23 09:16:26',0),(1,8,'2024-04-23 09:33:55',0),(1,9,'2024-04-23 11:18:51',0),(1,10,'2024-04-23 11:44:39',0),(1,11,'2024-04-23 11:55:22',0),(1,12,'2024-04-23 11:55:22',0),(1,13,'2024-04-23 11:57:53',0),(1,14,'2024-04-23 12:00:05',0),(1,15,'2024-04-23 12:24:10',0),(1,16,'2024-04-23 12:24:10',0),(1,17,'2024-04-23 12:24:10',0),(1,18,'2024-04-23 12:24:10',0),(1,19,'2024-04-23 12:24:10',0),(1,20,'2024-04-23 12:24:10',0),(1,21,'2024-04-23 12:26:19',0),(1,22,'2024-04-23 12:26:19',0),(1,23,'2024-04-23 12:26:19',0),(1,24,'2024-04-23 12:26:19',0),(1,25,'2024-04-23 12:26:19',0),(1,26,'2024-04-23 12:26:19',0),(1,27,'2024-04-23 12:27:16',0),(1,28,'2024-04-23 12:27:16',0);
-=======
-<<<<<<< HEAD
+<< << << < HEAD
 INSERT INTO `role_has_permissions`
 VALUES (1, 3, '2024-04-23 06:27:31', 0),
 (1, 4, '2024-04-23 06:38:46', 0),
@@ -323,35 +320,63 @@ VALUES (1, 3, '2024-04-23 06:27:31', 0),
 (1, 26, '2024-04-23 12:26:19', 0),
 (1, 27, '2024-04-23 12:27:16', 0),
 (1, 28, '2024-04-23 12:27:16', 0);
-=======
-INSERT INTO `role_has_permissions` VALUES (1,3,'2024-04-23 06:27:31',0),(1,4,'2024-04-23 06:38:46',0),
-(1,5,'2024-04-23 08:20:52',0),
-(1,6,'2024-04-23 09:14:50',0),
-(1,7,'2024-04-23 09:16:26',0),
-(1,8,'2024-04-23 09:33:55',0),
-(1,9,'2024-04-23 11:18:51',0),
-(1,10,'2024-04-23 11:44:39',0),
-(1,11,'2024-04-23 11:55:22',0),
-(1,12,'2024-04-23 11:55:22',0),
-(1,13,'2024-04-23 11:57:53',0),
-(1,14,'2024-04-23 12:00:05',0),
-(1,15,'2024-04-23 12:24:10',0),
-(1,16,'2024-04-23 12:24:10',0),
-(1,17,'2024-04-23 12:24:10',0),
-(1,18,'2024-04-23 12:24:10',0),
-(1,19,'2024-04-23 12:24:10',0),
-(1,20,'2024-04-23 12:24:10',0),
-(1,21,'2024-04-23 12:26:19',0),
-(1,22,'2024-04-23 12:26:19',0),
-(1,23,'2024-04-23 12:26:19',0),
-(1,24,'2024-04-23 12:26:19',0),
-(1,25,'2024-04-23 12:26:19',0),
-(1,26,'2024-04-23 12:26:19',0),
-(1,27,'2024-04-23 12:27:16',0),
-(1,28,'2024-04-23 12:27:16',0);
->>>>>>> dev
->>>>>>> dev
--- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== == == = << << << < HEAD
+INSERT INTO `role_has_permissions`
+VALUES (1, 3, '2024-04-23 06:27:31', 0),
+  (1, 4, '2024-04-23 06:38:46', 0),
+  (1, 5, '2024-04-23 08:20:52', 0),
+  (1, 6, '2024-04-23 09:14:50', 0),
+  (1, 7, '2024-04-23 09:16:26', 0),
+  (1, 8, '2024-04-23 09:33:55', 0),
+  (1, 9, '2024-04-23 11:18:51', 0),
+  (1, 10, '2024-04-23 11:44:39', 0),
+  (1, 11, '2024-04-23 11:55:22', 0),
+  (1, 12, '2024-04-23 11:55:22', 0),
+  (1, 13, '2024-04-23 11:57:53', 0),
+  (1, 14, '2024-04-23 12:00:05', 0),
+  (1, 15, '2024-04-23 12:24:10', 0),
+  (1, 16, '2024-04-23 12:24:10', 0),
+  (1, 17, '2024-04-23 12:24:10', 0),
+  (1, 18, '2024-04-23 12:24:10', 0),
+  (1, 19, '2024-04-23 12:24:10', 0),
+  (1, 20, '2024-04-23 12:24:10', 0),
+  (1, 21, '2024-04-23 12:26:19', 0),
+  (1, 22, '2024-04-23 12:26:19', 0),
+  (1, 23, '2024-04-23 12:26:19', 0),
+  (1, 24, '2024-04-23 12:26:19', 0),
+  (1, 25, '2024-04-23 12:26:19', 0),
+  (1, 26, '2024-04-23 12:26:19', 0),
+  (1, 27, '2024-04-23 12:27:16', 0),
+  (1, 28, '2024-04-23 12:27:16', 0);
+== == == =
+INSERT INTO `role_has_permissions`
+VALUES (1, 3, '2024-04-23 06:27:31', 0),
+(1, 4, '2024-04-23 06:38:46', 0),
+  (1, 5, '2024-04-23 08:20:52', 0),
+  (1, 6, '2024-04-23 09:14:50', 0),
+  (1, 7, '2024-04-23 09:16:26', 0),
+  (1, 8, '2024-04-23 09:33:55', 0),
+  (1, 9, '2024-04-23 11:18:51', 0),
+  (1, 10, '2024-04-23 11:44:39', 0),
+  (1, 11, '2024-04-23 11:55:22', 0),
+  (1, 12, '2024-04-23 11:55:22', 0),
+  (1, 13, '2024-04-23 11:57:53', 0),
+  (1, 14, '2024-04-23 12:00:05', 0),
+  (1, 15, '2024-04-23 12:24:10', 0),
+  (1, 16, '2024-04-23 12:24:10', 0),
+  (1, 17, '2024-04-23 12:24:10', 0),
+  (1, 18, '2024-04-23 12:24:10', 0),
+  (1, 19, '2024-04-23 12:24:10', 0),
+  (1, 20, '2024-04-23 12:24:10', 0),
+  (1, 21, '2024-04-23 12:26:19', 0),
+  (1, 22, '2024-04-23 12:26:19', 0),
+  (1, 23, '2024-04-23 12:26:19', 0),
+  (1, 24, '2024-04-23 12:26:19', 0),
+  (1, 25, '2024-04-23 12:26:19', 0),
+  (1, 26, '2024-04-23 12:26:19', 0),
+  (1, 27, '2024-04-23 12:27:16', 0),
+  (1, 28, '2024-04-23 12:27:16', 0);
+>> >> >> > dev >> >> >> > dev -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -17590,18 +17615,18 @@ CREATE TABLE `attechments` (
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DROP TABLE IF EXISTS `user_comments`;
 CREATE TABLE `user_comments` (
-`id` int NOT NULL AUTO_INCREMENT,
-`employee_id` int DEFAULT NULL,
-`task_id` int DEFAULT NULL,
-`task_status` varchar(15) DEFAULT NULL,
-`comment` varchar(255) DEFAULT NULL,
-`oldfile_name` varchar(255),
-`attechment` varchar(255) DEFAULT NULL,
-`create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-`update_at` timestamp default current_timestamp on update current_timestamp,
-PRIMARY KEY (`id`),
-KEY `employee_id` (`employee_id`),
-KEY `task_id` (`task_id`),
-CONSTRAINT `user_comments_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `user_comments_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON UPDATE CASCADE
+  `id` int NOT NULL AUTO_INCREMENT,
+  `employee_id` int DEFAULT NULL,
+  `task_id` int DEFAULT NULL,
+  `task_status` varchar(15) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `oldfile_name` varchar(255),
+  `attechment` varchar(255) DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` timestamp default current_timestamp on update current_timestamp,
+  PRIMARY KEY (`id`),
+  KEY `employee_id` (`employee_id`),
+  KEY `task_id` (`task_id`),
+  CONSTRAINT `user_comments_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `user_comments_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON UPDATE CASCADE
 );
