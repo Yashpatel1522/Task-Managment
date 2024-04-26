@@ -4,49 +4,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/employee/employee.css" />
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/employee/employee.css" />
   <script src="/js/employee/employeeteam.js"></script>
+  <!-- <link rel="stylesheet" href="/css/employee/menubar.css" /> -->
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
   <script src="/js/employee/employeeprofile.js"></script>
   <script src="/js/bootstrap.js"></script>
   <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
   <script src="/sweetalert2/sweetalert2.min.js"></script>
   <script src="/js/employee/employeenavigation.js"></script>
-  <script src="/boxicon/dist/boxicons.js"></script>
-  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
-  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
-  <title>Document</title>
+  <title>Task Management System</title>
 </head>
 
 <body>
   <div class="container-div">
     <div class="admin">
       <%- include('../partials/employeemenubar') %>
-  
         <div class="rightbar">
           <%- include('../partials/employeenavigation') %>
-            <div class="bodypage">
-              <div class="my-5">
-                <div class="row1 my-4">
-                  <div class="search mx-3">
-                    <input type="text" placeholder="Search task.." class="rounded py-2 px-3" tabindex="1"
-                      oninput="seachresultnew()" />
-                  </div>
+            <div style="margin-top: 130px;">
+                <div class="search float-start mx-3 ">
+                  <input type="text" placeholder="Search Team.." class="rounded py-2 px-3 " tabindex="1"
+                    oninput="searchTeam(this.value)">
                 </div>
-              </div>
-              <div class="row my-5 mx-5">
-                <div class="cards">
-                  <table class="table" style="text-align: center" id="details">
-                    <tr>
-                      <th>Team Name</th>
-                      <th>Members Details</th>
-                    </tr>
-                  </table>
-                </div>
+              <div class="row" style="margin: 80px 0 0 30px;">
+                <table class="table" style="text-align: center;width: 83%;" id="details">
+                  <tr>
+                    <th>Team Name</th>
+                    <th>Manager</th>
+                    <th>Members Details</th>
+                  </tr>
+                </table>
               </div>
             </div>
-
             <div class="popup-team" id="team">
               <div class="body">
                 <div class="modal-dialog" role="document">
@@ -59,10 +51,17 @@
               </div>
             </div>
         </div>
+      </div>
+    </div>
+    <div class="row my-5 mx-5">
+      <table class="table" style="text-align: center;width: 83%;
+        margin-left: 19%;" id="details">
+        <tr>
+          <th>Team Name</th>
+          <th>Manager Name</th>
+          <th>Members Details</th>
+        </tr>
+      </table>
     </div>
   </div>
 </body>
-
-</html>
-
-

@@ -60,6 +60,9 @@ const checkUserRole = require("../middleware/userrole");
 router.get("/employeesapi/search/:searchdata", searchEmpData);
 router.get("/managersapi/search/:searchdata", searchManData);
 router.get("/tasksData/:searchdata", searchTasks);
+router.get("/tasksDetails/:id", taskDetail);
+router.route("/tasksData").get(adminTasks);
+router.get("/tasksDetails/:id", taskDetail);
 router.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
@@ -102,8 +105,6 @@ router.get("/teamapi/search/:searchdata", searchTeam);
 router.delete("/teamapi/:id", deleteTeam);
 
 // Task Router
-router.route("/tasksData").get(adminTasks);
-router.get("/tasksDetails/:id", taskDetail);
 
 // Category
 router.get("/categoryData", adminCategory);

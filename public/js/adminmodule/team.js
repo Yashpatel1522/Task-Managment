@@ -22,7 +22,7 @@ var searchTeam = async (value) => {
     if (value === "") {
       getTeamShow()
     } else {
-      searchAllData(`/ admin / teamapi / search / ${value} `, "team-table", "/admin/teamapi");
+      searchAllData(`/admin/teamapi/search/${value} `, "team-table", "/admin/teamapi");
     }
   } catch (error) {
     console.log(error);
@@ -32,7 +32,7 @@ var searchTeam = async (value) => {
 // Delete Team Data
 var teamDelete = async (id) => {
   try {
-    deleteAllData(`/ admin / teamapi / ${id} `, "team-table", "/admin/teamapi");
+    deleteAllData(`/admin/teamapi/${id} `, "team-table", "/admin/teamapi");
   } catch (error) {
     console.log(error);
   }

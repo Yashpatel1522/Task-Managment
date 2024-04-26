@@ -21,13 +21,6 @@ const pagignation = async (url) => {
     document.getElementById("nodata").style.display = "none";
     getDataGrid(elements);
     document.getElementById("current_page").style.display = "block";
-  } else {
-    document.getElementById("nodata").style.display = "block";
-    document.getElementById("current_page").style.display = "none";
-    document.getElementById("first").style.display = "none";
-    document.getElementById("previous").style.display = "none";
-    document.getElementById("next").style.display = "none";
-    document.getElementById("last").style.display = "none";
   }
 };
 
@@ -39,10 +32,14 @@ const firstPage1 = () => {
   endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
-  document.getElementById("first").style.display = "none";
-  document.getElementById("previous").style.display = "none";
-  document.getElementById("next").style.display = "block";
-  document.getElementById("last").style.display = "block";
+  document.getElementById("first").style.opacity = "0.5";
+  document.getElementById("previous").style.opacity = "0.5";
+  document.getElementById("next").style.opacity = "1";
+  document.getElementById("last").style.opacity = "1";
+  document.getElementById("first").style.cursor = "none";
+  document.getElementById("previous").style.cursor = "none";
+  document.getElementById("next").style.cursor = "pointer";
+  document.getElementById("last").style.cursor = "pointer";
 };
 
 const previous1 = () => {
@@ -54,15 +51,23 @@ const previous1 = () => {
     elements = arrayPagignation.slice(startIndex, endIndex);
     getDataGrid(elements);
     if (currentPage === 1) {
-      document.getElementById("first").style.display = "none";
-      document.getElementById("previous").style.display = "none";
-      document.getElementById("next").style.display = "block";
-      document.getElementById("last").style.display = "block";
+      document.getElementById("first").style.opacity = "0.5";
+      document.getElementById("previous").style.opacity = "0.5";
+      document.getElementById("next").style.opacity = "1";
+      document.getElementById("last").style.opacity = "1";
+      document.getElementById("first").style.cursor = "none";
+      document.getElementById("previous").style.cursor = "none";
+      document.getElementById("next").style.cursor = "pointer";
+      document.getElementById("last").style.cursor = "pointer";
     } else {
-      document.getElementById("first").style.display = "block";
-      document.getElementById("previous").style.display = "block";
-      document.getElementById("next").style.display = "block";
-      document.getElementById("last").style.display = "block";
+      document.getElementById("first").style.cursor = "pointer";
+      document.getElementById("previous").style.cursor = "pointer";
+      document.getElementById("next").style.cursor = "pointer";
+      document.getElementById("last").style.cursor = "pointer";
+      document.getElementById("next").style.opacity = "1";
+      document.getElementById("last").style.opacity = "1";
+      document.getElementById("first").style.opacity = "1";
+      document.getElementById("previous").style.opacity = "1";
     }
   }
 };
@@ -76,15 +81,23 @@ const next1 = () => {
     elements = arrayPagignation.slice(startIndex, endIndex);
     getDataGrid(elements);
     if (currentPage === pageCount) {
-      document.getElementById("next").style.display = "none";
-      document.getElementById("last").style.display = "none";
-      document.getElementById("first").style.display = "block";
-      document.getElementById("previous").style.display = "block";
+      document.getElementById("next").style.opacity = "0.5";
+      document.getElementById("last").style.opacity = "0.5";
+      document.getElementById("next").style.cursor = "none";
+      document.getElementById("last").style.cursor = "none";
+      document.getElementById("first").style.opacity = "1";
+      document.getElementById("previous").style.opacity = "1";
+      document.getElementById("first").style.cursor = "pointer";
+      document.getElementById("previous").style.cursor = "pointer";
     } else {
-      document.getElementById("next").style.display = "block";
-      document.getElementById("last").style.display = "block";
-      document.getElementById("next").style.display = "block";
-      document.getElementById("last").style.display = "block";
+      document.getElementById("next").style.cursor = "pointer";
+      document.getElementById("last").style.cursor = "pointer";
+      document.getElementById("first").style.cursor = "pointer";
+      document.getElementById("previous").style.cursor = "pointer";
+      document.getElementById("next").style.opacity = "1";
+      document.getElementById("last").style.opacity = "1";
+      document.getElementById("first").style.opacity = "1";
+      document.getElementById("previous").style.opacity = "1";
     }
   }
 };
@@ -96,8 +109,12 @@ const lastPage1 = () => {
   endIndex = Math.min(startIndex + pageLimit, maxLength);
   elements = arrayPagignation.slice(startIndex, endIndex);
   getDataGrid(elements);
-  document.getElementById("first").style.display = "block";
-  document.getElementById("previous").style.display = "block";
-  document.getElementById("next").style.display = "none";
-  document.getElementById("last").style.display = "none";
+  document.getElementById("first").style.cursor = "pointer";
+  document.getElementById("previous").style.cursor = "pointer";
+  document.getElementById("first").style.opacity = "1";
+  document.getElementById("previous").style.opacity = "1";
+  document.getElementById("next").style.opacity = "0.5";
+  document.getElementById("last").style.opacity = "0.5";
+  document.getElementById("next").style.cursor = "none";
+  document.getElementById("last").style.cursor = "none";
 };

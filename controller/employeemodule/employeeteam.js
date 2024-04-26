@@ -6,15 +6,18 @@ const db = new database();
 // module.exports={UserTaskList}
 
 const teamlist = async (req, res) => {
-  res.render("employeemodule/emplyeeteam");
+  try {
+    res.render("employeemodule/emplyeeteam");
+  } catch (err) {
+    logger.error("Employee Task data is not found !");
+  }
 };
 
 const teamdata = async (req, res) => {
   try {
-    id = req.params.id
-    const query = `select teams.id as teamid,teams.team_name,users.first_name as employee_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=team_details.member_id where users.id=?`
-    let result = await db.executeQuery(query, [id])
-    console.log(result);
+    // id = req.params.id
+    const query = `select t.id,t.team_name,u.first_name,m.emp_id from teams as t inner join team_members as m on t.id=m.team_id inner join users as u on t.created_by=u.id where (t.is_active=1 and m.is_deleted=0 and m.emp_id=?)`//employee in how many team
+    let result = await db.executeQuery(query, [1])
     res.json(result)
   }
   catch (error) {
@@ -24,11 +27,13 @@ const teamdata = async (req, res) => {
 
 const teamdetails = async (req, res) => {
   try {
-    // id = req.params.id;
-    id = 1
-    const query1 = `select distinct(teams.team_name),users.first_name as manager_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=teams.created_by where teams.id=?;`;
+    id = req.params.teamid;
+    // id = 1
+    const query1 = `select a.*,t.task_name from team_has_tasks as a 
+    inner join tasks as t on a.task_id=t.id where (a.team_id=? and t.status =1);`//assign task on team 
     let result1 = await db.executeQuery(query1, id);
-    const query2 = `select teams.team_name,users.first_name as employee_name from team_details inner join teams on teams.id=team_details.team_id inner join users on users.id=team_details.member_id where teams.id=?;`;
+    const query2 = `select t.id,t.team_id,u.first_name from team_members as t 
+    inner join users as u on t.emp_id=u.id where (t.team_id = ? and t.is_deleted=0);`//members on particular team
     let result2 = await db.executeQuery(query2, id);
 
     const responsedata = {
