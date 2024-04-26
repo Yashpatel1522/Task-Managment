@@ -24,6 +24,7 @@ const updateTaskDetailsPost = require("../controller/loginmodule/updatetask.cont
 const {
   managerTasks,
 } = require("../controller/loginmodule/managertasks.controller");
+const logout = require("../controller/loginmodule/logout.controller");
 const uploadStorage = multer({ storage: userProfileStorage });
 // const jwtStrategy=require('passport-jwt').Strategy;
 require("../middleware/jwtpassport");
@@ -44,8 +45,19 @@ login.get("/employee/:taskid", workingEmployyeInTask);
 
 login.post("/updateKanban", updateTaskDetailsPost);
 
-login.get("/managertasks/:id", passport.authenticate("jwt", { session: false, failureRedirect: "/" }),managerTasks);
-login.get("/managertasks/", managerTasks);
+login.get(
+  "/managertasks/:id",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  managerTasks
+);
+
+login.get("/logout", logout);
+
+login.get(
+  "/managertasks",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  managerTasks
+);
 
 // login.get(
 //   "/dashboard",

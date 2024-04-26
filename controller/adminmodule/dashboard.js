@@ -4,6 +4,7 @@ var db = new database();
 
 exports.adminDashboard = async (request, response) => {
     try {
+        
         let query = `select r.role_name,count(*) as count from users as u inner join roles as r on u.role_id = r.id where u.status = 1 group by u.role_id having r.role_name = ?`;
         let [count] = await db.executeQuery(query, ["Employee"]);
         let [count1] = await db.executeQuery(query, ["Manager"]);

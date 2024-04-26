@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="/css/employee/employee.css" /> -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="/css/employee/menubar.css" />
+    <!-- <link rel="stylesheet" href="/css/employee/menubar.css" /> -->
     <!-- <script src="/js/employee/employee.js"></script> -->
     <!-- <script src="/js/employee/employeeprofile.js"></script> -->
     <!-- <script src="/js/employee/employeedashboard.js"></script> -->
@@ -20,36 +20,43 @@
     <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
     <script src="/js/employee/reports.js" defer></script>
     <title>Task Management System</title>
+    <style>
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .red {
+        color: red;
+      }
+      .yellow {
+        color: yellow;
+      }
+      .green {
+        color: green;
+      }
+      .card-body:hover {
+        background-color: #0a1828;
+        color: white;
+        transform: scale(1.1);
+        border-radius: 5px;
+      }
+      .card-body {
+        transition: all 0.3s;
+      }
+    </style>
   </head>
-  <style></style>
-  <body>
+  <body onload="printPerformance()">
     <div class="container-div">
       <div class="admin">
         <%- include('../partials/employeemenubar') %>
         <div class="rightbar">
-          <div class="row" style="margin-top: 10%">
-            <div class="col-md-4">
-              <div class="card" style="width: 100%">
-                <div class="card-body">
-                  This is some text within a card body.
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 100%">
-                <div class="card-body">
-                  This is some text within a card body.
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 100%">
-                <div class="card-body">
-                  This is some text within a card body.
-                </div>
-              </div>
-            </div>
+          <%- include('../partials/employeenavigation') %>
+
+          <div class="any" style="margin-top: 100px">
+            <div class="cards1 d-flex my-5" id="cards1"></div>
           </div>
+          <div class="cards gap-4" id="reports"></div>
         </div>
       </div>
     </div>

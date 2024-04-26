@@ -59,13 +59,16 @@ const updateImage = multer({ storage: userProfileStorage });
 const checkUserRole = require("../middleware/userrole");
 router.get("/employeesapi/search/:searchdata", searchEmpData);
 router.get("/managersapi/search/:searchdata", searchManData);
-router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks);
+router.get("/tasksDetails/:id", taskDetail);
+router.route("/tasksData").get(adminTasks);
+router.get("/tasksDetails/:id", taskDetail);
 router.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
 // Page Render
+
 router.route("/dashboard").get(adminDashboard);
 router.route("/managers").get(managerpage);
 router.route("/employees").get(employeepage);
@@ -97,13 +100,11 @@ router.delete("/employeesapi/:id", empDataDelete);
 // Team
 router.get("/teamapi", teamData);
 router.get("/teamapi/:id", teamDetails);
-router.post("/teamapi/:id", updateTeamData)
+router.post("/teamapi/:id", updateTeamData);
 router.get("/teamapi/search/:searchdata", searchTeam);
 router.delete("/teamapi/:id", deleteTeam);
 
 // Task Router
-
-router.get("/tasksDetails/:id", taskDetail);
 
 // Category
 router.get("/categoryData", adminCategory);

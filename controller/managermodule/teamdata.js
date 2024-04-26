@@ -70,8 +70,8 @@ exports.teamDetailsForView = async (request, response) => {
       [teamId]
     );
     let memberDetails = await db.executeQuery(
-      `select t.id,t.team_id,concat(u.first_name ,' ', u.last_name) as employees  from team_members as t left join teams on t.team_id = teams.id left join users as u on t.emp_id = u.id where t.team_id = ?`,
-      [teamId]
+      `select t.id,t.team_id,concat(u.first_name ,' ', u.last_name) as employees  from team_members as t left join teams on t.team_id = teams.id left join users as u on t.emp_id = u.id where t.team_id = ? and is_deleted = ?`,
+      [teamId, 0]
     );
     let teamTask = await db.executeQuery(
       `select h.team_id,t.task_name from team_has_tasks as h left join tasks as t on h.task_id = t.id where h.team_id = ?`,
