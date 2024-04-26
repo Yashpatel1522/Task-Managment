@@ -103,7 +103,7 @@ const getCalender = async (month) => {
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
       td.innerText += `${data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]}`;
-      if (data.yearCalendar[i][j] === todayDate) {
+      if (data.yearCalendar[i][j] === todayDate && (new Date().getMonth + 1) === month) {
         td.style.backgroundColor = "rgb(90, 150, 90)";
       }
       dueDate.result.forEach((ele) => {
