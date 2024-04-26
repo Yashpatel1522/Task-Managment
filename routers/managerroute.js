@@ -73,6 +73,7 @@ const managerRouter = express.Router();
 managerRouter.get("/calenderData/:month", calenderMonth);
 managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
 managerRouter.get("/searchTask/:searchdata", searchTask);
+managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -104,6 +105,7 @@ managerRouter.get("/getEditTadkDetails", getEditDetails);
 managerRouter.get("/getTaskDetails/:id", getAllTasks);
 
 managerRouter.get("/teamapi", teamdetails);
+managerRouter.get("/getManagerTaskCount", taskCount);
 
 //api to get upcoming manager tasks
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
@@ -126,13 +128,11 @@ managerRouter.delete("/removeemployeapi/:id", removeEmployee);
 managerRouter.get("/getManagerTasks", managerTasks);
 
 //api for Manager task Count
-managerRouter.get("/getManagerTaskCount", taskCount);
 
 // // api for get user,category from database
 managerRouter.get("/getdataapi", addtaskdata);
 
 // insert task data
-managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 
 // serach task api
 managerRouter.post("/searchtask", searchTask);
