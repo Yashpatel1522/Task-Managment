@@ -18,20 +18,24 @@
       <div class="teamcontent pt-4">
         <div class="row">
           <div class="col-9">
-            <input
+            <!-- <input
               type="text"
               placeholder="Search Teams..."
               style="border-radius: 10px"
               oninput="searchTeams(this.value)"
+            /> -->
+            <input
+              type="text"
+              placeholder="Search Teams..."
+              name="searchdata"
+              style="border-radius: 10px; height: 40px; width: 21.5%; padding-left: 1.5%;"
+              oninput="searchEmployee(this.value)"
             />
           </div>
           <div class="col-3" style="position: relative">
             <div class="row ps-5">
               <div class="col-3">
-                <i
-                  class="bi bi-bell fa-2x col"
-                  onclick="fetchNotificationData()"
-                ></i>
+                <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()" style="cursor: pointer;"></i>
               </div>
               <div
                 class="col-9 p-1"

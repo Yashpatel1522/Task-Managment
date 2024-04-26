@@ -19,7 +19,7 @@
           <div class="col-3" style="position: relative;">
             <div class="row ps-5">
               <div class="col-3">
-                <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
+                <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()" style="cursor: pointer;"></i>
               </div>
               <div class="col-9 p-1" style="border-radius: 25px; background-color: #505050; width: 60%; cursor: pointer;" onclick="showOption()">
                 <img src="" alt="" id="profImg" style="border-radius: 100%; width: 25%;">
@@ -35,8 +35,8 @@
         <div class="chartContainer pt-5">
           <div class="row">
             <div class="col">
-              <div id="upcomingTasks" class="upcomingtask">
-                <h2>Upcoming Tasks</h2>
+              <div id="upcomingTasks" class="upcomingtask" style="max-height: 400px; overflow-y: auto;">
+                <h2 style="font-size: 45px;">Upcoming Tasks</h2>
               </div>
             </div>
             <div class="col">
@@ -49,8 +49,8 @@
               <div id="statusBar"></div>
             </div>
             <div class="col">
-              <div id="teams" class="upcomingtask">
-                <h2>Teams</h2>
+              <div id="teams" class="upcomingtask" style="max-height: 400px; overflow-y: auto;">
+                <h2 style="font-size: 45px;">Teams</h2>
               </div>
             </div>
           </div>

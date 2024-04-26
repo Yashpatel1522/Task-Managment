@@ -7,7 +7,11 @@ const employeeData = async (request, response) => {
   try {
     let query = `select * from users where role_id = ? and status = ?`;
     let res = await db.executeQuery(query, [3, 1]);
-    return response.json({ result: res });
+
+    const imageQuery = `select newimage_name from user_profiles where user_id in (select id from users where role_id = 3 and status = 1) and is_deleted = 0;`;
+    const imageRes = await db.executeQuery(imageQuery);
+
+    return response.json({ result: res, imageRes: imageRes});
   } catch (error) {
     logger.log(error);
     return response.send({ error: error });
