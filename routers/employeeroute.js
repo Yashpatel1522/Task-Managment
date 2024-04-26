@@ -55,6 +55,7 @@ router.post(
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfiledata
 );
+router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
 router.get("/getnavigationdata", getnavigationdata);
 router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist/:id", EmployeeTaskList);
@@ -66,7 +67,7 @@ router.get("/teamdetails/:id", teamdetails);
 router.get("/teamsearchdetails/:searchteam", teamsearchdetails);
 
 router.get("/calender", employeeCalender);
-router.get("/calenderData/:month", empcalenderMonth);
+router.get("/calenderData/:month",empcalenderMonth);
 router.get(
   "/dueDateOfTask",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
