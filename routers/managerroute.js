@@ -158,5 +158,6 @@ managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
 managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
+managerRouter.get("/getManagerTaskCount", taskCount);
 
 module.exports = managerRouter;

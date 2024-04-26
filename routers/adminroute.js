@@ -59,15 +59,16 @@ const updateImage = multer({ storage: userProfileStorage });
 const checkUserRole = require("../middleware/userrole");
 router.get("/employeesapi/search/:searchdata", searchEmpData);
 router.get("/managersapi/search/:searchdata", searchManData);
-router.route("/tasksData").get(adminTasks);
 router.get("/tasksData/:searchdata", searchTasks);
 router.get("/tasksDetails/:id", taskDetail);
-
+router.route("/tasksData").get(adminTasks);
+router.get("/tasksDetails/:id", taskDetail);
 router.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
 // Page Render
+
 router.route("/dashboard").get(adminDashboard);
 router.route("/managers").get(managerpage);
 router.route("/employees").get(employeepage);
