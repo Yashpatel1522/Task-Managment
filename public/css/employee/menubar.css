@@ -40,7 +40,6 @@ body {
 .list:hover {
   background-color: cornflowerblue;
   border-radius: 5px;
-  width: 300px;
   color: black;
 }
 

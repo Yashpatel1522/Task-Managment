@@ -138,7 +138,7 @@ const show = (id, taskid) => {
           <p>${element.first_name}</p>
         </div>
       </div>
-      <div class="descriptiontask" style="min-height:200px;background-color:lightgrey;margin-bottom: 20px;">
+      <div class="descriptiontask" style="height: 200px;overflow-x: hidden;min-height:200px;background-color:lightgrey;margin-bottom: 20px;">
         <div class="row">
           <div class="field fs-6 text p-3 col">
             <i class="bi bi-info-circle me-2"></i>
@@ -260,6 +260,7 @@ const seachresultnew = async () => {
 }
 
 async function addcomment() {
+  new Date();
   const formData = new FormData();
   const fields = ["taskcomment", "taskstatus"];
   formData.append("file", document.getElementById("file"));
@@ -281,36 +282,3 @@ async function addcomment() {
   }
 }
 
-function updateUserProfile() {
-  let form = document.getElementById('profileform')
-  let formData = new FormData(form)
-  console.log(formData);
-  fetch(`/employee/updateprofile`, {
-    method: 'POST',
-    body: formData
-  }).then(
-    (response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    }
-  )
-    .then((data) => {
-      if (data.message == "updated") {
-        Swal.fire({
-          title: "Done",
-          text: "Profile Updated Succesfully",
-          icon: "success",
-        }).then(function () {
-          window.location.reload();
-        });
-      } else {
-        Swal.fire({
-          title: "Done",
-          text: "Profile is not Updated",
-          icon: "error",
-        })
-      }
-    })
-}

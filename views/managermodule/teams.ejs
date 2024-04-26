@@ -25,31 +25,19 @@
               oninput="searchTeams(this.value)"
             />
           </div>
-          <div class="col-3">
+          <div class="col-3" style="position: relative;">
             <div class="row ps-5">
-              <i
-                class="bi bi-bell fa-2x col"
-                onclick="fetchNotificationData()"
-              ></i>
-              <i
-                class="bi bi-person-circle fa-2x col"
-                id="profImg"
-                onclick="showOption()"
-              >
-                <div id="profClk">
-                  <p
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                    onclick="getProfile()"
-                    style="font-size: 14px"
-                  >
-                    Show Profile
-                  </p>
-                  <p style="font-size: 14px">
-                    Log out <i class="bi bi-box-arrow-right ps-2"></i>
-                  </p>
-                </div>
-              </i>
+              <div class="col-3">
+                <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
+              </div>
+              <div class="col-9 p-1" style="border-radius: 25px; background-color: #505050; width: 60%; cursor: pointer;" onclick="showOption()">
+                <img src="" alt="" id="profImg" style="border-radius: 100%; width: 25%;">
+                <span class="ps-2" style="color: white; cursor: pointer; font-family: sans-serif; font-size: 18px;" id="userName"></span>
+              </div>
+            </div>
+            <div id="profClk">
+              <p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
+              <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
             </div>
           </div>
         </div>
