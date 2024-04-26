@@ -74,10 +74,10 @@ managerRouter.get("/calenderData/:month", calenderMonth);
 managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
 managerRouter.get("/searchTask/:searchdata", searchTask);
 
-managerRouter.use(
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  checkUserRole
-);
+// managerRouter.use(
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   checkUserRole
+// );
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView);
