@@ -12,8 +12,8 @@ const getDataGrid = async (elements) => {
                 <th>Task_Status</th>
                 <th>Comment</th>
                 <th>Attechments</th>
-                <th>Confirm Status</th>
                 </thead>`;
+  // <th>Confirm Status</th>;
   elements.forEach((element) => {
     dataadd += `<tr>
                 <td>${element.id}</td>
@@ -21,7 +21,7 @@ const getDataGrid = async (elements) => {
                 <td>${element.task_status}</td>
                 <td>${element.comment}</td>
                 ${
-                  element.attechment == "null"
+                  element.attechment == null
                     ? "<td> - </td>"
                     : ` <td><a href="
                   ${window.location.origin} +
@@ -29,14 +29,19 @@ const getDataGrid = async (elements) => {
                   ${element.attechment}
                 " target="_blank">${element.attechment}</a></td>`
                 }
-              
-        <td><button class="btn btn-primary" onclick="updateTaskStatus(${
-          element.task_id
-        },'${element.task_status}', ${
-      element.employee_id
-    })">Confirm Stutas</button>
-                </td>
-            </tr>`;
+                </tr>`;
+    // <td>
+    //   <button
+    //     class="btn btn-primary"
+    //     onclick="updateTaskStatus(${
+    //       element.task_id
+    //     },'${element.task_status}', ${
+    //   element.employee_id
+    // })"
+    //   >
+    //     Confirm Stutas
+    //   </button>
+    // </td>;
   });
   table.innerHTML = dataadd;
 };
@@ -65,7 +70,7 @@ const searchComments = async (value) => {
     } else {
       document.getElementById("comment-table").innerHTML = " ";
       document.getElementById("comment-table").innerHTML +=
-        '<div class="alert alert-info"><strong>Team not found</strong></div>';
+        '<div class="alert alert-info"><strong>Comments not found</strong></div>';
     }
   }
 };

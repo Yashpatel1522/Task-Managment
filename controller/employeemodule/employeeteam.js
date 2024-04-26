@@ -6,7 +6,11 @@ const db = new database();
 // module.exports={UserTaskList}
 
 const teamlist = async (req, res) => {
-  res.render("employeemodule/emplyeeteam");
+  try {
+    res.render("employeemodule/emplyeeteam");
+  } catch (err) {
+    logger.error("Employee Task data is not found !");
+  }
 };
 
 const teamdata = async (req, res) => {

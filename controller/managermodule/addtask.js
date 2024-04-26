@@ -52,6 +52,8 @@ const inserttaskdata = async (request, response) => {
     lastInserted_id = res.insertId;
 
     let Assin_task_to = taskdata.Assin_task_to.split(",");
+    console.log(lastInserted_id);
+    console.log(Assin_task_to);
     await Assin_task_to.forEach((element) => {
       db.insertData(
         { task_id: lastInserted_id, emp_id: element },

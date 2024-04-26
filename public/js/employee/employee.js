@@ -22,10 +22,10 @@ async function fetchData() {
   response = await fetch(`/employee/employeetasklist/${id}`);
   data = await response.json();
   employeedata = data;
-
+  
   function setCard(id, element) {
     document.getElementById(`${id}`).innerHTML += `
-      <div class="card1" onclick="show('popup','${element.task_id}')">
+      <div class="card1 mx-3 p-2" onclick="show('popup','${element.task_id}')">
                 <div class="field">
                   <h4>${element.task_name}</h4>
                   <span class="ms-3" id='urgent-${element.task_id}'><span>
@@ -211,7 +211,6 @@ const seachresultnew = async (value) => {
               </div >`;
     }
     data.forEach((element) => {
-      console.log(element, "elementic ");
       if (element.task_status == "todo") {
         // ides("todo").removeAttribute("style");
         resetCard("todoTask", element);
