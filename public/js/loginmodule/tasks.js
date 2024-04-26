@@ -1,3 +1,32 @@
+// function changeLanguage(language) {
+//   var element = document.getElementById("url");
+//   element.value = language;
+//   element.innerHTML = language;
+// }
+
+function showDropdown(id) {
+  if (document.getElementById(id).style.display == "block") {
+    document.getElementById(id).style.display = "none";
+  } else if ((document.getElementById(id).style.display = "none")) {
+    document.getElementById(id).style.display = "block";
+  }
+}
+
+// Close the dropdown if the user clicks outside of it
+// window.onclick = function (event) {
+//   document.getElementById("myDropdown").style.display = "none";
+//   if (!event.target.matches(".dropbtn")) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+// };
+// };
+
 const getTaskData = async () => {
   try {
     let data = await (await fetch(`/login/managertasks`)).json();
@@ -6,12 +35,26 @@ const getTaskData = async () => {
     let todoData = ``;
     data.todoData.forEach((e) => {
       todoData += `<div class="m-3 p-2 tasks" draggable="true" id="${e.id}">
-      <div class="card-body">
-        <p>${e.task_name}</p>
+  
+  <div class="card-body">
+  <div class="header" style="position:relative">
+  <div style="background:red" class="dropdown">
+    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    </div>
+    </div>
+    <div style = "position:relative">
+    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+      <div onclick="openpopup2(${e.id})">Task Detail</div>
+      <div onclick="editTaskPopup(${e.id})">Edit</div>
+      <div onclick="openViewComments(${e.id})">View Comments</div>
+  </div>
+    <p class="fw-bold">${e.task_name}</p>
+  </div><hr>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -22,11 +65,24 @@ const getTaskData = async () => {
     data.inprogress.forEach((e) => {
       inprogressData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
       <div class="card-body">
-        <p>${e.task_name}</p>
+        <div class="header" style="position:relative">
+  <div class="dropdown">
+    <ul class="icons btn-right " style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    </div>
+    </div>
+    <div style = "position:relative">
+    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+      <div onclick="openpopup2(${e.id})">Task Detail</div>
+      <div onclick="editTaskPopup(${e.id})">Edit</div>
+      <div onclick="openViewComments(${e.id})">View Comments</div>
+  </div>
+  <p class="fw-bold">${e.task_name}</p>
+  </div><hr>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828"  onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -37,11 +93,24 @@ const getTaskData = async () => {
     data.complete.forEach((e) => {
       completedData += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
-        <p>${e.task_name}</p>
+        <div class="header" style="position:relative">
+  <div class="dropdown">
+    <ul class="icons btn-right " style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    </div>
+    </div>
+    <div style = "position:relative">
+    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+      <div onclick="openpopup2(${e.id})">Task Detail</div>
+      <div onclick="editTaskPopup(${e.id})">Edit</div>
+      <div onclick="openViewComments(${e.id})">View Comments</div>
+  </div>
+  <p class="fw-bold">${e.task_name}</p>
+  </div><hr>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
     });
@@ -65,11 +134,24 @@ const searchTaskData = async (value) => {
       data.todoTask.forEach((e) => {
         dataadd += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
-        <p>${e.task_name}</p>
+        <div class="header" style="position:relative">
+  <div class="dropdown">
+    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    </div>
+    </div>
+    <div style = "position:relative">
+    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+      <div onclick="openpopup2(${e.id})">Task Detail</div>
+      <div onclick="editTaskPopup(${e.id})">Edit</div>
+      <div onclick="openViewComments(${e.id})">View Comments</div>
+  </div>
+  <p class="fw-bold">${e.task_name}</p>
+  </div><hr>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
       });
@@ -88,11 +170,24 @@ const searchTaskData = async (value) => {
       data.inprogressTask.forEach((e) => {
         dataadd1 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
       <div class="card-body">
-        <p>${e.task_name}</p>
+  <div class="header" style="position:relative">
+  <div class="dropdown">
+    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    </div>
+    </div>
+    <div style = "position:relative">
+    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+      <div onclick="openpopup2(${e.id})">Task Detail</div>
+      <div onclick="editTaskPopup(${e.id})">Edit</div>
+      <div onclick="openViewComments(${e.id})">View Comments</div>
+  </div>
+  <p class="fw-bold">${e.task_name}</p>
+  </div><hr>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
       });
@@ -111,11 +206,24 @@ const searchTaskData = async (value) => {
       data.completedTask.forEach((e) => {
         dataadd2 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
-        <p>${e.task_name}</p>
+        <div class="header" style="position:relative">
+  <div class="dropdown">
+    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    </div>
+    </div>
+    <div style = "position:relative">
+    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+      <div onclick="openpopup2(${e.id})">Task Detail</div>
+      <div onclick="editTaskPopup(${e.id})">Edit</div>
+      <div onclick="openViewComments(${e.id})">View Comments</div>
+  </div>
+  <p class="fw-bold">${e.task_name}</p>
+  </div><hr>
         <p>${e.task_description}</p>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary form-control mb-1" onclick="editTaskPopup(${e.id})">Edit</button>
-        <button class="btn btn-primary form-control mb-1" style = "background-color:#0A1828" onclick="openViewComments(${e.id})">View Comments</button>
       </div>
     </div>`;
       });
