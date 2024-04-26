@@ -22,7 +22,7 @@ var searchTeam = async (value) => {
     if (value === "") {
       getTeamShow()
     } else {
-      searchAllData(`/ admin / teamapi / search / ${value} `, "team-table", "/admin/teamapi");
+      searchAllData(`/admin/teamapi/search/${value} `, "team-table", "/admin/teamapi");
     }
   } catch (error) {
     console.log(error);

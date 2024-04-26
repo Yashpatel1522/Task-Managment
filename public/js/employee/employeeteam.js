@@ -1,16 +1,12 @@
 
-let path = window.location.pathname.split("/");
-let id = path[path.length - 1];
-console.log(id, "id is ");
 var gdata;
 async function viewteamdata() {
 
-  response = await fetch(`/employee/teamdetailsdata/${id}`)
-  data = await response.json();
+  data = await (await fetch(`/employee/teamdetailsdata`)).json();
   gdata = data
   data.forEach(element => {
-    document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td>
-    <td><button class="btn btn-primary" onclick="show(${element.teamid})">view</button></td></tr>`
+    document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
+    <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`
   });
   console.log(data, "data is")
 
