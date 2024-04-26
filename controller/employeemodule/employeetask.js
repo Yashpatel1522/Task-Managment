@@ -40,21 +40,46 @@ const searchlist = async (req, res) => {
 };
 
 const addcomment = async (req, res) => {
-  let file = req.file;
-  try {
-    let addcomment = {
-      employee_id: req.params.id,
-      task_id: req.params.taskid,
-      task_status: req.body.taskstatus,
-      comment: req.body.taskcomment,
-      attechment: file.filename.EmployeeTaskList,
-      oldfile_name: file.originalname,
-    };
-    let result = await db.insertData(addcomment, "user_comments");
-    res.status(200).json({ data: resultprofile, msg: "done" });
-  } catch (error) {
-    logger.error("Employee Task comments is not inserted");
-  }
-};
+    let file = req.file
+    try {
+        const date = new Date()
+        const year  = date.getFullYear()
+        const month  = date.getMonth()
+        const day  = date.getDate()
+        const hour  = date.getHours()
+        const minute  = date.getMinutes()
+        const seconds = date.getSeconds()
+        console.log(month);
+        if(req.body.taskstatus == "inprogress"){
+            
+            let addcomment = {
+                employee_id: req.params.id,
+                task_id: req.params.taskid,
+                task_status: req.body.taskstatus,
+                comment: req.body.taskcomment,
+                attechment: file.filename,
+                oldfile_name: file.originalname,
+                started_at: `${year}-${month+1}-${day} ' ' ${hour}:${minute}:${seconds}`
+            }
+            let result = await db.insertData(addcomment, "user_comments")
+        }
+        else if(req.body.taskstatus == "completed"){
+            console.log('b',req.params.id,req.params.taskid,req.body.taskstatus,req.body.taskcomment,file);
+            let addcomment = {
+                task_status: req.body.taskstatus,
+                comment: req.body.taskcomment,
+                attechment: file.filename,
+                oldfile_name: file.originalname,
+                finished_at: `${year}-${month+1}-${day} ' ' ${hour}:${minute}:${seconds}`
+            }
+            console.log('up');
+            let result = await db.updateAnd(addcomment, "user_comments",{employee_id:req.params.id,task_id:req.params.taskid})
+        }
+        res.status(200).json({ 'data': resultprofile, 'msg': 'done' })
+    }
+    catch (error) {
+        logger.error("Employee Task comments is not inserted");
+    }
+}
 
 module.exports = { EmployeeTaskList, list, searchlist, addcomment };
