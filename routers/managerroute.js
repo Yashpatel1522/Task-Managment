@@ -126,7 +126,6 @@ managerRouter.delete("/removeemployeapi/:id", removeEmployee);
 managerRouter.get("/getManagerTasks", managerTasks);
 
 //api for Manager task Count
-managerRouter.get("/getManagerTaskCount", taskCount);
 
 // // api for get user,category from database
 managerRouter.get("/getdataapi", addtaskdata);
@@ -154,5 +153,6 @@ managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
 managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
+managerRouter.get("/getManagerTaskCount", taskCount);
 
 module.exports = managerRouter;
