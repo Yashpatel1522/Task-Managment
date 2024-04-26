@@ -42,12 +42,12 @@ async function fetchData() {
   }
   data.forEach((element) => {
     if (element.task_status == "todo") {
-      setCard("todo12", element);
+      setCard("todoTask", element);
     } else if (element.task_status == "inprogress") {
-      setCard("inprogress12", element);
+      setCard("inprogressTask", element);
     } else if (element.task_status == "completed") {
-      setCard("completed12", element);
-    } 
+      setCard("completedTask", element);
+    }
     switch (element.urgency_id) {
       case 1:
         document.getElementById(
@@ -177,20 +177,19 @@ const hideComment = (id) => {
 };
 
 //user search section
-const seachresultnew = async () => {
-  let svalue = document.getElementById('seachtaskresult').value
-  if (svalue === "") {
-    ides("todo").innerHTML = ""
-    ides("inprogress").innerHTML = ""
-    ides("completed").innerHTML = ""
+const seachresultnew = async (value) => {
+  if (value === "") {
+    ides("todoTask").innerHTML = ""
+    ides("inprogressTask").innerHTML = ""
+    ides("completedTask").innerHTML = ""
 
     fetchData()
   }
-  let response = await fetch(`/employee/searchtask/${svalue}`)
+  let response = await fetch(`/employee/searchtask/${value}`)
   let data = await response.json();
-  ides("todo").innerHTML = ""
-  ides("inprogress").innerHTML = ""
-  ides("completed").innerHTML = ""
+  ides("todoTask").innerHTML = ""
+  ides("inprogressTask").innerHTML = ""
+  ides("completedTask").innerHTML = ""
 
   if (data.length != 0) {
     function resetCard(id, element) {
@@ -202,8 +201,8 @@ const seachresultnew = async () => {
                   <span class="ms-3" id='urgent-${element.task_id}'><span>
                 </div>
                 <div class="field">
-                  <label>Description:</label>
-                  <p>${element.task_description}</p>
+                  <label>Category:</label>
+                  <p>${element.category}</p>
                 </div>
                 <div class="field">
                   <label>due date : </label>
@@ -213,14 +212,14 @@ const seachresultnew = async () => {
     }
     data.forEach((element) => {
       if (element.task_status == "todo") {
-        ides("todo").removeAttribute("style");
-        resetCard("todo", element);
+        // ides("todo").removeAttribute("style");
+        resetCard("todoTask", element);
       } else if (element.task_status == "inprogress") {
-        ides("inprogress").removeAttribute("style");
-        resetCard("inprogress", element);
+        // ides("inprogress").removeAttribute("style");
+        resetCard("inprogressTask", element);
       } else if (element.task_status == "completed") {
-        ides("completed").removeAttribute("style");
-        resetCard("completed", element);
+        // ides("completed").removeAttribute("style");
+        resetCard("completedTask", element);
       }
       switch (element.urgency_id) {
         case 1:

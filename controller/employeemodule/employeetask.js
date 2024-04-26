@@ -16,31 +16,31 @@ const EmployeeTaskList = async (req, res) => {
         inner join users as u on u.id=t.manager_id 
         inner join priorities as p on p.id=t.prioritiy_id 
         inner join urgency on urgency.id=p.urgency_id
-        inner join importants as imp on imp.id=p.important_id  where a.emp_id=? order by p.urgency_id;`;
-    let result = await db.executeQuery(query, id);
-    res.json(result);
-  } catch (error) {
-    logger.error("Employee Task data is not found !");
-  }
-};
+        inner join importants as imp on imp.id=p.important_id  where a.emp_id=? order by p.urgency_id;`
+        let result = await db.executeQuery(query, id);
+        res.json(result);
+    }
+    catch (error) {
+        logger.error("Employee Task data is not found !");
+    }
+}
 
 const searchlist = async (req, res) => {
-  try {
-    usersearch = req.params.searchresult;
-    const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join priorities as p on p.id=t.prioritiy_id  inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ? or t.task_description like ?;`;
-    let result = await db.executeQuery(query, [
-      "%" + usersearch + "%",
-      "%" + usersearch + "%",
-      "%" + usersearch + "%",
-    ]);
-    res.json(result);
-  } catch (error) {
-    logger.error("Employee Task search data is not found !");
-  }
-};
+    try {
+        usersearch = req.params.searchresult
+        const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id       inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ? or c.category like ?;`
+        let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%', '%' + usersearch + '%']);
+        res.json(result);
+
+    }
+    catch (error) {
+        logger.error("Employee Task search data is not found !");
+    }
+}
 
 const addcomment = async (req, res) => {
-    let file = req.file
+    let file = req.file;
+    console.log(file,"**************************************************************************")
     try {
         const date = new Date()
         const year  = date.getFullYear()
