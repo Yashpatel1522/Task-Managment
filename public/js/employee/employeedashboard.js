@@ -36,7 +36,7 @@ function createTable(tableData, section) {
 
     temp += `<tr>`;
     vals.map((val) => {
-      temp += `<td class="${assignBadge(val)}">${val}</td>`;
+      temp += `<td class="${assignBadge(val)}"><div>${val}</div></td>`;
     });
     temp += `</tr>`;
   });
@@ -58,18 +58,8 @@ const renderData = (dashboardData) => {
     ? createTable(dashboardData.employeeInprogressTaskData, "inprogress")
     : showNoData("inprogress");
 
-    let TaskActivity = document.getElementById("recentactivitybody");
-    let logs = ""
-    dashboardData.employeeRecentActivityData.forEach(e => {
-      if(e.task_name){
-        logs += `<p class="mx-3"><span class="text-secondary"> ${e.first_name} assigned you</span> <span class = "text-success"> ${e.task_name}  task</span> <small class="fs-6">${e.create_date.split(' ')[1]}</small> </p>`
-      }
-      else{
-
-        logs += `<p class="mx-3"><span class="text-secondary"> ${e.first_name} added you </span> <span class = "text-success"> ${e.team_name} team</span> <small class="fs-6">${e.create_date.split(' ')[1]}</small></p>`
-      }
-    });
-    TaskActivity.innerHTML = logs;
+    refreshRecentActivity()
+    
 };
 
 getDashBoardData("/employee/getdashboardata").then((data) => {
@@ -87,4 +77,29 @@ async function loadProfile() {
     profileData = data.result;
     renderProfileData(profileData)
   })
+}
+
+const refreshRecentActivity = () => {
+  getDashBoardData("/employee/getdashboardata").then((data) => {
+    dashboardData = data.result;
+  });
+
+  let TaskActivity = document.getElementById("recentactivitybody");
+  let logs = ""
+  if(dashboardData.employeeRecentActivityData.length > 0){
+
+    dashboardData.employeeRecentActivityData.forEach(e => {
+      if(e.task_name){
+        logs += `<p class="mx-3"><span class="text-secondary"> ${e.first_name} assigned you</span> <span class = "text-success"> ${e.task_name} task</span> <small class="fs-6">${e.create_date.split(' ')[1]}</small> </p>`
+      }
+      else{
+        
+        logs += `<p class="mx-3"><span class="text-secondary"> ${e.first_name} added you to team</span> <span class = "text-success"> ${e.team_name}</span> <small class="fs-6">${e.create_date.split(' ')[1]}</small></p>`
+      }
+    });
+  }
+  else{
+    logs = `<h3 class="text-center mt-4">No Data</h3>`;
+  }
+  TaskActivity.innerHTML = logs;
 }
