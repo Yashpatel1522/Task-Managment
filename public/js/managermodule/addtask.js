@@ -18,6 +18,9 @@ const addTaskValidation = () => {
   const reqselecterr = document.querySelectorAll(".reqselecterr");
   const startdate = document.getElementById("task_start_date").value;
   const enddate = document.getElementById("task_end_date").value;
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  console.log(currentDate);
   if (!requireValidation(allfields, reqfields)) {
     err = false;
   }
@@ -31,14 +34,14 @@ const addTaskValidation = () => {
   if (startdate.trim().length === 0) {
     document.getElementById("dateerr").innerHTML = "* required";
     err = false;
-  } else if (!validdob.test(startdate)) {
+  } else if (!validdob.test(startdate) || startdate < currentDate) {
     document.getElementById("dateerr").innerHTML = "Please enter valid date";
     err = false;
   }
   if (enddate.trim().length === 0) {
     document.getElementById("dateerr2").innerHTML = "* required";
     err = false;
-  } else if (!validdob.test(enddate)) {
+  } else if (!validdob.test(enddate) || enddate < currentDate) {
     document.getElementById("dateerr2").innerHTML = "Please enter valid date";
     err = false;
   }
