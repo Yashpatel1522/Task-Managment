@@ -12,6 +12,7 @@ const upcomingTasks = async (request, response) => {
 
     return response.json({ result: res, teamResult: teamRes });
   } catch (error) {
+    console.log(error);
     logger.info(error);
     return response.send({ error: error });
   }
