@@ -15,7 +15,7 @@
       }
     </style>
   </head>
-  <body onload="">
+  <body onload="displayAllPermissions()">
     <form class="container-fluid px-4" id="addRolePermissionForm">
       <div class="row mb-3">
         <div class="col" style="display: flex; flex-direction: row-reverse">
@@ -29,11 +29,11 @@
       </div>
       <div class="input-group">
         <select name="roleName" class="form-select primary-text">
-          <option value="vendor" class="text-center">Admin</option>
-          <option value="customer" class="text-center">Manager</option>
-          <option value="customer" class="text-center">Employee</option>
+          <option value="admin" class="text-center">Admin</option>
+          <option value="manager" class="text-center">Manager</option>
+          <option value="employee" class="text-center">Employee</option>
         </select>
-        <span class="btn admin-btn" onclick=""
+        <span class="btn admin-btn" onclick="addPermissions()"
           ><i class="bi bi-shield-fill-plus"></i>&nbsp;Add Permission</span
         >
       </div>
@@ -50,5 +50,7 @@
         </table>
       </div>
     </form>
+    <script src="/js/loginmodule/allpermissions.js"></script>
+    <script src="/js/loginmodule/addrolepermissions.js"></script>
   </body>
 </html>
