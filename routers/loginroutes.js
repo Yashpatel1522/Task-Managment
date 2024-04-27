@@ -32,6 +32,9 @@ const {
 const {
   updatePermission,
 } = require("../controller/loginmodule/updatepermissions");
+const {
+  ropleWiseSearchPermissionsGet,
+} = require("../controller/loginmodule/rolewisesearchpermissions.controller");
 const uploadStorage = multer({ storage: userProfileStorage });
 // const jwtStrategy=require('passport-jwt').Strategy;
 require("../middleware/jwtpassport");
@@ -69,6 +72,7 @@ login.get(
 login.get("/rolePerissions", rolePermissionsGet);
 login.get("/allpermissions", allPermissionsGet);
 login.post("/updatepermissions", updatePermission);
+login.get("/rolehaspermission/:role", ropleWiseSearchPermissionsGet);
 
 // login.get(
 //   "/dashboard",

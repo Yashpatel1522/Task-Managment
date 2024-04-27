@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Set Role Permission</title>
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/boxicon/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+  <style>
+    .rcol:hover {
+      background-color: var(--main-bg-color);
+    }
+  </style>
+</head>
+  <body onload="displayPermission('vendor')">
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar -->
+      <%- include('../../components/adminsidebar.component.ejs'); %>
+        <!-- /#sidebar-wrapper -->
+  
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <%- include('../../components/adminheader.component.ejs'); %>
+          <div class="container-fluid px-4">
+            <div class="row mb-3">
+              <div class="col" style="display: flex; flex-direction: row-reverse;"><a class="admin-btn" style="width: fit-content;" href="/kartezy/rolepermission/addpermission"><i class="bi bi-pencil-square"></i>&nbsp;Edit</a></div>
+            </div>
+
+            <div class="row">
+              <div class="col-6"><p class="admin-btn" onclick="displayPermission('vendor')" id="vendorbtn">Vendor</p></div>
+              <div class="col-6"><p class="admin-btn" onclick="displayPermission('customer')" id="customerbtn">Customer</p></div>
+            </div>
+      
+            <div class="row">
+              <table class="table table-hover" id="displayRolePermission">
+                <tr>
+                  <th class="text-center">Index</th>
+                  <th class="text-center">Permission</th>
+                  <th class="text-center">Url</th>
+                  <th class="text-center">Method</th>
+                  <th class="text-center">Create Permission Time</th>
+                  <th class="text-center">Operation</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+  <!-- <script src="/js/vendorAdmin/script.js"></script>
+  <script src="/js/rolePermission/displayPermission.js"></script>
+  <script src="/js/getCookie.js"></script>
+  <script src="/js/rolePermission/updatePermission.js"></script> -->
+</html>
