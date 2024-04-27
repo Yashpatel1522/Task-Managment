@@ -212,13 +212,10 @@ const seachresultnew = async (value) => {
     }
     data.forEach((element) => {
       if (element.task_status == "todo") {
-        // ides("todo").removeAttribute("style");
         resetCard("todoTask", element);
       } else if (element.task_status == "inprogress") {
-        // ides("inprogress").removeAttribute("style");
         resetCard("inprogressTask", element);
       } else if (element.task_status == "completed") {
-        // ides("completed").removeAttribute("style");
         resetCard("completedTask", element);
       }
       switch (element.urgency_id) {
@@ -257,7 +254,7 @@ const seachresultnew = async (value) => {
 }
 
 async function addcomment() {
-  new Date();
+  // new Date();
   const formData = new FormData();
   const fields = ["taskcomment", "taskstatus"];
   formData.append("file", document.getElementById("file"));
