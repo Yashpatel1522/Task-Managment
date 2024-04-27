@@ -30,11 +30,10 @@ const getTaskData = async () => {
     let todoData = ``;
     data.todoData.forEach((e) => {
       todoData += `<div class="m-3 p-2 tasks" draggable="true" id="${e.id}">
-  
   <div class="card-body">
   <div class="header" style="position:relative">
   <div style="background:red" class="dropdown">
-    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+    <ul class="icons btn-right class="dropdown"" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
       <li></li>
       <li></li>
       <li></li>

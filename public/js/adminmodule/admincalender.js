@@ -86,8 +86,10 @@ const getDeadline = async () => {
 };
 
 let todayDate = new Date().getDate();
-// todayDate.toISOString().split('T')[0]
-
+// let date = new Date();
+// const month = date.toLocaleString('default', { month: 'long' });
+// console.log(month);
+// document.getElementById("heading").innerText = month;
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/admin/calenderData/${month}`)).json();
@@ -105,7 +107,7 @@ const getCalender = async (month) => {
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
       td.innerText += `${data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]}`;
-      if (data.yearCalendar[i][j] === todayDate && (new Date().getMonth + 1) === month) {
+      if (data.yearCalendar[i][j] === todayDate && m + 1 === month) {
         td.style.backgroundColor = "rgb(90, 150, 90)";
       }
       dueDate.result.forEach((ele) => {

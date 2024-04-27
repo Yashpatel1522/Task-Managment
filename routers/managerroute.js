@@ -36,7 +36,6 @@ const {
 } = require("../controller/managermodule/addteam");
 const {
   teamdetails,
-  searchTeamData,
   showTeamDataForUpdate,
   updateTeamData,
   teamDetailsForView,
@@ -59,7 +58,6 @@ const {
 const { reportGet } = require("../controller/employeemodule/reports");
 
 const uploadStorage = multer({ storage: taskdetailfiles });
-
 const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
@@ -67,12 +65,18 @@ const managerRouter = express.Router();
 // // Displaying Tasks of manager
 managerRouter.get("/calenderData/:month", calenderMonth);
 managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
+
 managerRouter.get(
   "/searchTask/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   searchTask
 );
 managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
+// managerRouter.get(
+//   "/searchTask/:searchdata",
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   searchTask
+// );
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -90,7 +94,7 @@ managerRouter.get("/tasks", taskView().getPage);
 
 // Dashboard
 managerRouter.get("/dashboard", dashboardView);
-
+managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 // API to get team details of the particular manager
 managerRouter.get("/getTeams", getTeams);
 
@@ -129,11 +133,8 @@ managerRouter.get("/getManagerTasks", managerTasks);
 // // api for get user,category from database
 managerRouter.get("/getdataapi", addtaskdata);
 
-// insert task data
-
 // serach task api
 managerRouter.post("/searchtask", searchTask);
-
 managerRouter.get("/notification", notifications);
 
 // api to get only employe data for create team

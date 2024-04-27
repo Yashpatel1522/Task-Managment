@@ -9,6 +9,14 @@ let endIndex;
 
 const pagignation = async (url) => {
   let teamData = await (await fetch(url)).json();
+  if (teamData.result.length == 0) {
+    document.getElementById("pagignation11").style.display = "none";
+    document.getElementById("errormsg").innerHTML =
+      '<div class="alert alert-info"><strong>data not found</strong></div>';
+  }
+  if (teamData.result.length < pageLimit) {
+    document.getElementById("pagignation11").style.display = "none";
+  }
   teamDataGlobal = [...teamData.result];
   arrayPagignation = [...teamData.result];
   maxLength = teamData.result.length;
@@ -18,7 +26,7 @@ const pagignation = async (url) => {
   elements = arrayPagignation.slice(startIndex, endIndex);
   document.getElementById("current_page").innerHTML = `${currentPage}`;
   if (teamData.result.length !== 0) {
-    document.getElementById("nodata").style.display = "none";
+    // document.getElementById("nodata").style.display = "none";
     getDataGrid(elements);
     document.getElementById("current_page").style.display = "block";
   }
