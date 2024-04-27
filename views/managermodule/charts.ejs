@@ -12,22 +12,31 @@
   <body onload="drawCharts()">
     <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
-
-      <div class="chartContent pt-4">
+      <div class="chartContent pt-4" onclick="closeProf()">
         <div class="row">
           <div class="col-9"></div>
-          <div class="col-3" style="position: relative;">
+          <div class="col-3" style="position: relative">
             <div class="row ps-5">
               <div class="col-3">
-                <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()"></i>
+                <i
+                  class="bi bi-bell fa-2x col"
+                  onclick="fetchNotificationData()"
+                  style="cursor: pointer"
+                ></i>
               </div>
-              <div class="col-9 p-1" style="border-radius: 25px; background-color: #505050; width: 60%; cursor: pointer;" onclick="showOption()">
+              <div class="col-9 p-1" style="border-radius: 25px; background-color: var(--sidebarcolor); width: 60%; cursor: pointer;" onclick="showOption()">
                 <img src="" alt="" id="profImg" style="border-radius: 100%; width: 25%;">
                 <span class="ps-2" style="color: white; cursor: pointer; font-family: sans-serif; font-size: 18px;" id="userName"></span>
               </div>
             </div>
             <div id="profClk">
-              <p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
+              <p
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                onclick="getProfile()"
+              >
+                Show Profile
+              </p>
               <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
             </div>
           </div>
@@ -35,8 +44,10 @@
         <div class="chartContainer pt-5">
           <div class="row">
             <div class="col">
-              <div id="upcomingTasks" class="upcomingtask">
+              <div class="upcomingtask">
                 <h2>Upcoming Tasks</h2>
+                <hr />
+                <div id="upcomingTasks" class="viewdata"></div>
               </div>
             </div>
             <div class="col">
@@ -49,8 +60,10 @@
               <div id="statusBar"></div>
             </div>
             <div class="col">
-              <div id="teams" class="upcomingtask">
+              <div class="upcomingtask">
                 <h2>Teams</h2>
+                <hr />
+                <div id="teams" class="viewdata"></div>
               </div>
             </div>
           </div>

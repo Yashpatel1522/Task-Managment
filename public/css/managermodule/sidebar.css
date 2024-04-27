@@ -40,6 +40,7 @@ body{
 .list:hover{
   background-color:var(--cornflowerblue);
   border-radius: 5px;
+  cursor: pointer;
 }
 .list i{
   font-size: 20px;
@@ -48,7 +49,6 @@ body{
 .list li{
   color: white;
   list-style: none;
-  cursor: pointer;
 }
 .list img{
   color: var(--white);

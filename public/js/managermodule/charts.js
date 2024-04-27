@@ -1,3 +1,5 @@
+let flag = true;
+
 const drawCharts = async () => {
   let taskResponse = await fetch(
     window.location.origin + `/manager/getManagerUpcomingTasks`
@@ -21,25 +23,6 @@ const drawCharts = async () => {
     document.getElementById('profImg').src = `/assets/employee/user.png`;
     document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
   }
-
-  // let taskResponse = await fetch(`/manager/getManagerUpcomingTasks?start_date=2024-04-17&end_date=2024-10-30&manager_id=1`);
-  // let taskData = await taskResponse.json();
-
-  // if (taskData.result[0]) {
-  //   taskData.result.forEach((element) => {
-  //     document.getElementById(
-  //       "upcomingTasks"
-  //     ).innerHTML += `<p>${element.task_name}</p>`;
-  //   });
-  // }
-
-  // if (taskData.teamResult[0]) {
-  //   taskData.teamResult.forEach((element) => {
-  //     document.getElementById(
-  //       "teams"
-  //     ).innerHTML += `<p>${element.team_name}</p>`;
-  //   });
-  // }
   
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
@@ -121,6 +104,14 @@ const drawCharts = async () => {
   Piechart.render();
 };
 
+function closeProf() {
+  const profDisp = document.getElementById('profClk');
+  if(flag) {
+    profDisp.style.display = 'none'
+  }
+  flag = true;
+}
+
 async function getProf() {
   let data = await (await fetch('/manager/getManagerProfile/2')).json();
   return data;
@@ -139,4 +130,5 @@ const showOption = () => {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
+  flag = false;
 };

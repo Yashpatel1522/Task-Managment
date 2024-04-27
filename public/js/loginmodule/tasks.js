@@ -4,28 +4,23 @@
 //   element.innerHTML = language;
 // }
 
+let taskFlag = true;
+
 function showDropdown(id) {
+  console.log(id);
   if (document.getElementById(id).style.display == "block") {
     document.getElementById(id).style.display = "none";
   } else if ((document.getElementById(id).style.display = "none")) {
     document.getElementById(id).style.display = "block";
   }
+  let classes = Array.from(document.getElementsByClassName('menu'));
+  classes.forEach(element => {
+    if(element != document.getElementById(id)) {
+      element.style.display = 'none';
+    }
+  });
+  taskFlag = false;
 }
-
-// Close the dropdown if the user clicks outside of it
-// window.onclick = function (event) {
-//   document.getElementById("myDropdown").style.display = "none";
-//   if (!event.target.matches(".dropbtn")) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains("show")) {
-//         openDropdown.classList.remove("show");
-//       }
-//     }
-// };
-// };
 
 const getTaskData = async () => {
   try {
@@ -35,11 +30,10 @@ const getTaskData = async () => {
     let todoData = ``;
     data.todoData.forEach((e) => {
       todoData += `<div class="m-3 p-2 tasks" draggable="true" id="${e.id}">
-  
   <div class="card-body">
   <div class="header" style="position:relative">
   <div style="background:red" class="dropdown">
-    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+    <ul class="icons btn-right class="dropdown"" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
       <li></li>
       <li></li>
       <li></li>
@@ -47,7 +41,7 @@ const getTaskData = async () => {
     </div>
     </div>
     <div style = "position:relative">
-    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+    <div id="hi${e.id}" class="dropdown-content menu" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
       <div onclick="openpopup2(${e.id})">Task Detail</div>
       <div onclick="editTaskPopup(${e.id})">Edit</div>
       <div onclick="openViewComments(${e.id})">View Comments</div>
@@ -67,7 +61,7 @@ const getTaskData = async () => {
       <div class="card-body">
         <div class="header" style="position:relative">
   <div class="dropdown">
-    <ul class="icons btn-right " style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
       <li></li>
       <li></li>
       <li></li>
@@ -75,7 +69,7 @@ const getTaskData = async () => {
     </div>
     </div>
     <div style = "position:relative">
-    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+    <div id="hi${e.id}" class="dropdown-content menu" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
       <div onclick="openpopup2(${e.id})">Task Detail</div>
       <div onclick="editTaskPopup(${e.id})">Edit</div>
       <div onclick="openViewComments(${e.id})">View Comments</div>
@@ -95,7 +89,7 @@ const getTaskData = async () => {
       <div class="card-body">
         <div class="header" style="position:relative">
   <div class="dropdown">
-    <ul class="icons btn-right " style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
+    <ul class="icons btn-right" style="cursor:pointer;z-index:9" onclick="showDropdown('hi${e.id}')">
       <li></li>
       <li></li>
       <li></li>
@@ -103,7 +97,7 @@ const getTaskData = async () => {
     </div>
     </div>
     <div style = "position:relative">
-    <div id="hi${e.id}" class="dropdown-content" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
+    <div id="hi${e.id}" class="dropdown-content menu" style = "position:absolute;z-index:10;left:50%;margin-top:15%">
       <div onclick="openpopup2(${e.id})">Task Detail</div>
       <div onclick="editTaskPopup(${e.id})">Edit</div>
       <div onclick="openViewComments(${e.id})">View Comments</div>
@@ -123,11 +117,13 @@ const getTaskData = async () => {
 
 const searchTaskData = async (value) => {
   try {
-    let data = await (await fetch(`/manager/searchTask/${value}`)).json();
-    document.getElementById("todoTask").innerHTML = "";
+    value = value.trim();
     if (value === "") {
       getTaskData();
+      return
     }
+    let data = await (await fetch(`/manager/searchTask/${value}`)).json();
+    document.getElementById("todoTask").innerHTML = "";
     let todoTask = document.getElementById("todoTask");
     let dataadd = ``;
     if (data.todoTask.length != 0) {

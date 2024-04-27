@@ -28,12 +28,15 @@
   padding: 15px;
   border-top-right-radius: 30px;
   background-color: var(--sidebarcolor);
+  position: fixed;
+  left: 0;
 }
 
 .managerContent {
   width: 80%;
   height: 1000px;
   padding: 15px;
+  margin-left: 20%;
   overflow-y: auto;
   overflow-x: hidden;
 }

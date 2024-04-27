@@ -38,7 +38,7 @@ const inserttaskdata = async (request, response) => {
     );
     let res = await db.insertData(
       {
-        manager_id: request.user.id,
+        manager_id: managerId,
         category_id: taskdata.task_category,
         prioritiy_id: priorityData[0].id,
         task_name: taskdata.task_name,
@@ -51,17 +51,16 @@ const inserttaskdata = async (request, response) => {
     );
     lastInserted_id = res.insertId;
 
-    let Assin_task_to = taskdata.Assin_task_to.split(",");
+    let AssinTaskTo = taskdata.Assin_task_to.split(",");
     console.log(lastInserted_id);
-    console.log(Assin_task_to);
-    await Assin_task_to.forEach((element) => {
+    await AssinTaskTo.forEach((element) => {
       db.insertData(
         { task_id: lastInserted_id, emp_id: element },
         "tasks_assigend_to"
       );
     });
-    let Assin_task_to_team = taskdata.Assin_task_to_team.split(",");
-    await Assin_task_to_team.forEach((team) => {
+    let AssinTaskToTeam = taskdata.Assin_task_to_team.split(",");
+    await AssinTaskToTeam.forEach((team) => {
       if (team != 0) {
         db.insertData(
           { task_id: lastInserted_id, team_id: team },

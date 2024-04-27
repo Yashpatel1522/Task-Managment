@@ -1,13 +1,19 @@
 const setData = async () => {
-
   let profData = await getProf();
-  if(profData.imageResult) {
-    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
-  }
-  else {
-    document.getElementById('profImg').src = `/assets/employee/user.png`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  if (profData.imageResult) {
+    document.getElementById(
+      "profImg"
+    ).src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById("userName").innerText =
+      `${profData.result[0].first_name}` +
+      " " +
+      `${profData.result[0].last_name}`;
+  } else {
+    document.getElementById("profImg").src = `/assets/employee/user.png`;
+    document.getElementById("userName").innerText =
+      `${profData.result[0].first_name}` +
+      " " +
+      `${profData.result[0].last_name}`;
   }
 
   let url = window.location.origin + `/manager/getEmployees`;
@@ -29,7 +35,7 @@ const setData = async () => {
                                 <br>
                                 <p class="card-text textview"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text textview"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
-                                <button class="btn btn-primary btnview" style = "background-color:#0A1828" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
+                                <button class="btn btn-primary btnview" style = "background-color:#0A1828" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.imageRes[count].newimage_name}')">View More</button>
                                 <input type="button" value="Remove"  style = "background-color:#0A1828" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>
@@ -45,7 +51,7 @@ const setData = async () => {
 };
 
 async function getProf() {
-  let data = await (await fetch('/manager/getManagerProfile/2')).json();
+  let data = await (await fetch("/manager/getManagerProfile/2")).json();
   return data;
 }
 
@@ -57,7 +63,7 @@ async function showEmployeeDetails(
   contact,
   dob,
   join,
-  img_url
+  img_path
 ) {
   let url = window.location.origin + `/manager/getManagerProfile/${id}`;
   let response = await fetch(url);
@@ -66,7 +72,7 @@ async function showEmployeeDetails(
   if (!data.imageResult[0]) {
     path = `/assets/employee/user.png`;
   } else {
-    path = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
+    path = `/assets/userprofiles/${img_path}`;
   }
 
   await Swal.fire({
@@ -82,7 +88,7 @@ async function showEmployeeDetails(
       <p><b>Birth Date : </b>${dob}</p>
       <p><b>Date Of Joining : </b>${join.slice(0, 10)}</p>
     `,
-    confirmButtonText: "Close",
+    confirmButtonText: "Close"
   });
 }
 
@@ -95,22 +101,26 @@ const showOption = () => {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
+  flag = false;
 };
 
 const searchEmployee = async (value) => {
   try {
     let data = await (await fetch(`/manager/searchEmploye/${value}`)).json();
-    if (value === "") {
+    if (value.trim() === "") {
       setData();
-    }
-    let str = ``;
-    if (data.searchData.length != 0) {
-      let count = 0;
-      for (let i = 0; i < Math.ceil(data.searchData.length / 3); i++) {
-        str += `<div class="row pb-3">`;
-        for (let j = 0; j < 3; j++) {
-          if (data.searchData[count]) {
-            str += `
+    } else {
+      if (value === "") {
+        setData();
+      }
+      let str = ``;
+      if (data.searchData.length != 0) {
+        let count = 0;
+        for (let i = 0; i < Math.ceil(data.searchData.length / 3); i++) {
+          str += `<div class="row pb-3">`;
+          for (let j = 0; j < 3; j++) {
+            if (data.searchData[count]) {
+              str += `
                     <div class="col-4">
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
@@ -125,23 +135,33 @@ const searchEmployee = async (value) => {
                         </div> 
                     </div>
                     `;
-            count++;
+              count++;
+            }
           }
+          str += `</div>`;
         }
-        str += `</div>`;
-      }
-      document.getElementsByClassName("employeeList")[0].innerHTML = str;
-    } else {
-      document.getElementsByClassName(
-        "employeeList"
-      )[0].innerHTML = `<div class="alert alert-info">
+        document.getElementsByClassName("employeeList")[0].innerHTML = str;
+      } else {
+        document.getElementsByClassName(
+          "employeeList"
+        )[0].innerHTML = `<div class="alert alert-info">
   <strong>data not found!</strong> 
 </div>`;
+      }
     }
   } catch (error) {
     console.log(error);
   }
 };
+
+let flag = false;
+function closeProf() {
+  const profDisp = document.getElementById('profClk');
+  if(flag) {
+    profDisp.style.display = 'none'
+  }
+  flag = true;
+}
 
 const removeEmployee = async (id) => {
   try {
@@ -164,7 +184,7 @@ const removeEmployee = async (id) => {
       })
       .then(async (result) => {
         if (result.isConfirmed) {
-          await fetch(`http://localhost:8000/manager/removeemployeapi/${id}`, {
+          await fetch(`/manager/removeemployeapi/${id}`, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",

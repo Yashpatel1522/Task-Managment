@@ -1,6 +1,7 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 let db = new database();
+
 const getempdata = async (request, response) => {
   try {
     const query = `select id,first_name from users where role_id = ? and status = ?`;

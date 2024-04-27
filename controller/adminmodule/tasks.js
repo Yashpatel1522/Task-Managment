@@ -1,5 +1,6 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
+const db = new database();
 
 exports.taskpage = (request, response) => {
     try {
@@ -11,7 +12,6 @@ exports.taskpage = (request, response) => {
 
 exports.adminTasks = async (request, response) => {
     try {
-        let db = new database();
         let query = `select t.*,u.first_name from tasks as t inner join users as u on t.manager_id = u.id where task_status=? and t.status = ?`;
         let todoData = await db.executeQuery(query, ["todo", 1]);
         let inprogressData = await db.executeQuery(query, ["inprogress", 1]);
@@ -24,9 +24,7 @@ exports.adminTasks = async (request, response) => {
 
 exports.searchTasks = async (request, response) => {
     try {
-        let search = request.params.searchdata;
-        search = "%" + search + "%";
-        let db = new database();
+        let search = "%" + request.params.searchdata + "%";
         let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?)`;
         let todoTask = await db.executeQuery(query, ["todo", search, search]);
         let inprogressTask = await db.executeQuery(query, ["inprogress", search, search]);

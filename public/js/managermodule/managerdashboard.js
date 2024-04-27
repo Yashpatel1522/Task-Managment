@@ -1,3 +1,5 @@
+let flag = true;
+
 const getData = async () => {
   let profData = await getProf();
 
@@ -28,6 +30,21 @@ async function getProf() {
   return data;
 }
 
+function closeDropdown() {
+  const profDisp = document.getElementById('profClk');
+  if(flag) {
+    profDisp.style.display = 'none'
+  }
+  if(taskFlag) {
+    let classes = Array.from(document.getElementsByClassName('menu'));
+    classes.forEach(element => {
+      element.style.display = 'none';
+    });
+  }
+  taskFlag = true;
+  flag = true;
+}
+
 getData();
 const profOption = () => {
   document.getElementById("profClk").style.display = "block";
@@ -37,15 +54,16 @@ const remOption = () => {
   document.getElementById("profClk").style.display = "none";
 };
 
-const showOption = () => {
+const showOption = async () => {
   if (
     document.getElementById("profClk").style.display == "none" ||
     document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
+    ) {
+      document.getElementById("profClk").style.display = "block";
+    } else {
+      document.getElementById("profClk").style.display = "none";
+    }
+  flag = false;
 };
 
 // pop-up js of addtask.ejs
