@@ -72,17 +72,17 @@ const managerRouter = express.Router();
 
 managerRouter.get("/calenderData/:month", calenderMonth);
 managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
-managerRouter.get(
-  "/searchTask/:searchdata",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  searchTask
-);
 managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
+// managerRouter.get(
+//   "/searchTask/:searchdata",
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   searchTask
+// );
 
-managerRouter.use(
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  checkUserRole
-);
+// managerRouter.use(
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   checkUserRole
+// );
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView);
