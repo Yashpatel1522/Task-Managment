@@ -1,13 +1,19 @@
 const setData = async () => {
-
   let profData = await getProf();
-  if(profData.imageResult) {
-    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
-  }
-  else {
-    document.getElementById('profImg').src = `/assets/employee/user.png`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+  if (profData.imageResult) {
+    document.getElementById(
+      "profImg"
+    ).src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById("userName").innerText =
+      `${profData.result[0].first_name}` +
+      " " +
+      `${profData.result[0].last_name}`;
+  } else {
+    document.getElementById("profImg").src = `/assets/employee/user.png`;
+    document.getElementById("userName").innerText =
+      `${profData.result[0].first_name}` +
+      " " +
+      `${profData.result[0].last_name}`;
   }
 
   let url = window.location.origin + `/manager/getEmployees`;
@@ -45,7 +51,7 @@ const setData = async () => {
 };
 
 async function getProf() {
-  let data = await (await fetch('/manager/getManagerProfile/2')).json();
+  let data = await (await fetch("/manager/getManagerProfile/2")).json();
   return data;
 }
 
@@ -100,17 +106,20 @@ const showOption = () => {
 const searchEmployee = async (value) => {
   try {
     let data = await (await fetch(`/manager/searchEmploye/${value}`)).json();
-    if (value === "") {
+    if (value.trim() === "") {
       setData();
-    }
-    let str = ``;
-    if (data.searchData.length != 0) {
-      let count = 0;
-      for (let i = 0; i < Math.ceil(data.searchData.length / 3); i++) {
-        str += `<div class="row pb-3">`;
-        for (let j = 0; j < 3; j++) {
-          if (data.searchData[count]) {
-            str += `
+    } else {
+      if (value === "") {
+        setData();
+      }
+      let str = ``;
+      if (data.searchData.length != 0) {
+        let count = 0;
+        for (let i = 0; i < Math.ceil(data.searchData.length / 3); i++) {
+          str += `<div class="row pb-3">`;
+          for (let j = 0; j < 3; j++) {
+            if (data.searchData[count]) {
+              str += `
                     <div class="col-4">
                         <div class="card" style="width: 100%;">
                             <img src="" class="card-img-top" alt="">
@@ -125,18 +134,19 @@ const searchEmployee = async (value) => {
                         </div> 
                     </div>
                     `;
-            count++;
+              count++;
+            }
           }
+          str += `</div>`;
         }
-        str += `</div>`;
-      }
-      document.getElementsByClassName("employeeList")[0].innerHTML = str;
-    } else {
-      document.getElementsByClassName(
-        "employeeList"
-      )[0].innerHTML = `<div class="alert alert-info">
+        document.getElementsByClassName("employeeList")[0].innerHTML = str;
+      } else {
+        document.getElementsByClassName(
+          "employeeList"
+        )[0].innerHTML = `<div class="alert alert-info">
   <strong>data not found!</strong> 
 </div>`;
+      }
     }
   } catch (error) {
     console.log(error);

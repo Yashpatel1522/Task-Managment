@@ -11,6 +11,7 @@ const getDataGrid = async (elements) => {
                 <th>Employee</th>
                 <th>Task_Status</th>
                 <th>Comment</th>
+                <th>DateTime</th>
                 <th>Attechments</th>
                 </thead>`;
   // <th>Confirm Status</th>;
@@ -20,6 +21,7 @@ const getDataGrid = async (elements) => {
                 <td>${element.first_name}</td>
                 <td>${element.task_status}</td>
                 <td>${element.comment}</td>
+                <td>${element.create_at}</td>
                 ${
                   element.attechment == null
                     ? "<td> - </td>"
@@ -147,4 +149,8 @@ const updateTaskStatus = async (taskId, taskStatus, employeeId) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const backToTask = () => {
+  window.location.href = window.location.origin + `/manager/tasks`;
 };
