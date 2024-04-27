@@ -34,6 +34,7 @@ const {
   updatePermission,
 } = require("../controller/loginmodule/updatepermissions");
 const { roleWiseSearchPermissionsGet } = require("../controller/loginmodule/rolewisesearchpermissions.controller");
+const { deletePermissions } = require("../controller/loginmodule/deletepermissions");
 
 const uploadStorage = multer({ storage: userProfileStorage });
 // const jwtStrategy=require('passport-jwt').Strategy;
@@ -74,6 +75,7 @@ login.get("/allpermissions", allPermissionsGet);
 login.post("/updatepermissions", updatePermission);
 login.get("/rolehaspermission/:role", roleWiseSearchPermissionsGet);
 login.get("/showpermissions",displaySingleRoleHasPermissions)
+login.post("/deletepermissions",deletePermissions)
 // login.get(
 //   "/dashboard",
 //   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
