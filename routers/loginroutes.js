@@ -25,6 +25,17 @@ const {
   managerTasks,
 } = require("../controller/loginmodule/managertasks.controller");
 const logout = require("../controller/loginmodule/logout.controller");
+const {
+  rolePermissionsGet,
+  allPermissionsGet,
+  displaySingleRoleHasPermissions,
+} = require("../controller/loginmodule/rolpermissions");
+const {
+  updatePermission,
+} = require("../controller/loginmodule/updatepermissions");
+const { roleWiseSearchPermissionsGet } = require("../controller/loginmodule/rolewisesearchpermissions.controller");
+const { deletePermissions } = require("../controller/loginmodule/deletepermissions");
+
 const uploadStorage = multer({ storage: userProfileStorage });
 // const jwtStrategy=require('passport-jwt').Strategy;
 require("../middleware/jwtpassport");
@@ -59,6 +70,12 @@ login.get(
   managerTasks
 );
 
+login.get("/rolePerissions", rolePermissionsGet);
+login.get("/allpermissions", allPermissionsGet);
+login.post("/updatepermissions", updatePermission);
+login.get("/rolehaspermission/:role", roleWiseSearchPermissionsGet);
+login.get("/showpermissions",displaySingleRoleHasPermissions)
+login.post("/deletepermissions",deletePermissions)
 // login.get(
 //   "/dashboard",
 //   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),

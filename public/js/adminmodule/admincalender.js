@@ -99,7 +99,7 @@ const getCalender = async (month) => {
     let th = document.createElement("th");
     th.innerText = `${e}`;
     tr1.appendChild(th);
-  });
+  }); 
   calenderData.appendChild(tr1);
 
   for (let i = 0; i < data.yearCalendar.length; i++) {
