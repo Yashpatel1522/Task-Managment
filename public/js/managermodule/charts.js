@@ -1,3 +1,5 @@
+let flag = true;
+
 const drawCharts = async () => {
   let taskResponse = await fetch(
     window.location.origin + `/manager/getManagerUpcomingTasks`
@@ -102,6 +104,14 @@ const drawCharts = async () => {
   Piechart.render();
 };
 
+function closeProf() {
+  const profDisp = document.getElementById('profClk');
+  if(flag) {
+    profDisp.style.display = 'none'
+  }
+  flag = true;
+}
+
 async function getProf() {
   let data = await (await fetch('/manager/getManagerProfile/2')).json();
   return data;
@@ -120,4 +130,5 @@ const showOption = () => {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
+  flag = false;
 };

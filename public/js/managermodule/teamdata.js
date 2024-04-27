@@ -7,6 +7,15 @@ const getTeamData = async () => {
   }
 };
 
+flag = true;
+function closeProf() {
+  const profDisp = document.getElementById('profClk');
+  if(flag) {
+    profDisp.style.display = 'none'
+  }
+  flag = true;
+}
+
 const showOption = async () => {
   if (
     document.getElementById("profClk").style.display == "none" ||
@@ -16,6 +25,7 @@ const showOption = async () => {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
+  flag = false;
 };
 
 const showteamdata = async() => {

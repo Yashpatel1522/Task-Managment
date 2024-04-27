@@ -82,7 +82,7 @@ async function showEmployeeDetails(
       <p><b>Birth Date : </b>${dob}</p>
       <p><b>Date Of Joining : </b>${join.slice(0, 10)}</p>
     `,
-    confirmButtonText: "Close",
+    confirmButtonText: "Close"
   });
 }
 
@@ -95,6 +95,7 @@ const showOption = () => {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
+  flag = false;
 };
 
 const searchEmployee = async (value) => {
@@ -145,6 +146,15 @@ const searchEmployee = async (value) => {
   }
 };
 
+let flag = false;
+function closeProf() {
+  const profDisp = document.getElementById('profClk');
+  if(flag) {
+    profDisp.style.display = 'none'
+  }
+  flag = true;
+}
+
 const removeEmployee = async (id) => {
   try {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -166,7 +176,7 @@ const removeEmployee = async (id) => {
       })
       .then(async (result) => {
         if (result.isConfirmed) {
-          await fetch(`http://localhost:8000/manager/removeemployeapi/${id}`, {
+          await fetch(`/manager/removeemployeapi/${id}`, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
