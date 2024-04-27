@@ -11,7 +11,7 @@ const managerProfile = async (request, response) => {
     const imageRes = await db.executeQuery(imageQuery, [managerId]);
     return response.json({ result: res, imageResult: imageRes });
   } catch (error) {
-    logger.log(error);
+    logger.error(error);
     return response.send({ error: error });
   }
 };

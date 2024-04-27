@@ -15,7 +15,7 @@ const getComments = async (request, response) => {
   try {
     let teamId = request.params.teamId;
     query =
-      "select user_comments.id,user_comments.task_id,user_comments.employee_id,user_comments.task_status,comment,attechment,users.first_name from user_comments LEFT JOIN users on user_comments.employee_id = users.id where user_comments.task_id = ?";
+      "select user_comments.id,user_comments.task_id,user_comments.employee_id,user_comments.task_status,comment,attechment,user_comments.create_at,users.first_name from user_comments LEFT JOIN users on user_comments.employee_id = users.id where user_comments.task_id = ?";
     let result = await db.executeQuery(query, [teamId]);
     return response.json({ result });
   } catch (error) {

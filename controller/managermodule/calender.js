@@ -2,6 +2,7 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 var calendar = require("node-calendar");
 let db = new database();
+
 const calenderView = (request, response) => {
   try {
     response.render("../views/managermodule/calender", {
@@ -14,7 +15,7 @@ const calenderView = (request, response) => {
 
 const calenderMonth = async (request, response) => {
   try {
-    current_month = request.params.month;
+    let currentMonth = request.params.month;
     var days = [
       "Sunday",
       "Monday",
@@ -25,7 +26,7 @@ const calenderMonth = async (request, response) => {
       "Saturday",
     ];
     var cal = new calendar.Calendar(calendar.SUNDAY);
-    var yearCalendar = cal.monthdayscalendar(2024, current_month);
+    var yearCalendar = cal.monthdayscalendar(2024, currentMonth);
     return response.json({ days: days, yearCalendar: yearCalendar });
   } catch (err) {
     logger.error("Calendar not found it!");

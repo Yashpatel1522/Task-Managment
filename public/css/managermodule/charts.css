@@ -51,10 +51,14 @@
 	background-color: var(--lightgray);
 }
 .upcomingtask{
-		background-color:var(--sidebarcolor);
-		border-radius: 15px
+		background-color:var(--white);
+		border-radius: 15px;
+}
+.viewdata{
+	overflow-y: scroll;
+	max-height: 100px;
 }
 .upcomingtask h2,P{
-	color: var(--backgroundcolor);
+	color: var(--sidebarcolor);
 	text-align: center;
 }
