@@ -2,71 +2,45 @@ const express = require("express");
 const passport = require("passport");
 const multer = require("multer");
 const router = express.Router();
-const {
-  adminDashboard,
-  chartsData,
-  managerTask,
-} = require("../controller/adminmodule/dashboard");
-const {
-  adminManagers,
-  managerDetails,
-  searchManData,
-  dataDelete,
-  managerpage,
-} = require("../controller/adminmodule/managers");
-const {
-  adminEmployees,
-  employeeDetails,
-  searchEmpData,
-  empDataDelete,
-  employeepage,
-} = require("../controller/adminmodule/employees");
-const {
-  adminTasks,
-  searchTasks,
-  taskpage,
-  taskDetail,
-} = require("../controller/adminmodule/tasks");
-const {
-  adminCalender,
-  calenderMonth,
-  dueDateTask,
-} = require("../controller/adminmodule/calender");
-const {
-  profiledata,
-  updateAdminProfile,
-} = require("../controller/adminmodule/adminprofile");
-const {
-  categoryPage,
-  adminCategory,
-  searchCategory,
-  categoryDetail,
-  addCategory,
-  deleteCategory,
-} = require("../controller/adminmodule/category");
-const {
-  adminTeam,
-  deleteTeam,
-  teamData,
-  teamDetails,
-  searchTeam,
-  addNewTeam,
-  updateTeamData,
-} = require("../controller/adminmodule/teamdata");
+const { adminDashboard, chartsData, managerTask, } = require("../controller/adminmodule/dashboard");
+const { adminManagers, managerDetails, searchManData, dataDelete, managerpage, } = require("../controller/adminmodule/managers");
+const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeepage, } = require("../controller/adminmodule/employees");
+const { adminTasks, searchTasks, taskpage, taskDetail, } = require("../controller/adminmodule/tasks");
+const { adminCalender, calenderMonth, dueDateTask, } = require("../controller/adminmodule/calender");
+const { profiledata, updateAdminProfile, } = require("../controller/adminmodule/adminprofile");
+const { categoryPage, adminCategory, searchCategory, categoryDetail, addCategory, deleteCategory, } = require("../controller/adminmodule/category");
+const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam, updateTeamData, } = require("../controller/adminmodule/teamdata");
 const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
-// const passport = require("passport");
 const checkUserRole = require("../middleware/userrole");
-router.get("/employeesapi/search/:searchdata", searchEmpData);
-router.get("/managersapi/search/:searchdata", searchManData);
-router.route("/tasksData").get(adminTasks);
-router.get("/tasksData/:searchdata", searchTasks);
-router.get("/tasksDetails/:id", taskDetail);
 
-router.use(
+// All Searching Data Admin Pannel
+router.get("/managersapi/search/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  checkUserRole
-);
+  searchManData);
+
+router.get("/employeesapi/search/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchEmpData);
+
+router.get("/teamapi/search/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchTeam);
+
+router.get("/tasksData/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchTasks);
+
+router.get("/categoryData/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchCategory);
+
+// Authenticate
+// router.use(
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   checkUserRole
+// );
+
 // Page Render
 router.route("/dashboard").get(adminDashboard);
 router.route("/managers").get(managerpage);
@@ -100,14 +74,14 @@ router.delete("/employeesapi/:id", empDataDelete);
 router.get("/teamapi", teamData);
 router.get("/teamapi/:id", teamDetails);
 router.post("/teamapi/:id", updateTeamData);
-router.get("/teamapi/search/:searchdata", searchTeam);
 router.delete("/teamapi/:id", deleteTeam);
 
 // Task Router
+router.get("/tasksData", adminTasks);
+router.get("/tasksDetails/:id", taskDetail);
 
 // Category
 router.get("/categoryData", adminCategory);
-router.get("/categoryData/:searchdata", searchCategory);
 router.get("/categoryDetails/:id", categoryDetail);
 router.delete("/categoryData/:id", deleteCategory);
 

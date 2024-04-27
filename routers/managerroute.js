@@ -72,6 +72,12 @@ managerRouter.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   searchTask
 );
+managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
+// managerRouter.get(
+//   "/searchTask/:searchdata",
+//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+//   searchTask
+// );
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -149,5 +155,6 @@ managerRouter.post("/updateTaskStatus", updateTaskStatus);
 
 managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
+managerRouter.get("/getManagerTaskCount", taskCount);
 
 module.exports = managerRouter;
