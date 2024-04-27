@@ -17,6 +17,7 @@ exports.calenderMonth = async (request, response) => {
         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         var cal = new calendar.Calendar(calendar.SUNDAY);
         var yearCalendar = cal.monthdayscalendar(2024, current_month);
+
         return response.json({ days: days, yearCalendar: yearCalendar });
     } catch (err) {
         logger.error("Calendar not found it!");

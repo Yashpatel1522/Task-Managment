@@ -8,23 +8,55 @@
   <body>
     <nav aria-label="...">
       <ul class="pagination">
-        <div class="alert alert-info" id="nodata">
+        <!-- <div class="alert alert-info" id="nodata">
           <strong>no data found</strong>
-        </div>
+        </div> -->
         <li class="page-item">
-          <p class="page-link" id="first" onclick="firstPage1()">&lt;&lt;</p>
+          <p
+            class="page-link"
+            style="color: #0a1828"
+            id="first"
+            onclick="firstPage1()"
+          >
+            &lt;&lt;
+          </p>
         </li>
         <li class="page-item">
-          <p class="page-link" id="previous" onclick="previous1()">&lt;</p>
+          <p
+            class="page-link"
+            style="color: #0a1828"
+            id="previous"
+            onclick="previous1()"
+          >
+            &lt;
+          </p>
         </li>
         <li class="page-item active">
-          <span class="page-link" id="current_page"></span>
+          <span
+            class="page-link"
+            style="background-color: #0a1828"
+            id="current_page"
+          ></span>
         </li>
         <li class="page-item">
-          <p class="page-link" id="next" onclick="next1()">&gt;</p>
+          <p
+            class="page-link"
+            id="next"
+            style="color: #0a1828"
+            onclick="next1()"
+          >
+            &gt;
+          </p>
         </li>
         <li class="page-item">
-          <p class="page-link" id="last" onclick="lastPage1()">&gt;&gt;</p>
+          <p
+            class="page-link"
+            id="last"
+            style="color: #0a1828"
+            onclick="lastPage1()"
+          >
+            &gt;&gt;
+          </p>
         </li>
       </ul>
     </nav>

@@ -15,7 +15,7 @@
   <body onload="showteamdata()">
     <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
-      <div class="teamcontent pt-4">
+      <div class="teamcontent pt-4" onclick="closeProf()">
         <div class="row">
           <div class="col-9">
             <!-- <input
@@ -41,7 +41,7 @@
                 class="col-9 p-1"
                 style="
                   border-radius: 25px;
-                  background-color: #505050;
+                  background-color: var(--sidebarcolor);
                   width: 60%;
                   cursor: pointer;
                 "
@@ -95,12 +95,15 @@
           </div>
         </div>
         <div class="my-2">
+          <div id="errormsg"></div>
           <table class="table mx-2 text-center" id="team-table"></table>
         </div>
         <div class="addregistrationcontainer" id="show-detail">
           <div id="team-form"></div>
         </div>
-        <div class="justify-content-end"><%- include("pagignation.ejs")%></div>
+        <div class="justify-content-end" id="pagignation11">
+          <%- include("pagignation.ejs")%>
+        </div>
       </div>
       <div class="addtaskcontainer" id="popup">
         <%- include("addteam.ejs")%>

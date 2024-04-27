@@ -61,20 +61,15 @@ exports.updateTeamData = async (request, response) => {
     try {
         let team_id = request.params.id;
         let { team_name, member_id } = request.body;
-        let team_is_exit = await db.executeQuery("select * from teams where team_name = ? and is_active = ?", [team_name, 1]);
-        if (team_is_exit.length === 0) {
-            await db.updateAnd({ team_name: team_name }, "teams", { id: team_id });
-            await db.updateAnd({ is_deleted: 1 }, "team_members", { team_id: team_id });
-            member_id.split(",").forEach(async (element) => {
-                await db.insertData({ team_id: team_id, emp_id: element }, "team_members");
-            });
-            return response.json({ status: 200, msg: " Team Update Succefully" })
-        } else {
-            return response.json({ status: 500, msg: "Team Name Is Already Exists" })
-        }
-
+        await db.updateAnd({ team_name: team_name }, "teams", { id: team_id });
+        await db.updateAnd({ is_deleted: 1 }, "team_members", { team_id: team_id });
+        member_id.split(",").forEach(async (element) => {
+            await db.insertData({ team_id: team_id, emp_id: element }, "team_members");
+        });
+        return response.json({ status: 200, msg: " Team Update Succefully" })
     } catch (error) {
         logger.error("Team Not Update !")
+        return response.json({ status: 500, msg: "Team Name Is Already Exists" })
     }
 }
 

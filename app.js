@@ -61,4 +61,4 @@ app.use("/admin", adminroute);
 app.use("/employee", employeeroute);
 app.use("/login", login);
 app.use("/manager", managerroute);
-app.get("*",errorGet)
+app.get("*", errorGet);
