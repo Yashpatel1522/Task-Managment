@@ -1,7 +1,7 @@
 const database = require("../../helpers/database.helper");
 let db = new database();
 
-const ropleWiseSearchPermissionsGet = async (request, response) => {
+const roleWiseSearchPermissionsGet = async (request, response) => {
   let res = await db.executeQuery("select id from roles where role_name=?", [
     request.params.role,
   ]);
@@ -9,9 +9,9 @@ const ropleWiseSearchPermissionsGet = async (request, response) => {
 
   response.send(
     await db.executeQuery(
-      "select * from role_has_permissions where role_id=?",
+      "select * from permissions as p left join role_has_permissions as rhp on p.id=rhp.permission_id where rhp.role_id=?",
       [role_id]
     )
   );
 };
-module.exports = { ropleWiseSearchPermissionsGet };
+module.exports = { roleWiseSearchPermissionsGet };

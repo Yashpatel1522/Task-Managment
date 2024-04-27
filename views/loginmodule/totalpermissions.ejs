@@ -15,23 +15,18 @@
     }
   </style>
 </head>
-  <body onload="displayPermission('vendor')">
+  <body onload="fetchpermissions('admin')">
     <div class="d-flex" id="wrapper">
-      <!-- Sidebar -->
-      <%- include('../../components/adminsidebar.component.ejs'); %>
-        <!-- /#sidebar-wrapper -->
-  
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-          <%- include('../../components/adminheader.component.ejs'); %>
+     
           <div class="container-fluid px-4">
             <div class="row mb-3">
               <div class="col" style="display: flex; flex-direction: row-reverse;"><a class="admin-btn" style="width: fit-content;" href="/kartezy/rolepermission/addpermission"><i class="bi bi-pencil-square"></i>&nbsp;Edit</a></div>
             </div>
 
             <div class="row">
-              <div class="col-6"><p class="admin-btn" onclick="displayPermission('vendor')" id="vendorbtn">Vendor</p></div>
-              <div class="col-6"><p class="admin-btn" onclick="displayPermission('customer')" id="customerbtn">Customer</p></div>
+              <div class="col-4"><p class="admin-btn" onclick="fetchpermissions('admin')" id="vendorbtn" >admin</p></div>
+              <div class="col-4"><p class="admin-btn" onclick="fetchpermissions('manager')" id="customerbtn">manager</p></div>
+              <div class="col-4"><p class="admin-btn" onclick="fetchpermissions('employee')" id="customerbtn">employee</p></div>
             </div>
       
             <div class="row">
@@ -49,9 +44,6 @@
           </div>
         </div>
     </div>
+    <script src="/js/loginmodule/fetchperticulardata.js"></script>
   </body>
-  <!-- <script src="/js/vendorAdmin/script.js"></script>
-  <script src="/js/rolePermission/displayPermission.js"></script>
-  <script src="/js/getCookie.js"></script>
-  <script src="/js/rolePermission/updatePermission.js"></script> -->
 </html>

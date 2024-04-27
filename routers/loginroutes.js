@@ -28,13 +28,13 @@ const logout = require("../controller/loginmodule/logout.controller");
 const {
   rolePermissionsGet,
   allPermissionsGet,
+  displaySingleRoleHasPermissions,
 } = require("../controller/loginmodule/rolpermissions");
 const {
   updatePermission,
 } = require("../controller/loginmodule/updatepermissions");
-const {
-  ropleWiseSearchPermissionsGet,
-} = require("../controller/loginmodule/rolewisesearchpermissions.controller");
+const { roleWiseSearchPermissionsGet } = require("../controller/loginmodule/rolewisesearchpermissions.controller");
+
 const uploadStorage = multer({ storage: userProfileStorage });
 // const jwtStrategy=require('passport-jwt').Strategy;
 require("../middleware/jwtpassport");
@@ -72,8 +72,8 @@ login.get(
 login.get("/rolePerissions", rolePermissionsGet);
 login.get("/allpermissions", allPermissionsGet);
 login.post("/updatepermissions", updatePermission);
-login.get("/rolehaspermission/:role", ropleWiseSearchPermissionsGet);
-
+login.get("/rolehaspermission/:role", roleWiseSearchPermissionsGet);
+login.get("/showpermissions",displaySingleRoleHasPermissions)
 // login.get(
 //   "/dashboard",
 //   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
