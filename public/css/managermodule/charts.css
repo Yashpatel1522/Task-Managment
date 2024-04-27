@@ -18,6 +18,8 @@
 	padding: 15px;
 	border-top-right-radius: 30px;
 	background-color: var(--sidebarcolor);
+	position: fixed;
+  	left: 0;
 }
 
 .chartContent {
@@ -25,6 +27,7 @@
 	height: 1000px;
 	padding: 15px;
 	overflow: auto;
+	margin-left: 20%;
 }
 
 #profClk {

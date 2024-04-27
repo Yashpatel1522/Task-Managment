@@ -63,7 +63,6 @@ const uploadImage = multer({ storage: userProfileStorage });
 const managerRouter = express.Router();
 
 // // Displaying Tasks of manager
-
 managerRouter.get("/calenderData/:month", calenderMonth);
 managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
 
@@ -130,8 +129,6 @@ managerRouter.get("/getEmployees", employeeData);
 managerRouter.delete("/removeemployeapi/:id", removeEmployee);
 // api to get manager tasks
 managerRouter.get("/getManagerTasks", managerTasks);
-
-//api for Manager task Count
 
 // // api for get user,category from database
 managerRouter.get("/getdataapi", addtaskdata);

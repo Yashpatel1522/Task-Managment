@@ -7,6 +7,7 @@ async function loadProf() {
   }
 }
 
+flag = true;
 
 const showOption = async () => {
   if (
@@ -17,7 +18,16 @@ const showOption = async () => {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
+  flag = false;
 };
+
+function closeProf() {
+  const profDisp = document.getElementById('profClk');
+  if(flag) {
+    profDisp.style.display = 'none'
+  }
+  flag = true;
+}
 
 const monthplus = () => {
   month = document.getElementById("heading").innerText;
