@@ -18,12 +18,15 @@
 	padding: 15px;
 	border-top-right-radius: 30px;
 	background-color:var(--sidebarcolor);
+  position: fixed;
+  left: 0;
 }
 
-.teamcontent{
+.teamcontent {
 	width: 80%;
 	height: 1000px;
 	padding: 15px;
+  margin-left: 20%;
 }
 
 #taskstable {
@@ -48,7 +51,7 @@
   background-color: var(--tableheader);
   color:var(--white);
 }
-.allform{
+.allform {
   background-color: var(--white);
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;

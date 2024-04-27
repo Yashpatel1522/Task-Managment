@@ -58,18 +58,13 @@ const {
 } = require("../controller/managermodule/calender");
 const { reportGet } = require("../controller/employeemodule/reports");
 
-// const uploadImage = multer({ storage: userProfileStorage });
-// const addtaskdatamiddleware = require('../middleware/addtask');
-
-// const {upload, taskdetailfiles, userProfileStorage } = require("../utility/multer");
 const uploadStorage = multer({ storage: taskdetailfiles });
-// const uploadImage = multer({ storage: userProfileStorage });
+
 const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 
 // // Displaying Tasks of manager
-
 managerRouter.get("/calenderData/:month", calenderMonth);
 managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
 managerRouter.get(
@@ -130,8 +125,6 @@ managerRouter.get("/getEmployees", employeeData);
 managerRouter.delete("/removeemployeapi/:id", removeEmployee);
 // api to get manager tasks
 managerRouter.get("/getManagerTasks", managerTasks);
-
-//api for Manager task Count
 
 // // api for get user,category from database
 managerRouter.get("/getdataapi", addtaskdata);

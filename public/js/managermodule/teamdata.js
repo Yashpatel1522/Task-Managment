@@ -28,7 +28,7 @@ const showteamdata = async() => {
     document.getElementById('profImg').src = `/assets/employee/user.png`;
     document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
   }
-
+  
   pagignation("/manager/teamapi");
 };
 
