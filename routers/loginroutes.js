@@ -25,6 +25,7 @@ const {
   managerTasks,
 } = require("../controller/loginmodule/managertasks.controller");
 const logout = require("../controller/loginmodule/logout.controller");
+const { rolePermissionsGet } = require("../controller/loginmodule/rolpermissions");
 const uploadStorage = multer({ storage: userProfileStorage });
 // const jwtStrategy=require('passport-jwt').Strategy;
 require("../middleware/jwtpassport");
@@ -59,6 +60,7 @@ login.get(
   managerTasks
 );
 
+login.get("/rolePerissions",rolePermissionsGet)
 // login.get(
 //   "/dashboard",
 //   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),

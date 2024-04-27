@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Permissions</title>
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/boxicon/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+    <style>
+      .rcol:hover {
+        background-color: var(--main-bg-color);
+      }
+    </style>
+  </head>
+  <body onload="">
+    <form class="container-fluid px-4" id="addRolePermissionForm">
+      <div class="row mb-3">
+        <div class="col" style="display: flex; flex-direction: row-reverse">
+          <a
+            class="btn admin-btn"
+            style="width: fit-content"
+            href="/kartezy/rolepermission/modifypermission"
+            >Back</a
+          >
+        </div>
+      </div>
+      <div class="input-group">
+        <select name="roleName" class="form-select primary-text">
+          <option value="vendor" class="text-center">Admin</option>
+          <option value="customer" class="text-center">Manager</option>
+          <option value="customer" class="text-center">Employee</option>
+        </select>
+        <span class="btn admin-btn" onclick=""
+          ><i class="bi bi-shield-fill-plus"></i>&nbsp;Add Permission</span
+        >
+      </div>
+      <div style="overflow-y: auto; height: 80dvh" class="mt-3">
+        <table class="table table-hover" id="displaypermissions">
+          <tr>
+            <th class="text-center">Index</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">URL</th>
+            <th class="text-center">Method</th>
+            <th class="text-center">Create Time</th>
+            <th class="text-center">Operations</th>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </body>
+</html>
