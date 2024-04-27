@@ -15,7 +15,7 @@ exports.teamdetails = async (request, response) => {
   }
 };
 
-exports.showTeamDataForUpdate = async (request, response) => {
+exports.  showTeamDataForUpdate = async (request, response) => {
   try {
     let id = request.params.id;
     let teamData = await db.executeQuery(
