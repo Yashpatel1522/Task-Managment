@@ -1531,4 +1531,47 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:08:05.514Z"}
 {"level":"error","timestamp":"2024-04-26T13:08:12.157Z"}
 {"level":"error","timestamp":"2024-04-26T13:08:13.996Z"}
-{"level":"info","timestamp":"2024-04-26T13:08:19.206Z"}
+{"level":"info","timestamp":"2024-04-26T13:08:19.206Z"}{"level":"error","timestamp":"2024-04-27T03:22:55.728Z"}
+{"level":"info","timestamp":"2024-04-27T04:11:16.122Z"}
+{"level":"info","timestamp":"2024-04-27T04:11:24.233Z"}
+{"level":"error","timestamp":"2024-04-27T04:11:55.580Z"}
+{"level":"error","timestamp":"2024-04-27T04:11:58.626Z"}
+{"level":"error","timestamp":"2024-04-27T04:12:01.131Z"}
+{"level":"error","timestamp":"2024-04-27T04:12:18.571Z"}
+{"level":"info","timestamp":"2024-04-27T05:24:55.562Z"}
+{"level":"error","timestamp":"2024-04-27T05:26:04.385Z"}
+{"level":"error","timestamp":"2024-04-27T05:26:07.087Z"}
+{"level":"info","timestamp":"2024-04-27T05:26:34.005Z"}
+{"level":"info","timestamp":"2024-04-27T05:41:56.917Z"}
+{"level":"info","timestamp":"2024-04-27T05:42:28.098Z"}
+{"level":"error","timestamp":"2024-04-27T06:16:59.589Z"}
+{"level":"error","timestamp":"2024-04-27T06:17:13.523Z"}
+{"level":"info","timestamp":"2024-04-27T06:51:09.547Z"}
+{"level":"info","timestamp":"2024-04-27T06:51:18.113Z"}
+{"level":"error","timestamp":"2024-04-27T06:51:22.334Z"}
+{"level":"info","timestamp":"2024-04-27T06:51:23.738Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:06.647Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:07.697Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.253Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.552Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.741Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.951Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:21.156Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:25.742Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:26.367Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:58.069Z"}
+{"level":"error","timestamp":"2024-04-27T07:28:17.796Z"}
+{"level":"error","timestamp":"2024-04-27T07:28:22.658Z"}
+{"level":"error","timestamp":"2024-04-27T07:28:22.955Z"}
+{"level":"error","timestamp":"2024-04-27T07:28:23.187Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:47.705Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:48.218Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:48.476Z"}
+{"level":"error","timestamp":"2024-04-27T09:00:45.857Z"}
+{"level":"error","message":"Task data is not found !","timestamp":"2024-04-27T09:00:45.863Z"}
+{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:04:36.665Z"}
+{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:04:41.171Z"}
+{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:36.604Z"}
+{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:41.430Z"}
+{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
+{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
