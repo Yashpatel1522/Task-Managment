@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+
+    <title>Socket</title>
+    <style>
+      :root {
+        --fontcolor: #2e4374;
+      }
+      .font {
+        color: var(--fontcolor);
+      }
+      .containere {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1170px;
+      }
+      .main {
+        height: 100dvh;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+      }
+      .msg {
+        background-color: #2e4374;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="containere">
+        <div id="recver-msg" class="d-flex align-items-start flex-column">
+          <p class="alert alert-info p-3" style="width: fit-content">hello</p>
+          <p class="alert alert-info p-3" style="width: fit-content">hello</p>
+        </div>
+        <div id="sender-msg" class="d-flex align-items-end flex-column">
+          <p class="alert alert-info p-3" style="width: fit-content">hi</p>
+          <p class="alert alert-info p-3" style="width: fit-content">hi</p>
+        </div>
+        <form class="message_form" id="socket-form">
+          <div class="row">
+            <div class="col-md-11">
+              <input
+                type="text"
+                class="form-control fs-5"
+                id="msg"
+                name="content"
+                placeholder="Type a message"
+              />
+            </div>
+            <div class="col-md-1">
+              <p
+                class="form-control btn text-white"
+                style="background-color: var(--fontcolor)"
+                type="submit"
+                onclick="getUser()"
+              >
+                <i class="bi bi-send fs-5"></i>
+              </p>
+            </div>
+          </div>
+
+          <input type="text" name="sender_id" id="sender_id" hidden />
+          <input
+            type="text"
+            name="reciver_id"
+            id="reciver_id"
+            value="1015"
+            hidden
+          />
+        </form>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      const getUser = async () => {
+        let user = await (await fetch("/login/user")).json();
+        if (user.id != undefined) {
+          document.getElementById("sender_id").value = user.id;
+          const msg = document.getElementById("msg");
+          const data = new URLSearchParams(
+            new FormData(document.getElementById("socket-form"))
+          );
+          let response = await fetch("/admin/socket", {
+            method: "POST",
+            body: data,
+            headers: { "context-type": "application/x-www-form-urlencoded" },
+          });
+          const result = await response.json();
+          if (result.flag == true) {
+            socket.emit("recmsg", {
+              msg: msg.value,
+              senderId: user.id,
+              reciverId: 1015,
+            });
+          }
+        }
+      };
+      socket.on(`sendmsg`, (data) => {
+        console.log(data);
+      });
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 const getTaskData = async () => {
   try {
-    let data = await (await fetch(`/admin/tasksdata`)).json();
+    let data = await (await fetch(`/admin/tasksData`)).json();
     todoTask = document.getElementById("todoTask");
     let todoData = ``;
     data.todoData.forEach((e) => {
@@ -210,8 +210,9 @@ const openpopup2 = async (id) => {
         </div>`;
       let employees = await (await fetch(`/login/employee/${id}`)).json();
       employees.forEach((employee) => {
-        document.getElementById("emp").innerHTML += `<option value="volvo">${employee.first_name + "" + employee.last_name
-          }</option>`;
+        document.getElementById("emp").innerHTML += `<option value="volvo">${
+          employee.first_name + "" + employee.last_name
+        }</option>`;
       });
     }
   } catch (err) {

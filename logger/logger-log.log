@@ -1627,4 +1627,9 @@
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:41.430Z"}
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
->>>>>>> dev
+
+{"level":"error","timestamp":"2024-04-29T05:03:33.029Z"}
+{"level":"error","timestamp":"2024-04-29T05:04:53.646Z"}
+{"level":"info","timestamp":"2024-04-29T10:26:55.676Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"insert into chats(data)values('[object Object]')","sqlMessage":"Unknown column 'data' in 'field list'","sqlState":"42S22","timestamp":"2024-04-29T10:51:47.872Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"insert into chats(data)values('[object Object]')","sqlMessage":"Unknown column 'data' in 'field list'","sqlState":"42S22","timestamp":"2024-04-29T10:52:03.148Z"}

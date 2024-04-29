@@ -13,7 +13,8 @@ const managerroute = require("./routers/managerroute");
 const login = require("./routers/loginroutes");
 const { loginGet } = require("./controller/loginmodule/login.controller");
 const { errorGet } = require("./controller/loginmodule/error.controller");
-
+const socket = require("socket.io");
+const { request } = require("http");
 let PORT = process.env.PORT;
 
 app.use(
@@ -46,8 +47,12 @@ app.use(
   "/boxicon",
   express.static(path.join(__dirname, "/node_modules/boxicons"))
 );
+app.use(
+  "/socket.io",
+  express.static(path.join(__dirname, "/node_modules/socket.io/client-dist"))
+);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(
     `listen portno is : http://${process.env.HOST}:${process.env.PORT}`
   );
@@ -56,9 +61,27 @@ app.listen(PORT, () => {
 //   console.log(req.path);
 //   next();
 // });
+
 app.get("/", loginGet);
 app.use("/admin", adminroute);
 app.use("/employee", employeeroute);
 app.use("/login", login);
 app.use("/manager", managerroute);
 app.get("*", errorGet);
+const activeUsers = new Set();
+//socket.io
+
+const io = socket(server);
+
+io.on("connection", (socket) => {
+  console.log("Made socket connection");
+  socket.on("recmsg", (data) => {
+    console.log(data);
+    io.emit("sendmsg", data);
+  });
+});
+
+io.on("disconnect", () => {
+  activeUsers.delete(io.userId);
+  io.emit("user disconnected", io.userId);
+});
