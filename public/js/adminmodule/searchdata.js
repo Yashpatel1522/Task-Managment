@@ -22,7 +22,7 @@ const searchAllData = async (api, id, apifetch) => {
                 <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="editTeam(${element.id})"></td>
                 <td>
                 <input type="button" value="Delete" class="btn btn-danger px-3" onclick="teamDelete(${element.id})">
-                </td > `
+                </td > `;
         });
         document.getElementById(`${id}`).innerHTML = dataadd;
       } else {
@@ -55,7 +55,7 @@ const searchAllData = async (api, id, apifetch) => {
                 </td>
                 <td>
                 <input type="button" value="delete" class="btn btn-danger px-3" onclick="usersDeleteData(${element.id})">
-                </td>`
+                </td>`;
         });
         table.innerHTML = dataadd;
       } else {

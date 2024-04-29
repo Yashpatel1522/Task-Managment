@@ -5,7 +5,7 @@ const showNotification = () => {
     icon: "success",
     button: "oh yes!",
   });
-}
+};
 
 document.getElementById("change").addEventListener("change", function (event) {
   const file = event.target.files[0];
@@ -18,8 +18,6 @@ document.getElementById("change").addEventListener("change", function (event) {
   reader.readAsDataURL(file);
 });
 
-
-
 const logoutPopup = () => {
   try {
     Swal.fire({
@@ -29,16 +27,16 @@ const logoutPopup = () => {
       showCancelButton: true,
       confirmButtonColor: "#323232",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Logout!"
+      confirmButtonText: "Logout!",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
           title: "Log Out!",
           text: "Your Profile has been Logout.",
-          icon: "success"
+          icon: "success",
         }).then((result2) => {
           if (result2.isConfirmed) {
-            window.location.href = '/login/logout'
+            window.location.href = "/login/logout";
           }
         });
       }
@@ -46,11 +44,11 @@ const logoutPopup = () => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const showDropdown = () => {
   document.getElementById("dropdown").classList.toggle("show");
-}
+};
 
 const renderAdminProfile = (profileimg, profilevalue) => {
   let keys = Object.keys(profilevalue[0]);
@@ -60,11 +58,16 @@ const renderAdminProfile = (profileimg, profilevalue) => {
     }
   });
 
-  document.getElementById('selectedImage').src = `/assets/userprofiles/${profileimg[0].newimage_name}`
-  document.getElementById('admin_dashboard_img').src = `/assets/userprofiles/${profileimg[0].newimage_name}`
-  document.getElementById("user_name").innerHTML = `<strong>${profilevalue[0]["first_name"] + " " + profilevalue[0]["last_name"]}</strong>`
-
-}
+  document.getElementById(
+    "selectedImage"
+  ).src = `/assets/userprofiles/${profileimg[0].newimage_name}`;
+  document.getElementById(
+    "admin_dashboard_img"
+  ).src = `/assets/userprofiles/${profileimg[0].newimage_name}`;
+  document.getElementById("user_name").innerHTML = `<strong>${
+    profilevalue[0]["first_name"] + " " + profilevalue[0]["last_name"]
+  }</strong>`;
+};
 
 const loadAdminProfile = async () => {
   let response = await fetch(`/admin/profiledata`)
@@ -76,24 +79,24 @@ const loadAdminProfile = async () => {
       profilevalue = data.result;
       renderAdminProfile(profileimg, profilevalue);
     });
-}
+};
 
 loadAdminProfile();
 
 const adminProfile = async () => {
   if (isValidProfilDetails()) {
-    let adminForm = document.getElementById('adminprofileform');
+    let adminForm = document.getElementById("adminprofileform");
     let adminFormData = new FormData(adminForm);
     let res = await fetch(`/admin/profile`, {
-      method: 'POST',
-      body: adminFormData
-    })
+      method: "POST",
+      body: adminFormData,
+    });
     let result = await res.json();
     if (result.status === 200) {
       Swal.fire({
         icon: "success",
         title: "Profile Updated",
-        text: result.message
+        text: result.message,
       }).then(async (result2) => {
         if (result2.isConfirmed) {
           window.location.reload();
@@ -103,8 +106,8 @@ const adminProfile = async () => {
       Swal.fire({
         title: "Error",
         text: result.message,
-        icon: "error"
-      })
+        icon: "error",
+      });
     }
   }
-}
+};

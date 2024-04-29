@@ -51,7 +51,7 @@ const dragEvent = async () => {
         },
       });
     });
-  });
+  }); 
 
   // completedDragables.forEach(task => {
   //   task.addEventListener("dragend", () => {

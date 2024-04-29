@@ -99,14 +99,16 @@ const getCalender = async (month) => {
     let th = document.createElement("th");
     th.innerText = `${e}`;
     tr1.appendChild(th);
-  }); 
+  });
   calenderData.appendChild(tr1);
 
   for (let i = 0; i < data.yearCalendar.length; i++) {
     let tr = document.createElement("tr");
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
-      td.innerText += `${data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]}`;
+      td.innerText += `${
+        data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
+      }`;
       if (data.yearCalendar[i][j] === todayDate && m + 1 === month) {
         td.style.backgroundColor = "rgb(90, 150, 90)";
       }
@@ -134,5 +136,3 @@ const getCalender = async (month) => {
 let m = new Date().getMonth();
 body = document.getElementsByTagName("body")[0];
 body.onload = getCalender(m + 1);
-
-
