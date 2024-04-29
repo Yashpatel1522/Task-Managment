@@ -49,8 +49,26 @@ const renderProfileData = (profileData) => {
   document.getElementById('employee_name').innerHTML = `<strong>${profileData.userdata[0]["first_name"] + " " + profileData.userdata[0]["last_name"]}</strong>`
 };
 function showDropdown() {
-  document.getElementById("dropdown").classList.toggle("show");
+  document.getElementById("dropdown").classList.add("show");
 }
+
+window.onclick = function (event) {
+  if (!event.target.matches('.profile')) {
+
+    var sharedowns = document.getElementsByClassName("dropdown-content");
+    console.log(sharedowns,"_____________________________________")
+    var i;
+    for (i = 0; i < sharedowns.length; i++) {
+      var openSharedown = sharedowns[i];
+      if (openSharedown.classList.contains('show')) {
+        openSharedown.classList.remove('show');
+      }
+    }
+  }
+}
+document.getElementById("dropdown").addEventListener('click', function (event) {
+  event.stopPropagation();
+});
 
 async function loadProfile() {
   let response = await fetch("/employee/getprofiledata")
