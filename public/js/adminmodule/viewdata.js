@@ -33,20 +33,20 @@ const viewFetchData = async (api, id) => {
       </div>`
         dataadd += `<div class="row mb-3">
           <div class="col-md-12">
-              <label class="text-primary">Employee List :-</label>`
+              <label class="text-primary">Employee List :-</label>
+              <select class="form-control">`
         data.memberDetails.forEach(element => {
-          dataadd +=
-            `<input type="text" class="form-control" tabindex="2" id="first_name" name="first_name" value="${element.employees}" disabled>`
-
+          dataadd += `<option value = "${element.emp_id}"> ${element.employees}</option>`
         });
-        dataadd += `</div></div>
+        dataadd += `</select></div></div>
       <div class="row mb-3">
           <div class="col-md-12">
-              <label class="text-primary">Task List :-</label>`
+              <label class="text-primary">Task List :-</label>
+              <select class="form-control">`
         data.teamTask.forEach(element => {
-          dataadd += `<input type="text" class="form-control" tabindex="2" id="first_name" name="first_name" value="${element.task_name}" disabled>`
+          dataadd += `<option value = "${element.task_name}"> ${element.task_name}</option>`
         });
-        dataadd += `</div></div>`
+        dataadd += `</select></div></div>`
         document.getElementById("team-form").innerHTML = dataadd;
       }
     } else {
@@ -98,11 +98,16 @@ const viewFetchData = async (api, id) => {
           `<div class="row mb-3">
               <div class="col-md-12">
                 <lable class="text-primary">Task List</lable>
-                <input type="text" class="form-control" id="task_list" name="date_of_birth" value="${data.result2[0].task_name}" disabled>
-              </div>
-            </div>`
+                <select class="form-control">`
+        data.result2.forEach(element => {
+          userdata += `<option value = "${element.id}"> ${element.task_name}</option>`
+        });
+        userdata += `</select>
+                  </div>
+              </div>`
       }
       userdata += `</div>`
+      console.log(userdata);
       document.getElementById(`${id}`).innerHTML = userdata;
     }
   } catch (error) {

@@ -27,14 +27,14 @@ const logoutPopup = () => {
       text: "You Logout this page !",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#323232",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Logout!"
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "Log Out!",
+          text: "Your Profile has been Logout.",
           icon: "success"
         }).then((result2) => {
           if (result2.isConfirmed) {

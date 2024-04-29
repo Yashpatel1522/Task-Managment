@@ -36,7 +36,7 @@ function createTable(tableData, section) {
 
     temp += `<tr>`;
     vals.map((val) => {
-      temp += `<td class="${assignBadge(val)}"><div>${val}</div></td>`;
+      temp += `<td><div class="${assignBadge(val)}">${val}</div></td>`;
     });
     temp += `</tr>`;
   });

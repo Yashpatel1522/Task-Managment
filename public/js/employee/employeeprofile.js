@@ -44,8 +44,6 @@ const renderProfileData = (profileData) => {
     }
   });
   let profileImageName = profileData.imagename[0].newimage_name;
-  console.log(profileImageName);
-  // console.log(document.getElementById('selectedImage'));
   document.getElementById('selectedImage').src = `/assets/userprofiles/${profileImageName}`
   document.getElementById('employee_dashboard_img').src = `/assets/userprofiles/${profileImageName}`
   document.getElementById('employee_name').innerHTML = `<strong>${profileData.userdata[0]["first_name"] + " " + profileData.userdata[0]["last_name"]}</strong>`
