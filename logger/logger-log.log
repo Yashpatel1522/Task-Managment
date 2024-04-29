@@ -1683,6 +1683,22 @@
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:41.430Z"}
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
+<<<<<<< HEAD
+>>>>>>> dev
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:18:56.322Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:28:53.839Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:30:17.322Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:31:15.455Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:38:39.675Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:39:15.050Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:51:39.890Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:06.885Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:43.935Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:56:51.721Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:57:34.247Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:22.816Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:24.242Z"}
+=======
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:18.787Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:32.258Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:38.703Z"}
