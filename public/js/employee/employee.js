@@ -269,7 +269,31 @@ async function addcomment() {
       method: "POST",
       body: formData,
     }
-  );
+  ).then(
+    (response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    }
+  )
+  .then((response) => {
+    if (response.msg == "added") {
+      Swal.fire({
+        title: "Done",
+        text: "Your comment is succesfully added",
+        icon: "success",
+      }).then(function () {
+        window.location.reload();
+      });
+    } else {
+      Swal.fire({
+        title: "Done",
+        text: "Error while adding your comment",
+        icon: "error",
+      })
+    }
+  })
   let data = await response.json();
   if (data.msg == "done") {
     hideComment("popup-comment");

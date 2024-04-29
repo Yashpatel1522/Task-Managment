@@ -9,7 +9,7 @@ const teamlist = async (req, res) => {
   try {
     res.render("employeemodule/emplyeeteam");
   } catch (err) {
-    logger.error("Employee Task data is not found !");
+    logger.error("Employee Team data is not found !");
   }
 };
 
@@ -17,7 +17,7 @@ const teamdata = async (req, res) => {
   try {
     // id = req.params.id
     const query = `select t.id,t.team_name,u.first_name,m.emp_id from teams as t inner join team_members as m on t.id=m.team_id inner join users as u on t.created_by=u.id where (t.is_active=1 and m.is_deleted=0 and m.emp_id=?)`//employee in how many team
-    let result = await db.executeQuery(query, [1])
+    let result = await db.executeQuery(query, [4])
     res.json(result)
   }
   catch (error) {
