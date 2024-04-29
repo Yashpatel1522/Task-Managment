@@ -1,6 +1,6 @@
-const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 const { insertChat } = require("../../services/socket.io/insertchat");
+const { messagedisplay } = require("../../services/socket.io/messgedisplay");
 exports.socketGet = (request, response) => {
   try {
     response.render("adminmodule/socket.io.ejs");
@@ -19,5 +19,18 @@ exports.socketPost = async (request, response) => {
     }
   } catch (err) {
     logger.info(err);
+  }
+};
+
+exports.messageDisplay = async (request, response) => {
+  try {
+    let result = await messagedisplay(request.body);
+    if (result.flag == true) {
+      response.status(200).send(result);
+    } else {
+      response.status(500).send(result);
+    }
+  } catch (err) {
+    logger.log(err);
   }
 };

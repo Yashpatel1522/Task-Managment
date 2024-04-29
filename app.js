@@ -80,7 +80,7 @@ io.on("connection", (socket) => {
     io.emit("sendmsg", data);
   });
 });
-
+  
 io.on("disconnect", () => {
   activeUsers.delete(io.userId);
   io.emit("user disconnected", io.userId);

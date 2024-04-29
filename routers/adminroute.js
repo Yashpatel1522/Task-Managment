@@ -56,7 +56,7 @@ const {
 const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
 const checkUserRole = require("../middleware/userrole");
-const { socketGet, socketPost } = require("../controller/adminmodule/socket.io");
+const { socketGet, socketPost, messageDisplay } = require("../controller/adminmodule/socket.io");
 
 // All Searching Data Admin Pannel
 router.get(
@@ -99,6 +99,11 @@ router.post(
   "/socket",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   socketPost  
+)
+router.post(
+  "/messagedisplay",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  messageDisplay  
 )
 
 router.use(

@@ -35,13 +35,17 @@
   <body>
     <div class="main">
       <div class="containere">
-        <div id="recver-msg" class="d-flex align-items-start flex-column">
-          <p class="alert alert-info p-3" style="width: fit-content">hello</p>
-          <p class="alert alert-info p-3" style="width: fit-content">hello</p>
-        </div>
-        <div id="sender-msg" class="d-flex align-items-end flex-column">
-          <p class="alert alert-info p-3" style="width: fit-content">hi</p>
-          <p class="alert alert-info p-3" style="width: fit-content">hi</p>
+        <div
+          class="msg-zone"
+          id="msg-zone"
+          style="overflow-y: scroll; height: 100dvh"
+        >
+          <div id="recver-msg" class="d-flex align-items-start flex-column">
+            <p class="alert alert-info p-3" style="width: fit-content">hello</p>
+          </div>
+          <div id="sender-msg" class="d-flex align-items-end flex-column">
+            <p class="alert alert-info p-3" style="width: fit-content">hi</p>
+          </div>
         </div>
         <form class="message_form" id="socket-form">
           <div class="row">
@@ -105,8 +109,37 @@
           }
         }
       };
-      socket.on(`sendmsg`, (data) => {
-        console.log(data);
+      socket.on(`sendmsg`, async (data) => {
+        let formdata = new FormData();
+        formdata.append("sender_id", data.senderId);
+        formdata.append("reciver_id", data.reciverId);
+
+        let response = await fetch("/admin/messagedisplay", {
+          method: "POST",
+          body: new URLSearchParams(formdata),
+          headers: { "context-type": "application/x-www-form-urlencoded" },
+        });
+        console.log("hello");
+        const result = await response.json();
+        // console.log(result);
+        console.log("hello2");
+
+        if (result.flag == true) {
+          let displaymasseges = document.getElementById("msg-zone");
+          displaymasseges.innerHTML = "";
+          console.log(result.data);
+          result.data.forEach((msg) => {
+            if (msg.sender_id == data.senderId) {
+              displaymasseges.innerHTML += `<div id="sender-msg" class="d-flex align-items-end flex-column">
+              <p class="alert alert-info p-3" style="width: fit-content">${msg.content}</p>
+            </div>`;
+            } else {
+              displaymasseges.innerHTML += `<div id="recver-msg" class="d-flex align-items-start flex-column">
+                <p class="alert alert-info p-3" style="width: fit-content">${msg.content}</p>
+              </div>`;
+            }
+          });
+        }
       });
     </script>
   </body>
