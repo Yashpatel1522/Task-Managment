@@ -77,13 +77,12 @@ const openpopup3 = async (id) => {
           </div>
           <div class="row mb-3">
           <div class="col-md-12">
-              <label class="text-primary">Tasks :</label>`
+              <label class="text-primary">Tasks :</label>
+              <select class="form-control" multiple>`
       categoryDetail.viewCategory.forEach(e => {
-        categoryData += `
-         <input type="text" class="form-control" tabindex="2" id="task_name" name="task_name"
-                    value="${e.task_name}" disabled>`
+        categoryData += `<option value = "${e.task_name}"> ${e.task_name}</option>`
       });
-      categoryData += `</div></div></div>`
+      categoryData += `</select></div></div></div>`
       document.getElementById("viewCategory").innerHTML = categoryData
 
     } else {

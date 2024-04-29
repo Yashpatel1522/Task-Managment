@@ -1685,3 +1685,21 @@
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
 >>>>>>> dev
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:18.787Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:32.258Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:38.703Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T03:41:16.630Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.924Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.933Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:51:58.276Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:52:39.550Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:57:04.808Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='24'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:26.101Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:43.608Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:00.633Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:02.744Z"}
+{"level":"error","timestamp":"2024-04-29T06:08:12.084Z"}
+{"level":"error","timestamp":"2024-04-29T08:51:17.591Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-29T08:52:24.189Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:50.556Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:52.377Z"}
