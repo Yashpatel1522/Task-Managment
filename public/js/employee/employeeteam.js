@@ -6,7 +6,6 @@ async function viewteamdata() {
     document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
     <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`
   });
-  console.log(data, "data is")
 
 }
 let ides_team = (id) => document.getElementById(id);
