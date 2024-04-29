@@ -24,7 +24,7 @@ exports.managerDetails = async (request, response) => {
     try {
         let managerId = request.params.id;
         let managerDetail = await db.executeQuery(`select users.* from users left join roles on users.role_id = roles.id where role_name = ? and users.id = ? and users.status = ?`, ["Manager", managerId, 1]);
-        let managerTask = await db.executeQuery(`select u.id, u.first_name, t.task_name, t.manager_id from users as u inner join tasks as t on u.id = t.manager_id where t.manager_id = ?`, [managerId])
+        let managerTask = await db.executeQuery(`select u.id, u.first_name, t.task_name, t.manager_id from users as u inner join tasks as t on u.id = t.manager_id where t.manager_id = ? and role_id = ?`, [managerId, 2])
         return response.json({ result: managerDetail, result2: managerTask });
     } catch (error) {
         logger.error("Manager data is not found !");

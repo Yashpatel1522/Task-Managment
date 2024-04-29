@@ -68,7 +68,7 @@ const addcomment = async (req, res) => {
             let reports = {
                 user_id: id,
                 task_id: req.params.taskid,
-                started_at: `${year}-${month + 1}-${day} ' ' ${hour}:${minute}:${seconds}`
+                startat_at: `${year}-${month + 1}-${day} ' ' ${hour}:${minute}:${seconds}`
             }
             let result = await db.insertData(reports, "reports")
         }

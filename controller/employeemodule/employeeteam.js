@@ -51,7 +51,7 @@ const teamsearchdetails = async (req, res) => {
     let search = "%" + req.params.searchteam + "%";
     let searchTeam = await db.executeQuery(
       `select t.id,t.team_name,u.first_name from teams as t inner join team_members as m on m.team_id=t.id inner join users as u on u.id=t.created_by where m.emp_id=? and t.team_name like ?`,
-      [1,search]
+      [1, search]
     );
     return res.json(searchTeam);
   } catch (error) {

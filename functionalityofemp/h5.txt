@@ -2,3 +2,13 @@ daily work added
 
 Date 09/04/2024 : Database create and admin panel design work
 Date 10/04/2024 : Admin Module router set 
+
+//reports table
+create table reports (
+id int primary key auto_increment,
+task_id int,
+foreign key (task_id) references tasks(id),
+user_id int,
+foreign key (user_id) references users(id),
+startat_at timestamp,
+finished_at timestamp);
