@@ -71,17 +71,20 @@ managerRouter.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   searchTask
 );
-managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
-// managerRouter.get(
-//   "/searchTask/:searchdata",
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   searchTask
-// );
+managerRouter.get(
+  "/searchTask/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchTask
+);
+
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
+  
+managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 
 // Displaying Employee details
 managerRouter.get("/employeeDetails", employeeView);
@@ -111,7 +114,6 @@ managerRouter.get("/teamapi", teamdetails);
 managerRouter.get("/getManagerTaskCount", taskCount);
 
 //api to get upcoming manager tasks
-managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 
 //api to Update Manager Profile Details
 managerRouter.post(

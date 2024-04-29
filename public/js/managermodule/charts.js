@@ -5,11 +5,20 @@ const drawCharts = async () => {
     window.location.origin + `/manager/getManagerUpcomingTasks`
   );
   let taskData = await taskResponse.json();
+  console.log();
   if (taskData.result[0]) {
     taskData.result.forEach((element) => {
       document.getElementById(
         "upcomingTasks"
       ).innerHTML += `<p>${element.task_name}</p>`;
+    });
+  }
+
+  if (taskData.teamResult[0]) {
+    taskData.teamResult.forEach((element) => {
+      document.getElementById(
+        "teams"
+      ).innerHTML += `<p>${element.team_name}</p>`;
     });
   }
 
