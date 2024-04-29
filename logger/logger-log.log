@@ -1752,3 +1752,9 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:45:59.878Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:02.960Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:41.643Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:33:19.830Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:35:56.323Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:18.209Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:53.694Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:10.258Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:25.702Z"}

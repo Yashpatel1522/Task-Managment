@@ -326,3 +326,9 @@ body {
 .table-responsive {
   max-height: 200px;
 }
+
+.not-found {
+  text-align: center;
+  font-size: larger;
+  font-weight: 400;
+}
