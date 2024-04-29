@@ -46,8 +46,11 @@ exports.adminDashboard = async (request, response) => {
 
 exports.chartsData = async (request, response) => {
     try {
-        let chartData = await db.executeQuery(`select task_status as label , count(*) as data from tasks group by task_status`);
-        return response.json({ chartData })
+        let countquery = `select task_status as label , count(*) as data from tasks where status = 1 group by task_status having task_status = ?`
+        let todoCount = await db.executeQuery(countquery,["todo"]);
+        let inprogressCount = await db.executeQuery(countquery, ["inprogress"]);
+        let completedCount = await db.executeQuery(countquery, ["completed"]);
+        return response.json({ todoCount,inprogressCount,completedCount })
     } catch (err) {
         logger.error("Admin dashboard data error !")
     }
