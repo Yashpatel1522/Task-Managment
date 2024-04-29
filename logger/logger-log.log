@@ -1685,3 +1685,9 @@
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
 >>>>>>> dev
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:25:54.133Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:00.042Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:39.153Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:45:59.878Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:02.960Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:41.643Z"}

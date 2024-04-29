@@ -1,20 +1,28 @@
-let label = [];
-let data = [];
-
 const chartShow = async () => {
   let result = await (await fetch(`/admin/chartsData`)).json();
-  result.chartData.forEach(e => {
-    label.push(e.label);
-    data.push(e.data);
-  });
+  let todo = 0
+  if (result.todoCount[0]!= undefined){
+    todo = result.todoCount[0].data;
+  }
+
+  let inprogress = 0
+  if (result.inprogressCount[0]!=undefined) {
+    inprogress = result.inprogressCount[0].data;
+  }
+
+  let compleated = 0
+  if (result.completedCount[0]!=undefined) {
+    compleated = result.completedCount[0].data;
+  }
+
   const Pieadmin = {
-    series: data,
+    series: [todo , inprogress , compleated],
     chart: {
       height: 400,
       width: 400,
       type: 'pie',
     },
-    labels: ['Todo', 'In Progress', 'Completed'],
+    labels: ['To do', 'In Progress', 'Completed'],
     responsive: [{
       breakpoint: 480,
       options: {
