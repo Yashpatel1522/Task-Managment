@@ -22,7 +22,7 @@ async function fetchData() {
   response = await fetch(`/employee/employeetasklist/${id}`);
   data = await response.json();
   employeedata = data;
-  
+
   function setCard(id, element) {
     document.getElementById(`${id}`).innerHTML += `
       <div class="card1 mx-3 p-2" onclick="show('popup','${element.task_id}')">
@@ -212,13 +212,10 @@ const seachresultnew = async (value) => {
     }
     data.forEach((element) => {
       if (element.task_status == "todo") {
-        // ides("todo").removeAttribute("style");
         resetCard("todoTask", element);
       } else if (element.task_status == "inprogress") {
-        // ides("inprogress").removeAttribute("style");
         resetCard("inprogressTask", element);
       } else if (element.task_status == "completed") {
-        // ides("completed").removeAttribute("style");
         resetCard("completedTask", element);
       }
       switch (element.urgency_id) {
@@ -257,7 +254,7 @@ const seachresultnew = async (value) => {
 }
 
 async function addcomment() {
-  new Date();
+  // new Date();
   const formData = new FormData();
   const fields = ["taskcomment", "taskstatus"];
   formData.append("file", document.getElementById("file"));
@@ -272,7 +269,31 @@ async function addcomment() {
       method: "POST",
       body: formData,
     }
-  );
+  ).then(
+    (response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    }
+  )
+  .then((response) => {
+    if (response.msg == "added") {
+      Swal.fire({
+        title: "Done",
+        text: "Your comment is succesfully added",
+        icon: "success",
+      }).then(function () {
+        window.location.reload();
+      });
+    } else {
+      Swal.fire({
+        title: "Done",
+        text: "Error while adding your comment",
+        icon: "error",
+      })
+    }
+  })
   let data = await response.json();
   if (data.msg == "done") {
     hideComment("popup-comment");

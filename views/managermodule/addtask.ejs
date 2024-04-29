@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <style>
-    .cont {
-      background-color: #f6f6f6;
-      width: 70dvh;
-      margin: 0 auto;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-        rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    }
-  </style>
+<style>
+  .cont {
+    background-color: #f6f6f6;
+    /* width: 70dvh; */
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+</style>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="/css/managermodule/addtask.css"> -->
-    <title>addtask</title>
-    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="stylesheet" href="/css/managermodule/addtask.css"> -->
+  <title>addtask</title>
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+</head>
 
-  <body>
-    <form id="taskForm" name="taskform" enctype="multipart/form-data">
-      <!-- <div class="addtaskcontainer"> -->
-      <!-- <div class="addtask">
+<body>
+  <form id="taskForm" name="taskform" enctype="multipart/form-data">
+    <!-- <div class="addtaskcontainer"> -->
+    <!-- <div class="addtask">
       <div class="taskrow">
         <h3>ADD TASK</h3>
       </div>
@@ -131,195 +131,117 @@
           </div>
         </div>
       </div> -->
-      <div class="cont">
-        <div class="row mb-2">
-          <div class="col-md-11">
-            <h3 class="text-center text-primary">ADD TASK</h3>
-          </div>
-          <div class="col-md-1">
-            <i
-              class="bx bxs-x-circle text-danger fs-2"
-              onclick="closePopup()"
-            ></i>
-          </div>
+    <div class="cont width:fit-content p-4">
+      <div class="row mb-2">
+        <div class="col-md-11">
+          <h3 class="text-center text-primary">ADD TASK</h3>
         </div>
-        <div class="row mb-2">
-          <div class="col-md-12">
-            <label for="tname" class="text-primary">Task Name</label>
-            <input
-              type="text"
-              name="task_name"
-              placeholder="Test task"
-              id="task_name"
-              class="reqfieled form-control"
-            />
-            <span class="errclass" id="tnerr"></span>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <label for="assignto" id="Assin_task" class="text-primary"
-              >Assign Task To employe</label
-            >
-            <select
-              id="Assin_task_to"
-              name="Assin_task_to"
-              class="form-control"
-              multiple
-            >
-              <option value="0">Select</option>
-            </select>
-            <!-- <span class="reqselecterr" id="aterr"></span> -->
-          </div>
-          <div class="col-md-6">
-            <label for="assignto" id="Assin_task" class="text-primary"
-              >Assign Task To Team</label
-            >
-            <select
-              id="Assin_task_to_team"
-              name="Assin_task_to_team"
-              class="form-control"
-              multiple
-            >
-              <option value="0">Select</option>
-            </select>
-            <!-- <span class="reqselecterr" id="aterr"></span> -->
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <label for="tstage" id="task_stage" class="text-primary"
-              >Task Stage</label
-            >
-            <select name="task_status" class="reqselect form-control">
-              <option value="0">Select</option>
-              <option value="todo">To Do</option>
-              <option value="inprogress">In Progress</option>
-              <option value="completed">Completed</option>
-            </select>
-            <span class="reqselecterr" id="tserr"></span>
-          </div>
-          <div class="col-md-6">
-            <label for="category" id="taskcategory" class="text-primary"
-              >Category</label
-            >
-            <select
-              id="task_category"
-              name="task_category"
-              class="reqselect form-control"
-            >
-              <option value="0">Select</option>
-            </select>
-            <span class="reqselecterr" id="cterr"></span>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <label for="sdate" class="text-primary">Task Start Date</label>
-            <input
-              type="text"
-              placeholder="Task Start Date"
-              name="task_start_date"
-              id="task_start_date"
-              class="reqfieled form-control"
-            />
-            <span class="errclass" id="dateerr"></span>
-          </div>
-          <div class="col-md-6">
-            <label for="edate" class="text-primary">Task Due Date</label>
-            <input
-              type="text"
-              placeholder="Due date"
-              name="task_end_date"
-              id="task_end_date"
-              class="reqfieled form-control"
-            />
-            <span class="errclass" id="dateerr2"></span>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-12">
-            <label for="task descriptions" class="text-primary"
-              >Descriptions</label
-            >
-            <input
-              type="text"
-              name="task_description"
-              placeholder="Descriptions"
-              id="task_description"
-              class="reqfieled form-control"
-            />
-            <span class="errclass" id="descriptionserr"></span>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <label for="ilavel" id="ilevel" class="text-primary"
-              >Important Level</label
-            >
-            <select
-              id="impotant_level"
-              name="impotant_level"
-              class="reqselect form-control"
-            >
-              <option value="0">Select</option>
-            </select>
-            <span class="reqselecterr" id="ilerr"></span>
-          </div>
-          <div class="col-md-6">
-            <label for="ulevel" id="ulevel" class="text-primary"
-              >Urgency Level</label
-            >
-            <select
-              id="urgency_level"
-              name="urgency_level"
-              class="reqselect form-control"
-            >
-              <option value="0">Select</option>
-            </select>
-            <span class="reqselecterr" id="ulerr"></span>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-12">
-            <label for="task descriptions" class="text-primary"
-              >Attachments</label
-            >
-            <input
-              type="file"
-              name="files"
-              id="files"
-              multiple
-              class="form-control"
-            />
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-md-6 p-2">
-            <input
-              type="button"
-              class="btn btn-primary form-control"
-              id="savebtn"
-              value="Save"
-              onclick="insertTaskData()"
-            />
-          </div>
-          <div class="col-md-6 p-2">
-            <input
-              type="button"
-              class="btn btn-danger form-control"
-              id="resetbtn"
-              value="Reset"
-              onclick="onReset()"
-            />
-          </div>
+        <div class="col-md-1">
+          <i class="bx bxs-x-circle text-danger fs-2" onclick="closePopup()"></i>
         </div>
       </div>
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <label for="tname" class="text-primary">Task Name</label>
+          <input type="text" name="task_name" placeholder="Test task" id="task_name" class="reqfieled form-control" />
+          <span class="errclass" id="tnerr"></span>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <label for="assignto" id="Assin_task" class="text-primary">Assign Task To employe</label>
+          <select id="Assin_task_to" name="Assin_task_to" class="form-control" multiple>
+            <option value="0">Select</option>
+          </select>
+          <!-- <span class="reqselecterr" id="aterr"></span> -->
+        </div>
+        <div class="col-md-6">
+          <label for="assignto" id="Assin_task" class="text-primary">Assign Task To Team</label>
+          <select id="Assin_task_to_team" name="Assin_task_to_team" class="form-control" multiple>
+            <option value="0">Select</option>
+          </select>
+          <!-- <span class="reqselecterr" id="aterr"></span> -->
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <label for="tstage" id="task_stage" class="text-primary">Task Stage</label>
+          <select name="task_status" class="reqselect form-control">
+            <option value="0">Select</option>
+            <option value="todo">To Do</option>
+            <option value="inprogress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <span class="reqselecterr" id="tserr"></span>
+        </div>
+        <div class="col-md-6">
+          <label for="category" id="taskcategory" class="text-primary">Category</label>
+          <select id="task_category" name="task_category" class="reqselect form-control">
+            <option value="0">Select</option>
+          </select>
+          <span class="reqselecterr" id="cterr"></span>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <label for="sdate" class="text-primary">Task Start Date</label>
+          <input type="text" placeholder="Task Start Date" name="task_start_date" id="task_start_date"
+            class="reqfieled form-control" />
+          <span class="errclass" id="dateerr"></span>
+        </div>
+        <div class="col-md-6">
+          <label for="edate" class="text-primary">Task Due Date</label>
+          <input type="text" placeholder="Due date" name="task_end_date" id="task_end_date"
+            class="reqfieled form-control" />
+          <span class="errclass" id="dateerr2"></span>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <label for="task descriptions" class="text-primary">Descriptions</label>
+          <input type="text" name="task_description" placeholder="Descriptions" id="task_description"
+            class="reqfieled form-control" />
+          <span class="errclass" id="descriptionserr"></span>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <label for="ilavel" id="ilevel" class="text-primary">Important Level</label>
+          <select id="impotant_level" name="impotant_level" class="reqselect form-control">
+            <option value="0">Select</option>
+          </select>
+          <span class="reqselecterr" id="ilerr"></span>
+        </div>
+        <div class="col-md-6">
+          <label for="ulevel" id="ulevel" class="text-primary">Urgency Level</label>
+          <select id="urgency_level" name="urgency_level" class="reqselect form-control">
+            <option value="0">Select</option>
+          </select>
+          <span class="reqselecterr" id="ulerr"></span>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <label for="task descriptions" class="text-primary">Attachments</label>
+          <input type="file" name="files" id="files" multiple class="form-control" />
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6 p-2">
+          <input type="button" class="btn btn-primary form-control" id="savebtn" value="Save"
+            onclick="insertTaskData()" />
+        </div>
+        <div class="col-md-6 p-2">
+          <input type="button" class="btn btn-danger form-control" id="resetbtn" value="Reset" onclick="onReset()" />
+        </div>
+      </div>
+    </div>
 
-      <!-- </div>
+    <!-- </div>
     </div> -->
-      <!-- </div> -->
-    </form>
-    <script src="/js/managermodule/addtask.js"></script>
-  </body>
+    <!-- </div> -->
+  </form>
+  <script src="/js/managermodule/addtask.js"></script>
+</body>
+
 </html>

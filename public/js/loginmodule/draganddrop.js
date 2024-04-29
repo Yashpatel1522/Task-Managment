@@ -84,18 +84,18 @@ const dragEvent = async () => {
 };
 
 // const insetAboveTask = (zone, mouse) => {
-  // const els = zone.querySelectorAll(".tasks:not(.is-dragging)");
-  // // console.log(els);
-  // let closestTask;
-  // let closestOffSet = Number.NEGATIVE_INFINITY;
-  // els.forEach((task) => {
-  //   console.log(els);
-  //   const { top } = task.getBoundingClientRect();
-  //   console.log(mouse - top);
-  //   // const offset = mouse - top;
-  //   if (offset < 0 && offset > closestOffSet) {
-  //     closestOffSet = offset;
-  //     closestTask = task;
-  //   }
-  // });
+// const els = zone.querySelectorAll(".tasks:not(.is-dragging)");
+// // console.log(els);
+// let closestTask;
+// let closestOffSet = Number.NEGATIVE_INFINITY;
+// els.forEach((task) => {
+//   console.log(els);
+//   const { top } = task.getBoundingClientRect();
+//   console.log(mouse - top);
+//   // const offset = mouse - top;
+//   if (offset < 0 && offset > closestOffSet) {
+//     closestOffSet = offset;
+//     closestTask = task;
+//   }
+// });
 // };

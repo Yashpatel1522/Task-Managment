@@ -208,12 +208,21 @@ const openpopup2 = async (id) => {
             </div>
           </div>
         </div>`;
-      let employees = await (await fetch(`/login/employee/${id}`)).json();
-      employees.forEach((employee) => {
-        document.getElementById("emp").innerHTML += `<option value="volvo">${
-          employee.first_name + "" + employee.last_name
-        }</option>`;
+      data.employees.forEach((e) => {
+        document.getElementById(
+          "emp"
+        ).innerHTML += `<option value="${e.emp_id}">${e.employee}</option>`;
       });
+      data.teamhastask.forEach((e) => {
+        document.getElementById(
+          "emp"
+        ).innerHTML += `<option value="${e.team_id}">${e.team_name}</option>`;
+      });
+      // let employees = await (await fetch(`/login/employee/${id}`)).json();
+      // employees.forEach((employee) => {
+      //   document.getElementById("emp").innerHTML += `<option value = "volvo" > ${employee.first_name + "" + employee.last_name
+      //     }</option>`;
+      // });
     }
   } catch (err) {
     console.log(err);
@@ -231,7 +240,7 @@ const taskDetails = async () => {
   await getTaskData();
   await dragEvent();
   // async function getData() {
-  //   let url = window.location.origin + `/manager/getManagerTaskCount`;
+  //   let url = window.location.origin + `/ manager / getManagerTaskCount`;
   //   let response = await fetch(url);
   //   let data = await response.json();
   //   console.log(data);

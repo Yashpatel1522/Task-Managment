@@ -6,7 +6,6 @@ async function viewteamdata() {
     document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
     <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`
   });
-  console.log(data, "data is")
 
 }
 let ides_team = (id) => document.getElementById(id);
@@ -51,25 +50,25 @@ viewteamdata()
 
 
 
-const seachresultteam = async () => {
+const searchTeam = async (value) => {
 
-  let svalue = document.getElementById('searchteam').value
-  console.log(svalue);
-  if (svalue === "") {
+  if (value === "") {
     document.getElementById("details").innerHTML = `<tr>
     <th> Team Name</th>
+    <th>Manager</th>
     <th>Members Details</th></tr>`;
     viewteamdata()
   }
-  let response = await (fetch(`/employee/teamsearchdetails/${svalue}`))
+  let response = await (fetch(`/employee/teamsearchdetails/${value}`))
   let data = await response.json();
 
   document.getElementById("details").innerHTML = `<tr>
     <th> Team Name</th>
+    <th>Manager</th>
     <th>Members Details</th></tr>`;
   if (data.length != 0) {
     data.forEach(element => {
-      document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td>
+      document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
     <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`
     });
   }

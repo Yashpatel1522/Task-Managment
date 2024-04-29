@@ -32,8 +32,8 @@ exports.empcalenderMonth = async (request, response) => {
 
 exports.empdueDateTask = async (request, response) => {
   try {
-    let q = `select task_name, DATE_FORMAT(task_end_date, "%Y-%m-%d") as end_date from tasks join tasks_assigend_to on tasks.id=tasks_assigend_to.task_id where (tasks.task_status="inprogress" or tasks.task_status="todo") and tasks_assigend_to.emp_id=${request.user.id} and year(task_end_date)=year(curdate())`;
-    let result = await db.executeQuery(q);
+    let q = `select task_name, DATE_FORMAT(task_end_date, "%Y-%m-%d") as end_date from tasks join tasks_assigend_to on tasks.id=tasks_assigend_to.task_id where (tasks.task_status="inprogress" or tasks.task_status="todo") and tasks_assigend_to.emp_id=? and year(task_end_date)=year(curdate())`;
+    let result = await db.executeQuery(q,1);
     return response.json({ result });
   } catch (err) {
     logger.error("Calendar not found it!");

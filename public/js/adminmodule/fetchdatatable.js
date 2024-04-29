@@ -15,12 +15,12 @@ const fetchData = async (api, id) => {
                 <th>View Details</th>
                 <th>Edit Team</th>
                 <th>Delete Team</th>
-                </thead>`
+                </thead>`;
       if (data.result.length != 0) {
         let startindex = (currentpage - 1) * pagelimit;
         let endindex = Math.min(startindex + pagelimit, maxlength);
-        data.result.slice(startindex, endindex).forEach(element => {
-          dataadd += (`<tr>
+        data.result.slice(startindex, endindex).forEach((element) => {
+          dataadd += `<tr>
                 <td>${element.id}</td>
                 <td>${element.team_name}</td>
                 <td>
@@ -29,9 +29,8 @@ const fetchData = async (api, id) => {
                 <td><input type="button" value="Edit" class="btn btn-secondary px-3" onclick="editTeam(${element.id})"></td>
                 <td>
                 <input type="button" value="Delete" class="btn btn-danger px-3" onclick="teamDelete(${element.id})">
-                </td > `)
+                </td > `;
         });
-
       }
     } else {
       dataadd = `<thead>
@@ -41,12 +40,12 @@ const fetchData = async (api, id) => {
                   <th>Contact No</th>
                   <th>View Details</th>
                   <th>Edit Details</th>
-                  </thead>`
+                  </thead>`;
       if (data.result.length != 0) {
         let startindex = (currentpage - 1) * pagelimit;
         let endindex = Math.min(startindex + pagelimit, maxlength);
-        data.result.slice(startindex, endindex).forEach(element => {
-          dataadd += (`<tr>
+        data.result.slice(startindex, endindex).forEach((element) => {
+          dataadd += `<tr>
                   <td>${element.first_name}</td>
                   <td>${element.last_name}</td>
                   <td>${element.email}</td>
@@ -56,7 +55,7 @@ const fetchData = async (api, id) => {
                   </td>
                   <td>
                   <input type="button" value="delete" class="btn btn-danger px-3" onclick="usersDeleteData(${element.id})">
-                  </td>`)
+                  </td>`;
         });
       }
     }
@@ -67,35 +66,34 @@ const fetchData = async (api, id) => {
       <input type="button" value="Pervious" onclick="pervious('${api}', '${id}')" class="btn btn-secondary px-2">
       <span>${currentpage}</span>
       <input type="button" value="Next" onclick="next('${api}', '${id}')" class="btn btn-secondary px-2">
-      <input type="button" value="LastPage" onclick="lastpage('${api}', '${id}')" class="btn btn-secondary px-2">`
+      <input type="button" value="LastPage" onclick="lastpage('${api}', '${id}')" class="btn btn-secondary px-2">`;
     }
   } catch (error) {
     console.log(error);
   }
-}
-
+};
 
 // pagination
 const firstpage = (api, id) => {
   currentpage = 1;
   fetchData(api, id);
-}
+};
 
 const pervious = (api, id) => {
   if (currentpage > 1) {
     currentpage--;
     fetchData(api, id);
   }
-}
+};
 
 const next = (api, id) => {
   if (currentpage < pagecount) {
     currentpage++;
     fetchData(api, id);
   }
-}
+};
 
 const lastpage = (api, id) => {
   currentpage = pagecount;
   fetchData(api, id);
-}
+};
