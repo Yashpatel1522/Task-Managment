@@ -7,4 +7,9 @@ socket.on("msg2", async (data) => {
       alert(`your have assigned ${data.taskName}`);
     }
   });
+  data.empOfTeam.forEach((element) => {
+    if (element.emp_id == userData.user.id) {
+      alert(`your have assigned ${data.taskName}`);
+    }
+  });
 });

@@ -192,6 +192,7 @@ const insertTaskData = async () => {
           if (typeof data.msg !== "undefined") {
             socketObj.managerId = data.managerId;
             socketObj.taskName = data.taskName;
+            socketObj.empOfTeam = data.empOfTeam;
             socket.emit("msg", socketObj);
             DataINsertedSuccessfully();
           } else {

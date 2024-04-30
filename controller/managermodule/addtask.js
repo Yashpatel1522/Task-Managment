@@ -35,8 +35,6 @@ const inserttaskdata = async (request, response) => {
     let managerId = request.user?.id;
     let lastInserted_id;
 
-    console.log(taskdata);
-    console.log("Before");
     let priorityData = await db.executeQuery(
       `select id from priorities where urgency_id = ? and important_id = ?`,
       [taskdata.urgency_level, taskdata.impotant_level]
@@ -59,21 +57,25 @@ const inserttaskdata = async (request, response) => {
     let AssinTaskTo = taskdata.Assin_task_to.split(",");
     console.log(lastInserted_id);
     await AssinTaskTo.forEach((element) => {
-      db.insertData(
-        { task_id: lastInserted_id, emp_id: element },
-        "tasks_assigend_to"
-      );
+      if (element) {
+        db.insertData(
+          { task_id: lastInserted_id, emp_id: element },
+          "tasks_assigend_to"
+        );
+      }
     });
     let AssinTaskToTeam = taskdata.Assin_task_to_team.split(",");
+    let empOfTeam;
     await AssinTaskToTeam.forEach((team) => {
       if (team != 0) {
         db.insertData(
           { task_id: lastInserted_id, team_id: team },
           "team_has_tasks"
         );
+        let queryt = `select emp_id from team_members where team_id = ${team} and is_deleted = 0`;
+        empOfTeam = db.executeQuery(queryt);
       }
     });
-    console.log("Aftert Assign");
 
     await request.files.forEach((file) => {
       let filedata = {
@@ -83,13 +85,16 @@ const inserttaskdata = async (request, response) => {
       };
       filedata = db.insertData(filedata, "attechments");
     });
+
     response.json({
       msg: "done",
       managerId: managerId,
       taskName: taskdata.task_name,
+      empOfTeam: await empOfTeam,
     });
   } catch (error) {
     console.log("error aviiiiii");
+    console.log(error);
     logger.error(error);
   }
 };
