@@ -6,7 +6,7 @@ exports.getAllUsers = async (request, response) => {
   try {
     let res = [];
     let users =
-      await db.executeQuery(`select up.user_id,up.newimage_name,us.first_name,us.last_name,us.role_id from users as us left join user_profiles as up on
+      await db.executeQuery(`select up.user_id,up.newimage_name,us.first_name,us.email,us.last_name,us.role_id from users as us left join user_profiles as up on
         us.id=up.user_id where us.status=1 order by up.create_at desc`);
 
     for (let j = 0; j < users.length; j++) {

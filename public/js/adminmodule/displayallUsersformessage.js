@@ -29,7 +29,7 @@ const displayAllUsers = async () => {
           <div class="user-button">
             <div class="row">
               <div class="col-12">
-                <p type="button" onclick="" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</p>
+                <a  href="/admin/socket/${user.email}" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</a>
               </div>
             </div>
           </div>

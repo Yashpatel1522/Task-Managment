@@ -1705,3 +1705,29 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('','1','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T09:36:44.763Z"}
+{"level":"info","timestamp":"2024-04-30T09:36:44.765Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('','1','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T09:36:45.589Z"}
+{"level":"info","timestamp":"2024-04-30T09:36:45.589Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('asd','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T09:58:43.301Z"}
+{"level":"info","timestamp":"2024-04-30T09:58:43.304Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('asd','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T09:59:26.365Z"}
+{"level":"info","timestamp":"2024-04-30T09:59:26.367Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('asd','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T09:59:32.491Z"}
+{"level":"info","timestamp":"2024-04-30T09:59:32.492Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:22:37.806Z"}
+{"level":"info","timestamp":"2024-04-30T10:22:37.807Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:22:41.319Z"}
+{"level":"info","timestamp":"2024-04-30T10:22:41.319Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('sad','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:24:02.596Z"}
+{"level":"info","timestamp":"2024-04-30T10:24:02.596Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('sad','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:25:10.150Z"}
+{"level":"info","timestamp":"2024-04-30T10:25:10.150Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('asd','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:28:11.222Z"}
+{"level":"info","timestamp":"2024-04-30T10:28:11.222Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('asd','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:30:45.857Z"}
+{"level":"info","timestamp":"2024-04-30T10:30:45.858Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('asd','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:31:01.785Z"}
+{"level":"info","timestamp":"2024-04-30T10:31:01.785Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('asd','1015','')","sqlMessage":"Incorrect integer value: '' for column 'reciver_id' at row 1","sqlState":"HY000","timestamp":"2024-04-30T10:31:07.510Z"}
+{"level":"info","timestamp":"2024-04-30T10:31:07.511Z"}
