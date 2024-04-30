@@ -1,138 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/employee/employee.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Management System</title>
-  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/css/employee/employee.css" />
+    <!-- <script src="/js/employee/employeedashboard.js "></script> -->
+    <!-- <link rel="stylesheet" href="/css/employee/menubar.css" /> -->
+    <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <script src="/js/employee/employeenavigation.js"></script>
+    <script src="/boxicon/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+    <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
+  </head>
 
-
-  <!-- <script src="/js/employee/employeedashboard.js "></script> -->
-  <!-- <link rel="stylesheet" href="/css/employee/menubar.css" /> -->
-  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
-  <script src="/js/bootstrap.js"></script>
-  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
-  <script src="/sweetalert2/sweetalert2.min.js"></script>
-  <script src="/js/employee/employeenavigation.js"></script>
-  <script src="/boxicon/dist/boxicons.js"></script>
-  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
-  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
-</head>
-
-<body>
-  <div class="container-div">
-    <div class="admin">
-      <%- include('../partials/employeemenubar') %>
+  <body>
+    <div class="container-div">
+      <div class="admin">
+        <%- include('../partials/employeemenubar') %>
 
         <div class="rightbar">
           <%- include('../partials/employeenavigation') %>
-            <div style="margin-top: 100px;">
-              <div class="my-5">
-                <div class="row1 my-4">
-                  <div class="search mx-3">
-                    <input type="text" id="seachtaskresult" placeholder="Search task.." class="rounded py-2 px-3" tabindex="1"
-                      oninput="seachresultnew(this.value)" />
-                  </div>
+          <div style="margin-top: 100px">
+            <div class="my-5">
+              <div class="row1 my-4">
+                <div class="search mx-3">
+                  <input
+                    type="text"
+                    id="seachtaskresult"
+                    placeholder="Search task.."
+                    class="rounded py-2 px-3"
+                    tabindex="1"
+                    oninput="seachresultnew(this.value)"
+                  />
                 </div>
-                <div class="containere">
-                  <div class="row lanes">
-                    <div class="col-4">
-                      <div id="todo" class="swim-lane" style="background-color: rgb(151, 151, 220)">
-                        <h2>Todo</h2>
-                        <div class="cards cardtask" id="todoTask"></div>
-                      </div>
+              </div>
+              <div class="containere">
+                <div class="row lanes">
+                  <div class="col-4">
+                    <div
+                      id="todo"
+                      class="swim-lane"
+                      style="background-color: rgb(151, 151, 220)"
+                    >
+                      <h2>Todo</h2>
+                      <div class="cards cardtask" id="todoTask"></div>
                     </div>
-                    <div class="col-4">
-                      <div class="swim-lane" id="inprogress" style="background-color: rgb(230, 230, 118)">
-                        <h2>Inprogress</h2>
-                        <div class="cards cardtask" id="inprogressTask"></div>
-                        <p class="pinprogressTask"></p>
-                      </div>
+                  </div>
+                  <div class="col-4">
+                    <div
+                      class="swim-lane"
+                      id="inprogress"
+                      style="background-color: rgb(230, 230, 118)"
+                    >
+                      <h2>Inprogress</h2>
+                      <div class="cards cardtask" id="inprogressTask"></div>
+                      <p class="pinprogressTask"></p>
                     </div>
-                    <div class="col-4">
-                      <div class="swim-lane" id="completed" style="background-color: rgb(134, 166, 134)">
-                        <h2>completed</h2>
-                        <div class="cards cardtask" id="completedTask"></div>
-                        <p class="pcompletedTask"></p>
-                      </div>
+                  </div>
+                  <div class="col-4">
+                    <div
+                      class="swim-lane"
+                      id="completed"
+                      style="background-color: rgb(134, 166, 134)"
+                    >
+                      <h2>completed</h2>
+                      <div class="cards cardtask" id="completedTask"></div>
+                      <p class="pcompletedTask"></p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-        </div>
-    </div>
-  </div>
-  <!-- Modal -->
-  <div class="popup-task" id="popup">
-    <div class="body">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header"></div>
-          &nbsp;
-          <div class="modal-body" id="taskdetails"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--closed  -->
-  <!-- comment modal -->
-  <div class="popup-comment" id="popup-comment">
-    <div class="body">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fs-3 text" id="exampleModalLongTitle">
-              Comments
-            </h5>
-          </div>
-          &nbsp;
-          <div class="modal-body" id="taskcommentdetails">
-            <table class="table">
-              <tr>
-                <td>Task Status :</td>
-                <td>
-                  <select name="taskstatus" id="taskstatus" name="taskstatus">
-                    <option value="todo">ToDo</option>
-                    <option value="inprogress">Inprogress</option>
-                    <option value="completed">Completed</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>Comment :</td>
-                <td>
-                  <textarea id="taskcomment" name="taskcomment" class="taskcomment" rows="4" cols="50"></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="myfile">Select a file:</label>
-                </td>
-                <td>
-                  <input type="file" id="file" name="file" />
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="modal-footer-user" id="commentpopup">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideComment('popup-comment')">
-              Close
-            </button>
-            <button type="button" class="btn btn-primary" onclick="addcomment()">
-              Submit
-            </button>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- end -->
-  <script src="/js/employee/employeeprofile.js"></script>
-  <script src="/js/employee/employee.js"></script>
-</body>
-
+    <!-- Modal -->
+    <div class="popup-task" id="popup">
+      <div class="body">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header"></div>
+            &nbsp;
+            <div class="modal-body" id="taskdetails"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--closed  -->
+    <!-- comment modal -->
+    <div class="popup-comment" id="popup-comment">
+      <div class="body">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-3 text" id="exampleModalLongTitle">
+                Comments
+              </h5>
+            </div>
+            &nbsp;
+            <div class="modal-body" id="taskcommentdetails">
+              <table class="table">
+                <tr>
+                  <td>Task Status :</td>
+                  <td>
+                    <select name="taskstatus" id="taskstatus" name="taskstatus">
+                      <option value="todo">ToDo</option>
+                      <option value="inprogress">Inprogress</option>
+                      <option value="completed">Completed</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Comment :</td>
+                  <td>
+                    <textarea
+                      id="taskcomment"
+                      name="taskcomment"
+                      class="taskcomment"
+                      rows="4"
+                      cols="50"
+                    ></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="myfile">Select a file:</label>
+                  </td>
+                  <td>
+                    <input type="file" id="file" name="file" />
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="modal-footer-user" id="commentpopup">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+                onclick="hideComment('popup-comment')"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="addcomment()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+    <script src="/js/employee/employeeprofile.js"></script>
+    <script src="/js/employee/employee.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/employee/alert.js"></script>
+  </body>
 </html>

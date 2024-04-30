@@ -35,6 +35,8 @@ const getDeadline = async () => {
   return data;
 };
 
+let todayDate = new Date().getDate();
+
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/manager/calenderData/${month}`)).json();
@@ -63,7 +65,7 @@ const getCalender = async (month) => {
           if (new Date(ele.end_date).getDate() === data.yearCalendar[i][j]) {
             let div = document.createElement("div");
             div.innerText = `${ele.task_name}`;
-            div.style.backgroundColor = "green";
+            div.style.backgroundColor = "red";
             div.style.color = "white";
             div.style.margin = "10px";
             div.style.padding = "5px 10px";

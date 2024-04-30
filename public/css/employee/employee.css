@@ -14,6 +14,11 @@ body {
   overflow-x: hidden;
 }
 
+.card1:hover {
+  transform: scale(1.1);
+  border-radius: 5px;
+}
+
 .card1 {
   /* width: calc(80%/3);
   border-radius: 10px;
@@ -325,4 +330,10 @@ body {
 
 .table-responsive {
   max-height: 200px;
+}
+
+.not-found {
+  text-align: center;
+  font-size: larger;
+  font-weight: 400;
 }
