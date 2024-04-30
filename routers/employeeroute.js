@@ -47,7 +47,7 @@ router.get(
 router.get(
   "/dashboard",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  dashboard
+  dashBoard
 );
 router.get(
   "/getUser",

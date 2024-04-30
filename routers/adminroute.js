@@ -56,11 +56,10 @@ const {
 const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
 const checkUserRole = require("../middleware/userrole");
-const {
-  socketGet,
-  socketPost,
-  messageDisplay,
-} = require("../controller/adminmodule/socket.io");
+const { socketGet, socketPost, messageDisplay } = require("../controller/adminmodule/socket.io");
+const { messagesGet } = require("../controller/adminmodule/messages");
+const { getAllUsers } = require("../controller/adminmodule/getallusers");
+const { checkUserEmail } = require("../controller/adminmodule/checkuseremail");
 
 // All Searching Data Admin Pannel
 router.get("/tasksDetails/:id", taskDetail);
@@ -96,7 +95,7 @@ router.get(
 );
 
 router.get(
-  "/socket",
+  "/socket/:email",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   socketGet
 );
@@ -107,15 +106,34 @@ router.post(
   socketPost
 );
 router.post(
+  "/checkuseremail",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserEmail
+)
+
+
+router.post(
   "/messagedisplay",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   messageDisplay
 );
 
+router.get(
+  "/messages",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  messagesGet
+)
+router.get(
+  "/allusers",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  getAllUsers
+)
+
 router.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
+
 
 // Page Render
 router.route("/dashboard").get(adminDashboard);

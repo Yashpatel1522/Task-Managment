@@ -27,7 +27,7 @@ const employeeTaskList = async (request, response) => {
   }
 };
 
-const searchlist = async (req, res) => {
+const searchList = async (req, res) => {
   try {
     usersearch = req.params.searchresult;
     const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id       inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ? or c.category like ? and t.status=1;`;
@@ -42,7 +42,7 @@ const searchlist = async (req, res) => {
   }
 };
 
-const addcomment = async (req, res) => {
+const addComment = async (req, res) => {
   let file = req.file;
   const id = req.user.id;
   try {
@@ -94,4 +94,4 @@ const addcomment = async (req, res) => {
   }
 };
 
-module.exports = { employeeTaskList, list, searchList, addComment };
+module.exports = { employeeTaskList,list, searchList, addComment };
