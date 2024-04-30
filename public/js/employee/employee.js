@@ -19,7 +19,7 @@ let id = path[path.length - 1];
 var employeedata;
 async function fetchData() {
 
-  response = await fetch(`/employee/employeetasklist/${id}`);
+  response = await fetch(`/employee/employeetasklist`);
   data = await response.json();
   employeedata = data;
 

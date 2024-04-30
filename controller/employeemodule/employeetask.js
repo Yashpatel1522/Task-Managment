@@ -13,8 +13,7 @@ const list = async (request, response) => {
 
 const employeeTaskList = async (request, response) => {
     try {
-        // id = req.params.id;
-        id = 1
+        id = request.user.id;
         const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
         inner join categories as c on c.id=t.category_id 
         inner join users as u on u.id=t.manager_id 
@@ -42,9 +41,9 @@ const searchList = async (request, response) => {
     }
 }
 
-const addComment = async (request, response) => {
-    let file = request.file
-    const id = 1
+const addComment = async (req, res) => {
+    let file = req.file
+    const id = req.user.id;
     try {
         let addcomment = {
             employee_id: id,
@@ -83,7 +82,7 @@ const addComment = async (request, response) => {
         //     "attechment_url": file.filename,
         // }
         // resultprofile = await db.insertData(userfileedata, "attechments")
-        response.status(200).json({'msg': 'added' })
+        res.status(200).json({ 'msg': 'added' })
     }
     catch (error) {
         logger.error("Employee Task comments is not inserted");

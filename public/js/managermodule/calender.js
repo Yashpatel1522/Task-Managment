@@ -116,6 +116,8 @@ const getDeadline = async () => {
   return data;
 };
 
+let todayDate = new Date().getDate();
+
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/manager/calenderData/${month}`)).json();
@@ -137,12 +139,15 @@ const getCalender = async (month) => {
       td.innerText += `${
         data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
       }`;
+      if (data.yearCalendar[i][j] === todayDate && m + 1 === month) {
+        td.style.backgroundColor = "rgb(90, 150, 90)";
+      }
       dueDate.result.forEach((ele) => {
         if (new Date(ele.end_date).getMonth() + 1 === month) {
           if (new Date(ele.end_date).getDate() === data.yearCalendar[i][j]) {
             let div = document.createElement("div");
             div.innerText = `${ele.task_name}`;
-            div.style.backgroundColor = "green";
+            div.style.backgroundColor = "red";
             div.style.color = "white";
             div.style.margin = "10px";
             div.style.padding = "5px 10px";

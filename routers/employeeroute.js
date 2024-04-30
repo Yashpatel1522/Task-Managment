@@ -65,7 +65,7 @@ router.get("/calender", employeeCalender);
 router.get("/calenderData/:month",empcalenderMonth);
 router.get(
   "/dueDateOfTask",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   empdueDateTask
 );
 router.get("/report", reportGet);

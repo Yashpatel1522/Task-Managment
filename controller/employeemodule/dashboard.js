@@ -8,7 +8,7 @@ const db = new database();
 const getDashBoardData = async (request, response) => {
   try {
 
-    let id = 1
+    let id = request.user.id;
     let res = {};
     
     let employeeUpCommingDeadlineQuery = `select task_name as Task, task_end_date as "Due Date", urgency.type as Urgency, importants.type as Importance, task_status as Status from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id inner join priorities on priorities.id = tasks.prioritiy_id inner join urgency on urgency.id = priorities.urgency_id inner join importants on importants.id = priorities.important_id where emp_id = ? and task_end_date >= ? and task_status != 'completed'`;
@@ -40,7 +40,7 @@ const getDashBoardData = async (request, response) => {
 
 const dashBoard = async (request, response) => {
   let employeeTaskStatusCountsQuery = `select count(task_id) as Assigned, count(case when task_status = 'todo' then 1 end) as ToDo,count(case when task_status = 'inprogress' then 1 end) as InProgress, count(case when task_status = 'completed' then 1 end) as Completed from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id where emp_id = ?`;
-  [taskStatusCounts] = await db.executeQuery(employeeTaskStatusCountsQuery, 1);
+  [taskStatusCounts] = await db.executeQuery(employeeTaskStatusCountsQuery, request.user.id);
   response.render("employeemodule/dashboard", { taskStatusCounts });
 };
 

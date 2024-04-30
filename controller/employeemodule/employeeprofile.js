@@ -5,8 +5,7 @@ const db = new database();
 const getProfileData = async (request, response) => {
   try {
     let profledata = {};
-    // let id = request.user.id
-    let id = 4
+    let id = request.user.id;
     profledata.imagename = await db.executeQuery(
       `select newimage_name from user_profiles where user_id = ? and is_deleted = 0`, [id]
     );
@@ -21,7 +20,7 @@ const getProfileData = async (request, response) => {
 const updateProfileData = async (request, response) => {
   try {
     // let userid = request.user.id
-    let userid = 4
+    let userid = request.user.id;
     if (request.file) {
       let { originalname, filename } = request.file;
       await db.updateAnd({ is_deleted: 1 }, 'user_profiles', { user_id: userid, is_deleted: 0 })
