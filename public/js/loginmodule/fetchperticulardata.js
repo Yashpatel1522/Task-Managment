@@ -6,18 +6,16 @@ const createTable = (data, id, ischecked) => {
     cell.remove();
   });
   data.forEach((permission) => {
-    console.log(permission);
+    // console.log(permission);
     const tr = (document.createElement("tr").innerHTML = `
     <td class='text-center'>${count++}</td>
     <td class='text-center'>${permission.permission}</td>
       <td class='text-center'>${permission.api}</td>
       <td class='text-center'>${permission.type}</td>
       <td class='text-center'>${permission.create_at}</td>
-    <td class='text-center'><input type='checkbox' value='${
-      permission.id
-    }' oninput='updatePermission(this)' ${
-      permission.is_deleted == 0 && ischecked == 1 ? "checked" : null
-    }></td>
+    <td class='text-center'><input type='checkbox' value='${permission.id
+      }' oninput='updatePermission(this)' ${permission.is_deleted == 0 && ischecked == 1 ? "checked" : null
+      }></td>
     `);
     table.innerHTML += tr;
   });
