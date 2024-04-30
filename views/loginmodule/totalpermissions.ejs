@@ -16,6 +16,14 @@
       .rcol:hover {
         background-color: var(--main-bg-color);
       }
+      :root {
+        --fontcolor: #2e4374;
+        --backcolor: #2e4374;
+      }
+      .font {
+        color: white;
+      }
+      
     </style>
   </head>
   <body onload="fetchpermissions('admin')">
@@ -47,27 +55,30 @@
               <div class="row">
                 <div class="col-4">
                   <p
-                    class="admin-btn btn btn-primary form-control"
+                    class="admin-btn btn form-control font"
                     onclick="fetchpermissions('admin')"
                     id="vendorbtn"
+                    style="background-color: var(--backcolor)"
                   >
                     admin
                   </p>
                 </div>
                 <div class="col-4">
                   <p
-                    class="admin-btn btn btn-primary form-control"
+                    class="admin-btn btn form-control font"
                     onclick="fetchpermissions('manager')"
                     id="customerbtn"
+                    style="background-color: var(--backcolor)"
                   >
                     manager
                   </p>
                 </div>
                 <div class="col-4">
                   <p
-                    class="admin-btn btn btn-primary form-control"
+                    class="admin-btn btn form-control font"
                     onclick="fetchpermissions('employee')"
                     id="customerbtn"
+                    style="background-color: var(--backcolor)"
                   >
                     employee
                   </p>

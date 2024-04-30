@@ -57,6 +57,8 @@ const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
 const checkUserRole = require("../middleware/userrole");
 const { socketGet, socketPost, messageDisplay } = require("../controller/adminmodule/socket.io");
+const { messagesGet } = require("../controller/adminmodule/messages");
+const { getAllUsers } = require("../controller/adminmodule/getallusers");
 
 // All Searching Data Admin Pannel
 router.get(
@@ -106,10 +108,22 @@ router.post(
   messageDisplay  
 )
 
+router.get(
+  "/messages",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  messagesGet
+)
+router.get(
+  "/allusers",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  getAllUsers
+)
+
 router.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
+
 
 // Page Render
 router.route("/dashboard").get(adminDashboard);
