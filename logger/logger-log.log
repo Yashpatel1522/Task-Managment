@@ -1705,3 +1705,43 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"level":"error","timestamp":"2024-04-30T04:07:54.464Z"}
+{"level":"error","timestamp":"2024-04-30T04:08:00.817Z"}
+{"level":"error","timestamp":"2024-04-30T04:08:15.298Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('hii','1','1015')","sqlMessage":"Table 'task_db_2.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-04-30T04:50:05.719Z"}
+{"level":"info","timestamp":"2024-04-30T04:50:05.724Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('hii','1','1015')","sqlMessage":"Table 'task_db_2.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-04-30T04:50:06.401Z"}
+{"level":"info","timestamp":"2024-04-30T04:50:06.401Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"insert into chats(content,sender_id,reciver_id)values('hii','1','1015')","sqlMessage":"Table 'task_db_2.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-04-30T04:50:06.597Z"}
+{"level":"info","timestamp":"2024-04-30T04:50:06.598Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:43:08.157Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:43:15.613Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:43:27.396Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:44:02.607Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:44:04.679Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:44:11.931Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:44:16.507Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:46:17.276Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:46:29.645Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:46:31.111Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:46:32.162Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:46:33.495Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:47:00.359Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:47:08.586Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-04-30T05:47:58.457Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-30T05:54:57.849Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-30T05:54:58.639Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-30T05:54:59.517Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-30T05:54:59.991Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:05:46.289Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:05:51.576Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:17:41.628Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:17:43.058Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:17:44.110Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:17:44.961Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:17:46.412Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:17:55.295Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:20:26.682Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:21:18.987Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-30T06:23:00.666Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-30T06:23:08.326Z"}
