@@ -1,9 +1,10 @@
 const socket = io();
 
-socket.on("msg2", (data) => {
-  alert("your have assigned" + data.taskName);
-  console.log("recieved");
-  console.log(data.AssignTaskTo);
-  console.log(data.managerId);
-  console.log(data.taskName);
+socket.on("msg2", async (data) => {
+  let userData = await (await fetch("/employee/getUser")).json();
+  data.AssignTaskTo.forEach((element) => {
+    if (element == userData.user.id) {
+      alert(`your have assigned ${data.taskName}`);
+    }
+  });
 });

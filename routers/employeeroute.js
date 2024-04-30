@@ -33,7 +33,12 @@ const {
 const {
   getnavigationdata,
 } = require("../controller/employeemodule/navigation");
-const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
+const {
+  reportGet,
+  completedTasks,
+} = require("../controller/employeemodule/reports");
+const { route } = require("./managerroute");
+const { getUser } = require("../controller/employeemodule/userfetch");
 router.get(
   "/getdashboardata/:id?",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -41,9 +46,15 @@ router.get(
 );
 router.get(
   "/dashboard",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   dashboard
 );
+router.get(
+  "/getUser",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  getUser
+);
+
 router.get(
   "/getprofiledata",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -62,7 +73,6 @@ router.get("/employeetasklist/:id", EmployeeTaskList);
 router.get("/searchtask/:searchresult", searchlist);
 router.post("/addcomment/:id/:taskid", upload.single("file"), addcomment);
 
-
 //team route
 router.get("/teamdata", teamlist);
 router.get("/teamdetailsdata", teamdata);
@@ -70,13 +80,13 @@ router.get("/teamdetails/:teamid", teamdetails);
 router.get("/teamsearchdetails/:searchteam", teamsearchdetails);
 
 router.get("/calender", employeeCalender);
-router.get("/calenderData/:month",empcalenderMonth);
+router.get("/calenderData/:month", empcalenderMonth);
 router.get(
   "/dueDateOfTask",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   empdueDateTask
 );
 router.get("/report", reportGet);
-router.get("/comeletedTasks",completedTasks)
+router.get("/comeletedTasks", completedTasks);
 
 module.exports = router;
