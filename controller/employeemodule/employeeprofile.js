@@ -2,11 +2,10 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 const db = new database();
 
-const getProfiledata = async (request, response) => {
+const getProfileData = async (request, response) => {
   try {
     let profledata = {};
-    // let id = request.user.id
-    let id = 4;
+    let id = request.user.id;
     profledata.imagename = await db.executeQuery(
       `select newimage_name from user_profiles where user_id = ? and is_deleted = 0`,
       [id]
@@ -22,7 +21,7 @@ const getProfiledata = async (request, response) => {
     logger.error("profile data is not found !");
   }
 };
-const updateProfiledata = async (request, response) => {
+const updateProfileData = async (request, response) => {
   try {
     // let userid = request.user.id
     let userid = request.user.id;
@@ -49,4 +48,4 @@ const updateProfiledata = async (request, response) => {
     logger.error("profile is not updated!!");
   }
 };
-module.exports = { getProfiledata, updateProfiledata };
+module.exports = { getProfileData, updateProfileData };

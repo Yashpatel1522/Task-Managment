@@ -1,7 +1,7 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 const db = new database();
-const getnavigationdata = async (request,response) => {
+const getNavigationData = async (request,response) => {
     try {
       let id = 4
       let res = {}
@@ -16,4 +16,4 @@ const getnavigationdata = async (request,response) => {
       logger.error("Dash data is not found !");
     }
   }
-  module.exports = {getnavigationdata };
+module.exports = { getNavigationData };

@@ -3,18 +3,17 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 const db = new database();
 
-const list = async (req, res) => {
+const list = async (request, response) => {
   try {
-    res.render("employeemodule/employeetasklist");
+    response.render("employeemodule/employeetasklist");
   } catch (err) {
     logger.error("Employee Task data is not found !");
   }
 };
 
-const EmployeeTaskList = async (req, res) => {
+const employeeTaskList = async (request, response) => {
   try {
-    // id = req.params.id;
-    id = req.user.id;
+    id = request.user.id;
     const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
         inner join categories as c on c.id=t.category_id 
         inner join users as u on u.id=t.manager_id 
@@ -95,4 +94,4 @@ const addcomment = async (req, res) => {
   }
 };
 
-module.exports = { EmployeeTaskList, list, searchlist, addcomment };
+module.exports = { employeeTaskList, list, searchList, addComment };
