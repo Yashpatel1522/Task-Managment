@@ -3,12 +3,12 @@ const logger = require("../../logger/logger");
 
 const managerProfile = async (request, response) => {
   try {
-    let managerId = request.user.id;
+    // let managerId = request.user.id;
     let q = `select * from users where id = ? and status = 1;`;
     let db = new database();
-    let res = await db.executeQuery(q, [managerId]);
+    let res = await db.executeQuery(q, [request.params.id]);
     const imageQuery = `select newimage_name from user_profiles where user_id = ?;`;
-    const imageRes = await db.executeQuery(imageQuery, [managerId]);
+    const imageRes = await db.executeQuery(imageQuery, [request.params.id]);
     return response.json({ result: res, imageResult: imageRes });
   } catch (error) {
     logger.error(error);

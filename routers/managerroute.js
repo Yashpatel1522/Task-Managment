@@ -55,7 +55,8 @@ const {
   calenderMonth,
   dueDateTask1,
 } = require("../controller/managermodule/calender");
-const { reportGet } = require("../controller/employeemodule/reports");
+const reportView = require("../controller/managermodule/getreport")
+const getReportData = require("../controller/managermodule/getReportData")
 
 const uploadStorage = multer({ storage: taskdetailfiles });
 const uploadImage = multer({ storage: userProfileStorage });
@@ -78,6 +79,10 @@ managerRouter.get(
 );
 
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+
+managerRouter.get("/getManagerProfile/:id", managerProfile);
+managerRouter.get("/getReport", reportView);
+managerRouter.get("/getReportData", getReportData);
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -123,7 +128,7 @@ managerRouter.post(
 );
 
 //api to get Manager Profile Details
-managerRouter.get("/getManagerProfile/:id", managerProfile);
+
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);

@@ -1705,3 +1705,6 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"level":"error","timestamp":"2024-04-30T05:07:16.422Z"}
+{"level":"error","timestamp":"2024-04-30T05:07:58.103Z"}
+{"level":"error","timestamp":"2024-04-30T10:19:48.745Z"}
