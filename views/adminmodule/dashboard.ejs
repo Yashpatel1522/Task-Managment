@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management System</title>
+  <link rel="stylesheet" href="/css/adminmodule/loader.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/employee/employee.css">
   <link rel="stylesheet" href="/css/adminmodule/menubar.css">
@@ -12,7 +13,6 @@
   <link rel="stylesheet" href="/charts/apexcharts.css">
   <script src="/boxicon/dist/boxicons.js"></script>
   <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
-
   <script src="/js/bootstrap.js"></script>
 </head>
 
@@ -23,6 +23,7 @@
         <div class="rightbar">
           <%- include('../partials/navigation') %>
             <div style="margin-top: 100px;">
+              <div id="loader" class="center"></div>
               <div class="row1">
                 <div class="cards d-flex my-5">
                   <div class="card text-center mx-4">
@@ -119,6 +120,7 @@
         </div>
     </div>
   </div>
+  <script src="/js/adminmodule/loader.js"></script>
   <script src="/charts/apexcharts.min.js"></script>
   <script src="/js/adminmodule/chart.js"></script>
 

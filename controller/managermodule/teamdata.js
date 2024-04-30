@@ -7,7 +7,7 @@ exports.teamdetails = async (request, response) => {
   try {
     let teamData = await db.executeQuery(
       `select * from teams where created_by = ? and is_active = ?`,
-      [request.user.id, "0"]
+      [request.user.id, "1"]
     );
     console.log(teamData);
     return response.json({ result: teamData });
@@ -16,7 +16,7 @@ exports.teamdetails = async (request, response) => {
   }
 };
 
-exports.  showTeamDataForUpdate = async (request, response) => {
+exports.showTeamDataForUpdate = async (request, response) => {
   try {
     let id = request.params.id;
     let teamData = await db.executeQuery(

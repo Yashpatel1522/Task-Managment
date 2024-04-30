@@ -1,84 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Permissions</title>
-    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
-    <script src="/sweetalert2/sweetalert2.min.js"></script>
-    <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="/boxicon/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
-    <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
-    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
 
-    <style>
-      .rcol:hover {
-        background-color: var(--main-bg-color);
-      }
-    </style>
-  </head>
-  <body onload="displayAllPermissions()">
-    <div class="container-div">
-      <div class="admin">
-        <%- include('../partials/adminmenubar') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Permissions</title>
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css">
+  <link rel="stylesheet" href="/css/loginmodule/popup.css">
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css">
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
+  <script src="/boxicon/dist/boxicons.js"></script>
+  <style>
+    .rcol:hover {
+      background-color: var(--main-bg-color);
+    }
+  </style>
+</head>
+
+<body onload="displayAllPermissions()">
+  <div class="container-div">
+    <div class="admin">
+      <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-          <div class="any" style="margin-top: 110px; margin-left: -50px">
-            <form class="container-fluid px-4" id="addRolePermissionForm">
-              <div class="row mb-3">
-                <div
-                  class="col"
-                  style="display: flex; flex-direction: row-reverse"
-                >
-                  <a
-                    class="btn admin-btn"
-                    style="width: fit-content"
-                    href="/login/showpermissions"
-                    >Back</a
-                  >
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="d-flex">
-                    <select name="roleName" class="form-select primary-text">
-                      <option value="admin" class="text-center">Admin</option>
-                      <option value="manager" class="text-center">
-                        Manager
-                      </option>
-                      <option value="employee" class="text-center">
-                        Employee
-                      </option>
-                    </select>
-                    <span
-                      class="btn admin-btn text-nowrap"
-                      onclick="addPermissions()"
-                      ><i class="bi bi-shield-fill-plus"></i>&nbsp;Add
-                      Permission</span
-                    >
+            <div class="any" style="margin-top: 110px; margin-left: -50px">
+              <form class="container-fluid px-4" id="addRolePermissionForm">
+                <div class="row mb-3">
+                  <div class="col" style="display: flex; flex-direction: row-reverse">
+                    <a class="btn admin-btn" style="width: fit-content" href="/login/showpermissions">Back</a>
                   </div>
                 </div>
-              </div>
-              <div style="overflow-y: auto; height: 80dvh" class="mt-3">
-                <table class="table table-hover" id="displaypermissions">
-                  <tr>
-                    <th class="text-center">Index</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">URL</th>
-                    <th class="text-center">Method</th>
-                    <th class="text-center">Create Time</th>
-                    <th class="text-center">Operations</th>
-                  </tr>
-                </table>
-              </div>
-            </form>
-          </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex">
+                      <select name="roleName" class="form-select primary-text">
+                        <option value="admin" class="text-center">Admin</option>
+                        <option value="manager" class="text-center">
+                          Manager
+                        </option>
+                        <option value="employee" class="text-center">
+                          Employee
+                        </option>
+                      </select>
+                      <span class="btn admin-btn text-nowrap" onclick="addPermissions()"><i
+                          class="bi bi-shield-fill-plus"></i>&nbsp;Add
+                        Permission</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="overflow-y: auto; height: 80dvh" class="mt-3">
+                  <table class="table table-hover" id="displaypermissions">
+                    <tr>
+                      <th class="text-center">Index</th>
+                      <th class="text-center">Name</th>
+                      <th class="text-center">URL</th>
+                      <th class="text-center">Method</th>
+                      <th class="text-center">Create Time</th>
+                      <th class="text-center">Operations</th>
+                    </tr>
+                  </table>
+                </div>
+              </form>
+            </div>
         </div>
-      </div>
     </div>
+  </div>
 
-    <script src="/js/loginmodule/allpermissions.js"></script>
-    <script src="/js/loginmodule/addrolepermissions.js"></script>
-  </body>
+  <script src="/js/loginmodule/allpermissions.js"></script>
+  <script src="/js/loginmodule/addrolepermissions.js"></script>
+</body>
+
 </html>

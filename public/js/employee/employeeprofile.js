@@ -16,16 +16,16 @@ const logoutPopup = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, Logout!",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success"
+          title: "logout!",
+          text: "You are logout",
+          icon: "success",
         }).then((result2) => {
           if (result2.isConfirmed) {
-            window.location.href = '/'
+            window.location.href = "/login/logout";
           }
         });
       }
@@ -56,7 +56,7 @@ window.onclick = function (event) {
   if (!event.target.matches('.profile')) {
 
     var sharedowns = document.getElementsByClassName("dropdown-content");
-    console.log(sharedowns,"_____________________________________")
+    console.log(sharedowns, "_____________________________________")
     var i;
     for (i = 0; i < sharedowns.length; i++) {
       var openSharedown = sharedowns[i];
