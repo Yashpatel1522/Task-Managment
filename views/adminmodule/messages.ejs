@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Messages</title>
     <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/css/adminmodule/messages.css" />
     <script src="/sweetalert2/sweetalert2.min.js"></script>
     <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet" />
     <script src="/boxicon/dist/boxicons.js"></script>
@@ -13,16 +14,32 @@
     <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
   </head>
   <body>
-    <body onload="">
+
+    <body onload="displayAllUsers();">
       <div class="container-div">
         <div class="admin">
           <%- include('../partials/adminmenubar') %>
           <div class="rightbar">
             <%- include('../partials/navigation') %>
-            <div class="print-users"></div>
+            <div class="my-5">
+              <div class="row1 my-5">
+                <div class="search float-start mx-3">
+                  <input
+                    type="text"
+                    placeholder="Search Manager.."
+                    class="rounded py-2 px-3"
+                    tabindex="1"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="print-users px-5"  style=" width: 90%; height: 100dvh; overflow-y: scroll; margin: 0 auto;">
+              <div class="row" id="display-users">
+                
           </div>
         </div>
       </div>
+      <script src="/js/adminmodule/displayallUsersformessage.js"></script>
     </body>
   </body>
 </html>
