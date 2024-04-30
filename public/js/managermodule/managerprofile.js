@@ -299,7 +299,7 @@ const logout = () => {
           icon: "success",
         }).then((result2) => {
           if (result2.isConfirmed) {
-            window.location.href = "/login/logout";
+            window.location.href = "/";
           }
         });
       }

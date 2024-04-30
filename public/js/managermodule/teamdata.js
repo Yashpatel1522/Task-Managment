@@ -9,9 +9,9 @@ const getTeamData = async () => {
 
 flag = true;
 function closeProf() {
-  const profDisp = document.getElementById('profClk');
-  if(flag) {
-    profDisp.style.display = 'none'
+  const profDisp = document.getElementById("profClk");
+  if (flag) {
+    profDisp.style.display = "none";
   }
   flag = true;
 }
@@ -28,17 +28,24 @@ const showOption = async () => {
   flag = false;
 };
 
-const showteamdata = async() => {
-  let profData = await (await fetch('/manager/getManagerProfile/2')).json();
-  if(profData.imageResult) {
-    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+const showteamdata = async () => {
+  let profData = await (await fetch("/manager/getManagerProfile/2")).json();
+  if (profData.imageResult) {
+    document.getElementById(
+      "profImg"
+    ).src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
+    document.getElementById("userName").innerText =
+      `${profData.result[0].first_name}` +
+      " " +
+      `${profData.result[0].last_name}`;
+  } else {
+    document.getElementById("profImg").src = `/assets/employee/user.png`;
+    document.getElementById("userName").innerText =
+      `${profData.result[0].first_name}` +
+      " " +
+      `${profData.result[0].last_name}`;
   }
-  else {
-    document.getElementById('profImg').src = `/assets/employee/user.png`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
-  }
-  
+
   pagignation("/manager/teamapi");
 };
 
@@ -115,7 +122,7 @@ const showTeamData = async (id) => {
   let data = await (
     await fetch(`/manager/managerTeam/showteamdata/${id}`)
   ).json();
-  console.log(data);
+  console.log(id);
   document.getElementById("team_name").value = data.teamData[0].team_name;
   let emp = document.getElementById("empselect");
   console.log(document.getElementById("empselect"));

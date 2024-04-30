@@ -62,6 +62,8 @@ const { getAllUsers } = require("../controller/adminmodule/getallusers");
 const { checkUserEmail } = require("../controller/adminmodule/checkuseremail");
 
 // All Searching Data Admin Pannel
+router.get("/tasksDetails/:id", taskDetail);
+
 router.get(
   "/managersapi/search/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -101,8 +103,8 @@ router.get(
 router.post(
   "/socket",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  socketPost  
-)
+  socketPost
+);
 router.post(
   "/checkuseremail",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -113,8 +115,8 @@ router.post(
 router.post(
   "/messagedisplay",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  messageDisplay  
-)
+  messageDisplay
+);
 
 router.get(
   "/messages",
