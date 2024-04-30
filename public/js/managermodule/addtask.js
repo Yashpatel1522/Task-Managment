@@ -201,7 +201,6 @@ const insertTaskData = () => {
 
 const onReset = () => {
   document.getElementById("taskForm").reset();
-  
 };
 
 const serverValidation = (data) => {

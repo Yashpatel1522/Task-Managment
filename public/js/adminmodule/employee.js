@@ -4,8 +4,7 @@ const getEmpData = async () => {
   } catch (error) {
     console.log(error);
   }
-}
-
+};
 
 const viewusers = async (id) => {
   try {
@@ -13,25 +12,32 @@ const viewusers = async (id) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const searchEmpData = async (value) => {
   try {
     if (value === "") {
       getEmpData();
     } else {
-      searchAllData(`/admin/employeesapi/search/${value}`, "emp-table", "/admin/employeesapi");
+      searchAllData(
+        `/admin/employeesapi/search/${value}`,
+        "emp-table",
+        "/admin/employeesapi"
+      );
     }
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const usersDeleteData = async (id) => {
   try {
-    deleteAllData(`/admin/employeesapi/${id}`, "emp-table", "/admin/employeesapi");
+    deleteAllData(
+      `/admin/employeesapi/${id}`,
+      "emp-table",
+      "/admin/employeesapi"
+    );
   } catch (error) {
     console.log(error);
   }
-}
-
+};

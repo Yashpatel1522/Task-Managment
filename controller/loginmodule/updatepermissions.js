@@ -6,11 +6,12 @@ const updatePermission = async (request, response) => {
     let res = await db.executeQuery("select id from roles where role_name=?", [
       request.body.roleName,
     ]);
+    console.log(res);
     const role_id = res[0].id;
     request.body.permissions = Array.isArray(request.body.permissions)
       ? request.body.permissions
       : [request.body.permissions];
-    if (request.body.permission != undefined) {
+    if (request.body.permissions != undefined) {
       request.body.permissions.forEach(async (permission) => {
         res = await db.updateAnd({ is_deleted: 0 }, "role_has_permissions", {
           role_id: role_id,

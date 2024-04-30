@@ -17630,3 +17630,16 @@ CREATE TABLE `user_comments` (
   CONSTRAINT `user_comments_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `user_comments_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON UPDATE CASCADE
 );
+
+
+
+create table chats(
+id int primary AUTO_INCREMENT,
+sender_id int,
+reciver_id int,
+content varchar(255),
+create_at timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+is_deleted boolean default 0,
+FOREIGN KEY (sender_id) REFERENCES users(id),
+FOREIGN KEY (reciver_id) REFERENCES users(id)
+);

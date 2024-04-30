@@ -2,44 +2,114 @@ const express = require("express");
 const passport = require("passport");
 const multer = require("multer");
 const router = express.Router();
-const { adminDashboard, chartsData, managerTask, } = require("../controller/adminmodule/dashboard");
-const { adminManagers, managerDetails, searchManData, dataDelete, managerpage, } = require("../controller/adminmodule/managers");
-const { adminEmployees, employeeDetails, searchEmpData, empDataDelete, employeepage, } = require("../controller/adminmodule/employees");
-const { adminTasks, searchTasks, taskpage, taskDetail, } = require("../controller/adminmodule/tasks");
-const { adminCalender, calenderMonth, dueDateTask, } = require("../controller/adminmodule/calender");
-const { profiledata, updateAdminProfile, } = require("../controller/adminmodule/adminprofile");
-const { categoryPage, adminCategory, searchCategory, categoryDetail, addCategory, deleteCategory, } = require("../controller/adminmodule/category");
-const { adminTeam, deleteTeam, teamData, teamDetails, searchTeam, addNewTeam, updateTeamData, } = require("../controller/adminmodule/teamdata");
+const {
+  adminDashboard,
+  chartsData,
+  managerTask,
+} = require("../controller/adminmodule/dashboard");
+const {
+  adminManagers,
+  managerDetails,
+  searchManData,
+  dataDelete,
+  managerpage,
+} = require("../controller/adminmodule/managers");
+const {
+  adminEmployees,
+  employeeDetails,
+  searchEmpData,
+  empDataDelete,
+  employeepage,
+} = require("../controller/adminmodule/employees");
+const {
+  adminTasks,
+  searchTasks,
+  taskpage,
+  taskDetail,
+} = require("../controller/adminmodule/tasks");
+const {
+  adminCalender,
+  calenderMonth,
+  dueDateTask,
+} = require("../controller/adminmodule/calender");
+const {
+  profiledata,
+  updateAdminProfile,
+} = require("../controller/adminmodule/adminprofile");
+const {
+  categoryPage,
+  adminCategory,
+  searchCategory,
+  categoryDetail,
+  addCategory,
+  deleteCategory,
+} = require("../controller/adminmodule/category");
+const {
+  adminTeam,
+  deleteTeam,
+  teamData,
+  teamDetails,
+  searchTeam,
+  addNewTeam,
+  updateTeamData,
+} = require("../controller/adminmodule/teamdata");
 const { userProfileStorage } = require("../utility/multer");
 const updateImage = multer({ storage: userProfileStorage });
 const checkUserRole = require("../middleware/userrole");
+const { socketGet, socketPost, messageDisplay } = require("../controller/adminmodule/socket.io");
 
 // All Searching Data Admin Pannel
-router.get("/managersapi/search/:searchdata",
+router.get(
+  "/managersapi/search/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  searchManData);
+  searchManData
+);
 
-router.get("/employeesapi/search/:searchdata",
+router.get(
+  "/employeesapi/search/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  searchEmpData);
+  searchEmpData
+);
 
-router.get("/teamapi/search/:searchdata",
+router.get(
+  "/teamapi/search/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  searchTeam);
+  searchTeam
+);
 
-router.get("/tasksData/:searchdata",
+router.get(
+  "/tasksData/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  searchTasks);
+  searchTasks
+);
 
-router.get("/categoryData/:searchdata",
+router.get(
+  "/categoryData/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  searchCategory);
+  searchCategory
+);
 
-// Authenticate
-// router.use(
-//   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-//   checkUserRole
-// );
+router.get(
+  "/socket",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  socketGet
+);
+
+router.post(
+  "/socket",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  socketPost  
+)
+router.post(
+  "/messagedisplay",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  messageDisplay  
+)
+
+router.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
 
 // Page Render
 router.route("/dashboard").get(adminDashboard);

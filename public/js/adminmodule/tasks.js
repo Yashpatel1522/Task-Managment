@@ -1,6 +1,6 @@
 const getTaskData = async () => {
   try {
-    let data = await (await fetch(`/admin/tasksdata`)).json();
+    let data = await (await fetch(`/admin/tasksData`)).json();
     todoTask = document.getElementById("todoTask");
     let todoData = ``;
     data.todoData.forEach((e) => {
@@ -209,10 +209,14 @@ const openpopup2 = async (id) => {
           </div>
         </div>`;
       data.employees.forEach((e) => {
-        document.getElementById("emp").innerHTML += `<option value="${e.emp_id}">${e.employee}</option>`
-      })
+        document.getElementById(
+          "emp"
+        ).innerHTML += `<option value="${e.emp_id}">${e.employee}</option>`;
+      });
       data.teamhastask.forEach((e) => {
-        document.getElementById("emp").innerHTML += `<option value="${e.team_id}">${e.team_name}</option>`
+        document.getElementById(
+          "emp"
+        ).innerHTML += `<option value="${e.team_id}">${e.team_name}</option>`;
       });
       // let employees = await (await fetch(`/login/employee/${id}`)).json();
       // employees.forEach((employee) => {
