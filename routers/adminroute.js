@@ -98,12 +98,12 @@ router.get(
 router.post(
   "/socket",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  socketPost  
+  socketPost
 )
 router.post(
   "/messagedisplay",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  messageDisplay  
+  messageDisplay
 )
 
 router.use(

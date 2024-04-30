@@ -1705,3 +1705,11 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-30T07:05:04.236Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-30T07:05:07.417Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-30T08:57:55.075Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-30T08:57:57.311Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-30T09:00:10.748Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-30T09:25:25.891Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-30T09:30:56.226Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-30T09:31:22.947Z"}
