@@ -16,29 +16,67 @@
     <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
 
-      <div class="employeeContent pt-4" onclick="closeProf()">
+      <div class="employeeContent pt-4">
         <div class="row">
           <div class="col-9">
             <input
               type="text"
               placeholder="Search Employee..."
               name="searchdata"
-              style="border-radius: 10px; height: 40px; width: 21.5%; padding-left: 1.5%;"
+              style="
+                border-radius: 10px;
+                height: 40px;
+                width: 21.5%;
+                padding-left: 1.5%;
+              "
               oninput="searchEmployee(this.value)"
             />
           </div>
-          <div class="col-3" style="position: relative;">
+          <div class="col-3" style="position: relative">
             <div class="row ps-5">
               <div class="col-3">
-                <i class="bi bi-bell fa-2x col" onclick="fetchNotificationData()" style="cursor: pointer;"></i>
+                <i
+                  class="bi bi-bell fa-2x col"
+                  onclick="fetchNotificationData()"
+                  style="cursor: pointer"
+                ></i>
               </div>
-              <div class="col-9 p-1" style="border-radius: 25px; background-color: var(--sidebarcolor); width: 60%; cursor: pointer;" onclick="showOption()">
-                <img src="" alt="" id="profImg" style="border-radius: 100%; width: 25%;">
-                <span class="ps-2" style="color: white; cursor: pointer; font-family: sans-serif; font-size: 18px;" id="userName"></span>
+              <div
+                class="col-9 p-1"
+                style="
+                  border-radius: 25px;
+                  background-color: var(--sidebarcolor);
+                  width: 60%;
+                  cursor: pointer;
+                "
+                onclick="showOption()"
+              >
+                <img
+                  src=""
+                  alt=""
+                  id="profImg"
+                  style="border-radius: 100%; width: 25%"
+                />
+                <span
+                  class="ps-2"
+                  style="
+                    color: white;
+                    cursor: pointer;
+                    font-family: sans-serif;
+                    font-size: 18px;
+                  "
+                  id="userName"
+                ></span>
               </div>
             </div>
             <div id="profClk">
-              <p data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getProfile()">Show Profile</p>
+              <p
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                onclick="getProfile()"
+              >
+                Show Profile
+              </p>
               <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
             </div>
           </div>

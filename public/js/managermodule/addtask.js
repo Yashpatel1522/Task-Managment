@@ -1,3 +1,5 @@
+const socket = io();
+
 const requireValidation = (allfields, reqfields) => {
   let flag = true;
   for (var i = 0; i < reqfields.length; i++) {
@@ -137,13 +139,15 @@ const urgencyLevelCombo = (data) => {
   }
 };
 
-const insertTaskData = () => {
+const insertTaskData = async () => {
+  let socketObj = {};
   let err = addTaskValidation();
   if (err === true) {
     let form = document.getElementById("taskForm");
     // let btnSubmit = document.getElementById("savebtn");
     let formData = new FormData(form);
     formData.delete("Assin_task_to");
+
     formData.delete("files");
     formData.delete("Assin_task_to_team");
     let selectedArray = new Array();
@@ -164,6 +168,7 @@ const insertTaskData = () => {
         teamCount++;
       }
     }
+    socketObj.AssignTaskTo = selectedArray;
     formData.append("Assin_task_to", selectedArray.toString());
     formData.append("Assin_task_to_team", selectedTeamArray.toString());
     var files = document.getElementById("files").files;
@@ -185,6 +190,9 @@ const insertTaskData = () => {
         })
         .then((data) => {
           if (typeof data.msg !== "undefined") {
+            socketObj.managerId = data.managerId;
+            socketObj.taskName = data.taskName;
+            socket.emit("msg", socketObj);
             DataINsertedSuccessfully();
           } else {
             serverValidation(data);
@@ -239,6 +247,9 @@ const DataINsertedSuccessfully = () => {
     text: "Task inserted Succesfully",
     icon: "success",
   }).then(function () {
-    window.location.reload();
+    // fetch api for display
+    getTaskData();
+
+    // window.location.reload();
   });
 };

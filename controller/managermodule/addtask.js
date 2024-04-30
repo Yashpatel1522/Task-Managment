@@ -34,9 +34,9 @@ const inserttaskdata = async (request, response) => {
     let taskdata = request.body;
     let managerId = request.user?.id;
     let lastInserted_id;
-    
+
     console.log(taskdata);
-    console.log('Before');
+    console.log("Before");
     let priorityData = await db.executeQuery(
       `select id from priorities where urgency_id = ? and important_id = ?`,
       [taskdata.urgency_level, taskdata.impotant_level]
@@ -73,8 +73,7 @@ const inserttaskdata = async (request, response) => {
         );
       }
     });
-    console.log('Aftert Assign');
-
+    console.log("Aftert Assign");
 
     await request.files.forEach((file) => {
       let filedata = {
@@ -84,9 +83,13 @@ const inserttaskdata = async (request, response) => {
       };
       filedata = db.insertData(filedata, "attechments");
     });
-    response.json({ msg: "done" });
+    response.json({
+      msg: "done",
+      managerId: managerId,
+      taskName: taskdata.task_name,
+    });
   } catch (error) {
-    console.log('error aviiiiii');
+    console.log("error aviiiiii");
     logger.error(error);
   }
 };
