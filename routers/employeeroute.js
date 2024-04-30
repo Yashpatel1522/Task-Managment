@@ -36,31 +36,31 @@ const {
 const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
 router.get(
   "/getdashboardata/:id?",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   getdashboardata
 );
 router.get(
   "/dashboard",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   dashboard
 );
 router.get(
   "/getprofiledata",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   getProfiledata
 );
 router.post(
   "/updateprofile",
   uploadStorageprofile.single("profileimg"),
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfiledata
 );
-// router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
+router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
 router.get("/getnavigationdata", getnavigationdata);
-router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
-router.get("/employeetasklist/:id", EmployeeTaskList);
+router.get("/task", list); //http://127.0.0.1:8000/employee/task/1
+router.get("/employeetasklist", EmployeeTaskList);
 router.get("/searchtask/:searchresult", searchlist);
-router.post("/addcomment/:id/:taskid", upload.single("file"), addcomment);
+router.post("/addcomment/:taskid", upload.single("file"), addcomment);
 
 
 //team route
@@ -73,7 +73,7 @@ router.get("/calender", employeeCalender);
 router.get("/calenderData/:month",empcalenderMonth);
 router.get(
   "/dueDateOfTask",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   empdueDateTask
 );
 router.get("/report", reportGet);

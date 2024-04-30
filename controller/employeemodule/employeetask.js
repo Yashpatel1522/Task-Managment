@@ -13,8 +13,7 @@ const list = async (req, res) => {
 
 const EmployeeTaskList = async (req, res) => {
     try {
-        // id = req.params.id;
-        id = 4
+        id = req.user.id;
         const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
         inner join categories as c on c.id=t.category_id 
         inner join users as u on u.id=t.manager_id 
@@ -32,8 +31,8 @@ const EmployeeTaskList = async (req, res) => {
 const searchlist = async (req, res) => {
     try {
         usersearch = req.params.searchresult
-        const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id       inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ? or c.category like ? and t.status=1;`
-        let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%', '%' + usersearch + '%']);
+        const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where (t.task_name like ? or t.task_end_date like ? or c.category like ?) and t.status=1 and a.emp_id = ?`
+        let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%', '%' + usersearch + '%' , req.user.id]);
         res.json(result);
 
     }
@@ -44,7 +43,7 @@ const searchlist = async (req, res) => {
 
 const addcomment = async (req, res) => {
     let file = req.file
-    const id = 4
+    const id = req.user.id;
     try {
         let addcomment = {
             employee_id: id,
@@ -83,7 +82,7 @@ const addcomment = async (req, res) => {
         //     "attechment_url": file.filename,
         // }
         // resultprofile = await db.insertData(userfileedata, "attechments")
-        res.status(200).json({'msg': 'added' })
+        res.status(200).json({ 'msg': 'added' })
     }
     catch (error) {
         logger.error("Employee Task comments is not inserted");

@@ -69,12 +69,6 @@ const monthplus = () => {
       document.getElementById("heading").innerText = "December";
       getCalender(month);
       break;
-    case "December":
-      month = 1;
-      document.getElementById("calender").innerText = "";
-      document.getElementById("heading").innerText = "January";
-      getCalender(month);
-      break;
     default:
       break;
   }
@@ -84,13 +78,6 @@ const monthminus=() =>{
   month = document.getElementById("heading").innerText;
   console.log(month,"{}{}{}{}");
   switch (month) {
-    case "January":
-      month = 12;
-      document.getElementById("calender").innerText = "";
-      document.getElementById("heading").innerText = "December";
-      getCalender(month);
-
-      break;
     case "February":
       month = 1;
       document.getElementById("calender").innerText = "";
