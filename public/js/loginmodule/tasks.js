@@ -13,10 +13,10 @@ function showDropdown(id) {
   } else if ((document.getElementById(id).style.display = "none")) {
     document.getElementById(id).style.display = "block";
   }
-  let classes = Array.from(document.getElementsByClassName('menu'));
-  classes.forEach(element => {
-    if(element != document.getElementById(id)) {
-      element.style.display = 'none';
+  let classes = Array.from(document.getElementsByClassName("menu"));
+  classes.forEach((element) => {
+    if (element != document.getElementById(id)) {
+      element.style.display = "none";
     }
   });
   taskFlag = false;
@@ -120,7 +120,7 @@ const searchTaskData = async (value) => {
     value = value.trim();
     if (value === "") {
       getTaskData();
-      return
+      return;
     }
     let data = await (await fetch(`/manager/searchTask/${value}`)).json();
     document.getElementById("todoTask").innerHTML = "";
@@ -245,7 +245,7 @@ const closePopup2 = () => {
 const openpopup2 = async (id) => {
   try {
     taskPopup.classList.add("open-popup");
-    // console.log(document.getElementById("task-detailes"))
+    // document.getElementById("task-detailes");
     let data = await (await fetch(`/admin/tasksDetails/${id}`)).json();
     if (data.taskDetail.length != 0) {
       document.getElementById("task").innerHTML = `

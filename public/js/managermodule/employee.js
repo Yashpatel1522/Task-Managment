@@ -35,7 +35,7 @@ const setData = async () => {
                                 <br>
                                 <p class="card-text textview"><b>Email - </b>${data.result[count].email}</p>
                                 <p class="card-text textview"><b>Birth Date - </b>${data.result[count].date_of_birth}</p>
-                                <button class="btn btn-primary btnview" style = "background-color:#0A1828" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.imageRes[count].newimage_name}')">View More</button>
+                                <button class="btn btn-primary btnview" style = "background-color:#0A1828" onclick="showEmployeeDetails(${data.result[count].id}, '${data.result[count].first_name}', '${data.result[count].last_name}', '${data.result[count].email}', '${data.result[count].contact}', '${data.result[count].date_of_birth}', '${data.result[count].create_at}', '${data.result[count].img_url}')">View More</button>
                                 <input type="button" value="Remove"  style = "background-color:#0A1828" class="btn btn-secondary px-3 btnview" onclick="removeEmployee(${data.result[count].id})">
                             </div>
                         </div>
@@ -63,7 +63,7 @@ async function showEmployeeDetails(
   contact,
   dob,
   join,
-  img_path
+  img_url
 ) {
   let url = window.location.origin + `/manager/getManagerProfile/${id}`;
   let response = await fetch(url);
@@ -72,7 +72,7 @@ async function showEmployeeDetails(
   if (!data.imageResult[0]) {
     path = `/assets/employee/user.png`;
   } else {
-    path = `/assets/userprofiles/${img_path}`;
+    path = `/assets/userprofiles/${data.imageResult[0].newimage_name}`;
   }
 
   await Swal.fire({
@@ -88,7 +88,7 @@ async function showEmployeeDetails(
       <p><b>Birth Date : </b>${dob}</p>
       <p><b>Date Of Joining : </b>${join.slice(0, 10)}</p>
     `,
-    confirmButtonText: "Close"
+    confirmButtonText: "Close",
   });
 }
 
@@ -101,7 +101,6 @@ const showOption = () => {
   } else {
     document.getElementById("profClk").style.display = "none";
   }
-  flag = false;
 };
 
 const searchEmployee = async (value) => {
@@ -154,15 +153,6 @@ const searchEmployee = async (value) => {
   }
 };
 
-let flag = false;
-function closeProf() {
-  const profDisp = document.getElementById('profClk');
-  if(flag) {
-    profDisp.style.display = 'none'
-  }
-  flag = true;
-}
-
 const removeEmployee = async (id) => {
   try {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -184,7 +174,7 @@ const removeEmployee = async (id) => {
       })
       .then(async (result) => {
         if (result.isConfirmed) {
-          await fetch(`/manager/removeemployeapi/${id}`, {
+          await fetch(`http://localhost:8000/manager/removeemployeapi/${id}`, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",

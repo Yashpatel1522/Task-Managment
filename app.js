@@ -79,8 +79,11 @@ io.on("connection", (socket) => {
     console.log(data);
     io.emit("sendmsg", data);
   });
+  socket.on("msg", (data) => {
+    io.emit("msg2", data);
+  });
 });
-  
+
 io.on("disconnect", () => {
   activeUsers.delete(io.userId);
   io.emit("user disconnected", io.userId);
