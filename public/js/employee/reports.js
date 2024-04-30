@@ -1,5 +1,6 @@
 const fun = async () => {
   let data = await (await fetch(`/employee/comeletedTasks`)).json();
+  console.log(data, ";;;");
   data = data.map((ele) => {
     let obj = {
       task_name: ele.task_name,
@@ -34,7 +35,7 @@ const fun = async () => {
 const printPerformance = async () => {
   const flags = await fun();
   console.log(flags);
-  let color, low=0, medium=0, high=0;
+  let color, low = 0, medium = 0, high = 0;
   let cards = document.getElementById("reports");
   console.log(cards);
   cards.innerHTML = "";
@@ -66,8 +67,8 @@ const printPerformance = async () => {
       </div>
     </div>
   </div>`;
-  document.getElementById("cards1").innerHTML="";
-  document.getElementById("cards1").innerHTML+=`<div class="card text-center mx-4">
+    document.getElementById("cards1").innerHTML = "";
+    document.getElementById("cards1").innerHTML += `<div class="card text-center mx-4">
   <div class="card-bod my-3 text-dark">
     <p class="card-text h1">${high}</p>
     <h5 class="card-title">High</h5>

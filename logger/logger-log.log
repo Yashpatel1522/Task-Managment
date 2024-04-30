@@ -1684,6 +1684,80 @@
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
 {"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
 
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:49:26.149Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:52:47.921Z"}
+{"level":"error","timestamp":"2024-04-29T06:17:01.780Z"}
+{"level":"error","timestamp":"2024-04-29T06:17:03.149Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:27.051Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:38.538Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:53.661Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:58.344Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:01.671Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:04.726Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:07.894Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.319Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.334Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.942Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:11.613Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:11.624Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:15.093Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:23.541Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:23.942Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:24.557Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.047Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.507Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.694Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.861Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:26.056Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:26.470Z"}
+{"level":"error","timestamp":"2024-04-29T06:26:56.214Z"}
+{"level":"error","timestamp":"2024-04-29T06:43:35.123Z"}
+{"level":"error","timestamp":"2024-04-29T06:44:38.624Z"}
+{"level":"error","timestamp":"2024-04-29T06:54:06.823Z"}
+{"level":"error","timestamp":"2024-04-29T07:02:39.953Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:18:56.322Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:28:53.839Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:30:17.322Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:31:15.455Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:38:39.675Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:39:15.050Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:51:39.890Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:06.885Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:43.935Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:56:51.721Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:57:34.247Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:22.816Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:24.242Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:18.787Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:32.258Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:38.703Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T03:41:16.630Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.924Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.933Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:51:58.276Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:52:39.550Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:57:04.808Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='24'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:26.101Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:43.608Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:00.633Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:02.744Z"}
+{"level":"error","timestamp":"2024-04-29T06:08:12.084Z"}
+{"level":"error","timestamp":"2024-04-29T08:51:17.591Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-29T08:52:24.189Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:50.556Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:52.377Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:25:54.133Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:00.042Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:39.153Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:45:59.878Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:02.960Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:41.643Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:33:19.830Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:35:56.323Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:18.209Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:53.694Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:10.258Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:25.702Z"}
 {"level":"error","timestamp":"2024-04-29T05:03:33.029Z"}
 {"level":"error","timestamp":"2024-04-29T05:04:53.646Z"}
 {"level":"info","timestamp":"2024-04-29T10:26:55.676Z"}
@@ -1705,6 +1779,40 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:25:05.817Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T07:14:59.662Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:00.793Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:11.979Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:13.742Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:14.691Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:15.313Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:15.971Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:16.695Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:16.716Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:19.175Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:20.569Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:21.151Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:21.169Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:22.864Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:23.794Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:23.810Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:24.492Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:25.107Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:25.117Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:25.598Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:28.207Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:28.221Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:29.107Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:31.002Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:36.581Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:43.018Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:49.659Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:49.944Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:50.122Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:53.106Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:53.808Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:59.701Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:59.734Z"}
 {"level":"error","timestamp":"2024-04-30T04:07:54.464Z"}
 {"level":"error","timestamp":"2024-04-30T04:08:00.817Z"}
 {"level":"error","timestamp":"2024-04-30T04:08:15.298Z"}

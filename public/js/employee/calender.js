@@ -76,7 +76,6 @@ const monthplus = () => {
 
 const monthminus=() =>{
   month = document.getElementById("heading").innerText;
-  console.log(month,"{}{}{}{}");
   switch (month) {
     case "February":
       month = 1;
