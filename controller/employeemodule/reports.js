@@ -13,7 +13,7 @@ const reportGet = (request, response) => {
 
 const taskWiseComent = async (request, response) => {
   let result = await db.executeQuery(
-    `select * from tasks as t left join tasks_assigend_to as ta on t.id=ta.task_id where ta.emp_id=3 and t.task_status="completed";`
+    `select * from tasks as t left join tasks_assigend_to as ta on t.id=ta.task_id where ta.emp_id=1 and t.task_status="completed";`
   );
   return result;
 };

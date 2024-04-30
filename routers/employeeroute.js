@@ -5,24 +5,16 @@ const { userProfileStorage, upload } = require("../utility/multer");
 const uploadStorageprofile = multer({ storage: userProfileStorage });
 
 const {
-  EmployeeTaskList,
-  list,
-  searchlist,
-  addcomment,
+  employeeTaskList, list, searchList, addComment
 } = require("../controller/employeemodule/employeetask");
 const {
-  teamlist,
-  teamdata,
-  teamdetails,
-  teamsearchdetails,
+  teamList, teamData, teamDetails, teamSearchDetails
 } = require("../controller/employeemodule/employeeteam");
 const {
-  getdashboardata,
-  dashboard,
+  getDashBoardData, dashBoard
 } = require("../controller/employeemodule/dashboard");
 const {
-  getProfiledata,
-  updateProfiledata,
+  getProfileData,updateProfileData
 } = require("../controller/employeemodule/employeeprofile");
 const passport = require("passport");
 const {
@@ -31,43 +23,43 @@ const {
   empcalenderMonth,
 } = require("../controller/employeemodule/canlender");
 const {
-  getnavigationdata,
+  getNavigationData,
 } = require("../controller/employeemodule/navigation");
 const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
 router.get(
   "/getdashboardata/:id?",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  getdashboardata
+  getDashBoardData
 );
 router.get(
   "/dashboard",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  dashboard
+  dashBoard
 );
 router.get(
   "/getprofiledata",
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  getProfiledata
+  getProfileData
 );
 router.post(
   "/updateprofile",
   uploadStorageprofile.single("profileimg"),
   // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  updateProfiledata
+  updateProfileData
 );
 // router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
-router.get("/getnavigationdata", getnavigationdata);
+router.get("/getnavigationdata", getNavigationData);
 router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
-router.get("/employeetasklist/:id", EmployeeTaskList);
-router.get("/searchtask/:searchresult", searchlist);
-router.post("/addcomment/:id/:taskid", upload.single("file"), addcomment);
+router.get("/employeetasklist/:id", employeeTaskList);
+router.get("/searchtask/:searchresult", searchList);
+router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
 
 
 //team route
-router.get("/teamdata", teamlist);
-router.get("/teamdetailsdata", teamdata);
-router.get("/teamdetails/:teamid", teamdetails);
-router.get("/teamsearchdetails/:searchteam", teamsearchdetails);
+router.get("/teamdata", teamList);
+router.get("/teamdetailsdata", teamData);
+router.get("/teamdetails/:teamid", teamDetails);
+router.get("/teamsearchdetails/:searchteam", teamSearchDetails);
 
 router.get("/calender", employeeCalender);
 router.get("/calenderData/:month",empcalenderMonth);

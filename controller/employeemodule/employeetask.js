@@ -3,15 +3,15 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 const db = new database();
 
-const list = async (req, res) => {
+const list = async (request, response) => {
     try {
-        res.render("employeemodule/employeetasklist");
+        response.render("employeemodule/employeetasklist");
     } catch (err) {
         logger.error("Employee Task data is not found !");
     }
 };
 
-const EmployeeTaskList = async (req, res) => {
+const employeeTaskList = async (request, response) => {
     try {
         // id = req.params.id;
         id = 1
@@ -22,19 +22,19 @@ const EmployeeTaskList = async (req, res) => {
         inner join urgency on urgency.id=p.urgency_id
         inner join importants as imp on imp.id=p.important_id  where a.emp_id=? and t.status=1 order by p.urgency_id;`
         let result = await db.executeQuery(query, id);
-        res.json(result);
+        response.json(result);
     }
     catch (error) {
         logger.error("Employee Task data is not found !");
     }
 }
 
-const searchlist = async (req, res) => {
+const searchList = async (request, response) => {
     try {
-        usersearch = req.params.searchresult
+        let usersearch = request.params.searchresult
         const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id       inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ? or c.category like ? and t.status=1;`
         let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%', '%' + usersearch + '%']);
-        res.json(result);
+        response.json(result);
 
     }
     catch (error) {
@@ -42,15 +42,15 @@ const searchlist = async (req, res) => {
     }
 }
 
-const addcomment = async (req, res) => {
-    let file = req.file
-    const id = 4
+const addComment = async (request, response) => {
+    let file = request.file
+    const id = 1
     try {
         let addcomment = {
             employee_id: id,
-            task_id: req.params.taskid,
-            task_status: req.body.taskstatus,
-            comment: req.body.taskcomment,
+            task_id: request.params.taskid,
+            task_status: request.body.taskstatus,
+            comment: request.body.taskcomment,
             attechment: file.filename,
             oldfile_name: file.originalname
         }
@@ -63,27 +63,27 @@ const addcomment = async (req, res) => {
         const hour = date.getHours()
         const minute = date.getMinutes()
         const seconds = date.getSeconds()
-        if (req.body.taskstatus == "inprogress") {
+        if (request.body.taskstatus == "inprogress") {
 
             let reports = {
                 user_id: id,
-                task_id: req.params.taskid,
+                task_id: request.params.taskid,
                 startat_at: `${year}-${month + 1}-${day} ' ' ${hour}:${minute}:${seconds}`
             }
             let result = await db.insertData(reports, "reports")
         }
-        else if (req.body.taskstatus == "completed") {
+        else if (request.body.taskstatus == "completed") {
             let reports = {
                 finished_at: `${year}-${month + 1}-${day} ' ' ${hour}:${minute}:${seconds}`
             }
-            let result = await db.updateAnd(reports, "reports", { user_id: id, task_id: req.params.taskid })
+            let result = await db.updateAnd(reports, "reports", { user_id: id, task_id: request.params.taskid })
         }
         // let userfileedata = {
-        //     "task_id": req.params.taskid,
+        //     "task_id": request.params.taskid,
         //     "attechment_url": file.filename,
         // }
         // resultprofile = await db.insertData(userfileedata, "attechments")
-        res.status(200).json({'msg': 'added' })
+        response.status(200).json({'msg': 'added' })
     }
     catch (error) {
         logger.error("Employee Task comments is not inserted");
@@ -92,4 +92,4 @@ const addcomment = async (req, res) => {
 }
 
 
-module.exports = { EmployeeTaskList, list, searchlist, addcomment };
+module.exports = { employeeTaskList, list, searchList, addComment };

@@ -5,7 +5,7 @@ const logger = require("../../logger/logger");
 const currentDate = new Date().toISOString().split("T")[0];
 const db = new database();
 
-const getdashboardata = async (request, response) => {
+const getDashBoardData = async (request, response) => {
   try {
 
     let id = 1
@@ -38,11 +38,11 @@ const getdashboardata = async (request, response) => {
   }
 };
 
-const dashboard = async (request, response) => {
+const dashBoard = async (request, response) => {
   let employeeTaskStatusCountsQuery = `select count(task_id) as Assigned, count(case when task_status = 'todo' then 1 end) as ToDo,count(case when task_status = 'inprogress' then 1 end) as InProgress, count(case when task_status = 'completed' then 1 end) as Completed from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id where emp_id = ?`;
   [taskStatusCounts] = await db.executeQuery(employeeTaskStatusCountsQuery, 1);
   response.render("employeemodule/dashboard", { taskStatusCounts });
 };
 
 
-module.exports = { getdashboardata, dashboard };
+module.exports = { getDashBoardData, dashBoard };

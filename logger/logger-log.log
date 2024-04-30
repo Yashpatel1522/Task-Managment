@@ -1779,3 +1779,37 @@
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T06:25:05.817Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-30T07:14:59.662Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:00.793Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:11.979Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:13.742Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:14.691Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:15.313Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:15.971Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:16.695Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:16.716Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:19.175Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:20.569Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:21.151Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:21.169Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:22.864Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:23.794Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:23.810Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:24.492Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:25.107Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:25.117Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:25.598Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:28.207Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:28.221Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:29.107Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:31.002Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:36.581Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:43.018Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:49.659Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:49.944Z"}
+{"level":"error","timestamp":"2024-04-30T07:35:50.122Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:53.106Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:53.808Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:59.701Z"}
+{"level":"error","timestamp":"2024-04-30T07:42:59.734Z"}
