@@ -17,7 +17,7 @@ const printErrorMes = (id, msg) => {
 const removeMessage = () => {
   const errors = document.querySelectorAll("small.text-danger");
   errors.forEach((error) => {
-      error.remove()
+    error.remove()
   });
 };
 
@@ -56,17 +56,15 @@ const isValidProfileImg = (id) => {
   if (!file) {
     return false;
   }
-  console.log(file.type);
-  if(file.type == "image/png" || file.type == "image/jpeg" || file.type == "image/jpg"){
+  if (file.type == "image/png" || file.type == "image/jpeg" || file.type == "image/jpg") {
     return true
   }
-    return false;
+  return false;
 };
 
 const isValidProfilDetails = () => {
   removeMessage();
   let errors = isString({
-    change: "profile image",
     profile_first_name: "First name",
     profile_last_name: "Last name",
     profile_email: "Email ID",
@@ -96,11 +94,10 @@ const isValidProfilDetails = () => {
     errors["profile_date_of_birth"] = "Birthdate";
 
   if (isValidProfileImg("change") == false && keys.indexOf("change") < 0) {
-      errors["change"] = "Profile Image";
+    errors["change"] = "Profile Image";
   }
   let flag = true;
   Object.keys(errors).forEach((error) => {
-    console.log('err',error);
     printErrorMes(error, `${errors[error]} is invalid...`);
     flag = false;
   });

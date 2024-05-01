@@ -43,6 +43,10 @@
           <i class="bi bi-calendar-event-fill sidebaricon"></i>
           <li>Calender</li>
         </div>
+        <div class="list" onclick="showReport()">
+          <i class="bi bi-clipboard-data sidebaricon"></i>
+          <li>Report</li>
+        </div>
         <div class="list" onclick="logout()">
           <img src="/assets/managerassets/logout.svg" />
           <li>Logout</li>
@@ -69,6 +73,9 @@
       }
       function showMessage() {
         window.location.href = window.location.origin + `/manager/message`;
+      }
+      function showReport() {
+        window.location.href = window.location.origin + `/manager/getReport`;
       }
     </script>
   </body>

@@ -212,16 +212,16 @@ const seachresultnew = async (value) => {
     }
     data.forEach((element) => {
       if (element.task_status == "todo") {
-        ides('inprogressTask').innerHTML = '<p class="not-found">Data Not Found</p>';
-        ides('completedTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        // ides('inprogressTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        // ides('completedTask').innerHTML = '<p class="not-found">Data Not Found</p>';
         resetCard("todoTask", element);
       } else if (element.task_status == "inprogress") {
-        ides('todoTask').innerHTML = '<p class="not-found">Data Not Found</p>';
-        ides('completedTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        // ides('todoTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        // ides('completedTask').innerHTML = '<p class="not-found">Data Not Found</p>';
         resetCard("inprogressTask", element);
       } else if (element.task_status == "completed") {
-        ides('todoTask').innerHTML = '<p class="not-found">Data Not Found</p>';
-        ides('inprogressTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        // ides('todoTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        // ides('inprogressTask').innerHTML = '<p class="not-found">Data Not Found</p>';
         resetCard("completedTask", element);
       }
       switch (element.urgency_id) {

@@ -62,11 +62,11 @@ const fetchData = async (api, id) => {
     document.getElementById(`${id}`).innerHTML = dataadd;
     if (maxlength > 5) {
       document.getElementById("pagination").innerHTML = `
-      <input type="button" value="FirstPage" onclick="firstpage('${api}', '${id}')" class="btn btn-secondary px-2">
-      <input type="button" value="Pervious" onclick="pervious('${api}', '${id}')" class="btn btn-secondary px-2">
+      <input type="button" value="<<" onclick="firstpage('${api}', '${id}')" class="btn btn-secondary px-2">
+      <input type="button" value="<" onclick="pervious('${api}', '${id}')" class="btn btn-secondary px-2">
       <span>${currentpage}</span>
-      <input type="button" value="Next" onclick="next('${api}', '${id}')" class="btn btn-secondary px-2">
-      <input type="button" value="LastPage" onclick="lastpage('${api}', '${id}')" class="btn btn-secondary px-2">`;
+      <input type="button" value=">" onclick="next('${api}', '${id}')" class="btn btn-secondary px-2">
+      <input type="button" value=">>" onclick="lastpage('${api}', '${id}')" class="btn btn-secondary px-2">`;
     }
   } catch (error) {
     console.log(error);

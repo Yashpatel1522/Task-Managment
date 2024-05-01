@@ -57,6 +57,9 @@ const {
 } = require("../controller/managermodule/calender");
 const { reportGet } = require("../controller/employeemodule/reports");
 const { messsageGet } = require("../controller/managermodule/messagepage");
+const reportView = require("../controller/managermodule/getreport");
+const getReportData = require("../controller/managermodule/getReportData");
+const getPdfData = require("../controller/managermodule/getPdfData")
 
 // const uploadStorage = multer({ storage: taskdetailfiles });
 const uploadImage = multer({ storage: userProfileStorage });
@@ -84,6 +87,11 @@ managerRouter.get(
 );
 
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+
+managerRouter.get("/getManagerProfile/:id", managerProfile);
+managerRouter.get("/getReport", reportView);
+managerRouter.get("/getReportData", getReportData);
+managerRouter.get("/getPdfData", getPdfData);
 
 
 managerRouter.use(
@@ -122,7 +130,7 @@ managerRouter.post(
 );
 
 //api to get Manager Profile Details
-managerRouter.get("/getManagerProfile/:id", managerProfile);
+
 
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
