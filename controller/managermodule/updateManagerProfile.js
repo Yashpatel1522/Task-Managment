@@ -1,11 +1,11 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
+let db = new database();
 
 const updateManager = async (request, response) => {
   try {
     let managerId = request.user.id;
     const data = request.body;
-    let db = new database();
     const updateQuery = `update users set first_name = ?, last_name = ?, email = ?, contact = ?, date_of_birth = ? where id = ?;`;
     const updateRes = await db.executeQuery(updateQuery, [
       request.body.first_name,
@@ -45,8 +45,9 @@ const updateManager = async (request, response) => {
       ]);
     }
 
-    return response.redirect('/manager/dashboard');
+    return response.redirect("/manager/dashboard");
   } catch (error) {
+    console.log(error);
     logger.error(error);
     return response.send({ error: error });
   }
