@@ -1782,3 +1782,51 @@
 {"level":"error","timestamp":"2024-04-30T05:07:16.422Z"}
 {"level":"error","timestamp":"2024-04-30T05:07:58.103Z"}
 {"level":"error","timestamp":"2024-04-30T10:19:48.745Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='4') or (sender_id='4' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:28:59.823Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='11') or (sender_id='11' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:29:07.066Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:51.114Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:31:51.166Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:31:55.666Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:56.955Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T03:31:56.991Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:58.264Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:32:03.639Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:32:03.664Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:32:21.330Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:32:21.356Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:32:59.314Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T03:32:59.340Z"}
+{"level":"error","timestamp":"2024-05-01T04:04:18.242Z"}
+{"level":"error","timestamp":"2024-05-01T04:04:24.598Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-05-01T04:04:26.035Z"}
+{"level":"error","timestamp":"2024-05-01T04:05:01.050Z"}
+{"level":"error","timestamp":"2024-05-01T04:05:02.866Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:05:19.310Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:05:19.364Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:05:20.610Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:27:49.172Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:27:49.204Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:29:44.184Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:29:44.226Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:31:24.009Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:31:24.121Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:32:20.477Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:32:20.556Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T07:29:14.505Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T07:29:14.542Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:23:49.310Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:23:49.375Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:24:01.750Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:24:01.766Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:35.831Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:35.867Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:50.502Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:50.539Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:50.918Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:50.962Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:51.364Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:51.416Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:55.371Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:56.116Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T08:28:56.170Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,concat(u.first_name, ' ', u.last_name) as first_name from users where role_id = 3 and status = 1","sqlMessage":"Unknown column 'u.first_name' in 'field list'","sqlState":"42S22","timestamp":"2024-05-01T09:28:18.937Z"}
