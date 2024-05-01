@@ -1,11 +1,11 @@
-const showNotification = () => {
-  Swal.fire({
-    title: "Notifications",
-    text: "Click!",
-    icon: "success",
-    button: "oh yes!",
-  });
-}
+// const showNotification = () => {
+//   Swal.fire({
+//     title: "Notifications",
+//     text: "Click!",
+//     icon: "success",
+//     button: "oh yes!",
+//   });
+// }
 
 const logoutPopup = () => {
   try {

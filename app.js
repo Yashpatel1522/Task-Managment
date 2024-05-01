@@ -74,7 +74,7 @@ const activeUsers = new Set();
 const io = socket(server);
 
 io.on("connection", (socket) => {
-  console.log("Made socket connection");
+
   socket.on("recmsg", (data) => {
     console.log(data);
     io.emit("sendmsg", data);
@@ -82,6 +82,11 @@ io.on("connection", (socket) => {
   socket.on("msg", (data) => {
     io.emit("msg2", data);
   });
+  socket.on("notification-data", (data) => {
+    console.log(data, "{}{app.js}")
+    io.emit("send-notification-data", data)
+    
+  })
 });
 
 io.on("disconnect", () => {

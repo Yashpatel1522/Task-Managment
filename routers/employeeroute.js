@@ -9,6 +9,7 @@ const {
   list,
   searchList,
   addComment,
+  notifications
 } = require("../controller/employeemodule/employeetask");
 const {
   teamList,
@@ -41,7 +42,7 @@ const { route } = require("./managerroute");
 const { getUser } = require("../controller/employeemodule/userfetch");
 router.get(
   "/getdashboardata/:id?",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   getDashBoardData
 );
 router.get(
@@ -57,36 +58,41 @@ router.get(
 
 router.get(
   "/getprofiledata",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   getProfileData
 );
 router.post(
   "/updateprofile",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   uploadStorageprofile.single("profileimg"),
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfileData
 );
 // router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
-router.get("/getnavigationdata", getNavigationData);
-router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
-router.get("/employeetasklist/:id", employeeTaskList);
-router.get("/searchtask/:searchresult", searchList);
-router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
+router.get("/getnavigationdata", passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,getNavigationData);
+router.get("/task", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), list); //http://127.0.0.1:8000/employee/task
+router.get("/employeetasklist", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), employeeTaskList);
+router.get("/searchtask/:searchresult", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), searchList);
+router.post("/addcomment/:id/:taskid", passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,upload.single("file"), addComment);
 
 //team route
-router.get("/teamdata", teamList);
-router.get("/teamdetailsdata", teamData);
-router.get("/teamdetails/:teamid", teamDetails);
-router.get("/teamsearchdetails/:searchteam", teamSearchDetails);
+router.get("/teamdata", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), teamList);
+router.get("/teamdetailsdata", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), teamData);
+router.get("/teamdetails/:teamid", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), teamDetails);
+router.get("/teamsearchdetails/:searchteam", passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,teamSearchDetails);
 
-router.get("/calender", employeeCalender);
-router.get("/calenderData/:month", empcalenderMonth);
+router.get("/calender", passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,employeeCalender);
+router.get("/calenderData/:month", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), empcalenderMonth);
 router.get(
   "/dueDateOfTask",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   empdueDateTask
 );
-router.get("/report", reportGet);
-router.get("/comeletedTasks", completedTasks);
+router.get("/report", passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,reportGet);
+router.get("/comeletedTasks", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), completedTasks);
+
+
+
+
+router.get('/notification', passport.authenticate("jwt", { session: false, failureRedirect: "/" }), notifications)
 
 module.exports = router;
