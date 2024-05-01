@@ -20,7 +20,7 @@ const getUser = async () => {
       document.getElementById(
         "msg-zone"
       ).innerHTML += `<div id="sender-msg" class="d-flex align-items-end flex-column">
-                  <p class="alert alert-info p-3" style="width: fit-content">${msg.value}</p>
+                  <p class="alert alert-info p-3" style="width:fit-content;">${msg.value}</p>
                 </div>`;
       document.getElementById("reciver_id").value = result1.msg;
       const data = new URLSearchParams(
@@ -33,6 +33,8 @@ const getUser = async () => {
       });
       const result = await response.json();
       if (result.flag == true) {
+        alert("yes");
+        // document.getElementById("msg-zone").scroll=document.getElementById("msg-zone").scrollHeight;
         socket.emit("recmsg", {
           msg: msg.value,
           senderId: user.id,
@@ -45,12 +47,15 @@ const getUser = async () => {
 };
 
 socket.on(`sendmsg`, async (data) => {
+  console.log(data);
   if (document.getElementById("reciver_id").value == data.senderId) {
     document.getElementById("msg-zone").innerHTML += "";
     document.getElementById(
       "msg-zone"
     ).innerHTML += `<div id="recver-msg" class="d-flex align-items-start flex-column">
-                    <p class="alert alert-info p-3" style="width: fit-content">${data.msg}</p>
+                    <p class="alert alert-info p-3" style="width:fit-content;">${data.msg}</p>
                   </div>`;
+
+    // document.getElementById("msg-zone").scroll=document.getElementById("msg-zone").scrollHeight;
   }
 });

@@ -67,10 +67,12 @@ router.post(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfileData
 );
-// router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
+router.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" })
+);
 router.get("/getnavigationdata", getNavigationData);
 router.get("/task", list); //http://127.0.0.1:8000/employee/task/1
-router.get("/employeetasklist/:id", employeeTaskList);
+router.get("/employeetasklist", employeeTaskList);
 router.get("/searchtask/:searchresult", searchList);
 router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
 

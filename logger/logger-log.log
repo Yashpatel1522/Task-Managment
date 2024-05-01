@@ -1659,30 +1659,6 @@
 {"level":"error","timestamp":"2024-04-27T06:51:22.334Z"}
 {"level":"info","timestamp":"2024-04-27T06:51:23.738Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:06.647Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:07.697Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.253Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.552Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.741Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.951Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:21.156Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:25.742Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:26.367Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:58.069Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:17.796Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:22.658Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:22.955Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:23.187Z"}
-{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:47.705Z"}
-{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:48.218Z"}
-{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:48.476Z"}
-{"level":"error","timestamp":"2024-04-27T09:00:45.857Z"}
-{"level":"error","message":"Task data is not found !","timestamp":"2024-04-27T09:00:45.863Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:04:36.665Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:04:41.171Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:36.604Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:41.430Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
 
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:49:26.149Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:52:47.921Z"}

@@ -1,5 +1,3 @@
-let flag = true;
-
 const drawCharts = async () => {
   let taskResponse = await fetch(
     window.location.origin + `/manager/getManagerUpcomingTasks`
