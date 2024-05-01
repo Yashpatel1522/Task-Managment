@@ -13,7 +13,7 @@ const list = async (request, response) => {
 
 const employeeTaskList = async (request, response) => {
   try {
-    id = request.user.id;
+    id = 5;
     const query = `select t.id as task_id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,urgency.id as urgency_id,urgency.type as urgencytype,imp.type as importancetype,c.category,u.first_name from tasks_assigend_to as a inner join tasks as t on t.id=a.task_id 
         inner join categories as c on c.id=t.category_id 
         inner join users as u on u.id=t.manager_id 
@@ -21,7 +21,7 @@ const employeeTaskList = async (request, response) => {
         inner join urgency on urgency.id=p.urgency_id
         inner join importants as imp on imp.id=p.important_id  where a.emp_id=? and t.status=1 order by p.urgency_id;`;
     let result = await db.executeQuery(query, id);
-    res.json(result);
+    response.json(result);
   } catch (error) {
     logger.error("Employee Task data is not found !");
   }

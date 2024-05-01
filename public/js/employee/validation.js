@@ -56,7 +56,6 @@ const isValidProfileImg = (id) => {
   if (!file) {
     return false;
   }
-  console.log(file.type);
   if (file.type == "image/png" || file.type == "image/jpeg" || file.type == "image/jpg") {
     return true
   }
@@ -99,7 +98,6 @@ const isValidProfilDetails = () => {
   }
   let flag = true;
   Object.keys(errors).forEach((error) => {
-    console.log('err', error);
     printErrorMes(error, `${errors[error]} is invalid...`);
     flag = false;
   });
