@@ -87,7 +87,6 @@ managerRouter.get(
 );
 
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
-
 managerRouter.get("/getManagerProfile/:id", managerProfile);
 managerRouter.get("/getReport", reportView);
 managerRouter.get("/getReportData", getReportData);

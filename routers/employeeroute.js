@@ -39,6 +39,8 @@ const {
 } = require("../controller/employeemodule/reports");
 const { route } = require("./managerroute");
 const { getUser } = require("../controller/employeemodule/userfetch");
+const { messsageGet } = require("../controller/managermodule/messagepage");
+const { messagesGet } = require("../controller/employeemodule/message");
 router.get(
   "/getdashboardata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -66,7 +68,9 @@ router.post(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfileData
 );
-router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
+router.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" })
+);
 router.get("/getnavigationdata", getNavigationData);
 router.get("/task", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist", employeeTaskList);
@@ -77,11 +81,15 @@ router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
 router.get(
   "/teamdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  teamList);
-router.get("/teamdetailsdata", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), teamData);
+  teamList
+);
+router.get(
+  "/teamdetailsdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  teamData
+);
 router.get("/teamdetails/:teamid", teamDetails);
 router.get("/teamsearchdetails/:searchteam", teamSearchDetails);
-
 router.get("/calender", employeeCalender);
 router.get("/calenderData/:month", empcalenderMonth);
 router.get(
@@ -89,6 +97,7 @@ router.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   empdueDateTask
 );
+router.get("/messages", messagesGet);
 router.get("/report", reportGet);
 router.get("/comeletedTasks", completedTasks);
 
