@@ -50,6 +50,7 @@ router.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   dashBoard
 );
+
 router.get(
   "/getUser",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),

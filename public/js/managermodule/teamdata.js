@@ -7,45 +7,7 @@ const getTeamData = async () => {
   }
 };
 
-flag = true;
-function closeProf() {
-  const profDisp = document.getElementById("profClk");
-  if (flag) {
-    profDisp.style.display = "none";
-  }
-  flag = true;
-}
-
-const showOption = async () => {
-  if (
-    document.getElementById("profClk").style.display == "none" ||
-    document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
-  flag = false;
-};
-
 const showteamdata = async () => {
-  let profData = await (await fetch("/manager/getManagerProfile/2")).json();
-  if (profData.imageResult) {
-    document.getElementById(
-      "profImg"
-    ).src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById("userName").innerText =
-      `${profData.result[0].first_name}` +
-      " " +
-      `${profData.result[0].last_name}`;
-  } else {
-    document.getElementById("profImg").src = `/assets/employee/user.png`;
-    document.getElementById("userName").innerText =
-      `${profData.result[0].first_name}` +
-      " " +
-      `${profData.result[0].last_name}`;
-  }
-
   pagignation("/manager/teamapi");
 };
 
@@ -208,12 +170,13 @@ const viewTeam = async (id) => {
     teampopup.classList.add("open-popup");
     let data = await (await fetch(`/manager/teamapi/${id}`)).json();
     let dataadd = " ";
+    console.log(data.memberDetails);
     if (
       data.teamCreate.length != 0 ||
       data.memberDetails.length != 0 ||
       data.teamTask.length != 0
     ) {
-      dataadd += `<div class="allform width:fit-content p-4" >
+      dataadd += `<div class="allform p-4" style="width:fit-content;">
         <div class="row mb-3">
         <div class="col-md-11">
             <h2 class="text-primary text-center">Team Detalis</h2>
@@ -240,11 +203,11 @@ const viewTeam = async (id) => {
       </div>`;
       dataadd += `<div class="row mb-3">
           <div class="col-md-12">
-              <label class="text-primary">Employee List :-</label>`;
+              <label class="text-primary">Employee List :-</label><br><select>`;
       data.memberDetails.forEach((element) => {
-        dataadd += `<input type="text" class="form-control" tabindex="2" id="first_name" name="first_name" value="${element.employees}" disabled>`;
+        dataadd += `<option  class="form-control" value="${element.employees}">${element.employees}</option>`;
       });
-      dataadd += `</div></div>
+      dataadd += `</select></div></div>
       <div class="row mb-3">
           <div class="col-md-12">
               <label class="text-primary">Task List :-</label>`;

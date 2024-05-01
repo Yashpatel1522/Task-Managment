@@ -10,9 +10,9 @@ const getDashBoardData = async (request, response) => {
     let id = request.user.id;
     let res = {};
 
-    let employeeUpCommingDeadlineQuery = `select task_name as Task, task_end_date as "Due Date", urgency.type as Urgency, importants.type as Importance, task_status as Status from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id inner join priorities on priorities.id = tasks.prioritiy_id inner join urgency on urgency.id = priorities.urgency_id inner join importants on importants.id = priorities.important_id where emp_id = ? and task_end_date >= ? and task_status != 'completed'`;
+    let employeeUpCommingDeadlineQuery = `select task_name as Task, task_end_date as "Due Date", urgency.type as Urgency, importants.type as Importance, task_status as Status from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id inner join priorities on priorities.id = tasks.prioritiy_id inner join urgency on urgency.id = priorities.urgency_id inner join importants on importants.id = priorities.important_id where emp_id = ? and task_end_date >= ? and task_status != ?`;
 
-    let employeeInprogressTaskQuery = `select task_name as Task, task_end_date as "Due Date" from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id inner join priorities on priorities.id = tasks.prioritiy_id inner join urgency on urgency.id = priorities.urgency_id inner join importants on importants.id = priorities.important_id where emp_id = ? and task_status="inprogress";`;
+    let employeeInprogressTaskQuery = `select task_name as Task, task_end_date as "Due Date" from tasks_assigend_to inner join tasks on tasks_assigend_to.task_id=tasks.id inner join priorities on priorities.id = tasks.prioritiy_id inner join urgency on urgency.id = priorities.urgency_id inner join importants on importants.id = priorities.important_id where emp_id = ? and task_status=?`;
 
     let employeeRecentActivityTeamQuery = `select t.id,t.team_name,u.first_name,tm.create_at as create_date from users as u inner join teams as t on t.created_by = u.id inner join team_members as tm on tm.team_id = t.id where DATE_FORMAT(tm.create_at, "%Y-%m-%d") = current_date() and t.is_active = "1" and tm.emp_id = ? order by tm.create_at desc`;
 
@@ -20,11 +20,11 @@ const getDashBoardData = async (request, response) => {
 
     res.upCommingDeadlineData = await db.executeQuery(
       employeeUpCommingDeadlineQuery,
-      [id, currentDate]
+      [id, currentDate, "completed"]
     );
     res.employeeInprogressTaskData = await db.executeQuery(
       employeeInprogressTaskQuery,
-      [id]
+      [id, "inprogress"]
     );
 
     let employeeRecentActivityTeamData = await db.executeQuery(

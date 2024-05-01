@@ -35,6 +35,7 @@ exports.updateTeamData = async (request, response) => {
     await db.updateAnd({ team_name: teamdata.team_name }, "teams", {
       id: teamdata.id,
     });
+    let teamMember = [];
     let emp_id_data = await db.executeQuery(
       `select * from team_members where team_id = ? and is_deleted = 0`,
       [teamdata.id]
@@ -46,10 +47,9 @@ exports.updateTeamData = async (request, response) => {
             team_id: teamdata.id,
             emp_id: emp_id_data[i].emp_id,
           });
-          await db.insertData(
-            { team_id: teamdata.id, emp_id: teamdata.employe[j] },
-            "team_members"
-          );
+          if (!teamMember.includes(teamdata.employe[j])) {
+            await teamMember.push(teamdata.employe[j]);
+          }
         } else {
           await db.updateAnd({ emp_id: teamdata.employe[j] }, "team_members", {
             team_id: teamdata.id,
@@ -57,6 +57,10 @@ exports.updateTeamData = async (request, response) => {
         }
       }
     }
+    await teamMember.forEach((element) => {
+      db.insertData({ team_id: teamdata.id, emp_id: element }, "team_members");
+    });
+
     return response.json({ msg: "done" });
   } catch (error) {
     logger.error(error);

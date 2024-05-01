@@ -25,12 +25,12 @@ displaymessages = async () => {
       if (result.flag == true) {
         result.data.forEach((msg) => {
           if (user.id == msg.sender_id) {
-            displaymasseges.innerHTML += `<div id="sender-msg" class="d-flex align-items-end flex-column">
-            <p class="alert alert-info p-3" style="width: fit-content">${msg.content}</p>
+            displaymasseges.innerHTML += `<div id="sender-msg" class="d-flex align-items-end flex-column overflow-auto" >
+            <p class="alert alert-info p-3" style="width:calc(100%/2);">${msg.content}</p>
           </div>`;
           } else {
-            displaymasseges.innerHTML += `<div id="recver-msg" class="d-flex align-items-start flex-column">
-              <p class="alert alert-info p-3" style="width: fit-content">${msg.content}</p>
+            displaymasseges.innerHTML += `<div id="recver-msg" class="d-flex align-items-start flex-column overflow-auto">
+              <p class="alert alert-info p-3"style="width:calc(100%/2);" >${msg.content}</p>
             </div>`;
           }
         });

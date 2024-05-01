@@ -13,7 +13,7 @@ exports.employeepage = (request, response) => {
 
 exports.adminEmployees = async (request, response) => {
     try {
-        let employeeData = await db.executeQuery(`select users.* from users left join roles on users.role_id = roles.id where role_name = ? and users.status = ?`, ["Employee", "1"]);
+        let employeeData = await db.executeQuery(`select users.* from users left join roles on users.role_id = roles.id where role_name = ? and users.status = ?`, ["Employee", 1]);
         return response.json({ result: employeeData });
     } catch (err) {
         logger.error("Employee data is not found !");
