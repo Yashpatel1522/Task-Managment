@@ -63,19 +63,18 @@ const addComment = async (req, res) => {
     const seconds = date.getSeconds();
     if (req.body.taskstatus == "inprogress") {
       let reports = {
-        user_id: id,
-        task_id: req.params.taskid,
-        startat_at: `${year}-${month + 1
+        started_at: `${year}-${month + 1
           }-${day} ' ' ${hour}:${minute}:${seconds}`,
       };
-      let result = await db.insertData(reports, "reports");
+      let result = await db.updateAnd(reports, "tasks_assigend_to",{emp_id: id,
+        task_id: req.params.taskid,});
     } else if (req.body.taskstatus == "completed") {
       let reports = {
         finished_at: `${year}-${month + 1
           }-${day} ' ' ${hour}:${minute}:${seconds}`,
       };
-      let result = await db.updateAnd(reports, "reports", {
-        user_id: id,
+      let result = await db.updateAnd(reports, "tasks_assigend_to", {
+        emp_id: id,
         task_id: req.params.taskid,
       });
     }
