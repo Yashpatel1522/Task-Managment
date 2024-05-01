@@ -83,7 +83,6 @@ io.on("connection", (socket) => {
     io.emit("msg2", data);
   });
   socket.on("notification-data", (data) => {
-    console.log(data, "{}{app.js}")
     io.emit("send-notification-data", data)
     
   })
