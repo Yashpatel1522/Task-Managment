@@ -1,11 +1,8 @@
-let flag = true;
-
 const drawCharts = async () => {
   let taskResponse = await fetch(
     window.location.origin + `/manager/getManagerUpcomingTasks`
   );
   let taskData = await taskResponse.json();
-  console.log();
   if (taskData.result[0]) {
     taskData.result.forEach((element) => {
       document.getElementById(
@@ -21,18 +18,6 @@ const drawCharts = async () => {
       ).innerHTML += `<p>${element.team_name}</p>`;
     });
   }
-
-  let profData = await getProf();
-
-  if(profData.imageResult) {
-    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
-  }
-  else {
-    document.getElementById('profImg').src = `/assets/employee/user.png`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
-  }
-  
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
   let data = await response.json();
@@ -111,33 +96,4 @@ const drawCharts = async () => {
     Pieoption
   );
   Piechart.render();
-};
-
-function closeProf() {
-  const profDisp = document.getElementById('profClk');
-  if(flag) {
-    profDisp.style.display = 'none'
-  }
-  flag = true;
-}
-
-async function getProf() {
-  let data = await (await fetch('/manager/getManagerProfile/2')).json();
-  return data;
-}
-
-const remOption = () => {
-  document.getElementById("profClk").style.display = "none";
-};
-
-const showOption = () => {
-  if (
-    document.getElementById("profClk").style.display == "none" ||
-    document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
-  flag = false;
 };

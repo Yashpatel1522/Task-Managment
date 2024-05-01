@@ -55,9 +55,11 @@ const {
   calenderMonth,
   dueDateTask1,
 } = require("../controller/managermodule/calender");
+const { reportGet } = require("../controller/employeemodule/reports");
+const { messsageGet } = require("../controller/managermodule/messagepage");
 const reportView = require("../controller/managermodule/getreport");
 const getReportData = require("../controller/managermodule/getReportData");
-const getPdfData = require("../controller/managermodule/getPdfData")
+const getPdfData = require("../controller/managermodule/getPdfData");
 
 // const uploadStorage = multer({ storage: taskdetailfiles });
 const uploadImage = multer({ storage: userProfileStorage });
@@ -79,9 +81,15 @@ managerRouter.get(
 );
 managerRouter.get("/getManagerUpcomingTasks", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), upcomingTasks);
 
-managerRouter.get("/getReport", reportView);
-managerRouter.get("/getReportData", getReportData);
-managerRouter.get("/getPdfData", getPdfData);
+managerRouter.get(
+  "/message",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  messsageGet
+);
+
+managerRouter.get("/getReport",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), reportView);
+managerRouter.get("/getReportData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), getReportData);
+managerRouter.get("/getPdfData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,getPdfData);
 
 managerRouter.get("/getManagerProfile/:id", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), managerProfile);
 
@@ -118,8 +126,7 @@ managerRouter.post(
 );
 
 //api to get Manager Profile Details
-
-
+managerRouter.get("/getManagerProfile/:id", managerProfile);
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
 managerRouter.delete("/removeemployeapi/:id", removeEmployee);

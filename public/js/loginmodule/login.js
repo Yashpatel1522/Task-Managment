@@ -21,12 +21,11 @@ const isLogin = async () => {
       });
     } else if (res.flag == true) {
       Swal.fire({
-        title: "Good job!",
+        title: "Login Successfully...!",
         text: res.msg,
         icon: "success",
       }).then((result) => {
         if (result.isConfirmed) {
-          console.log(res);
           window.location.href=res.url
         //   window.location.href = window.location.href.replace(
         //     "/login/",

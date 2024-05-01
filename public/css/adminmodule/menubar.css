@@ -111,8 +111,7 @@ ul div:hover {
 .pagenation-data input {
   margin: 5px;
   padding: 5px;
-  width: 100px;
-  background-color: var(--sidebar);
+  /* background-color: var(--sidebar); */
 }
 
 .pagenation-data span {

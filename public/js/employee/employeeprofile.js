@@ -1,11 +1,39 @@
-const showNotification = () => {
-  Swal.fire({
-    title: "Notifications",
-    text: "Click!",
-    icon: "success",
-    button: "oh yes!",
-  });
-}
+// const showNotification = () => {
+//   Swal.fire({
+//     title: "Notifications",
+//     text: "Click!",
+//     icon: "success",
+//     button: "oh yes!",
+//   });
+// }
+
+const empImageInput = document.getElementById("change");
+const selectedImage = document.getElementById("selectedImage");
+
+empImageInput.addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    selectedImage.src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
+
+const empImageInput = document.getElementById("change");
+const selectedImage = document.getElementById("selectedImage");
+
+empImageInput.addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    selectedImage.src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
 
 const logoutPopup = () => {
   try {
@@ -56,7 +84,6 @@ window.onclick = function (event) {
   if (!event.target.matches('.profile')) {
 
     var sharedowns = document.getElementsByClassName("dropdown-content");
-    console.log(sharedowns, "_____________________________________")
     var i;
     for (i = 0; i < sharedowns.length; i++) {
       var openSharedown = sharedowns[i];
@@ -86,7 +113,6 @@ loadProfile();
 function updateUserProfile() {
   let form = document.getElementById('profileform')
   let formData = new FormData(form)
-  console.log(formData);
   fetch(`/employee/updateprofile`, {
     method: 'POST',
     body: formData

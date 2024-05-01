@@ -26,7 +26,7 @@ exports.calenderMonth = async (request, response) => {
 
 exports.dueDateTask = async (request, response) => {
     try {
-        let result = await db.executeQuery(`select task_name, DATE_FORMAT(task_end_date, "%Y-%m-%d") as end_date from tasks where status = 1 and (task_status = "todo" or task_status = "inprogress")`);
+        let result = await db.executeQuery(`select task_name, DATE_FORMAT(task_end_date, "%Y-%m-%d") as end_date from tasks where status = ? and (task_status = ? or task_status = ?)`, [1, "todo", "inprogress"]);
         return response.json({ result })
     } catch (err) {
         logger.error("Calendar not found it!");

@@ -82,17 +82,17 @@ async function getReport(id) {
 
 }
 
-let flag = true;
+// let flag = true;
 
-const showOption = async () => {
-  if (
-    document.getElementById("profClk").style.display == "none" ||
-    document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
-  flag = false;
-};
+// const showOption = async () => {
+//   if (
+//     document.getElementById("profClk").style.display == "none" ||
+//     document.getElementById("profClk").style.display == ""
+//   ) {
+//     document.getElementById("profClk").style.display = "block";
+//   } else {
+//     document.getElementById("profClk").style.display = "none";
+//   }
+//   flag = false;
+// };
 

@@ -12,20 +12,19 @@ exports.categoryPage = (request, response) => {
 
 exports.adminCategory = async (request, response) => {
   try {
-    let categoryData = await db.executeQuery(`select * from categories where status = 1`);
+    let categoryData = await db.executeQuery(`select * from categories where status = ?`, [1]);
     return response.json({ categoryData });
-  } catch (err) {
-    console.log(err);
-    // logger.error("category not found it!");
+  } catch (error) {
+    logger.error("category not found it!");
   }
 }
 
 exports.searchCategory = async (request, response) => {
   try {
     let search = "%" + request.params.searchdata + "%";
-    let categorySearch = await db.executeQuery(`SELECT * from categories where category like ? and status = 1`, [search]);
+    let categorySearch = await db.executeQuery(`SELECT * from categories where category like ? and status = ?`, [search, 1]);
     return response.json({ categorySearch });
-  } catch (err) {
+  } catch (error) {
     logger.error("Not task found it!");
   }
 }
@@ -33,9 +32,9 @@ exports.searchCategory = async (request, response) => {
 exports.categoryDetail = async (request, response) => {
   try {
     let categoryId = request.params.id;
-    let viewCategory = await db.executeQuery(`select * from categories as c left join tasks as t on c.id = t.category_id where (t.category_id = ? and  c.status = 1 and t.status = 1);`, [categoryId]);
+    let viewCategory = await db.executeQuery(`select * from categories as c left join tasks as t on c.id = t.category_id where (t.category_id = ? and  c.status = ? and t.status = ?);`, [categoryId, 1, 1]);
     return response.json({ viewCategory });
-  } catch (err) {
+  } catch (error) {
     logger.error("task not found it!");
   }
 }

@@ -7,7 +7,7 @@ let db = new database();
 const getPdfData = async (request, response) => {
     try {
       console.log(request.query.id);
-      let managerId = request.user?.id || 2;
+      let managerId = request.user.id;
       let employeeQ = `select id, first_name, last_name, email from users where id in (select distinct(emp_id) from tasks_assigend_to) and status = 1 and id = ?`;
       let employeeRes = await db.executeQuery(employeeQ, [request.query.id]);
 

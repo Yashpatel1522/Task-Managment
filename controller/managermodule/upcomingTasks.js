@@ -12,14 +12,14 @@ const upcomingTasks = async (request, response) => {
     let q = `select * from tasks where task_end_date between ? and ? and manager_id = ? and task_status != 'compleated' and status = 1;`;
     let res = await db.executeQuery(q, [fromDate, toDate, managerId]);
 
-    let teamQ = `select * from teams where created_by = ? and is_active = ?;`;
-    let teamRes = await db.executeQuery(teamQ, [managerId, 0]);
+    let teamQ = `select * from teams where is_active = ?;`;
+    let teamRes = await db.executeQuery(teamQ, [1]);
 
-    return response.json({result: res, teamResult: teamRes});
+    return response.json({ result: res, teamResult: teamRes });
   } catch (error) {
     console.log(error);
     logger.error(error);
-    return response.send({error: error});
+    return response.send({ error: error });
   }
 };
 
