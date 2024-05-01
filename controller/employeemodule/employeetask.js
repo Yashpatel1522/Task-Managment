@@ -41,9 +41,9 @@ const searchList = async (request, response) => {
     }
 }
 
-const addComment = async (req, res) => {
-    let file = req.file
-    const id = req.user.id;
+const addComment = async (request, response) => {
+    let file = request.file
+    const id = request.user.id;
     try {
         let addcomment = {
             employee_id: id,
@@ -82,7 +82,7 @@ const addComment = async (req, res) => {
         //     "attechment_url": file.filename,
         // }
         // resultprofile = await db.insertData(userfileedata, "attechments")
-        res.status(200).json({ 'msg': 'added' })
+        response.status(200).json({ 'msg': 'added' })
     }
     catch (error) {
         logger.error("Employee Task comments is not inserted");
