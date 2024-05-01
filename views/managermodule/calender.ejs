@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <!-- <html lang="en"> -->
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teams</title>
-  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
-  <link rel="stylesheet" href="/bootstrape/css/bootstrap.css" />
-  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
-  <!-- <link rel="stylesheet" href="/css/managermodule/managerdashboard.css" /> -->
-  <link rel="stylesheet" href="/css/managermodule/calender.css" />
-  <link rel="stylesheet" href="/css/loginmodule/popup.css" />
-  <link rel="stylesheet" href="/css/adminmodule/calenderpage.css">
-</head>
-
-<body onload="loadProf()">
-  <div class="managerMain">
-    <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
-    <div class="teamcontent pt-4" onclick="closeProf()">
-      <div class="row">
-        <div class="col-9">
-          <!-- <input
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teams</title>
+    <link rel="stylesheet" href="/css/loginmodule/loadder.css" />
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/bootstrape/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+    <!-- <link rel="stylesheet" href="/css/managermodule/managerdashboard.css" /> -->
+    <link rel="stylesheet" href="/css/managermodule/calender.css" />
+    <link rel="stylesheet" href="/css/loginmodule/popup.css" />
+    <link rel="stylesheet" href="/css/adminmodule/calenderpage.css">
+  </head>
+  <body onload="loadProf()">
+    <div id="loader" class="center"></div>
+    <div class="managerMain">
+      <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
+      <div class="teamcontent pt-4" onclick="closeProf()">
+        <div class="row">
+          <div class="col-9">
+            <!-- <input
               type="text"
               placeholder="Search"
               style="border-radius: 10px"
@@ -61,6 +61,7 @@
   <div class="managerProfile" id="managerProfile">
     <%- include("managerprofile")%>
   </div>
+  <script src="/js/loginmodule/lodder.js"></script>
   <script src="/sweetalert2/sweetalert2.min.js"></script>
   <script src="/bootstrape/js/bootstrap.min.js"></script>
   <script src="/js/adminmodule/calenderswitch.js"></script>

@@ -15,11 +15,11 @@ const teamList = async (request, response) => {
 
 const teamData = async (request, response) => {
   try {
-    const query = `select t.id,t.team_name,u.first_name,m.emp_id from teams as t inner join team_members as m on t.id=m.team_id inner join users as u on t.created_by=u.id where (t.is_active=1 and m.is_deleted=0 and m.emp_id=?)`;
-    let result = await db.executeQuery(query, [request.user.id]);
+    const query = `select t.id,t.team_name,u.first_name,m.emp_id from teams as t inner join team_members as m on t.id=m.team_id inner join users as u on t.created_by=u.id where (t.is_active=? and m.is_deleted=? and m.emp_id=?)`;
+    let result = await db.executeQuery(query, [1,0,request.user.id]);
     response.json(result);
   } catch (error) {
-    logger.error("Employee Task data is not found !");
+    logger.error("Employee Team data is not found !");
   }
 };
 
@@ -49,7 +49,7 @@ const teamSearchDetails = async (request, response) => {
     let search = "%" + request.params.searchteam + "%";
     let searchTeam = await db.executeQuery(
       `select t.id,t.team_name,u.first_name from teams as t inner join team_members as m on m.team_id=t.id inner join users as u on u.id=t.created_by where m.emp_id= ? and t.team_name like ? and is_deleted = 0;`,
-      [req.user.id, search]
+      [request.user.id, search]
     );
     return response.json(searchTeam);
   } catch (error) {

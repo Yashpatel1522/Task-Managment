@@ -35,7 +35,7 @@ const getDeadline = async () => {
   return data;
 };
 
-let todayDate = new Date().getDate();
+let todayDate1 = new Date().getDate();
 
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
@@ -57,7 +57,7 @@ const getCalender = async (month) => {
       let td = document.createElement("td");
       td.innerText += `${data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
         }`;
-      if (data.yearCalendar[i][j] === todayDate && m + 1 === month) {
+      if (data.yearCalendar[i][j] === todayDate1 && m + 1 === month) {
         td.style.backgroundColor = "rgb(90, 150, 90)";
       }
       dueDate.result.forEach((ele) => {

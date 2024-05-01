@@ -1364,8 +1364,6 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T04:04:09.046Z"}
 {"level":"info","timestamp":"2024-04-26T04:04:10.783Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T04:04:12.936Z"}
-<<<<<<< HEAD
->>>>>>> dev
 {"level":"info","timestamp":"2024-04-27T04:19:24.990Z"}
 {"level":"error","timestamp":"2024-04-27T04:19:28.719Z"}
 {"level":"error","timestamp":"2024-04-27T04:19:29.476Z"}
@@ -1404,7 +1402,6 @@
 {"level":"error","timestamp":"2024-04-27T05:05:26.398Z"}
 {"level":"error","timestamp":"2024-04-27T05:05:26.594Z"}
 {"level":"error","timestamp":"2024-04-27T05:05:27.152Z"}
-=======
 {"level":"error","message":"profile data is not found !","timestamp":"2024-04-26T08:11:58.962Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-26T08:11:58.964Z"}
 {"level":"error","timestamp":"2024-04-26T08:47:06.509Z"}
@@ -1659,31 +1656,8 @@
 {"level":"error","timestamp":"2024-04-27T06:51:22.334Z"}
 {"level":"info","timestamp":"2024-04-27T06:51:23.738Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:06.647Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:07.697Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.253Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.552Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.741Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:20.951Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:21.156Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:25.742Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:26.367Z"}
-{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:58.069Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:17.796Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:22.658Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:22.955Z"}
-{"level":"error","timestamp":"2024-04-27T07:28:23.187Z"}
-{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:47.705Z"}
-{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:48.218Z"}
-{"level":"error","message":"Calendar not found it!","timestamp":"2024-04-27T08:42:48.476Z"}
-{"level":"error","timestamp":"2024-04-27T09:00:45.857Z"}
-{"level":"error","message":"Task data is not found !","timestamp":"2024-04-27T09:00:45.863Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:04:36.665Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:04:41.171Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:36.604Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:41.430Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:05:42.252Z"}
-{"level":"error","message":"Team Not Update !","timestamp":"2024-04-27T09:08:16.436Z"}
 
+<<<<<<< HEAD
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:49:26.149Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:52:47.921Z"}
 {"level":"error","timestamp":"2024-04-29T06:17:01.780Z"}
@@ -1830,3 +1804,13 @@
 {"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:56.116Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T08:28:56.170Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,concat(u.first_name, ' ', u.last_name) as first_name from users where role_id = 3 and status = 1","sqlMessage":"Unknown column 'u.first_name' in 'field list'","sqlState":"42S22","timestamp":"2024-05-01T09:28:18.937Z"}
+{"level":"error","timestamp":"2024-05-01T09:53:06.533Z"}
+{"level":"error","timestamp":"2024-05-01T09:54:15.594Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:16.726Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:31.595Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:32.161Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.144Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.577Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.848Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.898Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:34.265Z"}

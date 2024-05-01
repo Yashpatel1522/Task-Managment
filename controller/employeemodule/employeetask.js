@@ -21,7 +21,7 @@ const employeeTaskList = async (request, response) => {
         inner join urgency on urgency.id=p.urgency_id
         inner join importants as imp on imp.id=p.important_id  where a.emp_id=? and t.status=1 order by p.urgency_id;`;
     let result = await db.executeQuery(query, id);
-    res.json(result);
+    response.json(result);
   } catch (error) {
     logger.error("Employee Task data is not found !");
   }
@@ -29,15 +29,13 @@ const employeeTaskList = async (request, response) => {
 
 const searchList = async (req, res) => {
   try {
-    usersearch = req.params.searchresult;
-    const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id       inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where t.task_name like ? or t.task_end_date like ? or c.category like ? and t.status=1;`;
-    let result = await db.executeQuery(query, [
-      "%" + usersearch + "%",
-      "%" + usersearch + "%",
-      "%" + usersearch + "%",
-    ]);
+    usersearch = req.params.searchresult
+    const query = `select * from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where (t.task_name like ? or c.category like ?) and t.status=? and a.emp_id = ?`
+    let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%', 1, req.user.id]);
     res.json(result);
-  } catch (error) {
+
+  }
+  catch (error) {
     logger.error("Employee Task search data is not found !");
   }
 };
@@ -67,16 +65,14 @@ const addComment = async (req, res) => {
       let reports = {
         user_id: id,
         task_id: req.params.taskid,
-        startat_at: `${year}-${
-          month + 1
-        }-${day} ' ' ${hour}:${minute}:${seconds}`,
+        startat_at: `${year}-${month + 1
+          }-${day} ' ' ${hour}:${minute}:${seconds}`,
       };
       let result = await db.insertData(reports, "reports");
     } else if (req.body.taskstatus == "completed") {
       let reports = {
-        finished_at: `${year}-${
-          month + 1
-        }-${day} ' ' ${hour}:${minute}:${seconds}`,
+        finished_at: `${year}-${month + 1
+          }-${day} ' ' ${hour}:${minute}:${seconds}`,
       };
       let result = await db.updateAnd(reports, "reports", {
         user_id: id,
@@ -94,4 +90,4 @@ const addComment = async (req, res) => {
   }
 };
 
-module.exports = { employeeTaskList,list, searchList, addComment };
+module.exports = { employeeTaskList, list, searchList, addComment };

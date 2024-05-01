@@ -3,7 +3,7 @@ const logger = require("../../logger/logger");
 const db = new database();
 const getNavigationData = async (request,response) => {
     try {
-      let id = 4
+      let id = request.user.id;
       let res = {}
       res.imagename = await db.executeQuery(
         `select newimage_name from user_profiles where user_id = ? and is_deleted = 0`,[id]

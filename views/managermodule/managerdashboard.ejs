@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manager Dashboard</title>
     <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+
     <link rel="stylesheet" href="/bootstrape/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/loginmodule/loadder.css" />
     <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="/css/managermodule/managerdashboard.css" />
     <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
@@ -14,7 +16,10 @@
     <link rel="stylesheet" href="/css/loginmodule/draganddrop.css" />
   </head>
 
+	
   <body onload="taskDetails()">
+		<div id="loader" class="center">
+		</div>	
     <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
 		<div class="managerContent pt-4" onclick="closeDropdown()">
@@ -137,6 +142,7 @@
 	<script src="/js/loginmodule/tasks.js" defer></script>
 	<script src="/js/loginmodule/draganddrop.js" defer></script>
 	<script src="/js/managermodule/notification.js"></script>
+	<script src="/js/loginmodule/lodder.js"> </script>
 
 	<!-- <script src="/js/loginmodule/popup.js"></script> -->
 </body>
