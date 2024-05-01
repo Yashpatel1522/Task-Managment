@@ -86,7 +86,8 @@ managerRouter.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   messsageGet
 );
-
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+managerRouter.get("/getManagerProfile/:id", managerProfile);
 managerRouter.get("/getReport",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), reportView);
 managerRouter.get("/getReportData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), getReportData);
 managerRouter.get("/getPdfData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,getPdfData);

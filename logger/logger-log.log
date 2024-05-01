@@ -1934,6 +1934,16 @@
 {"level":"error","timestamp":"2024-05-01T09:58:33.848Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:33.898Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:34.265Z"}
+<<<<<<< HEAD
+{"level":"error","timestamp":"2024-05-01T10:01:50.660Z"}
+{"level":"error","timestamp":"2024-05-01T12:21:46.328Z"}
+{"level":"error","timestamp":"2024-05-01T12:21:49.016Z"}
+{"level":"error","timestamp":"2024-05-01T12:21:49.417Z"}
+{"level":"error","timestamp":"2024-05-01T12:22:22.539Z"}
+{"level":"error","timestamp":"2024-05-01T12:22:36.909Z"}
+{"level":"error","timestamp":"2024-05-01T12:22:45.874Z"}
+{"level":"error","timestamp":"2024-05-01T12:23:26.014Z"}
+=======
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:32.606Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:33.778Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:38.786Z"}
@@ -2129,3 +2139,4 @@
 {"level":"error","timestamp":"2024-05-01T14:21:14.155Z"}
 {"level":"error","timestamp":"2024-05-01T14:21:21.917Z"}
 {"level":"error","timestamp":"2024-05-01T14:22:26.120Z"}{"level":"error","timestamp":"2024-05-01T15:04:50.650Z"}
+>>>>>>> dev

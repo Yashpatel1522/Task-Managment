@@ -183,3 +183,25 @@ INSERT INTO `role_has_permissions` VALUES (1,3,'2024-04-23 06:27:31',0),(1,4,'20
 
 
 
+
+INSERT INTO permissions(permission,api,type) VALUES ('employee getdashboardata','/employee/getdashboardata','get'),
+('employee dashboard','/employee/dashBoard','get'),
+('employee getUser','/employee/getUser','get'),
+('employee getprofiledata','/employee/getprofiledata','get'),
+('employee updateprofile','/employee/updateprofile','post'),
+('employee getnavigationdata','/employee/getnavigationdata','get'),
+('employee task','/employee/task','get'),
+('employee employeetasklist','/employee/employeetasklist','get'),
+('employee searchtask','/employee/searchtask','get'),
+('employee addcomment','/employee/addcomment','post'),
+('employee teamdata','/employee/teamdata','get'),
+('employee teamdetailsdata','/employee/teamdetailsdata','get'),
+('employee teamdetails','/employee/teamdetails','get'),
+('employee teamsearchdetails','/employee/teamsearchdetails','get'),
+('employee calender','/employee/calender','get'),
+('employee calenderData','/employee/calenderData','get'),
+('employee dueDateOfTask','/employee/dueDateOfTask','get'),
+('employee messages','/employee/messages','get'),
+('employee report','/employee/report','get'),
+('employee comeletedTasks','/employee/comeletedTasks','get');
+
