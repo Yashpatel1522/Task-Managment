@@ -74,8 +74,11 @@ router.get("/searchtask/:searchresult", searchList);
 router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
 
 //team route
-router.get("/teamdata", teamList);
-router.get("/teamdetailsdata", teamData);
+router.get(
+  "/teamdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  teamList);
+router.get("/teamdetailsdata", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), teamData);
 router.get("/teamdetails/:teamid", teamDetails);
 router.get("/teamsearchdetails/:searchteam", teamSearchDetails);
 
