@@ -29,7 +29,7 @@ const showOption = async () => {
 };
 
 const showteamdata = async () => {
-  let profData = await (await fetch("/manager/getManagerProfile/2")).json();
+  let profData = await (await fetch("/manager/getManagerProfile/1")).json();
   if (profData.imageResult) {
     document.getElementById(
       "profImg"

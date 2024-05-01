@@ -51,7 +51,7 @@ const setData = async () => {
 };
 
 async function getProf() {
-  let data = await (await fetch("/manager/getManagerProfile/2")).json();
+  let data = await (await fetch("/manager/getManagerProfile/1")).json();
   return data;
 }
 

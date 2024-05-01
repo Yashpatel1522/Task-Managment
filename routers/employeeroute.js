@@ -41,14 +41,15 @@ const { route } = require("./managerroute");
 const { getUser } = require("../controller/employeemodule/userfetch");
 router.get(
   "/getdashboardata/:id?",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   getDashBoardData
 );
 router.get(
   "/dashboard",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  dashboard
+  dashBoard
 );
+
 router.get(
   "/getUser",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -57,26 +58,38 @@ router.get(
 
 router.get(
   "/getprofiledata",
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   getProfileData
 );
 router.post(
   "/updateprofile",
   uploadStorageprofile.single("profileimg"),
-  // passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   updateProfileData
 );
 // router.use(passport.authenticate("jwt", { session: false, failureRedirect: "/" }))
 router.get("/getnavigationdata", getNavigationData);
-router.get("/task/:id", list); //http://127.0.0.1:8000/employee/task/1
+router.get("/task", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist/:id", employeeTaskList);
 router.get("/searchtask/:searchresult", searchList);
 router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
 
 //team route
-router.get("/teamdata", teamList);
-router.get("/teamdetailsdata", teamData);
-router.get("/teamdetails/:teamid", teamDetails);
+router.get(
+  "/teamdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  teamList
+);
+router.get(
+  "/teamdetailsdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  teamData
+);
+router.get(
+  "/teamdetails/:teamid",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  teamDetails
+);
 router.get("/teamsearchdetails/:searchteam", teamSearchDetails);
 
 router.get("/calender", employeeCalender);

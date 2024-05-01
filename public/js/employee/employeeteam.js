@@ -1,12 +1,12 @@
 async function viewteamdata() {
-
-  response = await fetch(`/employee/teamdetailsdata`)
+  response = await fetch(`/employee/teamdetailsdata`);
   let data = await response.json();
-  data.forEach(element => {
-    document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
-    <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`
+  data.forEach((element) => {
+    document.getElementById(
+      "details"
+    ).innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
+    <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`;
   });
-
 }
 let ides_team = (id) => document.getElementById(id);
 
@@ -14,11 +14,11 @@ const hideteam = (id) => {
   ides_team(id).style.display = "none";
 };
 const show = async (id) => {
-  document.getElementById('team').style.display = "block"
-  response = await fetch(`/employee/teamdetails/${id}`)
+  document.getElementById("team").style.display = "block";
+  response = await fetch(`/employee/teamdetails/${id}`);
   let data = await response.json();
 
-  document.getElementById('teamdetails').innerHTML = `
+  document.getElementById("teamdetails").innerHTML = `
                           <div class="row">
                               <div class="field fs-6 text p-3 col">
                                 <label>Tasks :&nbsp;</label>
@@ -34,32 +34,31 @@ const show = async (id) => {
                             </div>
                           </div>
                           <button type = "button" class="btn btn-primary" style="position: relative;left: 41%;top: 15px;margin-top: 8%;" data-dismiss="modal"
-                          onclick = "hideteam('team')">Close</button>`
+                          onclick = "hideteam('team')">Close</button>`;
 
-  data.result1.forEach(element => {
-    document.getElementById('taskflex').innerHTML +=
-      `<p>${element.task_name}</p>`
-  })
-  data.result2.forEach(element => {
-    document.getElementById('pflex').innerHTML +=
-      `<p>${element.first_name}</p>`
+  data.result1.forEach((element) => {
+    document.getElementById(
+      "taskflex"
+    ).innerHTML += `<p>${element.task_name}</p>`;
   });
-}
+  data.result2.forEach((element) => {
+    document.getElementById(
+      "pflex"
+    ).innerHTML += `<p>${element.first_name}</p>`;
+  });
+};
 
-viewteamdata()
-
-
+viewteamdata();
 
 const searchTeam = async (value) => {
-
   if (value === "") {
     document.getElementById("details").innerHTML = `<tr>
     <th> Team Name</th>
     <th>Manager</th>
     <th>Members Details</th></tr>`;
-    viewteamdata()
+    viewteamdata();
   }
-  let response = await (fetch(`/employee/teamsearchdetails/${value}`))
+  let response = await fetch(`/employee/teamsearchdetails/${value}`);
   let data = await response.json();
 
   document.getElementById("details").innerHTML = `<tr>
@@ -67,18 +66,19 @@ const searchTeam = async (value) => {
     <th>Manager</th>
     <th>Members Details</th></tr>`;
   if (data.length != 0) {
-    data.forEach(element => {
-      document.getElementById('details').innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
-    <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`
+    data.forEach((element) => {
+      document.getElementById(
+        "details"
+      ).innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
+    <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`;
     });
-  }
-  else {
+  } else {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Data Not Found"
+      text: "Data Not Found",
     });
-    ides_team('searchteam').value = ""
+    ides_team("searchteam").value = "";
     viewteamdata();
   }
-}
+};
