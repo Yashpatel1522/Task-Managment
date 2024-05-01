@@ -33,7 +33,7 @@ exports.addNewTeam = async (request, response) => {
 
 exports.teamData = async (request, response) => {
     try {
-        let teamData = await db.executeQuery(`select * from teams where is_active = ?`, ["1"]);
+        let teamData = await db.executeQuery(`select * from teams where is_active = ?`, [1]);
         return response.json({ result: teamData });
     } catch (error) {
         logger.error("Team details not found it!");

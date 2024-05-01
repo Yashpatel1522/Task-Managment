@@ -1,21 +1,4 @@
 const setData = async () => {
-  let profData = await getProf();
-  if (profData.imageResult) {
-    document.getElementById(
-      "profImg"
-    ).src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById("userName").innerText =
-      `${profData.result[0].first_name}` +
-      " " +
-      `${profData.result[0].last_name}`;
-  } else {
-    document.getElementById("profImg").src = `/assets/employee/user.png`;
-    document.getElementById("userName").innerText =
-      `${profData.result[0].first_name}` +
-      " " +
-      `${profData.result[0].last_name}`;
-  }
-
   let url = window.location.origin + `/manager/getEmployees`;
   let response = await fetch(url);
   let data = await response.json();
@@ -49,11 +32,6 @@ const setData = async () => {
   }
   document.getElementsByClassName("employeeList")[0].innerHTML = str;
 };
-
-async function getProf() {
-  let data = await (await fetch("/manager/getManagerProfile/2")).json();
-  return data;
-}
 
 async function showEmployeeDetails(
   id,
@@ -91,17 +69,6 @@ async function showEmployeeDetails(
     confirmButtonText: "Close",
   });
 }
-
-const showOption = () => {
-  if (
-    document.getElementById("profClk").style.display == "none" ||
-    document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
-};
 
 const searchEmployee = async (value) => {
   try {

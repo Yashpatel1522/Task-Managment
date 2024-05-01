@@ -59,7 +59,7 @@ const { reportGet } = require("../controller/employeemodule/reports");
 const { messsageGet } = require("../controller/managermodule/messagepage");
 const reportView = require("../controller/managermodule/getreport");
 const getReportData = require("../controller/managermodule/getReportData");
-const getPdfData = require("../controller/managermodule/getPdfData")
+const getPdfData = require("../controller/managermodule/getPdfData");
 
 // const uploadStorage = multer({ storage: taskdetailfiles });
 const uploadImage = multer({ storage: userProfileStorage });
@@ -79,27 +79,25 @@ managerRouter.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   searchTask
 );
+managerRouter.get("/getManagerUpcomingTasks", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), upcomingTasks);
 
 managerRouter.get(
   "/message",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   messsageGet
 );
-
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 managerRouter.get("/getManagerProfile/:id", managerProfile);
-managerRouter.get("/getReport", reportView);
-managerRouter.get("/getReportData", getReportData);
-managerRouter.get("/getPdfData", getPdfData);
+managerRouter.get("/getReport",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), reportView);
+managerRouter.get("/getReportData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), getReportData);
+managerRouter.get("/getPdfData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,getPdfData);
 
+managerRouter.get("/getManagerProfile/:id", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), managerProfile);
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
-);
-
-
-
+); 
 managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 managerRouter.get("/employeeDetails", employeeView);
 
@@ -129,8 +127,7 @@ managerRouter.post(
 );
 
 //api to get Manager Profile Details
-
-
+managerRouter.get("/getManagerProfile/:id", managerProfile);
 //api to get employee details
 managerRouter.get("/getEmployees", employeeData);
 managerRouter.delete("/removeemployeapi/:id", removeEmployee);

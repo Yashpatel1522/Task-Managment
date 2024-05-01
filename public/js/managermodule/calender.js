@@ -1,35 +1,3 @@
-async function loadProf() {
-  let profData = await (await fetch('/manager/getManagerProfile/2')).json();
-
-  if (profData.imageResult && profData.result) {
-    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}` + " " + `${profData.result[0].last_name}`;
-  }
-}
-
-flag = true;
-
-const showOption = async () => {
-  if (
-    document.getElementById("profClk").style.display == "none" ||
-    document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
-  flag = false;
-};
-
-function closeProf() {
-  const profDisp = document.getElementById('profClk');
-  if (flag) {
-    profDisp.style.display = 'none'
-  }
-  flag = true;
-}
-
-
 const getDeadline = async () => {
   let data = await (await fetch("/manager/dueDateOfTask")).json();
   return data;
@@ -55,8 +23,9 @@ const getCalender = async (month) => {
     let tr = document.createElement("tr");
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
-      td.innerText += `${data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
-        }`;
+      td.innerText += `${
+        data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
+      }`;
       if (data.yearCalendar[i][j] === todayDate1 && m + 1 === month) {
         td.style.backgroundColor = "rgb(90, 150, 90)";
       }

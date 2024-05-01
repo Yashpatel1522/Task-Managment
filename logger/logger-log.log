@@ -972,11 +972,6 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:46:40.221Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:46:59.238Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-25T13:47:06.429Z"}
-<<<<<<< HEAD
->>>>>>> dev
->>>>>>> dev
-<<<<<<< HEAD
->>>>>>> dev
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T03:58:01.666Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T03:58:13.939Z"}
 {"level":"info","timestamp":"2024-04-26T04:02:23.597Z"}
@@ -1364,8 +1359,6 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T04:04:09.046Z"}
 {"level":"info","timestamp":"2024-04-26T04:04:10.783Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T04:04:12.936Z"}
-<<<<<<< HEAD
->>>>>>> dev
 {"level":"info","timestamp":"2024-04-27T04:19:24.990Z"}
 {"level":"error","timestamp":"2024-04-27T04:19:28.719Z"}
 {"level":"error","timestamp":"2024-04-27T04:19:29.476Z"}
@@ -1404,7 +1397,6 @@
 {"level":"error","timestamp":"2024-04-27T05:05:26.398Z"}
 {"level":"error","timestamp":"2024-04-27T05:05:26.594Z"}
 {"level":"error","timestamp":"2024-04-27T05:05:27.152Z"}
-=======
 {"level":"error","message":"profile data is not found !","timestamp":"2024-04-26T08:11:58.962Z"}
 {"level":"error","message":"Dash data is not found !","timestamp":"2024-04-26T08:11:58.964Z"}
 {"level":"error","timestamp":"2024-04-26T08:47:06.509Z"}
@@ -1659,8 +1651,279 @@
 {"level":"error","timestamp":"2024-04-27T06:51:22.334Z"}
 {"level":"info","timestamp":"2024-04-27T06:51:23.738Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:06.647Z"}
-
-
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:49:26.149Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:52:47.921Z"}
+{"level":"error","timestamp":"2024-04-29T06:17:01.780Z"}
+{"level":"error","timestamp":"2024-04-29T06:17:03.149Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:27.051Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:38.538Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:53.661Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:58.344Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:01.671Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:04.726Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:07.894Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.319Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.334Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.942Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:11.613Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:11.624Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:15.093Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:23.541Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:23.942Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:24.557Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.047Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.507Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.694Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.861Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:26.056Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:26.470Z"}
+{"level":"error","timestamp":"2024-04-29T06:26:56.214Z"}
+{"level":"error","timestamp":"2024-04-29T06:43:35.123Z"}
+{"level":"error","timestamp":"2024-04-29T06:44:38.624Z"}
+{"level":"error","timestamp":"2024-04-29T06:54:06.823Z"}
+{"level":"error","timestamp":"2024-04-29T07:02:39.953Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:18:56.322Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:28:53.839Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:30:17.322Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:31:15.455Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:38:39.675Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:39:15.050Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:51:39.890Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:06.885Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:43.935Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:56:51.721Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:57:34.247Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:22.816Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:24.242Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:18.787Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:32.258Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:38.703Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T03:41:16.630Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.924Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.933Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:51:58.276Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:52:39.550Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:57:04.808Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='24'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:26.101Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:43.608Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:00.633Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:02.744Z"}
+{"level":"error","timestamp":"2024-04-29T06:08:12.084Z"}
+{"level":"error","timestamp":"2024-04-29T08:51:17.591Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-29T08:52:24.189Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:50.556Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:52.377Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:25:54.133Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:00.042Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:39.153Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:45:59.878Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:02.960Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:41.643Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:33:19.830Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:35:56.323Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:18.209Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:53.694Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:10.258Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:25.702Z"}
+{"level":"error","timestamp":"2024-04-29T05:03:33.029Z"}
+{"level":"error","timestamp":"2024-04-29T05:04:53.646Z"}
+{"level":"info","timestamp":"2024-04-29T10:26:55.676Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"insert into chats(data)values('[object Object]')","sqlMessage":"Unknown column 'data' in 'field list'","sqlState":"42S22","timestamp":"2024-04-29T10:51:47.872Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"insert into chats(data)values('[object Object]')","sqlMessage":"Unknown column 'data' in 'field list'","sqlState":"42S22","timestamp":"2024-04-29T10:52:03.148Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id=? and reciver_id=? orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? and reciver_id=? orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:08:02.602Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id=NULL and reciver_id=NULL orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:08:41.068Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id=NULL and reciver_id=NULL orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:09:11.906Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:15:06.705Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' ORDER BY DESC","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:16:16.298Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' ORDER BY created_at DESC","sqlMessage":"Unknown column 'created_at' in 'order clause'","sqlState":"42S22","timestamp":"2024-04-29T13:17:31.250Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' ORDER BY created_at DESC","sqlMessage":"Unknown column 'created_at' in 'order clause'","sqlState":"42S22","timestamp":"2024-04-29T13:17:31.253Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:40.078Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:40.082Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:41.689Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:41.713Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:46:00.257Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:46:00.266Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"level":"error","timestamp":"2024-04-30T05:07:16.422Z"}
+{"level":"error","timestamp":"2024-04-30T05:07:58.103Z"}
+{"level":"error","timestamp":"2024-04-30T10:19:48.745Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:09:32.367Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:09:32.391Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:11:42.921Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:11:42.928Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:12:33.956Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:12:33.988Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:14:23.013Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:14:23.019Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:15:22.460Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:15:22.472Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:15:23.236Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:15:23.240Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:15:24.637Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:15:24.646Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:27.217Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:16:27.227Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:28.129Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:16:28.138Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:30.298Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:16:30.305Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:30.563Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:16:30.567Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:30.768Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:16:30.775Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:31.065Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:16:31.068Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:31.244Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:16:31.248Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:38.443Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:16:38.448Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:40.862Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:43.187Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:16:43.198Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:16:56.512Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:17:07.060Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:17:07.063Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:18:11.975Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:18:11.977Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:18:12.909Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:18:12.916Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:38.788Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:19:38.794Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:40.577Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:19:40.582Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:19:41.228Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:41.234Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:42.607Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:19:42.609Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:43.364Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:19:43.371Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:44.094Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:19:44.095Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:44.637Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:45.172Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:19:45.175Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:45.516Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:19:45.527Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:19:45.988Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:19:45.989Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:24.032Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:24.034Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:25.344Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:25.346Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:25.558Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:25.560Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:27.939Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:27.941Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:28.122Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:28.124Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:28.285Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:28.288Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:29.170Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:29.171Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:29.834Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:22:29.840Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:30.396Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:30.397Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:30.887Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:30.890Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:31.463Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:31.873Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:31.878Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:22:32.202Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:22:32.207Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:23:09.222Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:23:09.231Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:25:02.936Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:25:02.946Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:25:24.964Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T04:25:24.975Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:25:58.148Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T04:48:51.607Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T04:48:52.712Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:15.934Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:22.701Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:25.939Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:27.426Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:31.582Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:32.187Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:32.562Z"}
+{"level":"error","timestamp":"2024-05-01T05:02:33.771Z"}
+{"level":"error","timestamp":"2024-05-01T05:03:10.373Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:08.007Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:11.405Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:31.892Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:32.077Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:32.245Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:32.413Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:32.573Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:42.135Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:46.303Z"}
+{"level":"error","timestamp":"2024-05-01T05:45:06.483Z"}
+{"level":"error","timestamp":"2024-05-01T05:45:06.650Z"}
+{"level":"error","timestamp":"2024-05-01T05:45:06.947Z"}
+{"level":"error","timestamp":"2024-05-01T05:47:35.192Z"}
+{"level":"error","timestamp":"2024-05-01T05:47:37.604Z"}
+{"level":"error","timestamp":"2024-05-01T05:49:07.837Z"}
+{"level":"error","timestamp":"2024-05-01T05:50:15.292Z"}
+{"level":"error","timestamp":"2024-05-01T05:51:32.508Z"}
+{"level":"error","timestamp":"2024-05-01T05:52:02.279Z"}
+{"level":"error","timestamp":"2024-05-01T05:52:25.381Z"}
+{"level":"error","timestamp":"2024-05-01T05:53:05.842Z"}
+{"level":"error","timestamp":"2024-05-01T05:53:20.969Z"}
+{"level":"error","timestamp":"2024-05-01T05:53:31.889Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:35:38.881Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:36:33.808Z"}
+=======
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='4') or (sender_id='4' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:28:59.823Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='11') or (sender_id='11' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:29:07.066Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:51.114Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:31:51.166Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:31:55.666Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:56.955Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T03:31:56.991Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:58.264Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:32:03.639Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:32:03.664Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:32:21.330Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T03:32:21.356Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:32:59.314Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T03:32:59.340Z"}
+{"level":"error","timestamp":"2024-05-01T04:04:18.242Z"}
+{"level":"error","timestamp":"2024-05-01T04:04:24.598Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-05-01T04:04:26.035Z"}
+{"level":"error","timestamp":"2024-05-01T04:05:01.050Z"}
+{"level":"error","timestamp":"2024-05-01T04:05:02.866Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:05:19.310Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T04:05:19.364Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T04:05:20.610Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:27:49.172Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:27:49.204Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:29:44.184Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:29:44.226Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:31:24.009Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:31:24.121Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T05:32:20.477Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T05:32:20.556Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T07:29:14.505Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T07:29:14.542Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:23:49.310Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:23:49.375Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:24:01.750Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:24:01.766Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:35.831Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:35.867Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:50.502Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:50.539Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:50.918Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:50.962Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:51.364Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:51.416Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T08:28:55.371Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T08:28:56.116Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T08:28:56.170Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select id,concat(u.first_name, ' ', u.last_name) as first_name from users where role_id = 3 and status = 1","sqlMessage":"Unknown column 'u.first_name' in 'field list'","sqlState":"42S22","timestamp":"2024-05-01T09:28:18.937Z"}
 {"level":"error","timestamp":"2024-05-01T09:53:06.533Z"}
 {"level":"error","timestamp":"2024-05-01T09:54:15.594Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:16.726Z"}
@@ -1671,6 +1934,7 @@
 {"level":"error","timestamp":"2024-05-01T09:58:33.848Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:33.898Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:34.265Z"}
+<<<<<<< HEAD
 {"level":"error","timestamp":"2024-05-01T10:01:50.660Z"}
 {"level":"error","timestamp":"2024-05-01T12:21:46.328Z"}
 {"level":"error","timestamp":"2024-05-01T12:21:49.016Z"}
@@ -1679,3 +1943,200 @@
 {"level":"error","timestamp":"2024-05-01T12:22:36.909Z"}
 {"level":"error","timestamp":"2024-05-01T12:22:45.874Z"}
 {"level":"error","timestamp":"2024-05-01T12:23:26.014Z"}
+=======
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:32.606Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:33.778Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:38.786Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:42:39.288Z"}
+{"level":"error","timestamp":"2024-05-01T11:55:49.794Z"}
+{"level":"error","timestamp":"2024-05-01T11:55:52.544Z"}
+{"level":"error","timestamp":"2024-05-01T11:55:53.467Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:49:26.149Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:52:47.921Z"}
+{"level":"error","timestamp":"2024-04-29T06:17:01.780Z"}
+{"level":"error","timestamp":"2024-04-29T06:17:03.149Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:27.051Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:38.538Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:53.661Z"}
+{"level":"error","timestamp":"2024-04-29T06:22:58.344Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:01.671Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:04.726Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:07.894Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.319Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.334Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:10.942Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:11.613Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:11.624Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:15.093Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:23.541Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:23.942Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:24.557Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.047Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.507Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.694Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:25.861Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:26.056Z"}
+{"level":"error","timestamp":"2024-04-29T06:23:26.470Z"}
+{"level":"error","timestamp":"2024-04-29T06:26:56.214Z"}
+{"level":"error","timestamp":"2024-04-29T06:43:35.123Z"}
+{"level":"error","timestamp":"2024-04-29T06:44:38.624Z"}
+{"level":"error","timestamp":"2024-04-29T06:54:06.823Z"}
+{"level":"error","timestamp":"2024-04-29T07:02:39.953Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:18:56.322Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T04:28:53.839Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:30:17.322Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:31:15.455Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:38:39.675Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:39:15.050Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:51:39.890Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:06.885Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:52:43.935Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:56:51.721Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T06:57:34.247Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:22.816Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T10:42:24.242Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:18.787Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:32.258Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:35:38.703Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-04-29T03:41:16.630Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.924Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:49:59.933Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:51:58.276Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:52:39.550Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T03:57:04.808Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='24'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:26.101Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T03:59:43.608Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:00.633Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='29'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T04:00:02.744Z"}
+{"level":"error","timestamp":"2024-04-29T06:08:12.084Z"}
+{"level":"error","timestamp":"2024-04-29T08:51:17.591Z"}
+{"level":"error","message":"Not Update Admin Profile!","timestamp":"2024-04-29T08:52:24.189Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:50.556Z"}
+{"level":"error","message":"profile is not updated!!","timestamp":"2024-04-29T08:52:52.377Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:25:54.133Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:00.042Z"}
+{"level":"error","message":"Admin dashboard data error !","timestamp":"2024-04-29T12:26:39.153Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:45:59.878Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='4'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:02.960Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select * from role_has_permissions where id='3'","sqlMessage":"Unknown column 'id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T12:46:41.643Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:33:19.830Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:35:56.323Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:18.209Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:39:53.694Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:10.258Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-29T13:48:25.702Z"}
+{"level":"error","timestamp":"2024-04-29T05:03:33.029Z"}
+{"level":"error","timestamp":"2024-04-29T05:04:53.646Z"}
+{"level":"info","timestamp":"2024-04-29T10:26:55.676Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"insert into chats(data)values('[object Object]')","sqlMessage":"Unknown column 'data' in 'field list'","sqlState":"42S22","timestamp":"2024-04-29T10:51:47.872Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"insert into chats(data)values('[object Object]')","sqlMessage":"Unknown column 'data' in 'field list'","sqlState":"42S22","timestamp":"2024-04-29T10:52:03.148Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id=? and reciver_id=? orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? and reciver_id=? orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:08:02.602Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id=NULL and reciver_id=NULL orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:08:41.068Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id=NULL and reciver_id=NULL orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:09:11.906Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' orderby desc","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orderby desc' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:15:06.705Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' ORDER BY DESC","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 1","sqlState":"42000","timestamp":"2024-04-29T13:16:16.298Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' ORDER BY created_at DESC","sqlMessage":"Unknown column 'created_at' in 'order clause'","sqlState":"42S22","timestamp":"2024-04-29T13:17:31.250Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1' and reciver_id='1015' ORDER BY created_at DESC","sqlMessage":"Unknown column 'created_at' in 'order clause'","sqlState":"42S22","timestamp":"2024-04-29T13:17:31.253Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:40.078Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:40.082Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:41.689Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:45:41.713Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:46:00.257Z"}
+{"code":"ER_EMPTY_QUERY","errno":1065,"index":0,"level":"info","sqlMessage":"Query was empty","sqlState":"42000","timestamp":"2024-04-29T13:46:00.266Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.311Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.323Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"info","sql":"select * from chats where sender_id='1019' and order_id='1019' ORDER BY create_at DESC","sqlMessage":"Unknown column 'order_id' in 'where clause'","sqlState":"42S22","timestamp":"2024-04-29T14:00:59.324Z"}
+{"level":"error","timestamp":"2024-04-30T05:07:16.422Z"}
+{"level":"error","timestamp":"2024-04-30T05:07:58.103Z"}
+{"level":"error","timestamp":"2024-04-30T10:19:48.745Z"}
+{"level":"error","timestamp":"2024-05-01T05:39:14.041Z"}
+{"level":"error","timestamp":"2024-05-01T05:39:25.875Z"}
+{"level":"error","timestamp":"2024-05-01T05:39:28.879Z"}
+{"level":"error","timestamp":"2024-05-01T05:40:06.145Z"}
+{"level":"error","timestamp":"2024-05-01T05:40:41.352Z"}
+{"level":"error","timestamp":"2024-05-01T05:41:06.101Z"}
+{"level":"error","timestamp":"2024-05-01T05:41:56.430Z"}
+{"level":"error","timestamp":"2024-05-01T05:43:07.235Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:31.563Z"}
+{"level":"error","timestamp":"2024-05-01T05:44:43.552Z"}
+{"level":"error","timestamp":"2024-05-01T05:47:34.686Z"}
+{"level":"error","timestamp":"2024-05-01T05:53:42.325Z"}
+{"level":"error","timestamp":"2024-05-01T06:54:35.643Z"}
+{"level":"error","timestamp":"2024-05-01T07:13:41.537Z"}
+{"level":"error","timestamp":"2024-05-01T07:14:24.811Z"}
+{"level":"error","timestamp":"2024-05-01T07:14:57.127Z"}
+{"level":"error","timestamp":"2024-05-01T07:15:23.921Z"}
+{"level":"error","timestamp":"2024-05-01T07:17:50.900Z"}
+{"level":"error","timestamp":"2024-05-01T07:18:31.846Z"}
+{"level":"error","timestamp":"2024-05-01T07:20:30.809Z"}
+{"level":"error","timestamp":"2024-05-01T08:17:12.933Z"}
+{"level":"error","timestamp":"2024-05-01T09:56:18.326Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to\n      inner join users on users.id = tasks_assigend_to.emp_id\n      inner join tasks on tasks.id = tasks_assigend_to.task_id\n      where tasks.manager_id = 2 where assigned.emp_id = '5';","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where assigned.emp_id = '5'' at line 4","sqlState":"42000","timestamp":"2024-05-01T12:21:57.829Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to\n      inner join users on users.id = tasks_assigend_to.emp_id\n      inner join tasks on tasks.id = tasks_assigend_to.task_id\n      where tasks.manager_id = 2 where tasks_assigend_to.emp_id = '5';","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where tasks_assigend_to.emp_id = '5'' at line 4","sqlState":"42000","timestamp":"2024-05-01T12:22:31.867Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to\n      inner join users on users.id = tasks_assigend_to.emp_id\n      inner join tasks on tasks.id = tasks_assigend_to.task_id\n      where tasks.manager_id = 2 where tasks_assigend_to.emp_id = '5';","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where tasks_assigend_to.emp_id = '5'' at line 4","sqlState":"42000","timestamp":"2024-05-01T12:24:30.812Z"}
+{"level":"error","timestamp":"2024-05-01T12:50:26.347Z"}
+{"level":"error","timestamp":"2024-05-01T12:50:44.448Z"}
+{"level":"error","timestamp":"2024-05-01T12:51:09.241Z"}
+{"level":"error","timestamp":"2024-05-01T12:51:27.468Z"}
+{"level":"error","timestamp":"2024-05-01T12:54:50.117Z"}
+{"level":"error","timestamp":"2024-05-01T12:55:47.516Z"}
+{"level":"error","timestamp":"2024-05-01T13:00:35.934Z"}
+{"level":"error","timestamp":"2024-05-01T13:20:02.334Z"}
+{"level":"error","timestamp":"2024-05-01T13:20:43.765Z"}
+{"level":"error","timestamp":"2024-05-01T13:21:28.662Z"}
+{"level":"error","timestamp":"2024-05-01T13:21:32.747Z"}
+{"level":"error","timestamp":"2024-05-01T04:53:04.179Z"}
+{"level":"error","timestamp":"2024-05-01T04:54:15.608Z"}
+{"level":"error","timestamp":"2024-05-01T04:54:25.669Z"}
+{"level":"error","timestamp":"2024-05-01T04:54:37.774Z"}
+{"level":"error","timestamp":"2024-05-01T04:54:48.216Z"}
+{"level":"error","timestamp":"2024-05-01T04:55:40.253Z"}
+{"level":"error","timestamp":"2024-05-01T05:41:10.075Z"}
+{"level":"error","timestamp":"2024-05-01T05:42:40.018Z"}
+{"level":"error","timestamp":"2024-05-01T05:58:33.333Z"}
+{"level":"error","timestamp":"2024-05-01T05:58:35.990Z"}
+{"level":"error","timestamp":"2024-05-01T05:58:59.654Z"}
+{"level":"error","timestamp":"2024-05-01T06:00:09.620Z"}
+{"level":"error","timestamp":"2024-05-01T06:00:29.895Z"}
+{"level":"error","timestamp":"2024-05-01T06:01:18.737Z"}
+{"level":"error","timestamp":"2024-05-01T06:01:39.187Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select * from teams is_active = 0;","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 0' at line 1","sqlState":"42000","timestamp":"2024-05-01T06:06:50.886Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select * from teams is_active = '0';","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '0'' at line 1","sqlState":"42000","timestamp":"2024-05-01T06:07:14.041Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T06:10:32.176Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T06:10:32.200Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T06:10:40.077Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T06:10:42.362Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T06:10:42.372Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T06:10:46.375Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T06:10:53.932Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:10:53.941Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T06:10:54.705Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T06:10:55.970Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:10:55.976Z"}
+{"level":"error","message":"Team data not found it!","timestamp":"2024-05-01T06:11:03.410Z"}
+{"level":"error","message":"Team data not found it!","timestamp":"2024-05-01T06:11:03.962Z"}
+{"level":"error","message":"Team data not found it!","timestamp":"2024-05-01T06:11:04.259Z"}
+{"level":"error","message":"Team data not found it!","timestamp":"2024-05-01T06:11:04.478Z"}
+{"level":"error","message":"Team data not found it!","timestamp":"2024-05-01T06:11:05.590Z"}
+{"level":"error","message":"Team data not found it!","timestamp":"2024-05-01T06:11:05.757Z"}
+{"level":"error","message":"Team data not found it!","timestamp":"2024-05-01T06:11:05.924Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T06:12:43.644Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T06:12:43.675Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T06:12:56.811Z"}
+{"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T06:12:58.876Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T06:12:58.902Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:16:33.920Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:16:55.372Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:16:57.584Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:17:31.748Z"}
+{"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:20:59.763Z"}
+{"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select task.name from task left join tasks_assigend_to on task.id = tasks_assigend_to.task_id where tasks_assigend_to.emp_id = '35'","sqlMessage":"Table 'task.task' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T06:34:00.816Z"}
+{"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select tasks.name from tasks left join tasks_assigend_to on tasks.id = tasks_assigend_to.task_id where tasks_assigend_to.emp_id = '35'","sqlMessage":"Unknown column 'tasks.name' in 'field list'","sqlState":"42S22","timestamp":"2024-05-01T06:34:56.175Z"}
+{"level":"error","timestamp":"2024-05-01T13:43:56.510Z"}
+{"level":"error","timestamp":"2024-05-01T14:21:01.302Z"}
+{"level":"error","timestamp":"2024-05-01T14:21:04.685Z"}
+{"level":"error","timestamp":"2024-05-01T14:21:06.355Z"}
+{"level":"error","timestamp":"2024-05-01T14:21:14.155Z"}
+{"level":"error","timestamp":"2024-05-01T14:21:21.917Z"}
+{"level":"error","timestamp":"2024-05-01T14:22:26.120Z"}{"level":"error","timestamp":"2024-05-01T15:04:50.650Z"}
+>>>>>>> dev
