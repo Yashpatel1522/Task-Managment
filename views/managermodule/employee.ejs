@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee List</title>
+    <link rel="stylesheet" href="/css/loginmodule/loadder.css" />
     <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
     <link rel="stylesheet" href="/bootstrape/css/bootstrap.css" />
     <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
@@ -13,6 +14,7 @@
   </head>
 
   <body onload="setData()">
+    <div id="loader" class="center"></div>
     <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
 
@@ -114,5 +116,6 @@
     <script src="/js/loginmodule/popup.js"></script>
     <script src="/js/managermodule/employee.js"></script>
     <script src="/js/managermodule/notification.js"></script>
+    <script src="/js/loginmodule/lodder.js"></script>
   </body>
 </html>

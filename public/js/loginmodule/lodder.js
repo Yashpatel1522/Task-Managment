@@ -1,5 +1,4 @@
 document.onreadystatechange = () => {
-  console.log("come");
   if (document.readyState !== "complete") {
     document.querySelector("body").style.visibility = "hidden";
     document.querySelector("#loader").style.visibility = "visible";

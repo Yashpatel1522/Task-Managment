@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Messages</title>
     <link rel="stylesheet" href="/bootstrape/css/bootstrap.css" />
     <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
     <link rel="stylesheet" href="/css/adminmodule/messages.css" />
+    <link rel="stylesheet" href="/css/loginmodule/loadder.css" />
 
     <!-- <link rel="stylesheet" href="/charts/apexcharts.css" /> -->
     <link rel="stylesheet" href="/css/managermodule/charts.css" />
 
   </head>
+  <div id="loader" class="center"></div>
   <body onload="displayAllUsers()">
-    <div class="managerMain">
+      <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
       <div class="chartContent pt-4" onclick="closeProf()">
         <div class="row">
@@ -22,7 +24,7 @@
               <h1 class="font">Task Management</h1>
             </div>
           </div>
-      </div>
+        </div>
       <div class="print-users px-5"  style=" width: 90%;  margin: 0 auto;">
         <div class="row" id="display-users">
     </div>
@@ -33,6 +35,7 @@
     <script src="/bootstrape/js/bootstrap.min.js"></script>
     <script src="/js/managermodule/notification.js"></script>
     <script src="/js/adminmodule/displayallUsersformessage.js"></script>
-
+    <script src="/js/loginmodule/lodder.js"> </script>
+    
   </body>
-</html>
+  </html>
