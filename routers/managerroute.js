@@ -56,6 +56,7 @@ const {
   dueDateTask1,
 } = require("../controller/managermodule/calender");
 const { reportGet } = require("../controller/employeemodule/reports");
+const { messsageGet } = require("../controller/managermodule/messagepage");
 
 // const uploadStorage = multer({ storage: taskdetailfiles });
 const uploadImage = multer({ storage: userProfileStorage });
@@ -75,11 +76,23 @@ managerRouter.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   searchTask
 );
+
+managerRouter.get(
+  "/message",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  messsageGet
+);
+
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+
+
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
+
+
+
 managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 managerRouter.get("/employeeDetails", employeeView);
 
