@@ -44,7 +44,6 @@ function createTable(tableData, section) {
 }
 
 const showNoData = (section) => {
-  console.log(`${section}body`);
   document.getElementById(`${section}body`).innerHTML = `<h3 class="text-center mt-4">No Data</h3>`;
 }
 
@@ -66,7 +65,6 @@ getDashBoardData("/employee/getdashboardata").then((data) => {
   dashboardData = data.result;
   renderData(dashboardData);
 });
-
 async function getDashBoardData(url) {
   const response = await fetch(url);
   return response.json();
