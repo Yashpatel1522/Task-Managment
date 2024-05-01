@@ -6,7 +6,7 @@ let db = new database();
 const addtaskdata = async (request, response) => {
   try {
     let dataobj = {};
-    const query = `select id,first_name from users where role_id = 3 and status = 1`;
+    const query = `select id,concat(first_name, ' ', last_name) as first_name from users where role_id = 3 and status = 1`;
     const teamDataQuery = `select id,team_name from teams where is_active = 1`;
     const categoryDataQuery = `select * from categories`;
     const urgencyDataQuery = "select * from urgency";

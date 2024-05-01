@@ -26,7 +26,8 @@ async function loadProf() {
                                 <br>
                                 <p class="card-text textview"><b>Email - </b>${data.employeeRes[count].email}</p>
                                 <p class="card-text textview"><b>Productivity Ratio - </b>${data.reportData[count]}%</p>
-                                <button class="btn btn-primary btnview" style = "background-color:#0A1828; margin-top:15px" onclick="getReport(${data.employeeRes[count].id})">Download</button>
+                                <button class="btn btn-primary btnview" style = "background-color:#0A1828; margin-top:15px" onclick="getReport(${data.employeeRes[count].id})">Generate</button>
+                                <div id="${data.employeeRes[count].id}"></div>
                             </div>
                         </div>
                     </div>
@@ -61,21 +62,37 @@ async function getReport(id) {
     }
   });
 
-  window.location.href = `/manager/getPdfData`;
+  let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
+  console.log(name.filename);
+
+  Swal.fire({
+    html: `<embed src="/assets/pdfs/${name.filename}">`,
+    height: 1800,
+    width: 300,
+    // icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, download it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = `/assets/pdfs/${name.filename}`;
+    }
+  });
 
 }
 
-let flag = true;
+// let flag = true;
 
-const showOption = async () => {
-  if (
-    document.getElementById("profClk").style.display == "none" ||
-    document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
-  flag = false;
-};
+// const showOption = async () => {
+//   if (
+//     document.getElementById("profClk").style.display == "none" ||
+//     document.getElementById("profClk").style.display == ""
+//   ) {
+//     document.getElementById("profClk").style.display = "block";
+//   } else {
+//     document.getElementById("profClk").style.display = "none";
+//   }
+//   flag = false;
+// };
 
