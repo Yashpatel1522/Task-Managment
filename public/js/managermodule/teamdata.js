@@ -7,45 +7,7 @@ const getTeamData = async () => {
   }
 };
 
-flag = true;
-function closeProf() {
-  const profDisp = document.getElementById("profClk");
-  if (flag) {
-    profDisp.style.display = "none";
-  }
-  flag = true;
-}
-
-const showOption = async () => {
-  if (
-    document.getElementById("profClk").style.display == "none" ||
-    document.getElementById("profClk").style.display == ""
-  ) {
-    document.getElementById("profClk").style.display = "block";
-  } else {
-    document.getElementById("profClk").style.display = "none";
-  }
-  flag = false;
-};
-
 const showteamdata = async () => {
-  let profData = await (await fetch("/manager/getManagerProfile/1")).json();
-  if (profData.imageResult) {
-    document.getElementById(
-      "profImg"
-    ).src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById("userName").innerText =
-      `${profData.result[0].first_name}` +
-      " " +
-      `${profData.result[0].last_name}`;
-  } else {
-    document.getElementById("profImg").src = `/assets/employee/user.png`;
-    document.getElementById("userName").innerText =
-      `${profData.result[0].first_name}` +
-      " " +
-      `${profData.result[0].last_name}`;
-  }
-
   pagignation("/manager/teamapi");
 };
 

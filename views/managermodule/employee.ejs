@@ -16,7 +16,7 @@
     <div class="managerMain">
       <div class="managerSidebar"><%- include("sidebar.ejs")%></div>
 
-      <div class="employeeContent pt-4">
+      <div class="employeeContent pt-4" onclick="closeDropdown()">
         <div class="row">
           <div class="col-9">
             <input
@@ -32,56 +32,8 @@
               oninput="searchEmployee(this.value)"
             />
           </div>
-          <div class="col-3" style="position: relative">
-            <div class="row ps-5">
-              <div class="col-3">
-                <i
-                  class="bi bi-bell fa-2x col"
-                  onclick="fetchNotificationData()"
-                  style="cursor: pointer"
-                ></i>
-              </div>
-              <div
-                class="col-9 p-1"
-                style="
-                  border-radius: 25px;
-                  background-color: var(--sidebarcolor);
-                  width: 60%;
-                  cursor: pointer;
-                "
-                onclick="showOption()"
-              >
-                <img
-                  src=""
-                  alt=""
-                  id="profImg"
-                  style="border-radius: 100%; width: 25%"
-                />
-                <span
-                  class="ps-2"
-                  style="
-                    color: white;
-                    cursor: pointer;
-                    font-family: sans-serif;
-                    font-size: 18px;
-                  "
-                  id="userName"
-                ></span>
-              </div>
-            </div>
-            <div id="profClk">
-              <p
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-                onclick="getProfile()"
-              >
-                Show Profile
-              </p>
-              <p>Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
-            </div>
-          </div>
+          <div class="col-3"><%- include("menubar.ejs")%></div>
         </div>
-
         <div class="showEmployees">
           <div class="employeeHead p-5">
             <div class="tasklft">
@@ -102,8 +54,6 @@
           <div class="employeeList"></div>
         </div>
       </div>
-
-      <div class="managerProfile"><%- include("managerprofile") %></div>
     </div>
     <div class="addregistrationcontainer" id="open-registration">
       <%- include("../loginmodule/registration")%>
@@ -114,6 +64,5 @@
     <script src="/js/loginmodule/popup.js"></script>
     <script src="/js/managermodule/employee.js"></script>
     <!-- <script src="/js/managermodule/managerprofile.js"></script> -->
-    <script src="/js/managermodule/notification.js"></script>
   </body>
 </html>

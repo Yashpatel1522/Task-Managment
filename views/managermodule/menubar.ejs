@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="position: relative">
+    <div class="row ps-5">
+      <div class="col-3">
+        <i
+          class="bi bi-bell fa-2x col"
+          onclick="fetchNotificationData()"
+          style="cursor: pointer"
+        ></i>
+      </div>
+      <div
+        class="col-9 p-1"
+        style="
+          border-radius: 25px;
+          background-color: var(--sidebarcolor);
+          width: 50%;
+          cursor: pointer;
+        "
+        onclick="showOption()"
+      >
+        <img
+          src=""
+          alt=""
+          id="profImg"
+          style="border-radius: 100%; width: 25%"
+        />
+        <span
+          class="ps-2"
+          style="
+            color: white;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 18px;
+          "
+          id="userName"
+        ></span>
+      </div>
+    </div>
+    <div id="profClk">
+      <p
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        onclick="getProfile()"
+      >
+        Show Profile
+      </p>
+      <p onclick="logout()">Log out <i class="bi bi-box-arrow-right ps-2"></i></p>
+    </div>
+    <div class="managerProfile" id="managerProfile">
+      <%- include("managerprofile")%>
+    </div>
+    <script src="/js/managermodule/menubar.js"></script>
+    <script src="/js/managermodule/notification.js"></script>
+  </body>
+</html>
