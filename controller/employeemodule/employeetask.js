@@ -20,7 +20,7 @@ const employeeTaskList = async (request, response) => {
         inner join priorities as p on p.id=t.prioritiy_id 
         inner join urgency on urgency.id=p.urgency_id
         inner join importants as imp on imp.id=p.important_id  where a.emp_id=? and t.status=? order by p.urgency_id;`;
-    let result = await db.executeQuery(query, [id,1]);
+    let result = await db.executeQuery(query, [id, 1]);
     response.json(result);
   } catch (error) {
     logger.error("Employee Task data is not found !");
@@ -31,7 +31,7 @@ const searchList = async (req, res) => {
   try {
     usersearch = req.params.searchresult
     const query = `select a.task_id,t.task_name,t.task_description,t.task_status,c.category from tasks as t inner join tasks_assigend_to as a on a.task_id=t.id inner join categories as c on c.id=t.category_id inner join priorities as p on p.id=t.prioritiy_id inner join urgency on urgency.id=p.urgency_id where (t.task_name like ? or c.category like ?) and t.status=? and a.emp_id = ?`
-    let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%',1, req.user.id]);
+    let result = await db.executeQuery(query, ['%' + usersearch + '%', '%' + usersearch + '%', 1, req.user.id]);
     res.json(result);
 
   }

@@ -50,7 +50,6 @@ exports.taskDetail = async (request, response) => {
 
         return response.json({ taskDetail: taskDetail, priorities: priorities, employees: employees, teamhastask: teamtask })
     } catch (err) {
-        console.log(err);
-        // logger.error(err);
+        logger.error("Task Details Is Not Found!")
     }
 }
