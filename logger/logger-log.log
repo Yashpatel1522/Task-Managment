@@ -1660,6 +1660,22 @@
 {"level":"info","timestamp":"2024-04-27T06:51:23.738Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-27T07:15:06.647Z"}
 
+
+{"level":"error","timestamp":"2024-05-01T09:53:06.533Z"}
+{"level":"error","timestamp":"2024-05-01T09:54:15.594Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:16.726Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:31.595Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:32.161Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.144Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.577Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.848Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:33.898Z"}
+{"level":"error","timestamp":"2024-05-01T09:58:34.265Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T13:01:02.518Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T13:01:06.683Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-01T13:01:07.195Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-21T13:10:56.556Z"}
+{"level":"error","message":"Dash data is not found !","timestamp":"2024-05-21T13:10:57.268Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:49:26.149Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-04-29T05:52:47.921Z"}
 {"level":"error","timestamp":"2024-04-29T06:17:01.780Z"}

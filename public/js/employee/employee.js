@@ -193,7 +193,6 @@ const seachresultnew = async (value) => {
 
   if (data.length != 0) {
     function resetCard(id, element) {
-      document.getElementById(`${id}`).innerHTML = "";
       document.getElementById(`${id}`).innerHTML += `
       <div class="card1" onclick="show('popup','${element.task_id}')">
                 <div class="field">
