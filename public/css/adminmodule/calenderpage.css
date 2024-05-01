@@ -1,0 +1,47 @@
+table {
+  border: 2px solid grey;
+  margin: auto;
+  border-radius: 10px;
+}
+
+th,
+td {
+  border-collapse: collapse;
+  padding: 10px 20px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+td {
+  height: 130px;
+  width: 130px;
+  border: 2px solid grey;
+  background-color: white;
+}
+
+th {
+  background-color: #0A1828;
+  color: white;
+}
+
+td:hover {
+  background-color: rgb(199, 227, 199);
+}
+
+#monthpage {
+  width: 300px;
+  margin-left: 360px;
+}
+
+#heading {
+  width: 180px;
+  margin: 0px 20px;
+  text-align: center;
+}
+
+#monthpage i {
+  background-color: gray;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px;
+}

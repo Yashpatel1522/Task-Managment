@@ -14,60 +14,26 @@
   <!-- <link rel="stylesheet" href="/css/employee/employee.css" /> -->
   <script src="/js/employee/calender.js"></script>
   <link rel="stylesheet" href="/css/adminmodule/menubar.css">
-  <style>
-    
-    .calender-content{
-          text-align: center;
-          align-items: center;
-          justify-content: center;
-          margin-top: 5%;
-          margin-bottom: 5%;
-          gap: 70px;
-    }
-    table {
-      border: 2px solid black;
-      border-collapse: collapse;
-      margin: auto;
-    }
-
-    th,
-    td {
-      padding: 10px 20px;
-      text-align: center;
-      border: 2px solid black;
-    }
-
-    td {
-      height: 130px;
-      width: 130px;
-      background-color: white;
-    }
-
-    td:hover {
-      background-color: rgb(199, 227, 199);
-    }
-  </style>
+  <link rel="stylesheet" href="/css/adminmodule/calenderpage.css">
 </head>
 
 <body>
   <div class="container-div">
-    <div class="admin">
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
+  <div class="admin">
       <%- include('../partials/employeemenubar') %>
         <div class="rightbar">
           <%- include('../partials/employeenavigation') %>
             <div style="margin-top: 100px;">
-              <div class="my-2">
+              <div>
+                <div class="d-flex my-2 position-relative align-items-center w-50" id="monthpage">
+                  <i class="bi bi-chevron-left" id="leftsidearrow" onclick="monthminus()"></i>
+                  <h3 id="heading"></h3>
+                  <i class="bi bi-chevron-right" id="rightsidearrow" onclick="monthplus()"></i>
+                </div>
                 <div>
-                  <div class="d-flex calender-content">
-                    <input type="button" value="<" class="btn btn-secondary" onclick="monthminus()" />
-                    <h3 id="heading" class="">
-                      April
-                    </h3>
-                    <input type="button" value=">" class="btn btn-secondary" onclick="monthplus()" />
-                  </div>
-                  <div>
-                    <table id="calender" style="margin-bottom: 50px"></table>
-                  </div>
+                  <table id="calender" style="margin-bottom: 50px;">
+                  </table>
                 </div>
               </div>
             </div>
@@ -75,7 +41,10 @@
     </div>
   </div>
   </div>
+  <script src="/js/adminmodule/calenderswitch.js"></script>
   <script src="/js/employee/calender.js"></script>
+    <script src="/socket.io/socket.io.js"> </script>
+  <script src="/js/employee/alert.js"></script>
 
 </body>
 

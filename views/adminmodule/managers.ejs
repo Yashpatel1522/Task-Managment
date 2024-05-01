@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management System</title>
+  <link rel="stylesheet" href="/css/adminmodule/loader.css">
   <link rel="stylesheet" href="/css/adminmodule/menubar.css">
   <link rel="stylesheet" href="/css/loginmodule/popup.css">
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css">
@@ -22,6 +23,7 @@
         <div class="rightbar">
           <%- include('../partials/navigation') %>
             <div style="margin-top: 100px;">
+              <div id="loader" class="center"></div>
               <div class="my-5">
                 <div class="row1 my-5">
                   <div class="search float-start mx-3 ">
@@ -56,6 +58,7 @@
     <%- include("../loginmodule/registration")%>
   </div>
   </div>
+  <script src="/js/adminmodule/loader.js"></script>
   <script src="/js/adminmodule/fetchdatatable.js"></script>
   <script src="/js/adminmodule/viewdata.js"></script>
   <script src="/js/adminmodule/searchdata.js"></script>
