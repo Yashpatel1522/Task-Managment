@@ -1802,3 +1802,19 @@
 {"level":"error","timestamp":"2024-05-01T07:17:50.900Z"}
 {"level":"error","timestamp":"2024-05-01T07:18:31.846Z"}
 {"level":"error","timestamp":"2024-05-01T07:20:30.809Z"}
+{"level":"error","timestamp":"2024-05-01T08:17:12.933Z"}
+{"level":"error","timestamp":"2024-05-01T09:56:18.326Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to\n      inner join users on users.id = tasks_assigend_to.emp_id\n      inner join tasks on tasks.id = tasks_assigend_to.task_id\n      where tasks.manager_id = 2 where assigned.emp_id = '5';","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where assigned.emp_id = '5'' at line 4","sqlState":"42000","timestamp":"2024-05-01T12:21:57.829Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to\n      inner join users on users.id = tasks_assigend_to.emp_id\n      inner join tasks on tasks.id = tasks_assigend_to.task_id\n      where tasks.manager_id = 2 where tasks_assigend_to.emp_id = '5';","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where tasks_assigend_to.emp_id = '5'' at line 4","sqlState":"42000","timestamp":"2024-05-01T12:22:31.867Z"}
+{"code":"ER_PARSE_ERROR","errno":1064,"index":0,"level":"error","sql":"select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to\n      inner join users on users.id = tasks_assigend_to.emp_id\n      inner join tasks on tasks.id = tasks_assigend_to.task_id\n      where tasks.manager_id = 2 where tasks_assigend_to.emp_id = '5';","sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where tasks_assigend_to.emp_id = '5'' at line 4","sqlState":"42000","timestamp":"2024-05-01T12:24:30.812Z"}
+{"level":"error","timestamp":"2024-05-01T12:50:26.347Z"}
+{"level":"error","timestamp":"2024-05-01T12:50:44.448Z"}
+{"level":"error","timestamp":"2024-05-01T12:51:09.241Z"}
+{"level":"error","timestamp":"2024-05-01T12:51:27.468Z"}
+{"level":"error","timestamp":"2024-05-01T12:54:50.117Z"}
+{"level":"error","timestamp":"2024-05-01T12:55:47.516Z"}
+{"level":"error","timestamp":"2024-05-01T13:00:35.934Z"}
+{"level":"error","timestamp":"2024-05-01T13:20:02.334Z"}
+{"level":"error","timestamp":"2024-05-01T13:20:43.765Z"}
+{"level":"error","timestamp":"2024-05-01T13:21:28.662Z"}
+{"level":"error","timestamp":"2024-05-01T13:21:32.747Z"}

@@ -8,9 +8,7 @@ const upcomingTasks = async (request, response) => {
     let nextDate = new Date();
     nextDate.setDate(currentDate.getDate() + 7);
     const fromDate = currentDate.toISOString().slice(0, 10);
-    const toDate = nextDate.toISOString().slice(0, 10)
-    // console.log(d.slice(0, 10));
-    // console.log(console.log(currentDate));
+    const toDate = nextDate.toISOString().slice(0, 10);
     let q = `select * from tasks where task_end_date between ? and ? and manager_id = ? and task_status != 'compleated' and status = 1;`;
     let res = await db.executeQuery(q, [fromDate, toDate, managerId]);
 
