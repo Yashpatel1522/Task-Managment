@@ -987,7 +987,6 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:14:53.214Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:18:42.254Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:25:45.413Z"}
-=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:27.957Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:30.465Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:35.198Z"}
@@ -1042,7 +1041,6 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:13:30.442Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:13:36.226Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:18:22.851Z"}
-=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:13.518Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:16.684Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:17.401Z"}
@@ -1875,7 +1873,6 @@
 {"level":"error","timestamp":"2024-05-01T05:53:31.889Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:35:38.881Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:36:33.808Z"}
-=======
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='4') or (sender_id='4' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:28:59.823Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='11') or (sender_id='11' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:29:07.066Z"}
 {"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:51.114Z"}
@@ -1934,7 +1931,6 @@
 {"level":"error","timestamp":"2024-05-01T09:58:33.848Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:33.898Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:34.265Z"}
-<<<<<<< HEAD
 {"level":"error","timestamp":"2024-05-01T10:01:50.660Z"}
 {"level":"error","timestamp":"2024-05-01T12:21:46.328Z"}
 {"level":"error","timestamp":"2024-05-01T12:21:49.016Z"}
@@ -1943,7 +1939,6 @@
 {"level":"error","timestamp":"2024-05-01T12:22:36.909Z"}
 {"level":"error","timestamp":"2024-05-01T12:22:45.874Z"}
 {"level":"error","timestamp":"2024-05-01T12:23:26.014Z"}
-=======
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:32.606Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:33.778Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:38.786Z"}
@@ -2132,11 +2127,9 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:20:59.763Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select task.name from task left join tasks_assigend_to on task.id = tasks_assigend_to.task_id where tasks_assigend_to.emp_id = '35'","sqlMessage":"Table 'task.task' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T06:34:00.816Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select tasks.name from tasks left join tasks_assigend_to on tasks.id = tasks_assigend_to.task_id where tasks_assigend_to.emp_id = '35'","sqlMessage":"Unknown column 'tasks.name' in 'field list'","sqlState":"42S22","timestamp":"2024-05-01T06:34:56.175Z"}
-<<<<<<< HEAD
+
 {"level":"error","timestamp":"2024-05-01T13:40:12.221Z"}
 {"level":"error","timestamp":"2024-05-01T13:40:13.656Z"}
-{"level":"error","timestamp":"2024-05-01T13:40:14.014Z"}
-=======
 {"level":"error","timestamp":"2024-05-01T13:43:56.510Z"}
 {"level":"error","timestamp":"2024-05-01T14:21:01.302Z"}
 {"level":"error","timestamp":"2024-05-01T14:21:04.685Z"}
@@ -2144,8 +2137,6 @@
 {"level":"error","timestamp":"2024-05-01T14:21:14.155Z"}
 {"level":"error","timestamp":"2024-05-01T14:21:21.917Z"}
 {"level":"error","timestamp":"2024-05-01T14:22:26.120Z"}{"level":"error","timestamp":"2024-05-01T15:04:50.650Z"}
->>>>>>> dev
->>>>>>> dev
 {"level":"error","timestamp":"2024-05-02T03:43:13.258Z"}
 {"level":"error","timestamp":"2024-05-02T03:43:21.152Z"}
 {"level":"error","timestamp":"2024-05-02T03:43:23.518Z"}
@@ -2160,3 +2151,23 @@
 {"level":"error","timestamp":"2024-05-02T04:42:19.908Z"}
 {"level":"error","timestamp":"2024-05-02T04:42:56.990Z"}
 {"level":"error","timestamp":"2024-05-02T07:52:02.258Z"}
+
+{"level":"error","timestamp":"2024-05-02T03:56:08.967Z"}
+{"level":"error","timestamp":"2024-05-02T03:56:49.556Z"}
+{"level":"error","timestamp":"2024-05-02T03:59:24.340Z"}
+{"level":"error","timestamp":"2024-05-02T03:59:33.193Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:37.778Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:42.007Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:43.323Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:44.703Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:45.930Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:52.224Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:54.974Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:56.520Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:58.784Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:59.819Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:59.829Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-05-02T04:23:41.051Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-05-02T04:23:43.146Z"}
+{"level":"error","message":"Calendar not found it!","timestamp":"2024-05-02T04:23:43.982Z"}
+

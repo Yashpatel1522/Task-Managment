@@ -46,8 +46,6 @@ const fetchNotificationData = async () => {
           socket.emit("notification-data", {
             data: data,
           });
-          // document.getElementById('notification-task').removeAttribute('class')
-          // document.getElementById('notification-task').setAttribute('class', 'bx bxs-bell-ring')
         }
       })
       .catch((error) => {

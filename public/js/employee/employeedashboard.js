@@ -2,13 +2,13 @@ let dashboardData;
 let profileData;
 const assignBadge = (type) => {
   switch (type) {
-    case 'urgent':
+    case 'Urgent':
       return 'text-danger'
-    case 'high':
+    case 'High':
       return 'text-danger';
-    case 'mid':
+    case 'Moderate':
       return 'text-primary';
-    case 'low':
+    case 'Low':
       return 'text-secondary';
     case 'inprogress':
       return 'badge text-bg-primary m-2'
