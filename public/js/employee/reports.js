@@ -1,6 +1,5 @@
 const fun = async () => {
   let data = await (await fetch(`/employee/comeletedTasks`)).json();
-  console.log(data, ";;;");
   data = data.map((ele) => {
     let obj = {
       task_name: ele.task_name,
@@ -16,7 +15,6 @@ const fun = async () => {
           new Date(ele.comment[0].startet_at)) /
         (1000 * 60 * 60 * 24);
       let diff = managerdiff - employeediff;
-      console.log(managerdiff, employeediff);
       if (diff < 0) {
         obj.status = "Low";
       } else if (diff == 0) {
@@ -34,10 +32,8 @@ const fun = async () => {
 
 const printPerformance = async () => {
   const flags = await fun();
-  console.log(flags);
   let color, low = 0, medium = 0, high = 0;
   let cards = document.getElementById("reports");
-  console.log(cards);
   cards.innerHTML = "";
   flags.forEach((card) => {
     if (card.status == "High") {

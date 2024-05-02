@@ -5,7 +5,6 @@ const readPdf = async (request, response) => {
     try {
         const fileName = request.query.name;
         const data = fs.readFileSync(`public/assets/pdfs/${fileName}`);
-        console.log(data);
         return response.json({data});
     } catch (error) {
         console.log(error);

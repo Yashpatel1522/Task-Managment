@@ -1,9 +1,9 @@
 async function loadProf() {
   let profData = await (await fetch('/manager/getManagerProfile/2')).json();
 
-  if(profData.imageResult && profData.result) {
+  if (profData.imageResult && profData.result) {
     document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}` + " " + `${profData.result[0].last_name}`;
   }
 
   let url = window.location.origin + `/manager/getReportData`;

@@ -33,7 +33,11 @@ const deleteAllData = async (api, id, apifetch) => {
             })
             .then(async (result2) => {
               if (result2.isConfirmed) {
-                fetchData(`${apifetch}`, `${id}`);
+                if (id = "category") {
+                  window.location.reload();
+                } else {
+                  fetchData(`${apifetch}`, `${id}`);
+                }
               }
             });
         } else if (

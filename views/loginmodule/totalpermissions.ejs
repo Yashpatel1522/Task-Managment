@@ -1,107 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - Set Role Permission</title>
-    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
-    <script src="/sweetalert2/sweetalert2.min.js"></script>
-    <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="/boxicon/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
-    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
-    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
 
-    <style>
-      .rcol:hover {
-        background-color: var(--main-bg-color);
-      }
-      :root {
-        --fontcolor: #2e4374;
-        --backcolor: #2e4374;
-      }
-      .font {
-        color: white;
-      }
-      
-    </style>
-  </head>
-  <body onload="fetchpermissions('admin')">
-    <div class="container-div">
-      <div class="admin">
-        <%- include('../partials/adminmenubar') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Management System</title>
+  <link rel="stylesheet" href="/css/adminmodule/loader.css">
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
+  <link href="/bootstrape/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="/boxicon/dist/boxicons.js"></script>
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+  <script src="/js/bootstrap.js"></script>
+  <style>
+    .rcol:hover {
+      background-color: var(--main-bg-color);
+    }
+
+    :root {
+      --fontcolor: #2e4374;
+      --backcolor: #2e4374;
+    }
+
+    .font {
+      color: white;
+    }
+  </style>
+</head>
+
+<body onload="fetchpermissions('admin')">
+  <div class="container-div">
+    <div class="admin">
+      <%- include('../partials/adminmenubar') %>
         <div class="rightbar">
           <%- include('../partials/navigation') %>
-          <div
-            class="d-flex"
-            id="wrapper"
-            style="margin-top: 110px; margin-right: 25px"
-          >
-            <div class="container-fluid px-4">
-              <div class="row mb-3">
-                <div
-                  class="col"
-                  style="display: flex; flex-direction: row-reverse"
-                >
-                  <a
-                    class="admin-btn"
-                    style="width: fit-content"
-                    href="/login/rolePerissions"
-                    ><i class="bi bi-pencil-square"></i>&nbsp;Edit</a
-                  >
+            <div class="d-flex" id="wrapper" style="margin-top: 110px; margin-right: 25px">
+              <div id="loader" class="center"></div>
+              <div class="container-fluid px-4">
+                <div class="row mb-3">
+                  <div class="col" style="display: flex; flex-direction: row-reverse">
+                    <a class="admin-btn" style="width: fit-content" href="/login/rolePerissions"><i
+                        class="bi bi-pencil-square"></i>&nbsp;Edit</a>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="col-4">
-                  <p
-                    class="admin-btn btn form-control font"
-                    onclick="fetchpermissions('admin')"
-                    id="vendorbtn"
-                    style="background-color: var(--backcolor)"
-                  >
-                    admin
-                  </p>
+                <div class="row">
+                  <div class="col-4">
+                    <p class="admin-btn btn form-control font" onclick="fetchpermissions('admin')" id="vendorbtn"
+                      style="background-color: var(--backcolor)">
+                      admin
+                    </p>
+                  </div>
+                  <div class="col-4">
+                    <p class="admin-btn btn form-control font" onclick="fetchpermissions('manager')" id="customerbtn"
+                      style="background-color: var(--backcolor)">
+                      manager
+                    </p>
+                  </div>
+                  <div class="col-4">
+                    <p class="admin-btn btn form-control font" onclick="fetchpermissions('employee')" id="customerbtn"
+                      style="background-color: var(--backcolor)">
+                      employee
+                    </p>
+                  </div>
                 </div>
-                <div class="col-4">
-                  <p
-                    class="admin-btn btn form-control font"
-                    onclick="fetchpermissions('manager')"
-                    id="customerbtn"
-                    style="background-color: var(--backcolor)"
-                  >
-                    manager
-                  </p>
-                </div>
-                <div class="col-4">
-                  <p
-                    class="admin-btn btn form-control font"
-                    onclick="fetchpermissions('employee')"
-                    id="customerbtn"
-                    style="background-color: var(--backcolor)"
-                  >
-                    employee
-                  </p>
-                </div>
-              </div>
 
-              <div class="row">
-                <table class="table table-hover" id="displayRolePermission">
-                  <tr>
-                    <th class="text-center">Index</th>
-                    <th class="text-center">Permission</th>
-                    <th class="text-center">Url</th>
-                    <th class="text-center">Method</th>
-                    <th class="text-center">Create Permission Time</th>
-                    <th class="text-center">Operation</th>
-                  </tr>
-                </table>
+                <div class="row">
+                  <table class="table table-hover" id="displayRolePermission">
+                    <tr>
+                      <th class="text-center">Index</th>
+                      <th class="text-center">Permission</th>
+                      <th class="text-center">Url</th>
+                      <th class="text-center">Method</th>
+                      <th class="text-center">Create Permission Time</th>
+                      <th class="text-center">Operation</th>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <script src="/js/loginmodule/fetchperticulardata.js"></script>
-  </body>
+  </div>
+  <script src="/js/adminmodule/loader.js"></script>
+  <script src="/js/loginmodule/fetchperticulardata.js"></script>
+</body>
+
 </html>

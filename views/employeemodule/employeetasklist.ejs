@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Task Management System</title>
+  <link rel="stylesheet" href="/css/adminmodule/loader.css">
   <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/employee/employee.css" />
@@ -28,6 +29,7 @@
         <div class="rightbar">
           <%- include('../partials/employeenavigation') %>
             <div style="margin-top: 100px">
+              <div id="loader" class="center"></div>
               <div class="my-5">
                 <div class="row1 my-4">
                   <div class="search mx-3">
@@ -39,37 +41,25 @@
               <div class="containere">
                 <div class="row lanes">
                   <div class="col-4">
-                    <div
-                      id="todo"
-                      class="swim-lane"
-                      style="background-color: rgb(151, 151, 220)"
-                    >
+                    <div id="todo" class="swim-lane" style="background-color: rgb(151, 151, 220)">
                       <h2>Todo</h2>
                       <p id="notask1">No Task In Todo Section</p>
                       <div class="cards cardtask" id="todoTask">
-                        
+
                       </div>
                     </div>
                   </div>
                   <div class="col-4">
-                    <div
-                      class="swim-lane"
-                      id="inprogress"
-                      style="background-color: rgb(230, 230, 118)"
-                    >
-                    <h2>Inprogress</h2>
-                    <p id="notask2">No Task In Inprogress Section</p>
+                    <div class="swim-lane" id="inprogress" style="background-color: rgb(230, 230, 118)">
+                      <h2>Inprogress</h2>
+                      <p id="notask2">No Task In Inprogress Section</p>
                       <div class="cards cardtask" id="inprogressTask"></div>
                       <p class="pinprogressTask"></p>
 
                     </div>
                   </div>
                   <div class="col-4">
-                    <div
-                      class="swim-lane"
-                      id="completed"
-                      style="background-color: rgb(134, 166, 134)"
-                    >
+                    <div class="swim-lane" id="completed" style="background-color: rgb(134, 166, 134)">
                       <h2>completed</h2>
                       <p id="notask3">No Task In Completed Section</p>
                       <div class="cards cardtask" id="completedTask"></div>
@@ -148,6 +138,7 @@
     </div>
   </div>
   <!-- end -->
+  <script src="/js/adminmodule/loader.js"></script>
   <script src="/js/employee/employee.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/employee/alert.js"></script>

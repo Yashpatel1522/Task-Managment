@@ -6,7 +6,6 @@ const registrationGet = (req, res) => {
 
 const registrationPost = async (request, response) => {
   let flag = await addUser(request.body, request.file);
-  console.log(request.body);
   if (flag.flag == true) {
     response.send(flag).status(200);
   } else {

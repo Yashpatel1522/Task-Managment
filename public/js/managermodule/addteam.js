@@ -19,7 +19,6 @@ const addEmpList = async () => {
         return response.json();
       })
       .then((data) => {
-        console.log("Data received:", data);
         employeeDynamicCombo(data);
       })
       .catch((error) => {
@@ -73,7 +72,6 @@ const insertTaskData = async () => {
       }
     }
     dataobj.employe = selectedArray;
-    console.log(dataobj);
     try {
       await fetch(`${window.location.origin}/manager/addteamdata`, {
         method: "post", // *GET, POST, PUT, DELETE, etc.
@@ -91,7 +89,6 @@ const insertTaskData = async () => {
           return response.json();
         })
         .then((data) => {
-          console.log("Data received:", data);
           if (data.msg !== "undefined") {
             DataINsertedSuccessfully();
           }

@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="/css/employee/employee.css" />
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
-    <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
-    <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
-    <link rel="stylesheet" href="/css/adminmodule/messages.css" />
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body onload="displayAllUsers()">
-    <div class="container-div">
-      <div class="admin">
-        <%- include('../partials/employeemenubar') %>
+<head>
+  <link rel="stylesheet" href="/css/adminmodule/loader.css">
+  <link rel="stylesheet" href="/css/employee/employee.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/bootstrap_icon_css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+  <link rel="stylesheet" href="/boxicon/css/boxicons.min.css" />
+  <link rel="stylesheet" href="/css/adminmodule/menubar.css" />
+  <link rel="stylesheet" href="/css/adminmodule/messages.css" />
+  <script src="/js/bootstrap.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body onload="displayAllUsers()">
+  <div class="container-div">
+    <div class="admin">
+      <%- include('../partials/employeemenubar') %>
 
         <div class="rightbar">
           <%- include('../partials/employeenavigation') %>
-          <div class="print-users px-5" style="width: 90%; margin: 10% 0">
-            <div class="row" id="display-users"></div>
-          </div>
-          <%-include('../employeemodule/profilemodal.ejs') %>
+            <div id="loader" class="center"></div>
+            <div class="print-users px-5" style="width: 90%; margin: 10% 0">
+              <div class="row" id="display-users"></div>
+            </div>
+
         </div>
-      </div>
     </div>
-    <script src="/js/adminmodule/displayallUsersformessage.js"></script>
-  </body>
+  </div>
+  <script src="/js/adminmodule/loader.js"></script>
+  <script src="/js/adminmodule/displayallUsersformessage.js"></script>
+</body>
+
 </html>

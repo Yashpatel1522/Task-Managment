@@ -130,7 +130,6 @@ const closePopup2 = () => {
 const openpopup2 = async (id) => {
   try {
     taskPopup.classList.add("open-popup");
-    // console.log(document.getElementById("task-detailes"))
     let data = await (await fetch(`/admin/tasksDetails/${id}`)).json();
     if (data.taskDetail.length != 0) {
       document.getElementById("task").innerHTML = `

@@ -15,7 +15,6 @@ class database {
       return await new Promise((resolve, reject) => {
         con.query(sql, values, (error, result) => {
           if (error) {
-            console.log(error);
             reject(error);
           } else {
             resolve(result);
@@ -140,8 +139,6 @@ class database {
     Object.keys(conditions).forEach((key) => {
       values.push(`${conditions[key]}`);
     });
-    console.log(query);
-    // console.log(arr.length)
     return await this.executeQuery(query, values);
   };
 }

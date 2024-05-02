@@ -43,20 +43,15 @@ const setNewPassword = async (activationcode, newPassword) => {
       }
     }
     const diff = (new Date() - new Date(user.create_at)) / 1000;
-    // console.log(diff)
-    // console.log(diff<process.env.ACTIVATION_TIME_TO_ACTIVATE)
-    // console.log(process.env.ACTIVATION_TIME_TO_ACTIVATE)
     if (diff < process.env.ACTIVATION_TIME_TO_ACTIVATE) {
       const salt = bcrypt.genSaltSync(parseInt(process.env.SALT_ROUND));
       newPassword = bcrypt.hashSync(newPassword, salt);
-      console.log(newPassword);
       pass = {
         user_id: user.id,
         password: newPassword,
       };
       result = await db.insertData(pass, "user_passwords");
       result = await db.updateAnd({ status: 1 }, "users", { id: user.id });
-      // console.log(result)
       if (typeof result == "string") {
         return {
           flag: false,

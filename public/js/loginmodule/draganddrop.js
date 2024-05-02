@@ -36,8 +36,6 @@ const dragEvent = async () => {
   tasks.forEach(async (task) => {
     await task.addEventListener("dragend", async () => {
       task.classList.remove("is-dragging");
-      // console.log(task)
-      // console.log(task.parentNode)
       let formdata = new FormData();
       formdata.append("taskId", task.id);
       formdata.append("task_status", task.parentNode.id);

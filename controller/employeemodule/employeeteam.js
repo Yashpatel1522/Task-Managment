@@ -26,7 +26,6 @@ const teamData = async (request, response) => {
 const teamDetails = async (request, response) => {
   try {
     id = request.params.teamid;
-    // id = 1
     const query1 = `select a.*,t.task_name from team_has_tasks as a 
     inner join tasks as t on a.task_id=t.id where (a.team_id=? and t.status =?);`; //assign task on team
     let result1 = await db.executeQuery(query1, [id,1]);

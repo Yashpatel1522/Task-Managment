@@ -47,7 +47,6 @@ const getUser = async () => {
 };
 
 socket.on(`sendmsg`, async (data) => {
-  console.log(data);
   if (document.getElementById("reciver_id").value == data.senderId) {
     document.getElementById("msg-zone").innerHTML += "";
     document.getElementById(
