@@ -35,27 +35,46 @@
                       tabindex="1" oninput="seachresultnew(this.value)" />
                   </div>
                 </div>
-                <div class="containere">
-                  <div class="row lanes">
-                    <div class="col-4">
-                      <div id="todo" class="swim-lane" style="background-color: rgb(151, 151, 220)">
-                        <h2>Todo</h2>
-                        <div class="cards cardtask" id="todoTask"></div>
+              </div>
+              <div class="containere">
+                <div class="row lanes">
+                  <div class="col-4">
+                    <div
+                      id="todo"
+                      class="swim-lane"
+                      style="background-color: rgb(151, 151, 220)"
+                    >
+                      <h2>Todo</h2>
+                      <p id="notask1">No Task In Todo Section</p>
+                      <div class="cards cardtask" id="todoTask">
+                        
                       </div>
                     </div>
-                    <div class="col-4">
-                      <div class="swim-lane" id="inprogress" style="background-color: rgb(230, 230, 118)">
-                        <h2>Inprogress</h2>
-                        <div class="cards cardtask" id="inprogressTask"></div>
-                        <p class="pinprogressTask"></p>
-                      </div>
+                  </div>
+                  <div class="col-4">
+                    <div
+                      class="swim-lane"
+                      id="inprogress"
+                      style="background-color: rgb(230, 230, 118)"
+                    >
+                    <h2>Inprogress</h2>
+                    <p id="notask2">No Task In Inprogress Section</p>
+                      <div class="cards cardtask" id="inprogressTask"></div>
+                      <p class="pinprogressTask"></p>
+
                     </div>
-                    <div class="col-4">
-                      <div class="swim-lane" id="completed" style="background-color: rgb(134, 166, 134)">
-                        <h2>completed</h2>
-                        <div class="cards cardtask" id="completedTask"></div>
-                        <p class="pcompletedTask"></p>
-                      </div>
+                  </div>
+                  <div class="col-4">
+                    <div
+                      class="swim-lane"
+                      id="completed"
+                      style="background-color: rgb(134, 166, 134)"
+                    >
+                      <h2>completed</h2>
+                      <p id="notask3">No Task In Completed Section</p>
+                      <div class="cards cardtask" id="completedTask"></div>
+                      <p class="pcompletedTask"></p>
+
                     </div>
                   </div>
                 </div>
@@ -129,7 +148,6 @@
     </div>
   </div>
   <!-- end -->
-  <!-- <script src="/js/employee/employeeprofile.js"></script> -->
   <script src="/js/employee/employee.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/employee/alert.js"></script>
