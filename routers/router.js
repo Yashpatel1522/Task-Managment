@@ -156,6 +156,15 @@ const {
   updateTaskStatus,
 } = require("../controller/managermodule/comments");
 const taskCounts = require("../controller/managermodule/taskCount");
+const { teamSearchDetails, teamList, teamDatas, teamsDetails } = require("../controller/employeemodule/employeeteam");
+const { searchList, list, employeeTaskList, addComment } = require("../controller/employeemodule/employeetask");
+const { getDashBoardData, dashBoard } = require("../controller/employeemodule/dashboard");
+const { getUser } = require("../controller/employeemodule/userfetch");
+const { getProfileData, updateProfileData } = require("../controller/employeemodule/employeeprofile");
+const { getNavigationData } = require("../controller/employeemodule/navigation");
+const { employeeCalender, empcalenderMonth, empdueDateTask } = require("../controller/employeemodule/canlender");
+const { messageGet } = require("../controller/employeemodule/message");
+const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
 
 //multer storage
 //registration storage
@@ -167,6 +176,9 @@ const updateImage = multer({ storage: userProfileStorage });
 //manager storage
 const uploadImage = multer({ storage: userProfileStorage });
 
+//employee router
+const uploadStorageprofile = multer({ storage: userProfileStorage });
+
 //main router
 const router = express.Router();
 
@@ -174,6 +186,7 @@ const router = express.Router();
 const login = express.Router();
 const adminRouter = express.Router();
 const managerRouter = express.Router();
+const employeeRouter=express.Router()
 
 //dynemic name to router
 router.get("/", loginGet);
@@ -265,6 +278,11 @@ managerRouter.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   searchsTask
 );
+
+
+//employee router without checkusers
+employeeRouter.get("/teamsearchdetails/:searchteam", teamSearchDetails);
+employeeRouter.get("/searchtask/:searchresult", searchList);
 
 adminRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -388,6 +406,40 @@ managerRouter.delete("/removeemployeapi/:id", removeEmployee);
 managerRouter.get("/getManagerTasks", managersTasks);
 
 managerRouter.get("/getdataapi", addtaskdata);
+
+//=======================================================================employee routes checkusers======================================
+managerRouter.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
+managerRouter.get("/getdashboardata", getDashBoardData);
+managerRouter.get("/dashboard", dashBoard);
+managerRouter.get("/getUser", getUser);
+
+managerRouter.get("/getprofiledata", getProfileData);
+managerRouter.post(
+  "/updateprofile",
+  uploadStorageprofile.single("profileimg"),
+  updateProfileData
+);
+managerRouter.get("/getnavigationdata", getNavigationData);
+managerRouter.get("/task", list);
+managerRouter.get("/employeetasklist", employeeTaskList);
+managerRouter.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
+
+managerRouter.get("/teamdata", teamList);
+managerRouter.get("/teamdetailsdata", teamDatas);
+managerRouter.get("/teamdetails/:teamid", teamsDetails);
+managerRouter.get("/calender", employeeCalender);
+managerRouter.get("/calenderData/:month", empcalenderMonth);
+managerRouter.get(
+  "/dueDateOfTask",
+
+  empdueDateTask
+);
+managerRouter.get("/messages", messageGet);
+managerRouter.get("/report", reportGet);
+managerRouter.get("/comeletedTasks", completedTasks);
 
 //exports main router
 module.exports = router;

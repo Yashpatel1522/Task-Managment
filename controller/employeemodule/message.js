@@ -1,6 +1,6 @@
 const logger = require("../../logger/logger");
 
-exports.messagesGet = (request, response) => {
+exports.messageGet = (request, response) => {
   try {
     response.render("employeemodule/message");
   } catch (err) {

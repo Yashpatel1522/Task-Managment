@@ -5,16 +5,7 @@ const bodyparser = require("body-parser");
 const cookieparser = require("cookie-parser");
 app.use(cookieparser());
 require("dotenv").config();
-const ejs = require("ejs");
-const logger = require("./logger/logger");
-const adminroute = require("./routers/adminroute");
-const employeeroute = require("./routers/employeeroute");
-const managerroute = require("./routers/managerroute");
-const login = require("./routers/loginroutes");
-const { loginGet } = require("./controller/loginmodule/login.controller");
-const { errorGet } = require("./controller/loginmodule/error.controller");
 const socket = require("socket.io");
-const { request } = require("http");
 const router = require("./routers/router");
 let PORT = process.env.PORT;
 
@@ -58,19 +49,9 @@ const server = app.listen(PORT, () => {
     `listen portno is : http://${process.env.HOST}:${process.env.PORT}`
   );
 });
-// app.use((req, res, next) => {
-//   console.log(req.path);
-//   next();
-// });
 
-// app.get("/", loginGet);
-// app.use("/admin", adminroute);
-// app.use("/employee", employeeroute);
-// app.use("/login", login);
-// app.use("/manager", managerroute);
-// app.get("*", errorGet);
+
 app.use(router)
-const activeUsers = new Set();
 //socket.io
 
 const io = socket(server);
