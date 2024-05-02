@@ -14,6 +14,7 @@ exports.profileUploadesMiddleware = (req, res, next) => {
   }
   else
   {
+    fs.unlink(file.path)
     res.send({
       flag:false,
       msg:"Please Uploade JPG or PNG only"
