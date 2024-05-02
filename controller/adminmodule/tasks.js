@@ -25,10 +25,10 @@ exports.adminTasks = async (request, response) => {
 exports.searchTasks = async (request, response) => {
     try {
         let search = "%" + request.params.searchdata + "%";
-        let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?)`;
-        let todoTask = await db.executeQuery(query, ["todo", search, search]);
-        let inprogressTask = await db.executeQuery(query, ["inprogress", search, search]);
-        let completedTask = await db.executeQuery(query, ["completed", search, search]);
+        let query = `select * from tasks where task_status = ? and (task_name like ? or task_description like ?) and status = ?`;
+        let todoTask = await db.executeQuery(query, ["todo", search, search,1]);
+        let inprogressTask = await db.executeQuery(query, ["inprogress", search, search,1]);
+        let completedTask = await db.executeQuery(query, ["completed", search, search,1]);
         return response.json({ todoTask, inprogressTask, completedTask });
     } catch (err) {
         logger.error("Not task found it!");
@@ -38,7 +38,6 @@ exports.searchTasks = async (request, response) => {
 exports.taskDetail = async (request, response) => {
     try {
         let taskId = request.params.id;
-        let db = new database();
         let taskDetail = await db.executeQuery(`select t.id,t.task_name,t.task_description,t.task_start_date,t.task_end_date,t.task_status,c.category,p.id as priority_id,users.first_name as manager from tasks as t left join categories as c on t.category_id = c.id left join priorities as p on t.prioritiy_id = p.id left join users on t.manager_id = users.id where t.id = ?`, [taskId]);
 
 

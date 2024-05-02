@@ -26,12 +26,7 @@ const searchAllData = async (api, id, apifetch) => {
         });
         document.getElementById(`${id}`).innerHTML = dataadd;
       } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Not Found Data",
-        });
-        fetchData(`${apifetch}`, `${id}`);
+        document.getElementById(`${id}`).innerHTML = `<h5 class="py-3" style="text-align:center; background-color:lightblue; width:90%">Data Not Found</h5>`;
       }
     } else {
       let table = document.getElementById(`${id}`);
@@ -59,12 +54,7 @@ const searchAllData = async (api, id, apifetch) => {
         });
         table.innerHTML = dataadd;
       } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Not Found Data",
-        });
-        fetchData(`${apifetch}`, `${id}`);
+        document.getElementById(`${id}`).innerHTML = `<h5 class="py-3" style="text-align:center; background-color:lightblue; width:90%">Data Not Found</h5>`;
       }
     }
   } catch (error) {

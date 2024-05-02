@@ -28,11 +28,11 @@ const teamDetails = async (request, response) => {
     id = request.params.teamid;
     // id = 1
     const query1 = `select a.*,t.task_name from team_has_tasks as a 
-    inner join tasks as t on a.task_id=t.id where (a.team_id=? and t.status =1);`; //assign task on team
-    let result1 = await db.executeQuery(query1, id);
+    inner join tasks as t on a.task_id=t.id where (a.team_id=? and t.status =?);`; //assign task on team
+    let result1 = await db.executeQuery(query1, [id,1]);
     const query2 = `select t.id,t.team_id,u.first_name from team_members as t 
-    inner join users as u on t.emp_id=u.id where (t.team_id = ? and t.is_deleted=0);`; //members on particular team
-    let result2 = await db.executeQuery(query2, id);
+    inner join users as u on t.emp_id=u.id where (t.team_id = ? and t.is_deleted=?);`; //members on particular team
+    let result2 = await db.executeQuery(query2, [id,0]);
 
     const responsedata = {
       result1: result1,
@@ -48,8 +48,8 @@ const teamSearchDetails = async (request, response) => {
   try {
     let search = "%" + request.params.searchteam + "%";
     let searchTeam = await db.executeQuery(
-      `select t.id,t.team_name,u.first_name from teams as t inner join team_members as m on m.team_id=t.id inner join users as u on u.id=t.created_by where m.emp_id= ? and t.team_name like ? and is_deleted = 0;`,
-      [request.user.id, search]
+      `select t.id,t.team_name,u.first_name from teams as t inner join team_members as m on m.team_id=t.id inner join users as u on u.id=t.created_by where m.emp_id= ? and t.team_name like ? and is_deleted = ?;`,
+      [request.user.id, search,0]
     );
     return response.json(searchTeam);
   } catch (error) {
