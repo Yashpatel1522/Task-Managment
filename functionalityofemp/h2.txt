@@ -205,3 +205,19 @@ INSERT INTO permissions(permission,api,type) VALUES ('employee getdashboardata',
 ('employee report','/employee/report','get'),
 ('employee comeletedTasks','/employee/comeletedTasks','get');
 
+
+//for admin
+INSERT INTO permissions(permission,api,type) VALUES ('admin,manager,employe socketPost','/admin/socket','post'),
+('admin,manager,employe checkuseremail','/admin/checkuseremail','post'),
+('admin,manager,employe messagedisplay','/admin/messagedisplay','post'),
+('admin,manager,employe messages','/admin/messages','get'),
+('admin,manager,employe allusers','/admin/allusers','get');
+
+
+//for manager
+INSERT INTO permissions(permission,api,type) VALUES ('manager getManagerUpcomingTasks','/manager/getManagerUpcomingTasks','get'),
+('manager message','/manager/message','get'),
+('manager getManagerProfile','/manager/getManagerProfile','get'),
+('manager getReport','/manager/getReport','get'),
+('manager getReportData','/manager/getReportData','get'),
+('manager getPdfData','/manager/getPdfData','get');

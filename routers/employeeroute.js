@@ -9,7 +9,6 @@ const {
   list,
   searchList,
   addComment,
-  notifications
 } = require("../controller/employeemodule/employeetask");
 const {
   teamList,
@@ -38,11 +37,13 @@ const {
   reportGet,
   completedTasks,
 } = require("../controller/employeemodule/reports");
-const { route } = require("./managerroute");
 const { getUser } = require("../controller/employeemodule/userfetch");
-const { messsageGet } = require("../controller/managermodule/messagepage");
 const { messagesGet } = require("../controller/employeemodule/message");
 const checkUserRole = require("../middleware/userrole");
+
+router.get("/teamsearchdetails/:searchteam", teamSearchDetails);
+router.get("/searchtask/:searchresult", searchList);
+
 
 router.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -63,14 +64,12 @@ router.post(
 router.get("/getnavigationdata", getNavigationData);
 router.get("/task", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist", employeeTaskList);
-router.get("/searchtask/:searchresult", searchList);
 router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
 
 //team route
 router.get("/teamdata", teamList);
 router.get("/teamdetailsdata", teamData);
 router.get("/teamdetails/:teamid", teamDetails);
-router.get("/teamsearchdetails/:searchteam", teamSearchDetails);
 router.get("/calender", employeeCalender);
 router.get("/calenderData/:month", empcalenderMonth);
 router.get(

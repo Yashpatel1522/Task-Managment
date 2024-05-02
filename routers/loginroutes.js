@@ -50,7 +50,6 @@ const login = express.Router();
 login.post("/", loginPost);
 
 login.post("/registration", uploadStorage.single("img"), registrationPost);
-
 login.get("/newpassword/:activationcode", acticationGet);
 login.post("/newpassword/:activationcode", acticationPost);
 

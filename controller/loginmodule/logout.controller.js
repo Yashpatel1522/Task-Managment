@@ -6,7 +6,7 @@ const logout = (request, response) => {
     delete request.user;
     response.redirect("/");
   } catch (error) {
-    logger.log(errpr);
+    logger.log(error);
   }
 };
 

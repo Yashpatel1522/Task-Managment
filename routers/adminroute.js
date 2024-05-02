@@ -66,7 +66,6 @@ const { getAllUsers } = require("../controller/adminmodule/getallusers");
 const { checkUserEmail } = require("../controller/adminmodule/checkuseremail");
 
 // All Searching Data Admin Pannel
-router.get("/tasksDetails/:id", taskDetail);
 
 router.get(
   "/managersapi/search/:searchdata",
@@ -104,38 +103,17 @@ router.get(
   socketGet
 );
 
-router.post(
-  "/socket",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  socketPost
-);
-router.post(
-  "/checkuseremail",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  checkUserEmail
-);
-
-router.post(
-  "/messagedisplay",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  messageDisplay
-);
-
-router.get(
-  "/messages",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  messagesGet
-);
-router.get(
-  "/allusers",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  getAllUsers
-);
-
 router.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
+
+//socket
+router.post("/socket", socketPost);
+router.post("/checkuseremail", checkUserEmail);
+router.post("/messagedisplay", messageDisplay);
+router.get("/messages", messagesGet);
+router.get("/allusers", getAllUsers);
 
 // Page Render
 router.route("/dashboard").get(adminDashboard);

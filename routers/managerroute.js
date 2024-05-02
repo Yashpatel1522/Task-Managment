@@ -66,8 +66,16 @@ const uploadImage = multer({ storage: userProfileStorage });
 
 const managerRouter = express.Router();
 
-managerRouter.get("/calenderData/:month", calenderMonth);
-managerRouter.get("/searchEmploye/:searchdata", searchEmpData);
+managerRouter.get(
+  "/calenderData/:month",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  calenderMonth
+);
+managerRouter.get(
+  "/searchEmploye/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchEmpData
+);
 
 managerRouter.get(
   "/searchTask/:searchdata",
@@ -79,25 +87,23 @@ managerRouter.get(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   searchTask
 );
-managerRouter.get("/getManagerUpcomingTasks", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), upcomingTasks);
-
-managerRouter.get(
-  "/message",
-  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
-  messsageGet
-);
-managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
-managerRouter.get("/getManagerProfile/:id", managerProfile);
-managerRouter.get("/getReport",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), reportView);
-managerRouter.get("/getReportData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }), getReportData);
-managerRouter.get("/getPdfData",passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,getPdfData);
-
-managerRouter.get("/getManagerProfile/:id", passport.authenticate("jwt", { session: false, failureRedirect: "/" }), managerProfile);
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
-); 
+);
+
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+
+managerRouter.get("/message", messsageGet);
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+managerRouter.get("/getManagerProfile/:id", managerProfile);
+managerRouter.get("/getReport", reportView);
+managerRouter.get("/getReportData", getReportData);
+managerRouter.get("/getPdfData", getPdfData);
+
+managerRouter.get("/getManagerProfile/:id", managerProfile);
+
 managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
 managerRouter.get("/employeeDetails", employeeView);
 
