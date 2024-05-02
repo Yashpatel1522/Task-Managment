@@ -5,6 +5,7 @@ const managerProfile = async (request, response) => {
   try {
     console.log(request.user);
     let managerId = request.user.id;
+    console.log(managerId+" = Manager ID");
     let q = `select * from users where id = ? and status = 1;`;
     let db = new database();
     let res = await db.executeQuery(q, [managerId]);
