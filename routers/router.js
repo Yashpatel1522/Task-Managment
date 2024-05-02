@@ -165,6 +165,7 @@ const { getNavigationData } = require("../controller/employeemodule/navigation")
 const { employeeCalender, empcalenderMonth, empdueDateTask } = require("../controller/employeemodule/canlender");
 const { messageGet } = require("../controller/employeemodule/message");
 const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
+const { profileUploadesMiddleware } = require("../middleware/photosvalidation");
 
 //multer storage
 //registration storage
@@ -193,17 +194,18 @@ router.get("/", loginGet);
 router.use("/login", login);
 router.use("/admin", adminRouter);
 router.use("/manager", managerRouter);
+router.use("/employee", employeeRouter);
 
 login.post("/", loginPost);
-login.post("/newpassword/:activationcode", acticationPost);
+login.post("/newpassword/:activationcode",acticationPost);
 
+login.post("/registration", uploadStorage.single("img"),profileUploadesMiddleware ,registrationPost);
 //login routes
 login.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" })
 );
 login.get("/logout", logout);
 login.get("/employee/:taskid", workingEmployyeInTask);
-login.post("/registration", uploadStorage.single("img"), registrationPost);
 login.get("/newpassword/:activationcode", acticationGet);
 
 login.get("/forget", forgetGet);
@@ -281,8 +283,8 @@ managerRouter.get(
 
 
 //employee router without checkusers
-employeeRouter.get("/teamsearchdetails/:searchteam", teamSearchDetails);
-employeeRouter.get("/searchtask/:searchresult", searchList);
+employeeRouter.get("/teamsearchdetails/:searchteam",passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,teamSearchDetails);
+employeeRouter.get("/searchtask/:searchresult",passport.authenticate("jwt", { session: false, failureRedirect: "/" }),searchList);
 
 adminRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -408,38 +410,38 @@ managerRouter.get("/getManagerTasks", managersTasks);
 managerRouter.get("/getdataapi", addtaskdata);
 
 //=======================================================================employee routes checkusers======================================
-managerRouter.use(
+employeeRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
-managerRouter.get("/getdashboardata", getDashBoardData);
-managerRouter.get("/dashboard", dashBoard);
-managerRouter.get("/getUser", getUser);
+employeeRouter.get("/getdashboardata", getDashBoardData);
+employeeRouter.get("/dashboard", dashBoard);
+employeeRouter.get("/getUser", getUser);
 
-managerRouter.get("/getprofiledata", getProfileData);
-managerRouter.post(
+employeeRouter.get("/getprofiledata", getProfileData);
+employeeRouter.post(
   "/updateprofile",
   uploadStorageprofile.single("profileimg"),
   updateProfileData
 );
-managerRouter.get("/getnavigationdata", getNavigationData);
-managerRouter.get("/task", list);
-managerRouter.get("/employeetasklist", employeeTaskList);
-managerRouter.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
+employeeRouter.get("/getnavigationdata", getNavigationData);
+employeeRouter.get("/task", list);
+employeeRouter.get("/employeetasklist", employeeTaskList);
+employeeRouter.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
 
-managerRouter.get("/teamdata", teamList);
-managerRouter.get("/teamdetailsdata", teamDatas);
-managerRouter.get("/teamdetails/:teamid", teamsDetails);
-managerRouter.get("/calender", employeeCalender);
-managerRouter.get("/calenderData/:month", empcalenderMonth);
-managerRouter.get(
+employeeRouter.get("/teamdata", teamList);
+employeeRouter.get("/teamdetailsdata", teamDatas);
+employeeRouter.get("/teamdetails/:teamid", teamsDetails);
+employeeRouter.get("/calender", employeeCalender);
+employeeRouter.get("/calenderData/:month", empcalenderMonth);
+employeeRouter.get(
   "/dueDateOfTask",
 
   empdueDateTask
 );
-managerRouter.get("/messages", messageGet);
-managerRouter.get("/report", reportGet);
-managerRouter.get("/comeletedTasks", completedTasks);
+employeeRouter.get("/messages", messageGet);
+employeeRouter.get("/report", reportGet);
+employeeRouter.get("/comeletedTasks", completedTasks);
 
 //exports main router
 module.exports = router;
