@@ -6,11 +6,11 @@ exports.profiledata = async (request, response) => {
   try {
     let imageadmin = await db.executeQuery(
       `select newimage_name from user_profiles where user_id = ? and is_deleted = ?`,
-      [1, 0]
+      [request.user.id, 0]
     );
     let res = await db.executeQuery(
-      `select * from users as u inner join roles as r on u.role_id = r.id where r.role_name = ?`,
-      ["Admin"]
+      `select * from users as u inner join roles as r on u.role_id = r.id where r.role_name = ? and u.id = ?`,
+      ["Admin",request.user.id]
     );
     return response.json({ imageadmin: imageadmin, result: res });
   } catch (error) {
