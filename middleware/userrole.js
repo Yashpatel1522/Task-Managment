@@ -12,11 +12,9 @@ const checkUserRole = async (request, response, next) => {
       "select * from role_has_permissions as table1 left join permissions as table2 on table1.permission_id=table2.id where table1.role_id=? and table1.is_deleted=? and api = ? and type=?",
       [user.role_id, 0, request.originalUrl, request.method.toLowerCase()]
     );
-    console.log(request.user);
 
-    console.log(request.originalUrl);
     if (res.length > 0) {
-      if (request.originalUrl == res[0].api) {
+      if (request.originalUrl.toLowerCase() == res[0].api.toLowerCase()) {
         next();
       } else {
         if (request.headers.referer != undefined) {

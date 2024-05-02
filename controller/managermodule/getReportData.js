@@ -14,7 +14,6 @@ const getReportData = async (request, response) => {
       inner join tasks on tasks.id = tasks_assigend_to.task_id
       where tasks.manager_id = ?;`;
       let res = await db.executeQuery(reportQ, [managerId]);
-      console.log(res);
 
       let result = res.reduce((acc, curr) => {
         acc[curr.emp_id] ??= {
