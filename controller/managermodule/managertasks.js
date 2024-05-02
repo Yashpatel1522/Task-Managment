@@ -3,7 +3,7 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 let db = new database();
 
-const managerTasks = async (request, response) => {
+const managersTasks = async (request, response) => {
   try {
     let managerId = request.user.id;
     let managerTaskDashoardQuery = `select * from tasks where manager_id = ? and status = ?;`;
@@ -15,7 +15,7 @@ const managerTasks = async (request, response) => {
   }
 };
 
-const searchTask = async (request, response) => {
+const searchsTask = async (request, response) => {
   try {
     let managerId = request.user.id;
     let search = request.params.searchdata;
@@ -58,4 +58,4 @@ const notifications = async (request, response) => {
   }
 };
 
-module.exports = { managerTasks, searchTask, notifications };
+module.exports = {managersTasks, searchsTask, notifications };

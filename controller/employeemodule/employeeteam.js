@@ -13,7 +13,7 @@ const teamList = async (request, response) => {
   }
 };
 
-const teamData = async (request, response) => {
+const teamDatas = async (request, response) => {
   try {
     const query = `select t.id,t.team_name,u.first_name,m.emp_id from teams as t inner join team_members as m on t.id=m.team_id inner join users as u on t.created_by=u.id where (t.is_active=? and m.is_deleted=? and m.emp_id=?)`;
     let result = await db.executeQuery(query, [1,0,request.user.id]);
@@ -23,7 +23,7 @@ const teamData = async (request, response) => {
   }
 };
 
-const teamDetails = async (request, response) => {
+const teamsDetails = async (request, response) => {
   try {
     id = request.params.teamid;
     const query1 = `select a.*,t.task_name from team_has_tasks as a 
@@ -56,4 +56,4 @@ const teamSearchDetails = async (request, response) => {
   }
 };
 
-module.exports = { teamList, teamData, teamDetails, teamSearchDetails };
+module.exports = { teamList, teamDatas, teamsDetails, teamSearchDetails };

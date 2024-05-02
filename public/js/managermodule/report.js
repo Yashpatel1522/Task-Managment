@@ -1,11 +1,4 @@
 async function loadProf() {
-  let profData = await (await fetch('/manager/getManagerProfile/2')).json();
-
-  if (profData.imageResult && profData.result) {
-    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}` + " " + `${profData.result[0].last_name}`;
-  }
-
   let url = window.location.origin + `/manager/getReportData`;
   let response = await fetch(url);
   let data = await response.json();
@@ -16,8 +9,8 @@ async function loadProf() {
       str += `<div class="row pb-3">`;
       for (let j = 0; j < 3; j++) {
         if (data.employeeRes[count]) {
-          if(!data.reportData[count]) {
-            data.reportData[count] = '0.00'
+          if (!data.reportData[count]) {
+            data.reportData[count] = "0.00";
           }
           str += `
                     <div class="col-4 ">
@@ -41,13 +34,11 @@ async function loadProf() {
     }
   }
 
-  document.getElementById('employeeReport').innerHTML = str;
-
+  document.getElementById("employeeReport").innerHTML = str;
 }
 
 async function getReport(id) {
-  
-  let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
+  let name = await (await fetch(`/manager/getPdfData?id=${id}`)).json();
   let timerInterval;
   await Swal.fire({
     title: "PDF is Being Generated",
@@ -63,7 +54,7 @@ async function getReport(id) {
     },
     willClose: () => {
       clearInterval(timerInterval);
-    }
+    },
   });
 
   Swal.fire({
@@ -72,16 +63,12 @@ async function getReport(id) {
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, download it!"
+    confirmButtonText: "Yes, download it!",
   }).then(async (result) => {
     if (result.isConfirmed) {
-      window.open(`/assets/pdfs/${name.filename}`, '_blank');
-    }
-    else {
+      window.open(`/assets/pdfs/${name.filename}`, "_blank");
+    } else {
       window.location.href = `/manager/deletePdf?name=${name.filename}`;
     }
   });
-
-
-
 }

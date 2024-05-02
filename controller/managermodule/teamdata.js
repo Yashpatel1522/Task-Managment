@@ -28,7 +28,7 @@ exports.showTeamDataForUpdate = async (request, response) => {
   }
 };
 
-exports.updateTeamData = async (request, response) => {
+exports.updateTeamDatas = async (request, response) => {
   try {
     let teamdata = request.body;
     await db.updateAnd({ team_name: teamdata.team_name }, "teams", {
@@ -91,7 +91,7 @@ exports.teamDetailsForView = async (request, response) => {
   }
 };
 
-exports.deleteTeam = async (request, response) => {
+exports.deleteTeams = async (request, response) => {
   try {
     let deletedata = await db.updateOr({ is_active: "0" }, "teams", {
       id: request.params.id,

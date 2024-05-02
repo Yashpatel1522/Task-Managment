@@ -18,7 +18,7 @@ const employeeData = async (request, response) => {
   }
 };
 
-const searchEmpData = async (request, response) => {
+const searchEmpDatas = async (request, response) => {
   try {
     let search = "%" + request.params.searchdata + "%";
     let searchData = await db.executeQuery(
@@ -42,4 +42,4 @@ const removeEmployee = async (request, response) => {
   }
 };
 
-module.exports = { employeeData, searchEmpData, removeEmployee };
+module.exports = { employeeData, searchEmpDatas, removeEmployee };

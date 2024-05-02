@@ -1,7 +1,7 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
-const getDetails = async (request, response) => {
+const getEditDetails = async (request, response) => {
   try {
     let categoryQ = `select id, category from categories where status = 1`;
     let db = new database();
@@ -24,4 +24,4 @@ const getDetails = async (request, response) => {
   }
 };
 
-module.exports = getDetails;
+module.exports = getEditDetails;

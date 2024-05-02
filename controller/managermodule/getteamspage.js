@@ -1,8 +1,8 @@
 const logger = require("../../logger/logger");
 
-exports.messageGet = (request, response) => {
+exports.teamsGet = (request, response) => {
   try {
-    response.render("employeemodule/message");
+    response.render("./managermodule/teams");
   } catch (err) {
     logger.log(err);
   }

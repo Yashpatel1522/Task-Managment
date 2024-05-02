@@ -2,7 +2,7 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 let db = new database();
 
-const taskCount = async (request, response) => {
+const taskCounts = async (request, response) => {
   try {
     let managerId = request.user.id;
     let todoQ = `select count(*) as count from tasks where manager_id = ${managerId} and task_status ='todo';`;
@@ -22,4 +22,4 @@ const taskCount = async (request, response) => {
   }
 };
 
-module.exports = taskCount;
+module.exports = taskCounts;

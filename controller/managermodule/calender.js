@@ -13,7 +13,7 @@ const calenderView = (request, response) => {
   }
 };
 
-const calenderMonth = async (request, response) => {
+const calenderMonths = async (request, response) => {
   try {
     let currentMonth = request.params.month;
     var days = [
@@ -45,4 +45,4 @@ const dueDateTask1 = async (request, response) => {
   }
 };
 
-module.exports = { calenderView, calenderMonth, dueDateTask1 };
+module.exports = { calenderView, calenderMonths, dueDateTask1 };
