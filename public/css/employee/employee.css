@@ -172,12 +172,13 @@ body {
 
 .popup-task {
   width: 50%;
+  height: 75%;
   display: none;
   position: fixed;
   flex-direction: column;
   left: 40%;
   margin-left: -150px;
-  margin-top: 71px;
+  margin-top: 52px;
   background: #FFF;
   z-index: 20;
   border-radius: 10px;
