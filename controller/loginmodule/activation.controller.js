@@ -3,7 +3,6 @@ const setNewPassword = require("../../services/auth/setnewpassword");
 const logger = require("../../logger/logger");
 
 const acticationGet = (request, response) => {
-  console.log(request.rawHeaders);
   response.render("loginmodule/setnewpassword");
 };
 

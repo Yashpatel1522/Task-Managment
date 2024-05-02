@@ -7,19 +7,6 @@
 //   });
 // }
 
-const empImageInput = document.getElementById("change");
-const selectedImage = document.getElementById("selectedImage");
-
-empImageInput.addEventListener("change", function (event) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-
-  reader.onload = function (event) {
-    selectedImage.src = event.target.result;
-  };
-
-  reader.readAsDataURL(file);
-});
 
 const empImageInput = document.getElementById("change");
 const selectedImage = document.getElementById("selectedImage");

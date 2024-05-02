@@ -55,7 +55,6 @@ const openpopup3 = async (id) => {
   try {
     categoryPopup.classList.add("open-popup");
     let categoryDetail = await (await fetch(`/admin/categoryDetails/${id}`)).json();
-    // console.log(categoryDetail);
     let categoryData = "";
     if (categoryDetail.viewCategory.length != 0) {
       categoryData += `
@@ -130,7 +129,7 @@ const addNewCategory = async () => {
     body: categorydata
   })
   result = await data2.json()
-  if (result.status === 500) {
+  if (result.status === 200) {
     Swal.fire({
       icon: "success",
       title: "Category Added!",

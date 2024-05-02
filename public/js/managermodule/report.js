@@ -1,15 +1,14 @@
 async function loadProf() {
   let profData = await (await fetch('/manager/getManagerProfile/2')).json();
 
-  if(profData.imageResult && profData.result) {
+  if (profData.imageResult && profData.result) {
     document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
+    document.getElementById('userName').innerText = `${profData.result[0].first_name}` + " " + `${profData.result[0].last_name}`;
   }
 
   let url = window.location.origin + `/manager/getReportData`;
   let response = await fetch(url);
   let data = await response.json();
-  console.log(data);
   let str = ``;
   if (data.employeeRes) {
     let count = 0;
@@ -62,8 +61,7 @@ async function getReport(id) {
     }
   });
 
-  let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
-  console.log(name.filename);
+  let name = await (await fetch(`/manager/getPdfData?id=${id}`)).json();
 
   Swal.fire({
     html: `<embed src="/assets/pdfs/${name.filename}">`,

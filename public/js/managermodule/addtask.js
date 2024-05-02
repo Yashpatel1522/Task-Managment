@@ -21,8 +21,6 @@ const addTaskValidation = () => {
   const startdate = document.getElementById("task_start_date").value;
   const enddate = document.getElementById("task_end_date").value;
   const currentDate = new Date().toISOString().split("T")[0];
-
-  console.log(currentDate);
   if (!requireValidation(allfields, reqfields)) {
     err = false;
   }
@@ -68,7 +66,6 @@ const addUserList = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("Data received:", data);
         employeeDynamicCombo(data.empdata);
         teamDynamicCombo(data.teamdata);
         catagoryDynamicCombo(data.categorydata);
@@ -172,7 +169,6 @@ const insertTaskData = async () => {
     formData.append("Assin_task_to", selectedArray.toString());
     formData.append("Assin_task_to_team", selectedTeamArray.toString());
     var files = document.getElementById("files").files;
-    console.log(files);
     for (var x = 0; x < files.length; x++) {
       formData.append("files", files[x]);
     }
@@ -182,7 +178,6 @@ const insertTaskData = async () => {
         body: formData,
       })
         .then((response) => {
-          console.log(response);
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }

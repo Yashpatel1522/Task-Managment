@@ -54,9 +54,9 @@ exports.addCategory = async (request, response) => {
     let categories_is_exists = await db.executeQuery("select * from categories where category = ? and status = ?", [category_name, 1]);
     if (categories_is_exists.length === 0) {
       await db.insertData({ category: category_name }, "categories");
-      return response.json({ status: 500, msg: "New Category Insert Succefully" })
+      return response.json({ status: 200, msg: "New Category Insert Succefully" })
     } else {
-      return response.json({ status: 200, msg: "Category Is Already Exists" })
+      return response.json({ status: 500, msg: "Category Is Already Exists" })
     }
   } catch (error) {
     logger.error("Category Data Can't deleted !");

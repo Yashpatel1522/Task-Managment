@@ -10,7 +10,6 @@ const isRegistration = async () => {
     let date_of_birth = document.getElementById("date_of_birth").value;
     let employee_role = document.getElementById("employee_role").value;
     let img = document.getElementsByName("img")[0].files[0];
-    console.log(email);
     let formdata = new FormData();
     formdata.append("role_id", role);
     formdata.append("first_name", first_name);
@@ -20,7 +19,6 @@ const isRegistration = async () => {
     formdata.append("date_of_birth", date_of_birth);
     formdata.append("employee_role", employee_role);
     formdata.append("img", img);
-    console.log(formdata);
     // const form = document.getElementById('registration-form')
     // let data = new URLSearchParams(new FormData(form))
     let url = "/login/registration";
@@ -31,11 +29,9 @@ const isRegistration = async () => {
       //     'content-type': 'application/x-www-form-urlencoded'
       // }
     });
-    console.log(res);
     res = await res.json();
     let error = document.getElementById("error");
     if (res.flag == false) {
-      console.log(error);
       error.style.display = "block";
       error.innerHTML = res.msg;
     } else {

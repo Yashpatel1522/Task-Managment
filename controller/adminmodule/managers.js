@@ -43,8 +43,7 @@ exports.searchManData = async (request, response) => {
 
 exports.dataDelete = async (request, response) => {
     try {
-        let id = request.params.id;
-        let deletedata = await db.updateOr({ status: "0" }, "users", { id: id });
+        let deletedata = await db.updateOr({ status: "0" }, "users", { id: request.params.id });
         return response.json({ deletedata });
     } catch (error) {
         logger.error("Manager Data Can't deleted !");

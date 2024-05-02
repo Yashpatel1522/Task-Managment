@@ -15,7 +15,6 @@ const loginPost = async (request, response) => {
       "select id from users where email=? and status=?",
       [data.username, 1]
     );
-    console.log(result);
     if (result.length == 0) {
       response.send({
         msg: "invalid Creadentials",
@@ -48,7 +47,6 @@ const loginPost = async (request, response) => {
                 "select roles.role_name from users left join roles on users.role_id=roles.id  where users.id=?",
                 [result[0].id]
               );
-              console.log(userRole[0].role_name);
               let url;
               switch (userRole[0].role_name) {
                 case "employee":
@@ -63,7 +61,6 @@ const loginPost = async (request, response) => {
                 default:
                   url = null;
               }
-              console.log(url);
               response
                 .cookie("token", token, {
                   maxAge: 1000 * 60 * 60,
@@ -75,7 +72,6 @@ const loginPost = async (request, response) => {
                 { user_id: result[0].id },
                 "log_datas"
               );
-              console.log(result[0]);
               response.send({
                 msg: "invalid credentials",
                 flag: false,

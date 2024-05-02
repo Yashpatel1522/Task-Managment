@@ -11,12 +11,9 @@ const isValidForget = async () => {
       'content-type': 'application/x-www-form-urlencoded'
     }
   })
-  console.log(res)
   res = await res.json();
   let error = document.getElementById("error")
-  console.log(res)
   if (res.flag == false) {
-    console.log(error)
     error.style.display = "block"
     error.innerHTML = res.msg
   }
