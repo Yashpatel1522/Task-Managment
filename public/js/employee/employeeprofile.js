@@ -1,25 +1,11 @@
-// const showNotification = () => {
-//   Swal.fire({
-//     title: "Notifications",
-//     text: "Click!",
-//     icon: "success",
-//     button: "oh yes!",
-//   });
-// }
-
-const empImageInput = document.getElementById("change");
-const selectedImage = document.getElementById("selectedImage");
-
-empImageInput.addEventListener("change", function (event) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-
-  reader.onload = function (event) {
-    selectedImage.src = event.target.result;
-  };
-
-  reader.readAsDataURL(file);
-});
+const showNotification = () => {
+  Swal.fire({
+    title: "Notifications",
+    text: "Click!",
+    icon: "success",
+    button: "oh yes!",
+  });
+}
 
 const empImageInput = document.getElementById("change");
 const selectedImage = document.getElementById("selectedImage");
@@ -76,9 +62,13 @@ const renderProfileData = (profileData) => {
   document.getElementById('employee_dashboard_img').src = `/assets/userprofiles/${profileImageName}`
   document.getElementById('employee_name').innerHTML = `<strong>${profileData.userdata[0]["first_name"] + " " + profileData.userdata[0]["last_name"]}</strong>`
 };
-function showDropdown() {
+
+const profileelement = document.getElementById("profilediv");
+profileelement.addEventListener("click", (e) => {
   document.getElementById("dropdown").classList.add("show");
-}
+  e.stopPropagation();
+
+})
 
 window.onclick = function (event) {
   if (!event.target.matches('.profile')) {

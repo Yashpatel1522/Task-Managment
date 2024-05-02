@@ -7,7 +7,6 @@
 let taskFlag = true;
 
 function showDropdown(id) {
-  console.log(id);
   if (document.getElementById(id).style.display == "block") {
     document.getElementById(id).style.display = "none";
   } else if ((document.getElementById(id).style.display = "none")) {
@@ -25,7 +24,6 @@ function showDropdown(id) {
 const getTaskData = async () => {
   try {
     let data = await (await fetch(`/login/managertasks`)).json();
-    console.log("taskdata", data);
     todoTask = document.getElementById("todoTask");
     let todoData = ``;
     data.todoData.forEach((e) => {

@@ -91,7 +91,6 @@
 // //   checkUserRole
 // // );
 
-
 // // managerRouter.get("/message", messsageGet);
 // // managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 // // managerRouter.get("/getManagerProfile/:id", managerProfile);
@@ -105,7 +104,7 @@
 // // managerRouter.get("/employeeDetails", employeeView);
 
 // // managerRouter.get("/Teams", (request, response) => {
-  
+
 // // });
 
 // // managerRouter.get("/tasks", taskView().getPage);
@@ -113,8 +112,7 @@
 // // Dashboard
 // // managerRouter.get("/dashboard", dashboardView);
 // // managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
-// // managerRouter.get("/getTeams", getTeams);
-
+// // console.log
 // //API to edit task Details
 // // managerRouter.post("/editTaskDetails", editTask);
 // // managerRouter.get("/getEditTadkDetails", getEditDetails);

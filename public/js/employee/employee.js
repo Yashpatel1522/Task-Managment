@@ -10,10 +10,11 @@ function showDropdown() {
   document.getElementById("dropdown").classList.toggle("show");
 }
 
-let path = window.location.pathname.split("/");
-let id = path[path.length - 1];
+// let path = window.location.pathname.split("/");
+// let id = path[path.length - 1];
 
 
+let ides = (id) => document.getElementById(id);
 
 
 var employeedata;
@@ -24,7 +25,8 @@ async function fetchData() {
   employeedata = data;
 
   function setCard(id, element) {
-    document.getElementById(`${id}`).innerHTML += `
+
+    ides(`${id}`).innerHTML += `
       <div class="card1 mx-3 p-2" onclick="show('popup','${element.task_id}')">
                 <div class="field">
                   <h4>${element.task_name}</h4>
@@ -42,30 +44,34 @@ async function fetchData() {
   }
   data.forEach((element) => {
     if (element.task_status == "todo") {
+      ides('notask1').hidden = 'true';
       setCard("todoTask", element);
     } else if (element.task_status == "inprogress") {
+      ides('notask2').hidden = 'true';
+
       setCard("inprogressTask", element);
     } else if (element.task_status == "completed") {
+      ides('notask3').hidden = 'true';
       setCard("completedTask", element);
     }
     switch (element.urgency_id) {
       case 1:
-        document.getElementById(
+        ides(
           `urgent-${element.task_id}`
         ).innerHTML = `<img src="/assets/employee/redflag.svg" alt="flag" width="20px" height="20px">`;
         break;
       case 2:
-        document.getElementById(
+        ides(
           `urgent-${element.task_id}`
         ).innerHTML = `<img src="/assets/employee/orangeflag.svg" alt="flag" width="20px" height="20px">`;
         break;
       case 3:
-        document.getElementById(
+        ides(
           `urgent-${element.task_id}`
         ).innerHTML = `<img src="/assets/employee/yellowflag.svg" alt="flag" width="20px" height="20px">`;
         break;
       case 4:
-        document.getElementById(
+        ides(
           `urgent-${element.task_id}`
         ).innerHTML = `<img src="/assets/employee/greenflag.svg" alt="flag" width="20px" height="20px">`;
         break;
@@ -75,14 +81,13 @@ async function fetchData() {
 fetchData();
 
 var gtaskid;
-let ides = (id) => document.getElementById(id);
 
 const show = (id, taskid) => {
   ides(id).style.display = "block";
   gtaskid = taskid;
   employeedata.forEach((element) => {
     if (element.task_id == taskid) {
-      document.getElementById("taskdetails").innerHTML = `
+      ides("taskdetails").innerHTML = `
       <div class="field">
         <p class="fs-1 text fw-bold">${element.task_name}</p>
       </div>
@@ -164,7 +169,7 @@ const hide = (id) => {
 let ides_comment = (id) => document.getElementById(id);
 
 const showComment = (id, taskid) => {
-  document.getElementById("popup").style.display = "none";
+  ides_comment("popup").style.display = "none";
   employeedata.forEach((element) => {
     if (element.task_id == taskid) {
       ides_comment(id).style.display = "block";
@@ -211,16 +216,13 @@ const seachresultnew = async (value) => {
     }
     data.forEach((element) => {
       if (element.task_status == "todo") {
-        // ides('inprogressTask').innerHTML = '<p class="not-found">Data Not Found</p>';
-        // ides('completedTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        ides('notask1').hidden = 'true';
         resetCard("todoTask", element);
       } else if (element.task_status == "inprogress") {
-        // ides('todoTask').innerHTML = '<p class="not-found">Data Not Found</p>';
-        // ides('completedTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        ides('notask2').hidden = 'true';
         resetCard("inprogressTask", element);
       } else if (element.task_status == "completed") {
-        // ides('todoTask').innerHTML = '<p class="not-found">Data Not Found</p>';
-        // ides('inprogressTask').innerHTML = '<p class="not-found">Data Not Found</p>';
+        ides('notask3').hidden = 'true';
         resetCard("completedTask", element);
       }
       switch (element.urgency_id) {
@@ -269,7 +271,7 @@ async function addcomment() {
     formData.append(element, document.getElementById(element).value);
   });
   const response = await fetch(
-    `/employee/addcomment/${id}/${gtaskid}`,
+    `/employee/addcomment/${gtaskid}`,
     {
       method: "POST",
       body: formData,

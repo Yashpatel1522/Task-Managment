@@ -369,18 +369,18 @@ managerRouter.post("/updateTaskStatus", updateTaskStatus);
 managerRouter.get("/calender", calenderView);
 managerRouter.get("/dueDateOfTask", dueDateTask1);
 managerRouter.get("/getManagerTaskCount", taskCounts);
+managerRouter.get("/getPdfData", getPdfData);
 
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
-);
-//=======================================================================manager routes checkusers======================================
+  );
+  //=======================================================================manager routes checkusers======================================
 managerRouter.get("/message", messsageGet);
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 managerRouter.get("/getManagerProfile/:id", managerProfile);
 managerRouter.get("/getReport", reportView);
 managerRouter.get("/getReportData", getReportData);
-managerRouter.get("/getPdfData", getPdfData);
 managerRouter.get("/Teams", teamsGet);
 
 managerRouter.get("/getManagerProfile/:id", managerProfiles);

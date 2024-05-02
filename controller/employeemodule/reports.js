@@ -27,7 +27,6 @@ const completedTasks = async (request, response) => {
     res2 = await db.executeQuery(
       `select * from user_comments where employee_id=${task.emp_id} and task_id=${task.task_id} and task_status="completed"`
     );
-    console.log(res2[0]);
     result[i].comment = res2;
   }
   response.send(result);

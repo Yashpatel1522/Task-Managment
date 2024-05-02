@@ -9,7 +9,6 @@ const forgetGet = (request, response) => {
 const forgetPost = async (request, response) => {
   try {
     let res = await forgetpassword(request.body.username);
-    console.log(res);
     if (res.flag == true) {
       response.send(res).status(200);
     } else {

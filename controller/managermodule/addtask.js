@@ -8,7 +8,7 @@ const addtaskdata = async (request, response) => {
     let dataobj = {};
     const query = `select id,concat(first_name, ' ', last_name) as first_name from users where role_id = 3 and status = 1`;
     const teamDataQuery = `select id,team_name from teams where is_active = 1`;
-    const categoryDataQuery = `select * from categories`;
+    const categoryDataQuery = `select * from categories where status = 1`;
     const urgencyDataQuery = "select * from urgency";
     const importancyDataQuery = "select * from importants";
     let empdata = await db.executeQuery(query);
@@ -29,8 +29,6 @@ const addtaskdata = async (request, response) => {
 
 const inserttaskdata = async (request, response) => {
   try {
-    console.log("Body Is : ");
-    console.log(request.body);
     let taskdata = request.body;
     let managerId = request.user?.id;
     let lastInserted_id;
@@ -55,7 +53,6 @@ const inserttaskdata = async (request, response) => {
     lastInserted_id = res.insertId;
 
     let AssinTaskTo = taskdata.Assin_task_to.split(",");
-    console.log(lastInserted_id);
     await AssinTaskTo.forEach((element) => {
       if (element) {
         db.insertData(
@@ -93,8 +90,6 @@ const inserttaskdata = async (request, response) => {
       empOfTeam: await empOfTeam,
     });
   } catch (error) {
-    console.log("error aviiiiii");
-    console.log(error);
     logger.error(error);
   }
 };

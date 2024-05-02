@@ -9,7 +9,6 @@ const getTaskData = async () => {
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup(${e.id})">Edit</button>
       </div>
     </div>`;
     });
@@ -23,7 +22,6 @@ const getTaskData = async () => {
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup(${e.id})">Edit</button>
       </div>
     </div>`;
     });
@@ -37,7 +35,6 @@ const getTaskData = async () => {
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
       </div>
     </div>`;
     });
@@ -53,67 +50,67 @@ const searchTaskData = async (value) => {
     document.getElementById("todoTask").innerHTML = "";
     if (value === "") {
       getTaskData();
-    }
-    let todoTask = document.getElementById("todoTask");
-    let dataadd = ``;
-    if (data.todoTask.length != 0) {
-      data.todoTask.forEach((e) => {
-        dataadd += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
+    } else {
+      let todoTask = document.getElementById("todoTask");
+      let dataadd = ``;
+      if (data.todoTask.length != 0) {
+        data.todoTask.forEach((e) => {
+          dataadd += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
       </div>
     </div>`;
-      });
-      todoTask.innerHTML = dataadd;
-    } else {
-      document.getElementById("todoTask").innerText = "Not Data Found";
+        });
+        todoTask.innerHTML = dataadd;
+      } else {
+        document.getElementById("todoTask").innerText = "Not Data Found";
+      }
     }
 
     document.getElementById("inprogressTask").innerHTML = "";
     if (value === "") {
       getTaskData();
-    }
-    let inprogressTask = document.getElementById("inprogressTask");
-    let dataadd1 = ``;
-    if (data.inprogressTask.length != 0) {
-      data.inprogressTask.forEach((e) => {
-        dataadd1 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
+    } else {
+      let inprogressTask = document.getElementById("inprogressTask");
+      let dataadd1 = ``;
+      if (data.inprogressTask.length != 0) {
+        data.inprogressTask.forEach((e) => {
+          dataadd1 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}> 
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup(${e.id})">Edit</button>
       </div>
     </div>`;
-      });
-      inprogressTask.innerHTML = dataadd1;
-    } else {
-      document.getElementById("inprogressTask").innerText = "Not Data Found";
+        });
+        inprogressTask.innerHTML = dataadd1;
+      } else {
+        document.getElementById("inprogressTask").innerText = "Not Data Found";
+      }
     }
 
     document.getElementById("completedTask").innerHTML = "";
     if (value === "") {
       getTaskData();
-    }
-    let completedTask = document.getElementById("completedTask");
-    let dataadd2 = ``;
-    if (data.completedTask.length != 0) {
-      data.completedTask.forEach((e) => {
-        dataadd2 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
+    } else {
+      let completedTask = document.getElementById("completedTask");
+      let dataadd2 = ``;
+      if (data.completedTask.length != 0) {
+        data.completedTask.forEach((e) => {
+          dataadd2 += `<div class="m-3 p-2 tasks" draggable="true" id=${e.id}>
       <div class="card-body">
         <p>${e.task_name}</p>
         <p>${e.task_description}</p>
         <button class="btn btn-success" onclick="openpopup2(${e.id})">View</button>
-        <button class="btn btn-secondary" onclick="openPopup()">Edit</button>
       </div>
     </div>`;
-      });
-      completedTask.innerHTML = dataadd2;
-    } else {
-      document.getElementById("completedTask").innerText = "Not Data Found";
+        });
+        completedTask.innerHTML = dataadd2;
+      } else {
+        document.getElementById("completedTask").innerText = "Not Data Found";
+      }
     }
   } catch (err) {
     console.log(err);
@@ -133,7 +130,6 @@ const closePopup2 = () => {
 const openpopup2 = async (id) => {
   try {
     taskPopup.classList.add("open-popup");
-    // console.log(document.getElementById("task-detailes"))
     let data = await (await fetch(`/admin/tasksDetails/${id}`)).json();
     if (data.taskDetail.length != 0) {
       document.getElementById("task").innerHTML = `

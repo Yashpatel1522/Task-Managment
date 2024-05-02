@@ -987,7 +987,6 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:14:53.214Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:18:42.254Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:25:45.413Z"}
-=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:27.957Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:30.465Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:35.198Z"}
@@ -1042,7 +1041,6 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:13:30.442Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:13:36.226Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:18:22.851Z"}
-=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:13.518Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:16.684Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:17.401Z"}
@@ -1875,7 +1873,6 @@
 {"level":"error","timestamp":"2024-05-01T05:53:31.889Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:35:38.881Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:36:33.808Z"}
-=======
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='4') or (sender_id='4' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:28:59.823Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='11') or (sender_id='11' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:29:07.066Z"}
 {"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:51.114Z"}
@@ -1934,7 +1931,6 @@
 {"level":"error","timestamp":"2024-05-01T09:58:33.848Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:33.898Z"}
 {"level":"error","timestamp":"2024-05-01T09:58:34.265Z"}
-<<<<<<< HEAD
 {"level":"error","timestamp":"2024-05-01T10:01:50.660Z"}
 {"level":"error","timestamp":"2024-05-01T12:21:46.328Z"}
 {"level":"error","timestamp":"2024-05-01T12:21:49.016Z"}
@@ -1943,7 +1939,6 @@
 {"level":"error","timestamp":"2024-05-01T12:22:36.909Z"}
 {"level":"error","timestamp":"2024-05-01T12:22:45.874Z"}
 {"level":"error","timestamp":"2024-05-01T12:23:26.014Z"}
-=======
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:32.606Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:33.778Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T11:41:38.786Z"}
@@ -2139,7 +2134,6 @@
 {"level":"error","timestamp":"2024-05-01T14:21:14.155Z"}
 {"level":"error","timestamp":"2024-05-01T14:21:21.917Z"}
 {"level":"error","timestamp":"2024-05-01T14:22:26.120Z"}{"level":"error","timestamp":"2024-05-01T15:04:50.650Z"}
->>>>>>> dev
 {"level":"error","timestamp":"2024-05-01T15:27:57.536Z"}
 {"level":"error","timestamp":"2024-05-01T15:27:59.118Z"}
 {"level":"error","timestamp":"2024-05-01T15:27:59.442Z"}
@@ -2194,3 +2188,58 @@
 {"level":"error","timestamp":"2024-05-02T10:06:09.412Z"}
 {"level":"error","timestamp":"2024-05-02T10:06:10.548Z"}
 {"level":"error","timestamp":"2024-05-02T10:06:10.574Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:17.646Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:23.515Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:23.563Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:24.479Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:26.320Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:27.556Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:28.463Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:29.368Z"}
+{"level":"error","timestamp":"2024-05-02T05:05:31.117Z"}
+=======
+{"level":"error","timestamp":"2024-05-02T04:01:11.326Z"}
+{"level":"error","timestamp":"2024-05-02T04:01:14.213Z"}
+{"level":"error","timestamp":"2024-05-02T04:01:14.241Z"}
+{"level":"error","timestamp":"2024-05-02T04:01:21.854Z"}
+{"level":"error","timestamp":"2024-05-02T04:01:35.434Z"}
+{"level":"error","timestamp":"2024-05-02T04:01:58.966Z"}
+{"level":"error","timestamp":"2024-05-02T04:02:55.103Z"}
+{"level":"error","timestamp":"2024-05-02T04:02:55.131Z"}
+{"level":"error","timestamp":"2024-05-02T04:02:58.374Z"}
+{"level":"error","timestamp":"2024-05-02T04:06:06.806Z"}
+{"level":"error","timestamp":"2024-05-02T04:06:06.899Z"}
+{"level":"error","timestamp":"2024-05-02T04:07:49.850Z"}
+{"level":"error","timestamp":"2024-05-02T04:07:49.871Z"}
+{"level":"error","timestamp":"2024-05-02T04:08:16.405Z"}
+{"level":"error","timestamp":"2024-05-02T04:08:18.573Z"}
+{"level":"error","timestamp":"2024-05-02T04:08:19.619Z"}
+{"level":"error","timestamp":"2024-05-02T04:08:21.341Z"}
+{"level":"error","timestamp":"2024-05-02T04:09:17.739Z"}
+{"level":"error","timestamp":"2024-05-02T04:10:35.593Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:20.358Z"}
+{"level":"error","timestamp":"2024-05-02T04:12:26.653Z"}
+{"level":"error","timestamp":"2024-05-02T04:14:25.979Z"}
+{"level":"error","timestamp":"2024-05-02T04:14:43.746Z"}
+{"level":"error","timestamp":"2024-05-02T04:18:17.571Z"}
+{"level":"error","timestamp":"2024-05-02T04:18:26.988Z"}
+{"level":"error","timestamp":"2024-05-02T04:25:58.950Z"}
+{"level":"error","timestamp":"2024-05-02T04:31:57.967Z"}
+{"level":"error","timestamp":"2024-05-02T04:32:36.654Z"}
+{"level":"error","timestamp":"2024-05-02T04:34:00.890Z"}
+{"level":"error","timestamp":"2024-05-02T04:34:21.874Z"}
+{"level":"error","timestamp":"2024-05-02T04:36:33.704Z"}
+{"level":"error","timestamp":"2024-05-02T04:37:13.305Z"}
+{"level":"error","timestamp":"2024-05-02T04:38:18.435Z"}
+{"level":"error","timestamp":"2024-05-02T04:40:49.164Z"}
+{"level":"error","timestamp":"2024-05-02T04:42:27.304Z"}
+{"level":"error","timestamp":"2024-05-02T04:44:24.502Z"}
+{"level":"error","timestamp":"2024-05-02T04:44:46.644Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-02T12:57:18.502Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-02T12:57:28.256Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-02T12:57:29.057Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-02T12:57:29.344Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-02T12:57:29.630Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-02T12:57:30.910Z"}
+{"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-02T12:58:09.146Z"}
+>>>>>>> dev

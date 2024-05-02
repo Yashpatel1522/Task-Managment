@@ -8,7 +8,6 @@ let todayDate1 = new Date().getDate();
 const getCalender = async (month) => {
   let dueDate = await getDeadline();
   let data = await (await fetch(`/manager/calenderData/${month}`)).json();
-  console.log(data);
   let calenderData = document.getElementById("calender");
   let tr1 = document.createElement("tr");
   tr1.setAttribute("class", "headercss");
@@ -23,9 +22,8 @@ const getCalender = async (month) => {
     let tr = document.createElement("tr");
     for (let j = 0; j < data.yearCalendar[i].length; j++) {
       let td = document.createElement("td");
-      td.innerText += `${
-        data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
-      }`;
+      td.innerText += `${data.yearCalendar[i][j] == 0 ? "" : data.yearCalendar[i][j]
+        }`;
       if (data.yearCalendar[i][j] === todayDate1 && m + 1 === month) {
         td.style.backgroundColor = "rgb(90, 150, 90)";
       }

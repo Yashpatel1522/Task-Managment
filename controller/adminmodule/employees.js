@@ -22,8 +22,7 @@ exports.adminEmployees = async (request, response) => {
 
 exports.employeeDetails = async (request, response) => {
     try {
-        let employeeId = request.params.id;
-        let employeeDetail = await db.executeQuery(`select users.* from users left join roles on users.role_id = roles.id where role_name = ?  and users.id = ? and users.status = ?`, ["Employee", employeeId, 1]);
+        let employeeDetail = await db.executeQuery(`select users.* from users left join roles on users.role_id = roles.id where role_name = ?  and users.id = ? and users.status = ?`, ["Employee", request.params.id, 1]);
         return response.json({ result: employeeDetail });
     } catch (error) {
         logger.error("Employee data is not found !");
@@ -42,8 +41,7 @@ exports.searchEmpData = async (request, response) => {
 
 exports.empDataDelete = async (request, response) => {
     try {
-        let id = request.params.id;
-        let deletedata = await db.updateOr({ status: "0" }, "users", { id: id });
+        let deletedata = await db.updateOr({ status: "0" }, "users", { id: request.params.id });
         return response.json({ deletedata });
     } catch (error) {
         logger.error("Employee Data Can't deleted !");

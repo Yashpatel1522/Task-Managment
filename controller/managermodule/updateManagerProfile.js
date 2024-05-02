@@ -25,8 +25,6 @@ const updateManager = async (request, response) => {
           request.file.filename.indexOf("-") + 1
         );
         const updateImageQuery = `insert into user_profiles (user_id, oldimage_name, newimage_name) values (?, ?, ?)`;
-        console.log(oldName);
-        console.log(request.file.filename);
         const updatedRes = await db.executeQuery(updateImageQuery, [
           managerId,
           oldName,
@@ -47,7 +45,6 @@ const updateManager = async (request, response) => {
 
     return response.redirect("/manager/dashboard");
   } catch (error) {
-    console.log(error);
     logger.error(error);
     return response.send({ error: error });
   }
