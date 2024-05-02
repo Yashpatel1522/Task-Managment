@@ -271,7 +271,7 @@ async function addcomment() {
     formData.append(element, document.getElementById(element).value);
   });
   const response = await fetch(
-    `/employee/addcomment/${id}/${gtaskid}`,
+    `/employee/addcomment/${gtaskid}`,
     {
       method: "POST",
       body: formData,
