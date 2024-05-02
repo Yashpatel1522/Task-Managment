@@ -987,7 +987,6 @@
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:14:53.214Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:18:42.254Z"}
 {"level":"error","message":"Task data is not found !","timestamp":"2024-04-26T13:25:45.413Z"}
-=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:27.957Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:30.465Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T14:06:35.198Z"}
@@ -1042,7 +1041,6 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:13:30.442Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:13:36.226Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-26T08:18:22.851Z"}
-=======
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:13.518Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:16.684Z"}
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-04-25T13:55:17.401Z"}
@@ -1875,7 +1873,6 @@
 {"level":"error","timestamp":"2024-05-01T05:53:31.889Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:35:38.881Z"}
 {"level":"error","message":"Employee Task comments is not inserted","timestamp":"2024-05-01T12:36:33.808Z"}
-=======
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='4') or (sender_id='4' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:28:59.823Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"info","sql":"select * from chats where (sender_id='1' and reciver_id='11') or (sender_id='11' and reciver_id='1')  ORDER BY create_at asc","sqlMessage":"Table 'task_management_db.chats' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T03:29:07.066Z"}
 {"level":"error","message":"profile data is not found !","timestamp":"2024-05-01T03:31:51.114Z"}

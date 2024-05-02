@@ -3,6 +3,7 @@ const logger = require("../../logger/logger");
 
 const managerProfile = async (request, response) => {
   try {
+    console.log(request.user);
     let managerId = request.user.id;
     console.log(managerId+" = Manager ID");
     let q = `select * from users where id = ? and status = 1;`;
@@ -16,6 +17,6 @@ const managerProfile = async (request, response) => {
     logger.error(error);
     return response.send({ error: error });
   }
-}; 
+};
 
 module.exports = managerProfile;
