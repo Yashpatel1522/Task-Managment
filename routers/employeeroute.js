@@ -64,7 +64,7 @@ router.get("/getnavigationdata", getNavigationData);
 router.get("/task", list); //http://127.0.0.1:8000/employee/task/1
 router.get("/employeetasklist", employeeTaskList);
 router.get("/searchtask/:searchresult", searchList);
-router.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
+router.post("/addcomment/:taskid", upload.single("file"), addComment);
 
 //team route
 router.get("/teamdata", teamList);

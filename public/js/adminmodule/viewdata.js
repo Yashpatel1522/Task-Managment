@@ -107,7 +107,6 @@ const viewFetchData = async (api, id) => {
               </div>`
       }
       userdata += `</div>`
-      console.log(userdata);
       document.getElementById(`${id}`).innerHTML = userdata;
     }
   } catch (error) {

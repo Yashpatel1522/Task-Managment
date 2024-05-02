@@ -76,7 +76,6 @@ const io = socket(server);
 io.on("connection", (socket) => {
 
   socket.on("recmsg", (data) => {
-    console.log(data);
     io.emit("sendmsg", data);
   });
   socket.on("msg", (data) => {
@@ -84,7 +83,7 @@ io.on("connection", (socket) => {
   });
   socket.on("notification-data", (data) => {
     io.emit("send-notification-data", data)
-    
+
   })
 });
 

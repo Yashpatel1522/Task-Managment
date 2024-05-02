@@ -66,3 +66,8 @@
     border-right: 5px solid #E9F1FA;
     border-bottom: 5px solid #E9F1FA;
   }
+
+  div:where(.swal2-container).swal2-center > .swal2-popup {
+    width: 775px;
+
+  }

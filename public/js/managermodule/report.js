@@ -16,6 +16,9 @@ async function loadProf() {
       str += `<div class="row pb-3">`;
       for (let j = 0; j < 3; j++) {
         if (data.employeeRes[count]) {
+          if(!data.reportData[count]) {
+            data.reportData[count] = '0.00'
+          }
           str += `
                     <div class="col-4 ">
                         <div class="card" style="width: 100%;">
@@ -43,6 +46,8 @@ async function loadProf() {
 }
 
 async function getReport(id) {
+  
+  let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
   let timerInterval;
   await Swal.fire({
     title: "PDF is Being Generated",
@@ -61,36 +66,22 @@ async function getReport(id) {
     }
   });
 
-  let name = await (await fetch(`/manager/getPdfData?id=${id}`)).json();
-
   Swal.fire({
-    html: `<embed src="/assets/pdfs/${name.filename}">`,
-    height: 1800,
-    width: 300,
+    html: `<embed src="/assets/pdfs/${name.filename}" style="height: 600px; width: 100%">`,
     // icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     confirmButtonText: "Yes, download it!"
-  }).then((result) => {
+  }).then(async (result) => {
     if (result.isConfirmed) {
-      window.location.href = `/assets/pdfs/${name.filename}`;
+      window.open(`/assets/pdfs/${name.filename}`, '_blank');
+    }
+    else {
+      window.location.href = `/manager/deletePdf?name=${name.filename}`;
     }
   });
 
+
+
 }
-
-// let flag = true;
-
-// const showOption = async () => {
-//   if (
-//     document.getElementById("profClk").style.display == "none" ||
-//     document.getElementById("profClk").style.display == ""
-//   ) {
-//     document.getElementById("profClk").style.display = "block";
-//   } else {
-//     document.getElementById("profClk").style.display = "none";
-//   }
-//   flag = false;
-// };
-

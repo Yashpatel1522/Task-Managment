@@ -14,11 +14,11 @@ const hideteam = (id) => {
   ides_team(id).style.display = "none";
 };
 const show = async (id) => {
-  document.getElementById("team").style.display = "block";
+  ides_team("team").style.display = "block";
   response = await fetch(`/employee/teamdetails/${id}`);
   let data = await response.json();
 
-  document.getElementById("teamdetails").innerHTML = `
+  ides_team("teamdetails").innerHTML = `
                           <div class="row">
                               <div class="field fs-6 text p-3 col">
                                 <label>Tasks :&nbsp;</label>
@@ -37,12 +37,12 @@ const show = async (id) => {
                           onclick = "hideteam('team')">Close</button>`;
 
   data.result1.forEach((element) => {
-    document.getElementById(
+    ides_team(
       "taskflex"
     ).innerHTML += `<p>${element.task_name}</p>`;
   });
   data.result2.forEach((element) => {
-    document.getElementById(
+    ides_team(
       "pflex"
     ).innerHTML += `<p>${element.first_name}</p>`;
   });
@@ -52,7 +52,7 @@ viewteamdata();
 
 const searchTeam = async (value) => {
   if (value === "") {
-    document.getElementById("details").innerHTML = `<tr>
+    ides_team("details").innerHTML = `<tr>
     <th> Team Name</th>
     <th>Manager</th>
     <th>Members Details</th></tr>`;
@@ -61,13 +61,13 @@ const searchTeam = async (value) => {
   let response = await fetch(`/employee/teamsearchdetails/${value}`);
   let data = await response.json();
 
-  document.getElementById("details").innerHTML = `<tr>
+  ides_team("details").innerHTML = `<tr>
     <th> Team Name</th>
     <th>Manager</th>
     <th>Members Details</th></tr>`;
   if (data.length != 0) {
     data.forEach((element) => {
-      document.getElementById(
+      ides_team(
         "details"
       ).innerHTML += `<tr><td>${element.team_name}</td><td>${element.first_name}</td>
     <td><button class="btn btn-primary" onclick="show(${element.id})">view</button></td></tr>`;

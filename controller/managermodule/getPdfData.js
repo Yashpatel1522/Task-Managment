@@ -2,6 +2,7 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 var pdf = require("pdf-creator-node");
 var fs = require("fs");
+const { log } = require("winston");
 let db = new database();
 
 const getPdfData = async (request, response) => {
@@ -28,18 +29,19 @@ const getPdfData = async (request, response) => {
     let overdueQ = `select assigned.emp_id, tasks.task_name from tasks_assigend_to as assigned
       inner join tasks on assigned.task_id = tasks.id
       where tasks.task_end_date < '2024-05-01' and tasks.task_status != 'compleated' and assigned.emp_id = ?;`;
-    let taskoverdueRes = await db.executeQuery(overdueQ, [request.query.id]);
+      let taskoverdueRes = await db.executeQuery(overdueQ, [request.query.id]);
 
-    let taskoverdueResult = taskoverdueRes.reduce((acc, curr) => {
-      acc[curr.emp_id] ??= {
-        id: curr.emp_id,
-        task: []
-      }
-      acc[curr.emp_id].task.push(curr.task_name);
-      return acc;
-    }, {});
+      let taskArr = [];
+      let taskoverdueResult = taskoverdueRes.reduce((acc, curr) => {
+        acc[curr.emp_id] ??= {
+          id: curr.emp_id,
+          task: taskArr
+        }
+        acc[curr.emp_id].task.push(curr.task_name);
+        return acc;
+      }, {});
 
-    let reportQ = `select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to
+      let reportQ = `select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to
       inner join users on users.id = tasks_assigend_to.emp_id
       inner join tasks on tasks.id = tasks_assigend_to.task_id
       where tasks.manager_id = ? and tasks_assigend_to.emp_id = ?;`;
@@ -70,39 +72,62 @@ const getPdfData = async (request, response) => {
       avgArr.push(((counter / result[element].finished_date.length) * 100).toFixed(2));
     });
 
-    var options = {
-      format: "A3",
-      orientation: "portrait",
-      border: "10mm",
-      header: {
-        height: "45mm",
-        contents: '<div style="text-align: center;">Author: Shyam Hajare</div>'
-      },
-      footer: {
-        height: "28mm",
-        contents: {
-          first: 'Cover page',
-          2: 'Second page',
-          default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>',
-          last: 'Last Page'
-        }
+    
+
+      var options = {
+          format: "A3",
+          orientation: "portrait",
+          border: "10mm",
+          header: {
+              height: "20mm",
+              contents: `<div style="text-align: center;">Author: ${request.user.first_name} ${request.user.last_name}</div>`
+          },
+          footer: {
+              height: "28mm",
+              contents: {
+                  first: 'Cover page',
+                  2: 'Second page',
+                  default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>',
+                  last: 'Last Page'
+              }
+          }
+      };
+
+      let str = `<h1 style="text-align: center; color:tomato; padding-bottom: 10px">Employee Report</h1>
+      <p style="font-size: 23px"><b>Name : </b>${employeeRes[0].first_name} ${employeeRes[0].last_name}</p><p style="font-size: 23px"><b>Email : </b>${employeeRes[0].email}</p>
+      <br><h3 style="font-size: 20px"><u>Tasks List</u></h3>`;
+
+      if(Object.keys(taskResult).length != 0) {
+        str += `<table style="border:1px solid black" cellspacing="0"><tr><th style="color: MediumSeaGreen; font-size: 18px;">Task Name</th><th style="color: MediumSeaGreen; font-size: 18px;">Task Status</th></tr>`;
+        taskResult[employeeRes[0].id].task_name.forEach(function (element, index) {
+          str += `<tr><td style="font-size: 18px">${element}</td><td>${taskResult[employeeRes[0].id].task_status[index]}</td></tr>`;
+        });
+      str += `</table>`;
       }
-    };
 
-    let str = `<h1>Employee Report</h1>
-      <p><b>Name : </b>${employeeRes[0].first_name} ${employeeRes[0].last_name}</p><p><b>Email : </b>${employeeRes[0].email}</p>
-      <br><h3><u>Tasks List</u></h3><table style="border:1px solid black"><tr><th>Task Name</th><th>Task Status</th></tr>`;
+      if(Object.keys(taskResult).length == 0) {
+        str += `<p style="font-size: 18px">No Tasks Assigned yet</p>`;
+      }
 
-    taskResult[employeeRes[0].id].task_name.forEach(function (element, index) {
-      str += `<tr><td>${element}</td><td>${taskResult[employeeRes[0].id].task_status[index]}</td></tr>`;
-    });
-    str += `</table><br><br><h3><u>Overdue Tasks</u></h3>`;
+      str += `<br><h3 style="font-size: 20px"><u>Overdue Tasks</u></h3>`;
+      if(Object.keys(taskoverdueResult).length != 0) {
+        taskoverdueResult[employeeRes[0].id].task.forEach(element => {
+          str += `<p style="font-size: 18px">${element}</p>`;
+        });
+      }
+      else {
+        str += `<p style="font-size: 18px">No Overdue Tasks</p>`;
+      }
 
-    taskoverdueResult[employeeRes[0].id].task.forEach(element => {
-      str += `<p>${element}</p>`;
-    });
 
-    str += `<p><u><b>Productivity Ratio : </b></u>${avgArr[0]}%</p>`;
+
+      if(avgArr[0]) {
+        str += `<br><p style="font-size: 20px"><b><u>Productivity Ratio</u> : </b>${avgArr[0]}%</p>`;
+      }
+      else {
+        str += `<br><p style="font-size: 20px"><b><u>Productivity Ratio</u> : </b>0.00%</p>`;
+      }
+
 
 
     var document = {
