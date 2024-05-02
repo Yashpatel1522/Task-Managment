@@ -2,12 +2,13 @@ const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 var pdf = require("pdf-creator-node");
 var fs = require("fs");
+const { log } = require("winston");
 let db = new database();
 
 const getPdfData = async (request, response) => {
     try {
       console.log(request.query.id);
-      let managerId = request.user.id;
+      let managerId = request.user?.id || 2;
       let employeeQ = `select id, first_name, last_name, email from users where id in (select distinct(emp_id) from tasks_assigend_to) and status = 1 and id = ?`;
       let employeeRes = await db.executeQuery(employeeQ, [request.query.id]);
 
@@ -31,14 +32,24 @@ const getPdfData = async (request, response) => {
       where tasks.task_end_date < '2024-05-01' and tasks.task_status != 'compleated' and assigned.emp_id = ?;`;
       let taskoverdueRes = await db.executeQuery(overdueQ, [request.query.id]);
 
+      let taskArr = [];
       let taskoverdueResult = taskoverdueRes.reduce((acc, curr) => {
         acc[curr.emp_id] ??= {
           id: curr.emp_id,
-          task: []
+          task: taskArr
         }
         acc[curr.emp_id].task.push(curr.task_name);
         return acc;
       }, {});
+
+      // console.log('=====================================');
+      // console.log(taskoverdueResult);
+      // console.log('=====================================');
+
+      // //ahii
+      // if(!taskoverdueResult) {
+      //   taskoverdueResult.task.push(0);
+      // }
 
       let reportQ = `select users.first_name, users.last_name, tasks_assigend_to.emp_id, tasks_assigend_to.finished_at, tasks.task_end_date from tasks_assigend_to
       inner join users on users.id = tasks_assigend_to.emp_id
@@ -98,10 +109,17 @@ const getPdfData = async (request, response) => {
         str += `<tr><td>${element}</td><td>${taskResult[employeeRes[0].id].task_status[index]}</td></tr>`;
       });
       str += `</table><br><br><h3><u>Overdue Tasks</u></h3>`;
-      
-      taskoverdueResult[employeeRes[0].id].task.forEach(element => {
-        str += `<p>${element}</p>`;
-      });
+      if(Object.keys(taskoverdueResult).length != 0) {
+        console.log('====================================');
+        console.log('In IF');
+        console.log('====================================');
+        taskoverdueResult[employeeRes[0].id].task.forEach(element => {
+          str += `<p>${element}</p>`;
+        });
+      }
+      else {
+        str += `No Overdue Tasks`;
+      }
 
       str += `<p><u><b>Productivity Ratio : </b></u>${avgArr[0]}%</p>`;
 

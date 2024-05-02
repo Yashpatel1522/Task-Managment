@@ -44,11 +44,15 @@ async function loadProf() {
 }
 
 async function getReport(id) {
+  
+  let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
+  console.log(name.filename);
   let timerInterval;
   await Swal.fire({
     title: "PDF is Being Generated",
     html: "It will close in <b></b> milliseconds.",
     timer: 2000,
+    // customClass: incrWidth,
     timerProgressBar: true,
     didOpen: () => {
       Swal.showLoading();
@@ -62,13 +66,8 @@ async function getReport(id) {
     }
   });
 
-  let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
-  console.log(name.filename);
-
   Swal.fire({
-    html: `<embed src="/assets/pdfs/${name.filename}">`,
-    height: 1800,
-    width: 300,
+    html: `<embed src="/assets/pdfs/${name.filename}" style="height: 600px; width: 100%">`,
     // icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -76,7 +75,14 @@ async function getReport(id) {
     confirmButtonText: "Yes, download it!"
   }).then((result) => {
     if (result.isConfirmed) {
+      // let fileName = 
       window.location.href = `/assets/pdfs/${name.filename}`;
+      alert('Pachu aayuu ..');
+      // window.open(`/assets/pdfs/${name.filename}`, '_blank');
+      // window.location.href = `/assets/pdfs/${name.filename}`;
+    }
+    else {
+      window.location.href = `/manager/deletePdf?name=${name.filename}`;
     }
   });
 
