@@ -7,8 +7,11 @@ const checkUserRole = require("../middleware/userrole");
 
 //login module
 const express = require("express");
-const { loginPost, loginGet } = require("../controller/loginmodule/login.controller");
-const { userProfileStorage } = require("../utility/multer");
+const {
+  loginPost,
+  loginGet,
+} = require("../controller/loginmodule/login.controller");
+const { userProfileStorage, upload } = require("../utility/multer");
 const {
   registrationPost,
 } = require("../controller/loginmodule/registration.controller");
@@ -27,24 +30,132 @@ const {
   managerTasks,
 } = require("../controller/loginmodule/managertasks.controller");
 const { getuser } = require("../controller/loginmodule/getcurrentuser");
-const { rolePermissionsGet, allPermissionsGet, displaySingleRoleHasPermissions } = require("../controller/loginmodule/rolpermissions");
-const { updatePermission } = require("../controller/loginmodule/updatepermissions");
-const { roleWiseSearchPermissionsGet } = require("../controller/loginmodule/rolewisesearchpermissions.controller");
-const { deletePermissions } = require("../controller/loginmodule/deletepermissions");
+const {
+  rolePermissionsGet,
+  allPermissionsGet,
+  displaySingleRoleHasPermissions,
+} = require("../controller/loginmodule/rolpermissions");
+const {
+  updatePermission,
+} = require("../controller/loginmodule/updatepermissions");
+const {
+  roleWiseSearchPermissionsGet,
+} = require("../controller/loginmodule/rolewisesearchpermissions.controller");
+const {
+  deletePermissions,
+} = require("../controller/loginmodule/deletepermissions");
 
 //admin
-const { socketGet, messageDisplay, socketPost } = require("../controller/adminmodule/socket.io");
-const { searchCategory, deleteCategory, categoryDetail, adminCategory, addCategory, categoryPage } = require("../controller/adminmodule/category");
-const { searchTasks, taskDetail, adminTasks, taskpage } = require("../controller/adminmodule/tasks");
-const { searchTeam, deleteTeam, updateTeamData, teamDetails, teamData, addNewTeam, adminTeam } = require("../controller/adminmodule/teamdata");
-const { searchEmpData, empDataDelete, employeeDetails, adminEmployees, employeepage } = require("../controller/adminmodule/employees");
-const { searchManData, dataDelete, managerDetails, adminManagers, managerpage } = require("../controller/adminmodule/managers");
-const { dueDateTask, calenderMonth, adminCalender } = require("../controller/adminmodule/calender");
-const { updateAdminProfile, profiledata } = require("../controller/adminmodule/adminprofile");
-const { managerTask, chartsData, adminDashboard } = require("../controller/adminmodule/dashboard");
+const {
+  socketGet,
+  messageDisplay,
+  socketPost,
+} = require("../controller/adminmodule/socket.io");
+const {
+  searchCategory,
+  deleteCategory,
+  categoryDetail,
+  adminCategory,
+  addCategory,
+  categoryPage,
+} = require("../controller/adminmodule/category");
+const {
+  searchTasks,
+  taskDetail,
+  adminTasks,
+  taskpage,
+} = require("../controller/adminmodule/tasks");
+const {
+  searchTeam,
+  deleteTeam,
+  updateTeamData,
+  teamDetails,
+  teamData,
+  addNewTeam,
+  adminTeam,
+} = require("../controller/adminmodule/teamdata");
+const {
+  searchEmpData,
+  empDataDelete,
+  employeeDetails,
+  adminEmployees,
+  employeepage,
+} = require("../controller/adminmodule/employees");
+const {
+  searchManData,
+  dataDelete,
+  managerDetails,
+  adminManagers,
+  managerpage,
+} = require("../controller/adminmodule/managers");
+const {
+  dueDateTask,
+  calenderMonth,
+  adminCalender,
+} = require("../controller/adminmodule/calender");
+const {
+  updateAdminProfile,
+  profiledata,
+} = require("../controller/adminmodule/adminprofile");
+const {
+  managerTask,
+  chartsData,
+  adminDashboard,
+} = require("../controller/adminmodule/dashboard");
 const { getAllUsers } = require("../controller/adminmodule/getallusers");
 const { messagesGet } = require("../controller/adminmodule/messages");
 const { checkUserEmail } = require("../controller/adminmodule/checkuseremail");
+const {
+  calenderMonths,
+  calenderView,
+  dueDateTask1,
+} = require("../controller/managermodule/calender");
+const {
+  searchEmpDatas,
+  employeeData,
+  removeEmployee,
+} = require("../controller/managermodule/employeeData");
+const {
+  searchTask,
+  managersTasks,
+  searchsTask,
+  notifications,
+} = require("../controller/managermodule/managertasks");
+const { messsageGet } = require("../controller/managermodule/messagepage");
+const upcomingTasks = require("../controller/managermodule/upcomingTasks");
+const managerProfile = require("../controller/managermodule/getManagerProfile");
+const reportView = require("../controller/managermodule/getreport");
+const getReportData = require("../controller/managermodule/getReportData");
+const getPdfData = require("../controller/managermodule/getPdfData");
+const { teamsGet } = require("../controller/managermodule/getteamspage");
+const managerProfiles = require("../controller/managermodule/getManagerProfile");
+const {
+  inserttaskdata,
+  addtaskdata,
+} = require("../controller/managermodule/addtask");
+const employeeView = require("../controller/managermodule/employeeView");
+const taskView = require("../controller/managermodule/taskView");
+const dashboardView = require("../controller/managermodule/dashboard");
+const getTeams = require("../controller/managermodule/getTeams");
+const editTask = require("../controller/managermodule/edittask");
+const getEditDetails = require("../controller/managermodule/getEditTadkDetails");
+const getAllTasks = require("../controller/managermodule/getalltasks");
+const {
+  teamdetails,
+  showTeamDataForUpdate,
+  updateTeamDatas,
+  teamDetailsForView,
+  deleteTeams,
+} = require("../controller/managermodule/teamdata");
+const taskCount = require("../controller/managermodule/taskCount");
+const updateManager = require("../controller/managermodule/updateManagerProfile");
+const { getempdata, addteam } = require("../controller/managermodule/addteam");
+const {
+  viewComments,
+  getComments,
+  updateTaskStatus,
+} = require("../controller/managermodule/comments");
+const taskCounts = require("../controller/managermodule/taskCount");
 
 //multer storage
 //registration storage
@@ -53,6 +164,8 @@ const uploadStorage = multer({ storage: userProfileStorage });
 //admin storage
 const updateImage = multer({ storage: userProfileStorage });
 
+//manager storage
+const uploadImage = multer({ storage: userProfileStorage });
 
 //main router
 const router = express.Router();
@@ -60,38 +173,37 @@ const router = express.Router();
 //routers
 const login = express.Router();
 const adminRouter = express.Router();
-
+const managerRouter = express.Router();
 
 //dynemic name to router
-router.get("/",loginGet)
-router.use("/login",login)
-router.use("/admin",adminRouter)
+router.get("/", loginGet);
+router.use("/login", login);
+router.use("/admin", adminRouter);
+router.use("/manager", managerRouter);
 
-
+login.post("/", loginPost);
+login.post("/newpassword/:activationcode", acticationPost);
 
 //login routes
 login.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" })
-  );
-login.post("/", loginPost);
+);
 login.get("/logout", logout);
-
+login.get("/employee/:taskid", workingEmployyeInTask);
 login.post("/registration", uploadStorage.single("img"), registrationPost);
 login.get("/newpassword/:activationcode", acticationGet);
-login.post("/newpassword/:activationcode", acticationPost);
 
 login.get("/forget", forgetGet);
 login.post("/forget", forgetPost);
 
 //kanban
-login.get("/employee/:taskid", workingEmployyeInTask);
 login.post("/updateKanban", updateTaskDetailsPost);
 // login.get("/managertasks/:id", managerTasks);
 
 login.get("/managertasks", managerTasks);
 login.get("/user", getuser);
 
-//rolepermisssions 
+//rolepermisssions
 login.get("/rolePerissions", rolePermissionsGet);
 login.get("/allpermissions", allPermissionsGet);
 login.post("/updatepermissions", updatePermission);
@@ -99,9 +211,7 @@ login.get("/rolehaspermission/:role", roleWiseSearchPermissionsGet);
 login.get("/showpermissions", displaySingleRoleHasPermissions);
 login.post("/deletepermissions", deletePermissions);
 
-
-
-//admin routers without checkousers 
+//admin routers without checkousers
 adminRouter.get(
   "/managersapi/search/:searchdata",
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -139,8 +249,24 @@ adminRouter.get(
 );
 //manager without authentication
 
+managerRouter.get(
+  "/calenderData/:month",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  calenderMonths
+);
+managerRouter.get(
+  "/searchEmploye/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchEmpDatas
+);
 
-router.use(
+managerRouter.get(
+  "/searchTask/:searchdata",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchsTask
+);
+
+adminRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
 );
@@ -165,7 +291,11 @@ adminRouter.route("/calender").get(adminCalender);
 adminRouter.get("/profiledata", profiledata);
 adminRouter.get("/chartsData", chartsData);
 adminRouter.get("/managerTask", managerTask);
-adminRouter.post("/profile", updateImage.single("profileimg"), updateAdminProfile);
+adminRouter.post(
+  "/profile",
+  updateImage.single("profileimg"),
+  updateAdminProfile
+);
 
 // Insert Data
 adminRouter.post("/newteam", addNewTeam);
@@ -200,6 +330,64 @@ adminRouter.delete("/categoryData/:id", deleteCategory);
 adminRouter.get("/calenderData/:month", calenderMonth);
 adminRouter.get("/dueDateOfTask", dueDateTask);
 
+managerRouter.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" })
+);
+
+managerRouter.get("/notification", notifications);
+managerRouter.get("/getempdata", getempdata);
+
+managerRouter.post("/addteamdata", addteam);
+managerRouter.get("/managerTeam/showteamdata/:id", showTeamDataForUpdate);
+managerRouter.post("/updateteamdata", updateTeamDatas);
+managerRouter.get("/teamapi/:id", teamDetailsForView);
+managerRouter.delete("/deleteteamapi/:id", deleteTeams);
+managerRouter.get("/comments/:teamId", viewComments);
+managerRouter.get("/getcomments/:teamId", getComments);
+managerRouter.post("/updateTaskStatus", updateTaskStatus);
+
+managerRouter.get("/calender", calenderView);
+managerRouter.get("/dueDateOfTask", dueDateTask1);
+managerRouter.get("/getManagerTaskCount", taskCounts);
+
+managerRouter.use(
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  checkUserRole
+);
+//=======================================================================manager routes checkusers======================================
+managerRouter.get("/message", messsageGet);
+managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
+managerRouter.get("/getManagerProfile/:id", managerProfile);
+managerRouter.get("/getReport", reportView);
+managerRouter.get("/getReportData", getReportData);
+managerRouter.get("/getPdfData", getPdfData);
+managerRouter.get("/Teams", teamsGet);
+
+managerRouter.get("/getManagerProfile/:id", managerProfiles);
+managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);
+managerRouter.get("/employeeDetails", employeeView);
+
+managerRouter.get("/tasks", taskView().getPage);
+
+managerRouter.get("/dashboard", dashboardView);
+managerRouter.get("/getTeams", getTeams);
+managerRouter.post("/editTaskDetails", editTask);
+managerRouter.get("/getEditTadkDetails", getEditDetails);
+managerRouter.get("/getTaskDetails/:id", getAllTasks);
+managerRouter.get("/teamapi", teamdetails);
+managerRouter.get("/getManagerTaskCount", taskCount);
+
+//multer manager
+managerRouter.post(
+  "/updateManager",
+  uploadImage.single("profileimg"),
+  updateManager
+);
+managerRouter.get("/getEmployees", employeeData);
+managerRouter.delete("/removeemployeapi/:id", removeEmployee);
+managerRouter.get("/getManagerTasks", managersTasks);
+
+managerRouter.get("/getdataapi", addtaskdata);
 
 //exports main router
-module.exports=router
+module.exports = router;

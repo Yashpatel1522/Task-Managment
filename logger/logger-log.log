@@ -2162,3 +2162,35 @@
 {"level":"error","timestamp":"2024-05-02T05:19:53.692Z"}
 {"level":"error","timestamp":"2024-05-02T05:19:58.672Z"}
 {"level":"error","timestamp":"2024-05-02T05:20:03.673Z"}
+{"level":"error","timestamp":"2024-05-02T10:03:52.020Z"}
+{"level":"error","timestamp":"2024-05-02T10:03:52.074Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:04.744Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:06.671Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:06.715Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:07.371Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:08.227Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:09.408Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:13.492Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-05-02T10:04:13.531Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:14.321Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:15.599Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-05-02T10:04:15.634Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:27.432Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:28.449Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:29.449Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:30.065Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:30.568Z"}
+{"level":"error","timestamp":"2024-05-02T10:04:53.813Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('undefined','2','6','asd','asdas','2024-12-25','2024-12-26','inprogress')","sqlMessage":"Incorrect integer value: 'undefined' for column 'manager_id' at row 1","sqlState":"HY000","timestamp":"2024-05-02T10:05:40.239Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('undefined','2','6','asdasd','asdas','2024-12-25','2024-12-26','inprogress')","sqlMessage":"Incorrect integer value: 'undefined' for column 'manager_id' at row 1","sqlState":"HY000","timestamp":"2024-05-02T10:05:44.822Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('undefined','2','6','asdasd','asdas','2024-12-25','2024-12-26','inprogress')","sqlMessage":"Incorrect integer value: 'undefined' for column 'manager_id' at row 1","sqlState":"HY000","timestamp":"2024-05-02T10:05:45.345Z"}
+{"code":"ER_TRUNCATED_WRONG_VALUE_FOR_FIELD","errno":1366,"index":0,"level":"error","sql":"insert into tasks(manager_id,category_id,prioritiy_id,task_name,task_description,task_start_date,task_end_date,task_status)values('undefined','2','6','asdasd','asdas','2024-12-25','2024-12-26','inprogress')","sqlMessage":"Incorrect integer value: 'undefined' for column 'manager_id' at row 1","sqlState":"HY000","timestamp":"2024-05-02T10:05:45.504Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:04.826Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:08.187Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:08.217Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:08.650Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:09.065Z"}
+{"level":"error","message":"Team details not found!","timestamp":"2024-05-02T10:06:09.098Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:09.412Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:10.548Z"}
+{"level":"error","timestamp":"2024-05-02T10:06:10.574Z"}

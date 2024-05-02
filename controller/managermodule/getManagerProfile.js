@@ -1,7 +1,7 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
-const managerProfile = async (request, response) => {
+const managerProfiles = async (request, response) => {
   try {
     let managerId = request.user.id;
     let q = `select * from users where id = ? and status = 1;`;
@@ -17,4 +17,4 @@ const managerProfile = async (request, response) => {
   }
 }; 
 
-module.exports = managerProfile;
+module.exports = managerProfiles;
