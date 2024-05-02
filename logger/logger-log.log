@@ -1805,3 +1805,6 @@
 {"level":"error","message":"Employee Task data is not found !","timestamp":"2024-05-01T06:20:59.763Z"}
 {"code":"ER_NO_SUCH_TABLE","errno":1146,"index":0,"level":"error","sql":"select task.name from task left join tasks_assigend_to on task.id = tasks_assigend_to.task_id where tasks_assigend_to.emp_id = '35'","sqlMessage":"Table 'task.task' doesn't exist","sqlState":"42S02","timestamp":"2024-05-01T06:34:00.816Z"}
 {"code":"ER_BAD_FIELD_ERROR","errno":1054,"index":0,"level":"error","sql":"select tasks.name from tasks left join tasks_assigend_to on tasks.id = tasks_assigend_to.task_id where tasks_assigend_to.emp_id = '35'","sqlMessage":"Unknown column 'tasks.name' in 'field list'","sqlState":"42S22","timestamp":"2024-05-01T06:34:56.175Z"}
+{"level":"error","timestamp":"2024-05-01T13:40:12.221Z"}
+{"level":"error","timestamp":"2024-05-01T13:40:13.656Z"}
+{"level":"error","timestamp":"2024-05-01T13:40:14.014Z"}
