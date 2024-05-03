@@ -245,7 +245,6 @@ const DataINsertedSuccessfully = () => {
   }).then(function () {
     // fetch api for display
     getTaskData();
-
-    window.location.reload();
+    // window.location.reload();
   });
 };
