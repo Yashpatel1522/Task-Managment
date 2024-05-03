@@ -1,3 +1,5 @@
+let taskFlag = false;
+
 const setData = async () => {
   let url = window.location.origin + `/manager/getEmployees`;
   let response = await fetch(url);

@@ -1,10 +1,6 @@
+let taskFlag = false;
+
 async function loadProf() {
-  // alert('in function');
-  // socket.emit("hello", "world"); 
-  // alert('out');
-  // socket.on('name', (data)=> {
-  //     console.log(data);
-  // });
   let url = window.location.origin + `/manager/getReportData`;
   let response = await fetch(url);
   let data = await response.json();
@@ -80,9 +76,7 @@ async function getReport(id) {
         link.click();
       });
       socket.emit("deletefile", name.filename);
-      // window.open(`/assets/pdfs/${name.filename}`, "_blank");
     } else {
-      //delete router of deletefile
       socket.emit("deletefile", name.filename);
     }
   });

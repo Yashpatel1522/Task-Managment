@@ -68,7 +68,7 @@ io.on("connection", (socket) => {
   socket.on("notification-data", (data) => {
     io.emit("send-notification-data", data)
   })
-  socket.on("deletefile", (fileName)=> {
+  socket.on("deletefile", (fileName)=> {  
     fs.unlinkSync(`public/assets/pdfs/${fileName}`);
   });
   socket.on("downloadFile", (fileName)=> {
@@ -81,4 +81,3 @@ io.on("disconnect", () => {
   activeUsers.delete(io.userId);
   io.emit("user disconnected", io.userId);
 });
-

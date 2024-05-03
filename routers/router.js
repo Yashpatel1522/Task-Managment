@@ -372,14 +372,10 @@ managerRouter.get("/dueDateOfTask", dueDateTask1);
 managerRouter.get("/getManagerTaskCount", taskCounts);
 managerRouter.get("/getPdfData", getPdfData);
 
-//permission remaining
-managerRouter.get("/deletePdf", deletePdf);
-
-
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
-  );
+);
   //=======================================================================manager routes checkusers======================================
 managerRouter.get("/message", messsageGet);
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);

@@ -137,12 +137,12 @@ const getPdfData = async (request, response) => {
     };
 
     pdf
-      .create(document, options)
-      .then((res) => {
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .create(document, options)
+    .then((res) => {
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
 
 
