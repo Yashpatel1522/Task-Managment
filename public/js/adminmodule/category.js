@@ -20,25 +20,21 @@ const searchCategoryData = async (value) => {
   document.getElementById("category").innerHTML = "";
   if (value === "") {
     getCategoryData()
-  }
-  if (data.categorySearch.length != 0) {
-    data.categorySearch.forEach(e => {
-      document.getElementById("category").innerHTML += `<div class="card m-3 p-2">
-      <div class="card-body">
-        <p class="h4 p-2">${e.category}</p>
-        <input type="button" value="view" class="m-2 px-3 py-2 btn btn-success" onclick="openpopup3(${e.id})" >
-        <input type="button" value="Delete" class="m-2 px-3 py-2 btn btn-danger" onclick="categoryDelete(${e.id})" >
-      </div>
-    </div>`
-    })
-  }
-  else {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Not Found Data"
-    });
-    getCategoryData();
+  } else {
+    if (data.categorySearch.length != 0) {
+      data.categorySearch.forEach(e => {
+        document.getElementById("category").innerHTML += `<div class="card m-3 p-2">
+        <div class="card-body">
+          <p class="h4 p-2">${e.category}</p>
+          <input type="button" value="view" class="m-2 px-3 py-2 btn btn-success" onclick="openpopup3(${e.id})" >
+          <input type="button" value="Delete" class="m-2 px-3 py-2 btn btn-danger" onclick="categoryDelete(${e.id})" >
+        </div>
+      </div>`
+      })
+    }
+    else {
+      category.innerHTML = `<h5 class="py-3" style="text-align:center; background-color:lightblue; width:90%">Data Not Found</h5>`;
+    }
   }
 }
 
@@ -55,7 +51,6 @@ const openpopup3 = async (id) => {
   try {
     categoryPopup.classList.add("open-popup");
     let categoryDetail = await (await fetch(`/admin/categoryDetails/${id}`)).json();
-    // console.log(categoryDetail);
     let categoryData = "";
     if (categoryDetail.viewCategory.length != 0) {
       categoryData += `
@@ -130,7 +125,7 @@ const addNewCategory = async () => {
     body: categorydata
   })
   result = await data2.json()
-  if (result.status === 500) {
+  if (result.status === 200) {
     Swal.fire({
       icon: "success",
       title: "Category Added!",

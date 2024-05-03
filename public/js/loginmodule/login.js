@@ -10,9 +10,7 @@ const isLogin = async () => {
         "content-type": "application/x-www-form-urlencoded",
       },
     });
-    console.log(res);
     res = await res.json();
-    console.log(res);
     if (res.flag == false) {
       Swal.fire({
         title: "Oops...",

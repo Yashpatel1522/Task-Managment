@@ -6,10 +6,10 @@ const db = new database();
 const forgetpassword = async (username) => {
   try {
     let userexists = await db.executeQuery(
-      "select * from users where email=?",
-      [username]
+      "select * from users where email=? and status=?",
+      [username, 1]
     );
-
+    console.log(userexists);
     if (typeof userexists == "string") {
       return {
         flag: false,

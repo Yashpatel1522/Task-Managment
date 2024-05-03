@@ -1,11 +1,9 @@
 const database = require("../../helpers/database.helper");
 const logger = require("../../logger/logger");
 
-const managerProfile = async (request, response) => {
+const managerProfiles = async (request, response) => {
   try {
-    console.log(request.user);
     let managerId = request.user.id;
-    console.log(managerId+" = Manager ID");
     let q = `select * from users where id = ? and status = 1;`;
     let db = new database();
     let res = await db.executeQuery(q, [managerId]);
@@ -13,10 +11,9 @@ const managerProfile = async (request, response) => {
     const imageRes = await db.executeQuery(imageQuery, [managerId]);
     return response.json({ result: res, imageResult: imageRes });
   } catch (error) {
-    console.log(error);
     logger.error(error);
     return response.send({ error: error });
   }
 };
 
-module.exports = managerProfile;
+module.exports = managerProfiles;

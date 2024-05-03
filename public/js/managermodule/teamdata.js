@@ -84,10 +84,8 @@ const showTeamData = async (id) => {
   let data = await (
     await fetch(`/manager/managerTeam/showteamdata/${id}`)
   ).json();
-  console.log(id);
   document.getElementById("team_name").value = data.teamData[0].team_name;
   let emp = document.getElementById("empselect");
-  console.log(document.getElementById("empselect"));
   for (i = 0; i < emp.options.length; i++) {
     for (j = 0; j < data.teamData.length; j++) {
       if (emp.options[i].value == data.teamData[j].emp_id) {
@@ -132,7 +130,6 @@ const UpdateData = async (id) => {
         return response.json();
       })
       .then((data) => {
-        console.log("Data received:", data);
         if (data.msg !== "undefined") {
           DataupdatedSuccessfully();
           getTeamData();
@@ -170,7 +167,6 @@ const viewTeam = async (id) => {
     teampopup.classList.add("open-popup");
     let data = await (await fetch(`/manager/teamapi/${id}`)).json();
     let dataadd = " ";
-    console.log(data.memberDetails);
     if (
       data.teamCreate.length != 0 ||
       data.memberDetails.length != 0 ||

@@ -1,12 +1,11 @@
-// const showNotification = () => {
-//   Swal.fire({
-//     title: "Notifications",
-//     text: "Click!",
-//     icon: "success",
-//     button: "oh yes!",
-//   });
-// }
-
+const showNotification = () => {
+  Swal.fire({
+    title: "Notifications",
+    text: "Click!",
+    icon: "success",
+    button: "oh yes!",
+  });
+}
 
 const empImageInput = document.getElementById("change");
 const selectedImage = document.getElementById("selectedImage");
