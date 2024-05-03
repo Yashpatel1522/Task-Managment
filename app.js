@@ -50,14 +50,12 @@ const server = app.listen(PORT, () => {
   );
 });
 
-
-app.use(router)
+app.use(router);
 //socket.io
 
 const io = socket(server);
 
 io.on("connection", (socket) => {
-
   socket.on("recmsg", (data) => {
     io.emit("sendmsg", data);
   });
@@ -65,9 +63,8 @@ io.on("connection", (socket) => {
     io.emit("msg2", data);
   });
   socket.on("notification-data", (data) => {
-    io.emit("send-notification-data", data)
-
-  })
+    io.emit("send-notification-data", data);
+  });
 });
 
 io.on("disconnect", () => {

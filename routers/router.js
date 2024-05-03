@@ -156,15 +156,40 @@ const {
   updateTaskStatus,
 } = require("../controller/managermodule/comments");
 const taskCounts = require("../controller/managermodule/taskCount");
-const { teamSearchDetails, teamList, teamDatas, teamsDetails } = require("../controller/employeemodule/employeeteam");
-const { searchList, list, employeeTaskList, addComment } = require("../controller/employeemodule/employeetask");
-const { getDashBoardData, dashBoard } = require("../controller/employeemodule/dashboard");
+const {
+  teamSearchDetails,
+  teamList,
+  teamDatas,
+  teamsDetails,
+} = require("../controller/employeemodule/employeeteam");
+const {
+  searchList,
+  list,
+  employeeTaskList,
+  addComment,
+} = require("../controller/employeemodule/employeetask");
+const {
+  getDashBoardData,
+  dashBoard,
+} = require("../controller/employeemodule/dashboard");
 const { getUser } = require("../controller/employeemodule/userfetch");
-const { getProfileData, updateProfileData } = require("../controller/employeemodule/employeeprofile");
-const { getNavigationData } = require("../controller/employeemodule/navigation");
-const { employeeCalender, empcalenderMonth, empdueDateTask } = require("../controller/employeemodule/canlender");
+const {
+  getProfileData,
+  updateProfileData,
+} = require("../controller/employeemodule/employeeprofile");
+const {
+  getNavigationData,
+} = require("../controller/employeemodule/navigation");
+const {
+  employeeCalender,
+  empcalenderMonth,
+  empdueDateTask,
+} = require("../controller/employeemodule/canlender");
 const { messageGet } = require("../controller/employeemodule/message");
-const { reportGet, completedTasks } = require("../controller/employeemodule/reports");
+const {
+  reportGet,
+  completedTasks,
+} = require("../controller/employeemodule/reports");
 const { profileUploadesMiddleware } = require("../middleware/photosvalidation");
 
 //multer storage
@@ -187,7 +212,7 @@ const router = express.Router();
 const login = express.Router();
 const adminRouter = express.Router();
 const managerRouter = express.Router();
-const employeeRouter=express.Router()
+const employeeRouter = express.Router();
 
 //dynemic name to router
 router.get("/", loginGet);
@@ -197,9 +222,14 @@ router.use("/manager", managerRouter);
 router.use("/employee", employeeRouter);
 
 login.post("/", loginPost);
-login.post("/newpassword/:activationcode",acticationPost);
+login.post("/newpassword/:activationcode", acticationPost);
 
-login.post("/registration", uploadStorage.single("img"),profileUploadesMiddleware ,registrationPost);
+login.post(
+  "/registration",
+  uploadStorage.single("img"),
+  profileUploadesMiddleware,
+  registrationPost
+);
 //login routes
 login.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" })
@@ -214,8 +244,8 @@ login.post("/forget", forgetPost);
 //kanban
 login.post("/updateKanban", updateTaskDetailsPost);
 // login.get("/managertasks/:id", managerTasks);
-
 login.get("/managertasks", managerTasks);
+
 login.get("/user", getuser);
 
 //rolepermisssions
@@ -281,10 +311,17 @@ managerRouter.get(
   searchsTask
 );
 
-
 //employee router without checkusers
-employeeRouter.get("/teamsearchdetails/:searchteam",passport.authenticate("jwt", { session: false, failureRedirect: "/" }) ,teamSearchDetails);
-employeeRouter.get("/searchtask/:searchresult",passport.authenticate("jwt", { session: false, failureRedirect: "/" }),searchList);
+employeeRouter.get(
+  "/teamsearchdetails/:searchteam",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  teamSearchDetails
+);
+employeeRouter.get(
+  "/searchtask/:searchresult",
+  passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
+  searchList
+);
 
 adminRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
@@ -374,8 +411,8 @@ managerRouter.get("/getPdfData", getPdfData);
 managerRouter.use(
   passport.authenticate("jwt", { session: false, failureRedirect: "/" }),
   checkUserRole
-  );
-  //=======================================================================manager routes checkusers======================================
+);
+//=======================================================================manager routes checkusers======================================
 managerRouter.get("/message", messsageGet);
 managerRouter.get("/getManagerUpcomingTasks", upcomingTasks);
 managerRouter.get("/getManagerProfile/:id", managerProfile);
@@ -427,7 +464,11 @@ employeeRouter.post(
 employeeRouter.get("/getnavigationdata", getNavigationData);
 employeeRouter.get("/task", list);
 employeeRouter.get("/employeetasklist", employeeTaskList);
-employeeRouter.post("/addcomment/:id/:taskid", upload.single("file"), addComment);
+employeeRouter.post(
+  "/addcomment/:id/:taskid",
+  upload.single("file"),
+  addComment
+);
 
 employeeRouter.get("/teamdata", teamList);
 employeeRouter.get("/teamdetailsdata", teamDatas);
