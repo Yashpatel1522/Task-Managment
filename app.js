@@ -51,14 +51,12 @@ const server = app.listen(PORT, () => {
   );
 });
 
-
-app.use(router)
+app.use(router);
 //socket.io
 
 const io = socket(server);
 
 io.on("connection", (socket) => {
-
   socket.on("recmsg", (data) => {
     io.emit("sendmsg", data);
   });
