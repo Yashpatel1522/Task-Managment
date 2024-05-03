@@ -1,3 +1,5 @@
+let taskFlag = false;
+
 async function loadProf() {
   let url = window.location.origin + `/manager/getReportData`;
   let response = await fetch(url);
@@ -34,11 +36,11 @@ async function loadProf() {
     }
   }
 
-  document.getElementById("employeeReport").innerHTML = str;
+  document.getElementById('employeeReport').innerHTML = str;
 }
 
 async function getReport(id) {
-  let name = await (await fetch(`/manager/getPdfData?id=${id}`)).json();
+  let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
   let timerInterval;
   await Swal.fire({
     title: "PDF is Being Generated",
@@ -59,16 +61,23 @@ async function getReport(id) {
 
   Swal.fire({
     html: `<embed src="/assets/pdfs/${name.filename}" style="height: 600px; width: 100%">`,
-    // icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     confirmButtonText: "Yes, download it!",
   }).then(async (result) => {
     if (result.isConfirmed) {
-      window.open(`/assets/pdfs/${name.filename}`, "_blank");
+      socket.emit("downloadFile", name.filename);
+      socket.on("blob", ({data, fileName}) => {
+        const blob = new Blob([data], {type: 'application/pdf'});
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = fileName;
+        link.click();
+      });
+      socket.emit("deletefile", name.filename);
     } else {
-      window.location.href = `/manager/deletePdf?name=${name.filename}`;
+      socket.emit("deletefile", name.filename);
     }
   });
 }

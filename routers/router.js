@@ -191,6 +191,7 @@ const {
   completedTasks,
 } = require("../controller/employeemodule/reports");
 const { profileUploadesMiddleware } = require("../middleware/photosvalidation");
+const deletePdf = require("../controller/managermodule/deletePdf");
 
 //multer storage
 //registration storage
@@ -419,6 +420,7 @@ managerRouter.get("/getManagerProfile/:id", managerProfile);
 managerRouter.get("/getReport", reportView);
 managerRouter.get("/getReportData", getReportData);
 managerRouter.get("/Teams", teamsGet);
+
 
 managerRouter.get("/getManagerProfile/:id", managerProfiles);
 managerRouter.post("/inserttask", upload.array("files"), inserttaskdata);

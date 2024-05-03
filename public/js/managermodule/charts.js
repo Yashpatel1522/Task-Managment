@@ -10,6 +10,11 @@ const drawCharts = async () => {
       ).innerHTML += `<p>${element.task_name}</p>`;
     });
   }
+  else {
+    document.getElementById(
+      "upcomingTasks"
+    ).innerHTML += `<p style="color: #e65c5c">No Tasks Closing this week</p>`;
+  }
 
   if (taskData.teamResult[0]) {
     taskData.teamResult.forEach((element) => {
@@ -17,6 +22,11 @@ const drawCharts = async () => {
         "teams"
       ).innerHTML += `<p>${element.team_name}</p>`;
     });
+  }
+  else {
+    document.getElementById(
+      "teams"
+    ).innerHTML += `<p style="color: #e65c5c">No teams are avilable</p>`;
   }
   let url = window.location.origin + `/manager/getManagerTaskCount`;
   let response = await fetch(url);
