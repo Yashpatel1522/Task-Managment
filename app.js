@@ -8,6 +8,7 @@ require("dotenv").config();
 const socket = require("socket.io");
 const router = require("./routers/router");
 let PORT = process.env.PORT;
+const fs = require('fs');
 
 app.use(
   "/bootstrap_icon_css",
@@ -66,11 +67,18 @@ io.on("connection", (socket) => {
   });
   socket.on("notification-data", (data) => {
     io.emit("send-notification-data", data)
-
   })
+  socket.on("deletefile", (fileName)=> {
+    fs.unlinkSync(`public/assets/pdfs/${fileName}`);
+  });
+  socket.on("downloadFile", (fileName)=> {
+    const data = fs.readFileSync(`public/assets/pdfs/${fileName}`);
+    socket.emit('blob', {data, fileName})
+  });
 });
 
 io.on("disconnect", () => {
   activeUsers.delete(io.userId);
   io.emit("user disconnected", io.userId);
 });
+
