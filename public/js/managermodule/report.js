@@ -1,10 +1,4 @@
 async function loadProf() {
-  let profData = await (await fetch('/manager/getManagerProfile/2')).json();
-
-  if(profData.imageResult && profData.result) {
-    document.getElementById('profImg').src = `/assets/userprofiles/${profData.imageResult[0].newimage_name}`;
-    document.getElementById('userName').innerText = `${profData.result[0].first_name}`+" "+`${profData.result[0].last_name}`;
-  }
 
   let url = window.location.origin + `/manager/getReportData`;
   let response = await fetch(url);
@@ -42,11 +36,9 @@ async function loadProf() {
   }
 
   document.getElementById('employeeReport').innerHTML = str;
-
 }
 
 async function getReport(id) {
-  
   let name =  await (await fetch(`/manager/getPdfData?id=${id}`)).json();
   let timerInterval;
   await Swal.fire({
@@ -68,7 +60,6 @@ async function getReport(id) {
 
   Swal.fire({
     html: `<embed src="/assets/pdfs/${name.filename}" style="height: 600px; width: 100%">`,
-    // icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
@@ -81,7 +72,4 @@ async function getReport(id) {
       window.location.href = `/manager/deletePdf?name=${name.filename}`;
     }
   });
-
-
-
 }
